@@ -16,3 +16,8 @@ Helper PLL (any negative number will do instead of -1)
 ```
 pll gain -1 0 -400 -2 12
 ```
+
+MDEV measurement as a function of PLL loop gain coefficients, changing Kp while
+keeping Ki fixed except for one measurement.
+
+<img src="pictures/mdev.png">
