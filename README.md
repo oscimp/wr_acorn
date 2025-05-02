@@ -7,6 +7,13 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 
 <img src="pictures/IMG_20250425_163316_728.jpg">
 
+## Synthesizing for the Acorn CLE215+
+
+The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
+CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository.
+
+## Results
+
 Main PLL
 ```
 pll gain 0 0 -400 -2 12
