@@ -35,6 +35,12 @@ matching the expected value of about 60 ps jitter at 1 s integration time.
 
 <img src="pictures/mdev.png">
 
+All Modified Allan deviation plot exhibit a $1/\tau$ slope, i.e. $1/\tau^2$ for the variance,
+characteristic of flicker phase noise. The MVAR of flicker PM level is $0.0855 h_1/\tau^2$: at
+1 Hz, the phase noise of $-70$ dBc/Hz or $-67$dBrad^2/Hz would lead to 
+$\sqrt{10^{-6.7}/(10^7)^2x0.0855}=1.4x10^{-11}$. The observed $5.5x10^{-11}$ hints at a noise
+model too simple to account for all contributions.
+
 Beyond the long-term time-domain characteristics, the phase noise of a 10-MHz output
 locked on the White Rabbit control signal. Measurements performed using a Rohde & Schwarz FSWP 
 Phase Noise Analyzer with 10-correlations in the 1-Hz bin.
