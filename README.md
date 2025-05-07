@@ -43,7 +43,7 @@ Phase Noise Analyzer with 10-correlations in the 1-Hz bin.
 <img src="pictures/phase_noise_edited.png">
 
 All Modified Allan deviation plot exhibit a $1/\tau$ slope, i.e. $1/\tau^2$ for the variance,
-characteristic of flicker phase noise. The MVAR of flicker PM level is $0.0855 h_1/\tau^2$: at
+characteristic of flicker phase noise. The MVAR of flicker PM [1] level is $0.0855 h_1/\tau^2$: at
 1 Hz, the phase noise of $-70$ dBc/Hz or $-67$ dBrad $^2$ /Hz would lead to 
 $\sqrt{10^{-6.7}/(10^7)^2\cdot 0.0855}=1.4\cdot 10^{-11}$. The observed $5.5\cdot 10^{-11}$ hints at a noise
 model too simple to account for all contributions.
@@ -57,3 +57,5 @@ irqs:400961 alignment_state:0 HL1 ML1 HY=25714 MY=42355 DelCnt=0 setpoint:17364 
 ```
 where HL1 means that the helper PLL is locked and ML1 means that the main PLL is 
 locked.
+
+[1] E. Rubiola, *Enrico's Chart of Phase Noise and Two-Sample Variances*, https://rubiola.org/pdf-static/Enrico%27s-chart-EFTS.pdf (2025)
