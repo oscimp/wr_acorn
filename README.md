@@ -7,15 +7,25 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 
 <img src="pictures/IMG_20250425_163316_728.jpg">
 
-Main PLL
+## Synthesizing for the Acorn CLE215+
+
+The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
+CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository.
+
+## PLL gain settings
+
+From the shell connected to the embdded RISC-V processor, the main PLL gain coefficients (proportional and integral) are set using the command
 ```
 pll gain 0 0 -400 -2 12
 ```
 
-Helper PLL (any negative number will do instead of -1)
+and similartly for the helper PLL (any negative number will do instead of -1 as 2nd argument)
 ```
 pll gain -1 0 -400 -2 12
 ```
+
+## Results
+
 
 MDEV measurement as a function of PLL loop gain coefficients, changing Kp while
 keeping Ki fixed (-2) except for two measurements, of the time interval between the 
