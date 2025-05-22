@@ -84,7 +84,10 @@ where ``csr.csv`` was found in the ``test/`` of ``litex_wr_nic`` after synthesis
 resulting terminal can hardly display the ``gui`` output of the White Rabbit, so the preferred method is
 to compile the ``litex_wr_nic/software/kernel`` modules and
 ```
+sudo rmmod m2sdr        # in case it was loaded
 sudo insmod liteuart.ko
 sudo insmod litepcie.ko
 minicom -D /dev/ttyLXU0
 ```
+The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
+as the last instruction of the ``__init()__`` function just before the ``main():``.
