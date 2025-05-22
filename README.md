@@ -10,7 +10,7 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 ## Synthesizing for the Acorn CLE215+
 
 The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
-CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository.
+CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository (tested with Xilinx Vivado 2022.2).
 
 ## PLL gain settings
 
@@ -90,4 +90,4 @@ sudo insmod litepcie.ko
 minicom -D /dev/ttyLXU0
 ```
 The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
-as the last instruction of the ``__init()__`` function just before the ``main():``.
+as the last instruction of the ``__init()__`` function just before the ``main():``, after commenting ``platform.request("pps_out").eq(pps),`` to avoid a conflict on the SYNCDBG_CLK pin.
