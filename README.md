@@ -91,3 +91,5 @@ minicom -D /dev/ttyLXU0
 ```
 The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
 as the last instruction of the ``__init()__`` function just before the ``main():``, after commenting ``platform.request("pps_out").eq(pps),`` to avoid a conflict on the SYNCDBG_CLK pin.
+
+When loading a new gateware, the PCI board must be enumerated again using ``echo 1 > /sys/bus/pci/rescan``
