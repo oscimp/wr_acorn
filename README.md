@@ -59,3 +59,32 @@ where HL1 means that the helper PLL is locked and ML1 means that the main PLL is
 locked.
 
 [1] E. Rubiola, *Enrico's Chart of Phase Noise and Two-Sample Variances*, https://rubiola.org/pdf-static/Enrico%27s-chart-EFTS.pdf (2025)
+
+# Application to the M2SDR
+
+```
+git clone https://github.com/enjoy-digital/litex_wr_nic
+cd litex_wr_nic
+git checkout m2sdr
+./m2sdr_wr_nic.py --build
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream litex_m2sdr_platform.bin
+```
+where we manually ``openFPGALoader`` rather than ``--flash`` to synthesize and flash on different computers.
+
+Then for communicating between PC and M2SDR: either
+```
+bar=`lspci | grep Xil | cut -d\  -f1`
+litex_server --pcie --pcie-bar $bar
+```
+and then 
+```
+litex_term crossover --csr-csv csr.csv
+```
+where ``csr.csv`` was found in the ``test/`` of ``litex_wr_nic`` after synthesis of the gateware, but the
+resulting terminal can hardly display the ``gui`` output of the White Rabbit, so the preferred method is
+to compile the ``litex_wr_nic/software/kernel`` modules and
+```
+sudo insmod liteuart.ko
+sudo insmod litepcie.ko
+minicom -D /dev/ttyLXU0
+```
