@@ -62,6 +62,8 @@ locked.
 
 # Application to the M2SDR
 
+<img src="pictures/IMG_20250523_083705_167.jpg">
+
 ```
 git clone https://github.com/enjoy-digital/litex_wr_nic
 cd litex_wr_nic
@@ -103,4 +105,3 @@ Phase noise (M2SDR scaled 62.5-MHz v.s White Rabbit switch 10-MHz output):
 Allan deviation:
 
 <img src="pictures/M2SDR_vs_WRS_allan.png">
-
