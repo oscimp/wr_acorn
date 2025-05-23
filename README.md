@@ -10,7 +10,7 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 ## Synthesizing for the Acorn CLE215+
 
 The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
-CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository.
+CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository (tested with Xilinx Vivado 2022.2).
 
 ## PLL gain settings
 
@@ -67,3 +67,37 @@ Allan deviation:
 <img src="M2SDR_vs_WRS_allan.png">
 
 [1] E. Rubiola, *Enrico's Chart of Phase Noise and Two-Sample Variances*, https://rubiola.org/pdf-static/Enrico%27s-chart-EFTS.pdf (2025)
+
+# Application to the M2SDR
+
+```
+git clone https://github.com/enjoy-digital/litex_wr_nic
+cd litex_wr_nic
+git checkout m2sdr
+./m2sdr_wr_nic.py --build
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream litex_m2sdr_platform.bin
+```
+where we manually ``openFPGALoader`` rather than ``--flash`` to synthesize and flash on different computers.
+
+Then for communicating between PC and M2SDR: either
+```
+bar=`lspci | grep Xil | cut -d\  -f1`
+litex_server --pcie --pcie-bar $bar
+```
+and then 
+```
+litex_term crossover --csr-csv csr.csv
+```
+where ``csr.csv`` was found in the ``test/`` of ``litex_wr_nic`` after synthesis of the gateware, but the
+resulting terminal can hardly display the ``gui`` output of the White Rabbit, so the preferred method is
+to compile the ``litex_wr_nic/software/kernel`` modules and
+```
+sudo rmmod m2sdr        # in case it was loaded
+sudo insmod liteuart.ko
+sudo insmod litepcie.ko
+minicom -D /dev/ttyLXU0
+```
+The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
+as the last instruction of the ``__init()__`` function just before the ``main():``, after commenting ``platform.request("pps_out").eq(pps),`` to avoid a conflict on the SYNCDBG_CLK pin.
+
+When loading a new gateware, the PCI board must be enumerated again using ``echo 1 > /sys/bus/pci/rescan``
