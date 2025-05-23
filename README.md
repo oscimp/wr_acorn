@@ -58,4 +58,12 @@ irqs:400961 alignment_state:0 HL1 ML1 HY=25714 MY=42355 DelCnt=0 setpoint:17364 
 where HL1 means that the helper PLL is locked and ML1 means that the main PLL is 
 locked.
 
+Phase noise (M2SDR scaled 62.5-MHz v.s White Rabbit switch 10-MHz output):
+
+<img src="m2sdr.png">
+
+Allan deviation:
+
+<img src="M2SDR_vs_WRS_allan.png">
+
 [1] E. Rubiola, *Enrico's Chart of Phase Noise and Two-Sample Variances*, https://rubiola.org/pdf-static/Enrico%27s-chart-EFTS.pdf (2025)
