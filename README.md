@@ -98,9 +98,9 @@ When loading a new gateware, the PCI board must be enumerated again using ``echo
 
 Phase noise (M2SDR scaled 62.5-MHz v.s White Rabbit switch 10-MHz output):
 
-<img src="m2sdr.png">
+<img src="pictures/m2sdr.png">
 
 Allan deviation:
 
-<img src="M2SDR_vs_WRS_allan.png">
+<img src="pictures/M2SDR_vs_WRS_allan.png">
 
