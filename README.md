@@ -48,7 +48,7 @@ characteristic of flicker phase noise. The MVAR of flicker PM [1] level is $0.08
 $\sqrt{10^{-6.7}/(10^7)^2\cdot 0.0855}=1.4\cdot 10^{-11}$. The observed $5.5\cdot 10^{-11}$ hints at a noise
 model too simple to account for all contributions.
 
-From this analysis, we conclude that "optimal" loop coefficients are **Kp=-400 and Ki=-80**.
+From this analysis, we conclude that "optimal" loop coefficients are **Kp=-4000 and Ki=-2**.
 
 The command ``pll stat`` must display something like
 ```
