@@ -1,0 +1,1822 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 417 312"
+   version="1.1"
+   id="svg144"
+   sodipodi:docname="phase_noise_acorn_KiKp.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs144">
+    <defs
+       id="defs2">
+      <circle
+         id="gpDot"
+         r="0.5"
+         stroke-width="0.5"
+         stroke="currentColor" />
+      <path
+         id="gpPt0"
+         stroke-width="0.356"
+         stroke="currentColor"
+         d="M-1,0 h2 M0,-1 v2" />
+      <path
+         id="gpPt1"
+         stroke-width="0.356"
+         stroke="currentColor"
+         d="M-1,-1 L1,1 M1,-1 L-1,1" />
+      <path
+         id="gpPt2"
+         stroke-width="0.356"
+         stroke="currentColor"
+         d="M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1" />
+      <rect
+         id="gpPt3"
+         stroke-width="0.356"
+         stroke="currentColor"
+         x="-1"
+         y="-1"
+         width="2"
+         height="2" />
+      <rect
+         id="gpPt4"
+         stroke-width="0.356"
+         stroke="currentColor"
+         fill="currentColor"
+         x="-1"
+         y="-1"
+         width="2"
+         height="2" />
+      <circle
+         id="gpPt5"
+         stroke-width="0.356"
+         stroke="currentColor"
+         cx="0"
+         cy="0"
+         r="1" />
+      <use
+         xlink:href="#gpPt5"
+         id="gpPt6"
+         fill="currentColor"
+         stroke="none" />
+      <path
+         id="gpPt7"
+         stroke-width="0.356"
+         stroke="currentColor"
+         d="M0,-1.33 L-1.33,0.67 L1.33,0.67 z" />
+      <use
+         xlink:href="#gpPt7"
+         id="gpPt8"
+         fill="currentColor"
+         stroke="none" />
+      <use
+         xlink:href="#gpPt7"
+         id="gpPt9"
+         stroke="currentColor"
+         transform="rotate(180)" />
+      <use
+         xlink:href="#gpPt9"
+         id="gpPt10"
+         fill="currentColor"
+         stroke="none" />
+      <use
+         xlink:href="#gpPt3"
+         id="gpPt11"
+         stroke="currentColor"
+         transform="rotate(45)" />
+      <use
+         xlink:href="#gpPt11"
+         id="gpPt12"
+         fill="currentColor"
+         stroke="none" />
+      <path
+         id="gpPt13"
+         stroke-width="0.356"
+         stroke="currentColor"
+         d="M0,1.330 L1.265,0.411 L0.782,-1.067 L-0.782,-1.076 L-1.265,0.411 z" />
+      <use
+         xlink:href="#gpPt13"
+         id="gpPt14"
+         fill="currentColor"
+         stroke="none" />
+      <filter
+         id="textbox"
+         filterUnits="objectBoundingBox"
+         x="0"
+         y="0"
+         height="1"
+         width="1">
+        <feFlood
+           flood-color="#FFFFFF"
+           flood-opacity="1"
+           result="bgnd"
+           id="feFlood1" />
+        <feComposite
+           in="SourceGraphic"
+           in2="bgnd"
+           operator="atop"
+           id="feComposite1" />
+      </filter>
+      <filter
+         id="greybox"
+         filterUnits="objectBoundingBox"
+         x="0"
+         y="0"
+         height="1"
+         width="1">
+        <feFlood
+           flood-color="lightgrey"
+           flood-opacity="1"
+           result="grey"
+           id="feFlood2" />
+        <feComposite
+           in="SourceGraphic"
+           in2="grey"
+           operator="atop"
+           id="feComposite2" />
+      </filter>
+    </defs>
+  </defs>
+  <sodipodi:namedview
+     id="namedview144"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.1394513"
+     inkscape:cx="187.19753"
+     inkscape:cy="180.42009"
+     inkscape:window-width="1680"
+     inkscape:window-height="1031"
+     inkscape:window-x="-5"
+     inkscape:window-y="-5"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg144" />
+  <title
+     id="title1">Gnuplot</title>
+  <desc
+     id="desc1">Produced by GNUPLOT 6.0 patchlevel 2 </desc>
+  <rect
+     x="0"
+     y="0"
+     width="417"
+     height="312"
+     fill="#ffffff"
+     id="rect1" />
+  <g
+     fill="none"
+     color="#ffffff"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g2" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g4">
+    <g
+       stroke="none"
+       shape-rendering="crispEdges"
+       id="g3">
+      <polygon
+         fill="#ffffff"
+         points="401.55,11.27 45.37,11.27 45.37,276.99 401.55,276.99 "
+         id="polygon2" />
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g5" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g6" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g7">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 45.37,259.27 H 401.56"
+       id="path6" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g8" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g10">
+    <path
+       stroke="#000000"
+       d="m 45.37,259.27 h 7.86"
+       id="path8" />
+    <g
+       transform="translate(40.12,262.52)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g9">
+      <text
+         id="text8"><tspan
+           font-family="Arial"
+           id="tspan8">-140</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g11" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g12" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g13">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 45.37,223.84 H 401.56"
+       id="path12" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g14" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g16">
+    <path
+       stroke="#000000"
+       d="m 45.37,223.84 h 7.86"
+       id="path14" />
+    <g
+       transform="translate(40.12,227.09)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g15">
+      <text
+         id="text14"><tspan
+           font-family="Arial"
+           id="tspan14">-120</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g17" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g18" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g19">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 45.37,188.41 H 401.56"
+       id="path18" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g20" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g22">
+    <path
+       stroke="#000000"
+       d="m 45.37,188.41 h 7.86"
+       id="path20" />
+    <g
+       transform="translate(40.12,191.66)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g21">
+      <text
+         id="text20"><tspan
+           font-family="Arial"
+           id="tspan20">-100</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g23" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g24" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g25">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="m 45.37,152.98 h 156.32 m 194.62,0 h 5.25"
+       id="path24" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g26" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g28">
+    <path
+       stroke="#000000"
+       d="m 45.37,152.98 h 7.86"
+       id="path26" />
+    <g
+       transform="translate(40.12,156.23)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g27">
+      <text
+         id="text26"><tspan
+           font-family="Arial"
+           id="tspan26">-80</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g29" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g30" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g31">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="m 45.37,117.55 h 156.32 m 194.62,0 h 5.25"
+       id="path30" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g32" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g34">
+    <path
+       stroke="#000000"
+       d="m 45.37,117.55 h 7.86"
+       id="path32" />
+    <g
+       transform="translate(40.12,120.8)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g33">
+      <text
+         id="text32"><tspan
+           font-family="Arial"
+           id="tspan32">-60</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g35" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g36" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g37">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="m 45.37,82.12 h 156.32 m 194.62,0 h 5.25"
+       id="path36" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g38" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g40">
+    <path
+       stroke="#000000"
+       d="m 45.37,82.12 h 7.86"
+       id="path38" />
+    <g
+       transform="translate(40.12,85.37)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g39">
+      <text
+         id="text38"><tspan
+           font-family="Arial"
+           id="tspan38">-40</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g41" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g42" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g43">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="m 45.37,46.69 h 156.32 m 194.62,0 h 5.25"
+       id="path42" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g44" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g46">
+    <path
+       stroke="#000000"
+       d="m 45.37,46.69 h 7.86"
+       id="path44" />
+    <g
+       transform="translate(40.12,49.94)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g45">
+      <text
+         id="text44"><tspan
+           font-family="Arial"
+           id="tspan44">-20</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g47" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g48" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g49">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 45.37,11.26 H 401.56"
+       id="path48" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g50" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g52">
+    <path
+       stroke="#000000"
+       d="m 45.37,11.26 h 7.86"
+       id="path50" />
+    <g
+       transform="translate(40.12,14.51)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="end"
+       id="g51">
+      <text
+         id="text50"><tspan
+           font-family="Arial"
+           id="tspan50">0</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g53" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g54" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g55">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 45.37,276.99 V 11.26"
+       id="path54" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g56" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g59">
+    <path
+       stroke="#000000"
+       d="m 45.37,276.99 v -7.86"
+       id="path56" />
+    <g
+       transform="translate(45.37,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g58">
+      <text
+         id="text58"><tspan
+           font-family="Arial"
+           id="tspan56">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan57">0</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan58" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g60" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g61" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g62">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 104.74,276.99 V 11.26"
+       id="path61" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g63" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g66">
+    <path
+       stroke="#000000"
+       d="m 104.74,276.99 v -7.86"
+       id="path63" />
+    <g
+       transform="translate(104.74,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g65">
+      <text
+         id="text65"><tspan
+           font-family="Arial"
+           id="tspan63">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan64">1</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan65" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g67" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g68" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g69">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 164.1,276.99 V 11.26"
+       id="path68" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g70" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g73">
+    <path
+       stroke="#000000"
+       d="m 164.1,276.99 v -7.86"
+       id="path70" />
+    <g
+       transform="translate(164.1,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g72">
+      <text
+         id="text72"><tspan
+           font-family="Arial"
+           id="tspan70">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan71">2</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan72" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g74" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g75" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g76">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 223.46,276.99 V 153.5 m 0,-136.62 v -5.62"
+       id="path75" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g77" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g80">
+    <path
+       stroke="#000000"
+       d="m 223.46,276.99 v -7.86"
+       id="path77" />
+    <g
+       transform="translate(223.46,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g79">
+      <text
+         id="text79"><tspan
+           font-family="Arial"
+           id="tspan77">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan78">3</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan79" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g81" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g82" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g83">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 282.83,276.99 V 153.5 m 0,-136.62 v -5.62"
+       id="path82" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g84" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g87">
+    <path
+       stroke="#000000"
+       d="m 282.83,276.99 v -7.86"
+       id="path84" />
+    <g
+       transform="translate(282.83,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g86">
+      <text
+         id="text86"><tspan
+           font-family="Arial"
+           id="tspan84">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan85">4</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan86" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g88" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g89" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g90">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 342.2,276.99 V 153.5 m 0,-136.62 v -5.62"
+       id="path89" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g91" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g94">
+    <path
+       stroke="#000000"
+       d="m 342.2,276.99 v -7.86"
+       id="path91" />
+    <g
+       transform="translate(342.2,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g93">
+      <text
+         id="text93"><tspan
+           font-family="Arial"
+           id="tspan91">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan92">5</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan93" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g95" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#000000"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g96" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g97">
+    <path
+       stroke="#262626"
+       opacity="0.15"
+       class="gridline"
+       d="M 401.56,276.99 V 11.26"
+       id="path96" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g98" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g101">
+    <path
+       stroke="#000000"
+       d="m 401.56,276.99 v -7.86"
+       id="path98" />
+    <g
+       transform="translate(401.56,291.49)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="10px"
+       text-anchor="middle"
+       id="g100">
+      <text
+         id="text100"><tspan
+           font-family="Arial"
+           id="tspan98">10</tspan><tspan
+           font-family="Arial"
+           font-size="8px"
+           dy="-5"
+           id="tspan99">6</tspan><tspan
+           font-size="10px"
+           dy="5"
+           id="tspan100" /></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g102" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g103" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g104">
+    <path
+       stroke="#000000"
+       d="M 201.69,153.5 V 16.88 H 396.31 V 153.5 Z"
+       id="path103" />
+  </g>
+  <g
+     id="gnuplot_plot_1a">
+    <title
+       id="title104">Kp=0 Ki=0</title>
+    <g
+       fill="none"
+       color="#ffffff"
+       stroke="#000000"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g105" />
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g107">
+      <g
+         transform="translate(245.11,27.4)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g106">
+        <text
+           id="text105"><tspan
+             font-family="Arial"
+             id="tspan105">Kp=0 Ki=0</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g108">
+      <path
+         stroke="#0072bd"
+         d="m 207.99,24.47 h 30.82 m -193.44,-1.4 0.3,0.34 0.29,0.44 0.3,0.54 0.3,0.54 0.29,0.54 0.3,0.54 0.3,0.55 0.29,0.58 0.3,0.57 0.3,0.58 0.3,0.57 0.29,0.5 0.3,0.3 0.3,0.3 0.29,0.3 0.3,0.3 0.3,0.12 0.29,-0.01 0.3,-0.01 0.3,-0.01 h 0.29 l 0.3,-0.01 h 0.3 0.29 0.3 l 0.3,0.21 0.29,0.24 0.3,0.23 0.3,0.24 0.29,0.47 0.3,0.5 0.3,0.51 0.3,0.51 0.29,0.63 0.3,0.63 0.3,0.63 0.29,0.6 0.3,0.51 0.3,0.52 0.29,0.52 0.3,0.39 0.3,0.35 0.29,0.34 0.3,0.36 0.3,0.35 0.29,0.36 0.3,0.36 0.3,0.47 0.29,0.46 0.3,0.46 0.3,0.47 0.29,0.47 0.3,0.46 0.3,0.36 0.3,0.34 0.29,0.34 0.3,0.28 0.3,0.26 0.29,0.27 0.3,0.34 0.3,0.34 0.29,0.39 0.3,0.49 0.3,0.49 0.29,0.59 0.3,0.64 0.3,0.65 0.29,0.75 0.3,0.75 0.3,0.75 0.29,0.75 0.3,0.74 0.3,0.6 0.3,0.6 0.29,0.44 0.3,0.37 0.3,0.31 0.29,0.2 0.3,0.19 0.3,0.09 0.29,0.08 0.3,-0.1 0.3,-0.11 0.29,-0.29 0.3,-0.34 0.3,-0.39 0.29,-0.42 0.3,-0.32 0.3,-0.26 0.29,-0.03 0.3,0.09 0.3,0.39 0.29,0.51 0.3,0.82 0.3,0.89 0.3,1.11 0.29,1.12 0.3,1.1 0.3,1.04 0.29,0.85 0.3,0.73 0.3,0.62 0.29,0.69 0.3,0.74 0.3,1.08 0.29,1.29 0.3,1.53 0.3,1.58 0.29,1.4 0.3,0.86 0.3,0.09 0.29,-0.33 0.3,-0.81 0.3,-0.81 0.29,-0.76 0.3,-0.56 0.3,-0.32 0.3,-0.13 0.29,0.1 0.3,0.22 0.3,0.14 0.29,-0.01 0.3,-0.34 0.3,-0.54 0.29,-0.58 0.3,-0.57 0.3,-0.4 0.29,-0.27 0.3,-0.26 0.3,-0.35 0.29,-0.45 0.3,-0.39 0.3,0.07 0.29,0.69 0.3,1.29 0.3,1.74 0.3,1.84 0.29,1.53 0.3,0.95 0.3,0.52 0.29,0.29 0.3,0.27 0.3,0.49 0.29,0.85 0.3,1.22 0.3,1.39 0.29,1.26 0.3,0.8 0.3,0.26 0.29,-0.01 0.3,-0.14 0.3,0.34 0.29,1.28 0.3,1.49 0.3,1.72 0.29,1.2 0.3,-0.18 0.3,-1.4 0.3,-1.81 0.29,-1.72 0.3,-1.45 0.3,-1.59 0.29,-0.87 0.3,0.03 0.3,0.41 0.29,0.39 0.3,-0.29 0.3,-0.77 0.29,-0.26 0.3,0.21 0.3,1.2 0.29,1.66 0.3,1.11 0.3,1.73 0.29,1.68 0.3,1.49 0.3,1.96 0.29,1.15 0.3,-0.58 0.3,-2.12 0.3,-1.46 0.29,-0.23 0.3,0.89 0.3,1.05 0.29,0.16 0.3,0.18 0.3,1.77 0.29,2.7 0.3,1.04 0.3,-0.57 0.29,-0.77 0.3,0.28 0.3,0.53 0.29,-1.02 0.3,-1.41 0.3,-0.13 0.29,0.1 0.3,0.59 0.3,1.32 0.3,0.2 0.29,0.58 0.3,0.71 0.3,0.81 0.29,0.86 0.3,0.85 0.3,0.75 0.29,0.55 0.3,0.33 0.3,0.12 0.29,-0.01 0.3,-0.07 0.3,-0.08 0.29,-0.03 0.3,0.03 0.3,0.23 0.29,0.46 0.3,0.51 0.3,0.67 0.29,0.82 0.3,0.87 0.3,0.79 0.3,0.55 0.29,0.14 0.3,-0.45 0.3,-0.48 0.29,-0.46 0.3,-0.34 0.3,-0.23 h 0.29 l 0.3,0.11 0.3,0.26 0.29,0.43 0.3,0.45 0.3,0.58 0.29,1 0.3,0.95 0.3,0.57 0.29,0.23 h 0.3 l 0.3,-0.01 0.29,0.15 0.3,0.44 0.3,0.63 0.3,0.69 0.29,0.59 0.3,0.37 0.3,0.24 0.29,0.19 0.3,0.27 0.3,0.29 0.29,0.45 0.3,0.6 0.3,0.63 0.29,0.52 0.3,0.01 0.3,-0.24 0.29,-0.27 0.3,-0.03 0.3,0.28 0.29,0.38 0.3,0.41 0.3,0.36 0.29,0.15 0.3,0.3 0.3,0.6 0.3,0.56 0.29,0.07 0.3,-0.42 0.3,-0.37 0.29,0.06 0.3,0.48 0.3,0.7 0.29,0.75 0.3,0.7 0.3,0.64 0.29,0.6 0.3,0.54 0.3,0.56 0.29,0.53 0.3,0.53 0.3,0.38 0.29,-0.38 0.3,-0.77 0.3,0.06 0.3,1.05 0.29,1.14 0.3,0.74 0.3,0.14 0.29,0.48 0.3,1.05 0.3,1.26 0.29,0.43 0.3,-0.96 0.3,-0.85 0.29,-0.63 0.3,1.13 0.3,0.2 0.29,0.37 0.3,0.5 0.3,0.6 0.29,0.71 0.3,0.75 0.3,0.71 0.29,0.64 0.3,0.46 0.3,0.25 0.3,0.1 h 0.29 l 0.3,-0.05 0.3,0.03 0.29,0.13 0.3,0.2 0.3,0.26 0.29,0.24 0.3,0.15 0.3,0.06 0.29,0.04 0.3,0.08 0.3,0.21 0.29,0.36 0.3,0.53 0.3,0.65 0.29,0.68 0.3,0.61 0.3,0.48 0.29,0.37 0.3,0.31 0.3,0.29 0.3,0.32 0.29,0.44 0.3,0.43 0.3,0.41 0.29,0.29 0.3,0.05 0.3,-0.16 0.29,-0.24 0.3,-0.14 0.3,0.07 0.29,0.27 0.3,0.6 0.3,0.63 0.29,0.43 0.3,0.49 0.3,0.55 0.29,0.55 0.3,0.66 0.3,0.37 0.3,0.05 0.29,-0.08 0.3,-0.22 0.3,-0.12 0.29,0.16 0.3,0.61 0.3,0.68 0.29,0.21 0.3,-0.09 0.3,-0.05 0.29,0.25 0.3,0.88 0.3,1.09 0.29,0.71 0.3,0.21 0.3,-0.14 0.29,-0.24 0.3,-0.16 0.3,0.08 0.29,0.52 0.3,0.8 0.3,0.72 0.3,0.38 h 0.29 l 0.3,-0.06 0.3,-0.04 0.29,-0.13 0.3,-0.09 0.3,0.45 0.29,0.7 0.3,0.76 0.3,0.62 0.29,-0.05 0.3,-0.14 0.3,0.03 0.29,-0.56 0.3,-2.7 0.3,-2.63 0.29,0.08 0.3,2.84 0.3,3.39 0.29,1.71 0.3,0.29 0.3,-0.35 0.3,-0.25 0.29,0.23 0.3,0.75 0.3,1.18 0.29,1.28 0.3,0.57 0.3,-0.5 0.29,-0.23 0.3,0.04 0.3,0.21 0.29,0.23 0.3,0.27 0.3,0.37 0.29,0.42 0.3,0.54 0.3,0.58 0.29,0.6 0.3,0.55 0.3,0.49 0.3,0.34 0.29,0.21 0.3,0.13 0.3,0.05 0.29,0.06 0.3,0.08 0.3,0.14 0.29,0.19 0.3,0.22 0.3,0.26 0.29,0.25 0.3,0.25 0.3,0.24 0.29,0.19 0.3,0.15 0.3,0.12 0.29,0.11 0.3,0.12 0.3,0.15 0.29,0.18 0.3,0.21 0.3,0.26 0.3,0.31 0.29,0.35 0.3,0.37 0.3,0.37 0.29,0.37 0.3,0.36 0.3,0.38 0.29,0.42 0.3,0.4 0.3,0.25 0.29,-0.02 0.3,-0.21 0.3,-0.19 0.29,0.09 0.3,0.46 0.3,0.72 0.29,0.75 0.3,0.38 0.3,0.41 0.29,0.28 0.3,0.27 0.3,0.43 0.3,0.31 0.29,0.05 0.3,-0.1 0.3,-0.15 0.29,-0.09 0.3,0.13 0.3,0.35 0.29,0.48 0.3,0.65 0.3,0.49 0.29,0.21 0.3,0.13 0.3,0.09 0.29,0.21 0.3,0.29 0.3,0.18 0.29,0.13 0.3,0.25 0.3,0.36 0.3,0.24 0.29,0.22 0.3,0.1 0.3,0.08 0.29,0.1 0.3,-0.17 0.3,-0.38 0.29,0.13 0.3,1.07 0.3,1.19 0.29,0.33 0.3,-0.13 0.3,0.04 0.29,0.35 0.3,0.36 0.3,0.19 0.29,0.12 0.3,0.17 0.3,0.26 0.29,0.55 0.3,0.44 0.3,0.18 0.3,-0.16 0.29,0.21 0.3,0.22 0.3,0.21 0.29,0.24 0.3,0.23 0.3,0.23 0.29,0.23 0.3,0.21 0.3,0.2 0.29,0.2 0.3,0.18 0.3,0.18 0.29,0.17 0.3,0.15 0.3,0.15 0.29,0.13 0.3,0.14 0.3,0.15 0.29,0.2 0.3,0.22 0.3,0.3 0.3,0.31 0.29,0.33 0.3,0.3 0.3,0.26 0.29,0.23 0.3,0.17 0.3,0.15 0.29,0.14 0.3,0.16 0.3,0.17 0.29,0.2 0.3,0.22 0.3,0.25 0.29,0.28 0.3,0.28 0.3,0.29 0.29,0.27 0.3,0.2 0.3,0.13 0.3,0.08 0.29,0.07 0.3,0.1 0.3,0.17 0.29,0.19 0.3,0.2 0.3,0.16 0.29,0.14 0.3,0.13 0.3,0.16 0.29,0.21 0.3,0.27 0.3,0.28 0.29,0.19 0.3,0.05 0.3,-0.07 0.29,-0.1 0.3,-0.03 0.3,0.19 0.29,0.42 0.3,0.54 0.3,0.53 0.3,0.39 0.29,0.19 0.3,0.03 0.3,-0.05 0.29,-0.03 0.3,-0.03 0.3,-0.06 0.29,0.11 0.3,0.36 0.3,0.46 0.29,0.36 0.3,0.16 0.3,0.03 0.29,0.06 0.3,0.08 0.3,0.1 0.29,0.24 0.3,0.22 0.3,0.08 0.29,0.06 0.3,0.18 0.3,0.25 0.3,0.32 0.29,0.02 0.3,-0.16 0.3,-0.15 0.29,0.14 0.3,0.44 0.3,0.53 0.29,0.41 0.3,0.01 0.3,-0.91 0.29,-1.14 0.3,-0.06 0.3,1.03 0.29,1.13 0.3,0.64 0.3,0.2 0.29,0.11 h 0.3 l 0.3,-0.09 0.29,-0.16 0.3,0.08 0.3,0.09 0.3,0.09 0.29,0.12 0.3,0.12 0.3,0.15 0.29,0.15 0.3,0.17 0.3,0.18 0.29,0.19 0.3,0.2 0.3,0.2 0.29,0.19 0.3,0.17 0.3,0.14 0.29,0.1 0.3,0.06 0.3,0.04 0.29,0.03 0.3,0.05 0.3,0.09 0.3,0.11 0.29,0.13 0.3,0.14 0.3,0.15 0.29,0.16 0.3,0.15 0.3,0.15 0.29,0.13 0.3,0.12 0.3,0.09 0.29,0.07 0.3,0.06 0.3,0.07 0.29,0.08 0.3,0.1 0.3,0.11 0.29,0.14 0.3,0.17 0.3,0.18 0.29,0.16 0.3,0.13 0.3,0.07 0.3,0.05 0.29,0.02 0.3,0.03 0.3,0.01 0.29,-0.02 0.3,-0.08 0.3,-0.06 0.29,-0.09 0.3,0.03 0.3,0.19 0.29,0.54 0.3,0.57 0.3,0.26 0.29,0.16 0.3,0.05 0.3,0.01 h 0.29 l 0.3,0.02 0.3,0.05 0.29,0.13 0.3,0.16 0.3,0.12 0.3,0.12 0.29,0.12 0.3,0.23 0.3,0.29 0.29,0.2 0.3,0.15 0.3,0.13 0.29,0.12 0.3,0.1 0.3,0.16 0.29,0.13 0.3,0.05 0.3,0.09 0.29,0.16 0.3,0.12 0.3,-0.04 0.29,-0.13 0.3,-0.02 0.3,0.17 0.3,0.16 0.29,0.05 0.3,0.05 0.3,0.17 0.29,0.2 0.3,0.19 0.3,0.17 0.29,0.09 h 0.3 l 0.3,-0.07 0.29,-0.09 0.3,0.36 0.3,0.14 0.29,0.22 0.3,0.23 0.3,0.28 0.29,0.29 0.3,0.3 0.3,0.27 0.29,0.26 0.3,0.2 0.3,0.19 0.3,0.11 0.29,0.09 0.3,0.02 0.3,-0.01 0.29,-0.04 0.3,-0.08 0.3,-0.06 0.29,-0.05 0.3,0.01 0.3,0.05 0.29,0.14 0.3,0.18 0.3,0.22 0.29,0.28 0.3,0.27 0.3,0.27 0.29,0.2 0.3,0.13 0.3,0.06 0.29,0.01 0.3,0.01 0.3,0.06 0.3,0.12 0.29,0.21 0.3,0.26 0.3,0.26 0.29,0.25 0.3,0.2 0.3,0.16 0.29,0.16 0.3,0.18 0.3,0.22 0.29,0.25 0.3,0.25 0.3,0.21 0.29,0.15 0.3,0.11 0.3,0.11 0.29,0.12 0.3,0.14 0.3,0.13 0.3,0.1 0.29,0.09 0.3,0.1 0.3,0.09 0.29,0.07 0.3,0.08 0.3,0.16 0.29,0.33 0.3,0.38 0.3,0.33 0.29,0.17 0.3,0.04 0.3,0.02 0.29,0.12 0.3,0.19 0.3,0.17 0.29,0.1 0.3,0.16 0.3,0.21 0.29,0.13 0.3,0.09 0.3,0.08 0.3,0.1 0.29,0.16 0.3,0.12 0.3,0.06 0.29,0.07 0.3,0.14 0.3,0.18 0.29,0.11 0.3,0.05 0.3,-0.04 0.29,-0.05 0.3,-0.08 0.3,-0.2 0.29,-0.26 0.3,-0.49 0.3,-0.13 0.29,0.7 0.3,1.02 0.3,0.77 0.29,0.46 0.3,0.23 0.3,0.19 0.3,0.14 0.29,0.08 0.3,0.04 0.3,0.16 0.29,0.25 0.3,0.24 0.3,0.16 0.29,0.06 0.3,-0.08 0.3,0.17 0.29,0.17 0.3,0.17 0.3,0.18 0.29,0.18 0.3,0.2 0.3,0.21 0.29,0.22 0.3,0.22 0.3,0.21 0.3,0.19 0.29,0.16 0.3,0.14 0.3,0.09 0.29,0.07 0.3,0.06 0.3,0.05 0.29,0.08 0.3,0.1 0.3,0.15 0.29,0.19 0.3,0.22 0.3,0.22 0.29,0.21 0.3,0.17 0.3,0.15 0.29,0.12 0.3,0.07 0.3,-0.01 0.29,-0.12 0.3,-0.25 0.3,-0.38 0.3,-0.46 0.29,-0.35 0.3,-0.13 0.3,0.12 0.29,0.34 0.3,0.4 0.3,0.16 0.29,-0.42 0.3,-0.98 0.3,-1.28 0.29,-1.21 0.3,-0.85 0.3,-0.27 0.29,0.41 0.3,1.04 0.3,1.51 0.29,1.68 0.3,0.98 0.3,1.29 0.29,0.83 0.3,0.51 0.3,0.44 0.3,0.31 0.29,0.15 0.3,0.11 0.3,0.09 0.29,0.09 0.3,0.09 0.3,0.08 0.29,0.07 0.3,0.14 0.3,0.26 0.29,0.22 0.3,0.19 0.3,0.12 0.29,0.06 0.3,0.07 0.3,0.1 0.29,0.11 0.3,0.13 0.3,0.18 0.3,0.18 0.29,0.26 0.3,0.16 0.3,0.03 h 0.29 0.3 l 0.3,0.07 0.29,0.13 0.3,0.23 0.3,0.31 0.29,0.3 0.3,0.16 0.3,-0.04 0.29,-0.07 0.3,-0.02 0.3,0.04 0.29,0.06 0.3,0.02 0.3,0.01 0.29,-0.21 0.3,-0.68 0.3,-1.04 0.3,0.15 0.29,-0.55 0.3,-0.79 0.3,-0.82 0.29,-0.96 0.3,-0.93 0.3,-0.85 0.29,-0.67 0.3,-0.47 0.3,-0.1 0.29,0.07 0.3,0.58 0.3,0.71 0.29,1.04 0.3,1.1 0.3,1.14 0.29,0.92 0.3,0.77 0.3,0.45 0.29,0.27 0.3,0.16 0.3,0.03 0.3,-0.08 0.29,-0.17 0.3,-0.35 0.3,-0.34 0.29,-0.31 0.3,-0.05 0.3,0.19 0.29,0.35 0.3,0.5 0.3,0.41 0.29,0.29 0.3,0.16 0.3,0.07 0.29,0.12 0.3,0.12 0.3,0.04 0.29,-0.21 0.3,-0.72 0.3,-1.02 0.3,-1.16 0.29,-1.13 0.3,-0.92 0.3,-0.52 0.29,-0.06 0.3,0.36 0.3,0.72 0.29,1.01 0.3,1.14 0.3,1.13 0.29,0.98 0.3,0.79 0.3,0.63 0.29,0.55 0.3,0.5 0.3,0.42 0.29,0.31 0.3,0.2 0.3,0.23 0.29,0.35 0.3,0.49 0.3,0.36 0.3,-0.01 0.29,-0.48 0.3,-0.84 0.3,-1.07 0.29,-1.13 0.3,-1.05 0.3,-0.99 0.29,-0.21 0.3,0.37 0.3,0.69 0.29,0.87 0.3,0.91 0.3,1.17 0.29,0.82 0.3,0.11 0.3,-0.22 0.29,-0.2 0.3,0.58 0.3,0.63 0.29,0.24 0.3,-0.51 0.3,-0.66 0.3,-1.35 0.29,-1.49 0.3,-0.91 0.3,-0.98 0.29,-0.46 0.3,0.19 0.3,0.63 0.29,1.09 0.3,1.25 0.3,0.98 0.29,0.88 0.3,0.81 0.3,0.51 0.29,-0.02 0.3,-0.39 0.3,-0.55 0.29,-0.79 0.3,-0.64 0.3,-0.38 0.3,0.18 0.29,-0.15 0.3,-0.07 0.3,0.01 0.29,0.18 0.3,0.26 0.3,0.47 0.29,0.53 0.3,0.61 0.3,0.55 0.29,0.49 0.3,0.3 0.3,0.14 0.29,0.05 0.3,-0.05 0.3,-0.02 0.29,0.01 0.3,0.07 0.3,0.12 0.29,0.12 0.3,0.11 0.3,0.02 0.3,-0.04 0.29,-0.11 0.3,-0.17 0.3,-0.15 0.29,-0.09 0.3,-0.01 0.3,0.11 0.29,0.18 0.3,0.19 0.3,0.17 0.29,0.14 0.3,0.06 0.3,0.03 0.29,0.03 0.3,0.04 0.3,0.06 0.29,0.09 0.3,0.09 0.3,0.04 0.29,-0.02 0.3,-0.06 0.3,-0.02 0.3,0.06 0.29,0.13 0.3,0.18 0.3,0.16 0.29,0.12 0.3,0.09 0.3,0.04 0.29,0.02 0.3,-0.05 0.3,-0.14 0.29,-0.34 0.3,-0.3 0.3,-0.1 0.29,-0.02 0.3,-0.03 0.3,-0.12 0.29,-0.21 0.3,-0.24 0.3,-0.21 0.29,-0.03 0.3,0.31 0.3,0.31 0.3,0.21 0.29,0.01 0.3,-0.34 0.3,-0.46 0.29,-0.16 0.3,0.03 0.3,0.27 0.29,0.25 0.3,0.1 0.3,-0.09 0.29,-0.53 0.3,-0.62 0.3,-1.02 0.29,-0.86 0.3,-1 0.3,-1.28 0.29,-0.52 0.3,0.81 0.3,1.74 0.3,1.3 0.29,-0.02 0.3,-0.65 0.3,-0.88 0.29,-1.05 0.3,-0.98 0.3,-0.56 0.29,-0.6 0.3,-1.13 0.3,-0.03 0.29,1.34 0.3,2.17 0.3,0.66 0.29,0.76 0.3,0.74 0.3,0.72 0.29,0.67 0.3,0.64 0.3,0.62 0.29,0.63 0.3,0.63 0.3,0.62 0.3,0.6 0.29,0.54 0.3,0.49 0.3,0.44 0.29,0.4 0.3,0.39 0.3,0.37 0.29,0.35 0.3,0.31 0.3,0.26 0.29,0.22 0.3,0.12 0.3,0.08 0.29,0.05 0.3,0.05 0.3,0.12 0.29,0.19 0.3,0.23 0.3,0.26 0.29,0.22 0.3,0.16 0.3,0.12 0.3,0.13 0.29,0.17 0.3,0.21 0.3,0.23 0.29,0.16 0.3,0.09 0.3,0.07 0.29,0.1 0.3,0.18 0.3,0.23 0.29,0.21 0.3,0.07 0.3,-0.16 0.29,-0.38 0.3,-0.47 0.3,-0.35 0.29,-0.11 0.3,0.15 0.3,0.28 0.3,0.24 0.29,0.1 0.3,-0.01 0.3,-0.02 0.29,0.01 0.3,0.04 0.3,-0.04 0.29,-0.08 0.3,0.06 0.3,0.22 0.29,0.28 0.3,0.2 0.3,0.05 0.29,-0.07 0.3,0.12 0.3,0.29 0.29,0.33 0.3,0.28 0.3,0.02 0.29,-0.08 0.3,-0.19 0.3,-0.23 0.3,-0.07 0.29,0.13 0.3,0.32 0.3,0.25 0.29,0.24 0.3,-0.14 0.3,-0.55 0.29,-0.36 0.3,0.09 0.3,0.43 0.29,0.32 0.3,-0.09 0.3,-0.1 0.29,0.29 0.3,0.54 0.3,0.04 0.29,-0.25 0.3,-0.17 0.3,0.02 0.29,0.1 0.3,0.17 0.3,0.29 0.3,-0.23 0.29,-0.99 0.3,-0.29 0.3,0.48 0.29,0.52 0.3,-0.1 0.3,0.28 0.29,0.5 0.3,0.31"
+         id="path107" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="24.469999"
+         color="#0072bd"
+         id="use107" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_2a">
+    <title
+       id="title108">Kp=1000 Ki=2</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g110">
+      <g
+         transform="translate(245.11,42.58)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g109">
+        <text
+           id="text108"><tspan
+             font-family="Arial"
+             id="tspan108">Kp=1000 Ki=2</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g111">
+      <path
+         stroke="#d95319"
+         d="m 207.99,39.65 h 30.82 m -193.44,71.59 0.3,-0.49 0.29,-0.41 0.3,-0.34 0.3,-0.34 0.29,-0.33 0.3,-0.34 0.3,-0.28 0.29,-0.1 0.3,-0.09 0.3,-0.1 0.3,-0.1 0.29,-0.03 0.3,0.16 0.3,0.15 0.29,0.16 0.3,0.15 0.3,0.29 0.29,0.37 0.3,0.38 0.3,0.37 0.29,0.39 0.3,0.5 0.3,0.49 0.29,0.5 0.3,0.49 0.3,0.46 0.29,0.45 0.3,0.45 0.3,0.45 0.29,0.33 0.3,0.3 0.3,0.3 0.3,0.31 0.29,0.22 0.3,0.23 0.3,0.23 0.29,0.23 0.3,0.23 0.3,0.24 0.29,0.24 0.3,0.15 0.3,0.13 0.29,0.13 0.3,0.01 0.3,-0.21 0.29,-0.21 0.3,-0.23 0.3,-0.47 0.29,-0.47 0.3,-0.48 0.3,-0.4 0.29,-0.4 0.3,-0.39 0.3,-0.13 0.3,-0.08 0.29,-0.07 0.3,0.27 0.3,0.3 0.29,0.32 0.3,0.6 0.3,0.61 0.29,0.63 0.3,0.71 0.3,0.71 0.29,0.68 0.3,0.65 0.3,0.66 0.29,0.64 0.3,0.64 0.3,0.66 0.29,0.69 0.3,0.67 0.3,0.48 0.3,0.49 0.29,0.06 0.3,-0.13 0.3,-0.31 0.29,-0.61 0.3,-0.61 0.3,-0.62 0.29,-0.62 0.3,-0.45 0.3,-0.44 0.29,-0.3 0.3,-0.27 0.3,-0.16 0.29,-0.1 h 0.3 l 0.3,0.07 0.29,0.03 h 0.3 l 0.3,-0.38 0.29,-0.55 0.3,-0.99 0.3,-1.11 0.3,-1.03 0.29,-0.97 0.3,-0.44 0.3,-0.2 0.29,0.34 0.3,0.73 0.3,1.05 0.29,1.33 0.3,1.33 0.3,0.96 0.29,0.51 0.3,0.01 0.3,-0.42 0.29,-0.47 0.3,-0.41 0.3,-0.22 0.29,-0.12 0.3,-0.01 0.3,0.05 0.29,0.13 0.3,0.35 0.3,0.64 0.3,0.78 0.29,0.83 0.3,0.12 0.3,-0.5 0.29,-1.08 0.3,-1.2 0.3,-0.69 0.29,-0.14 0.3,0.48 0.3,1.19 0.29,1.5 0.3,1.29 0.3,0.69 0.29,-0.19 0.3,-0.92 0.3,-0.86 0.29,-0.51 0.3,-0.08 0.3,0.31 0.3,0.61 0.29,0.87 0.3,1.22 0.3,1.59 0.29,1.83 0.3,1.79 0.3,1.4 0.29,0.76 0.3,0.13 0.3,-0.2 0.29,-0.3 0.3,-0.63 0.3,-0.55 0.29,-1.87 0.3,-1.98 0.3,-1.41 0.29,0.46 0.3,1.16 0.3,1.33 0.29,1.14 0.3,0.84 0.3,0.78 0.3,1.09 0.29,1.44 0.3,1.11 0.3,-1.13 0.29,-2.67 0.3,-1.48 0.3,-0.84 0.29,-0.14 0.3,0.99 0.3,1.1 0.29,-0.35 0.3,-1.02 0.3,-1.13 0.29,-0.1 0.3,0.08 0.3,-0.66 0.29,-0.55 0.3,1.01 0.3,1.79 0.29,0.5 0.3,-0.75 0.3,-0.38 0.3,1.5 0.29,1.49 0.3,-1.43 0.3,-1.45 0.29,0.75 0.3,1.63 0.3,0.03 0.29,-1.41 0.3,-1.2 0.3,0.09 0.29,1.63 0.3,2.29 0.3,-0.88 0.29,-2.45 0.3,-1.32 0.3,-0.41 0.29,-0.13 0.3,0.54 0.3,-0.03 0.3,1.84 0.29,0.43 0.3,0.47 0.3,0.45 0.29,0.36 0.3,0.22 0.3,0.09 h 0.29 l 0.3,-0.03 h 0.3 l 0.29,0.06 0.3,0.09 0.3,0.06 0.29,-0.02 0.3,-0.15 0.3,-0.44 0.29,-0.43 0.3,-0.13 0.3,0.07 0.29,0.28 0.3,0.45 0.3,0.51 0.3,0.46 0.29,0.35 0.3,0.04 0.3,-0.05 h 0.29 l 0.3,0.08 0.3,0.27 0.29,0.38 0.3,0.31 0.3,0.59 0.29,0.73 0.3,0.52 0.3,0.48 0.29,0.53 0.3,0.28 0.3,0.14 0.29,0.17 0.3,0.2 0.3,0.34 0.29,0.25 0.3,-0.01 0.3,-0.18 0.3,-0.14 0.29,0.09 0.3,0.48 0.3,0.7 0.29,0.7 0.3,0.7 0.3,0.37 0.29,0.36 0.3,0.37 0.3,0.34 0.29,0.37 0.3,0.17 0.3,0.04 0.29,-0.09 0.3,-0.34 0.3,-0.7 0.29,-0.58 0.3,-0.28 0.3,0.33 0.29,0.95 0.3,0.92 0.3,0.42 0.3,0.1 0.29,0.12 0.3,0.36 0.3,0.57 0.29,0.4 0.3,-0.2 0.3,-0.67 0.29,-0.59 0.3,-0.17 0.3,0.04 0.29,-0.02 0.3,0.02 0.3,0.44 0.29,0.62 0.3,0.28 0.3,0.2 0.29,0.69 0.3,1.06 0.3,0.13 0.3,-1.04 0.29,-0.77 0.3,0.06 0.3,0.94 0.29,1.21 0.3,0.99 0.3,0.36 0.29,-0.74 0.3,-1 0.3,-0.6 0.29,-0.45 0.3,1.28 0.3,0.18 0.29,0.28 0.3,0.31 0.3,0.34 0.29,0.33 0.3,0.26 0.3,0.2 0.29,0.12 0.3,0.06 0.3,0.02 0.3,0.02 0.29,0.04 0.3,0.06 0.3,0.11 0.29,0.14 0.3,0.19 0.3,0.24 0.29,0.27 0.3,0.25 0.3,0.18 0.29,0.09 0.3,0.03 0.3,0.02 0.29,0.07 0.3,0.17 0.3,0.28 0.29,0.37 0.3,0.42 0.3,0.4 0.29,0.32 0.3,0.21 0.3,0.08 0.3,-0.01 0.29,-0.08 0.3,-0.11 0.3,-0.12 0.29,-0.12 0.3,-0.07 0.3,-0.03 0.29,0.01 0.3,0.02 0.3,0.02 0.29,0.02 0.3,-0.03 0.3,-0.12 0.29,-0.09 0.3,0.01 0.3,0.15 0.29,0.26 0.3,0.38 0.3,0.28 0.3,0.18 0.29,0.26 0.3,0.58 0.3,0.66 0.29,0.36 0.3,0.2 0.3,-0.14 0.29,-0.19 0.3,-0.17 0.3,-0.01 0.29,0.06 0.3,0.1 0.3,0.18 0.29,0.41 0.3,0.65 0.3,0.65 0.29,0.21 0.3,-0.42 0.3,-0.51 0.29,-0.28 0.3,-0.11 0.3,-0.09 0.3,-0.09 0.29,0.08 0.3,0.55 0.3,0.71 0.29,0.66 0.3,0.47 0.3,0.09 0.29,0.03 0.3,0.06 0.3,-0.08 0.29,-0.21 0.3,-0.04 0.3,-0.1 0.29,-1.33 0.3,-2.97 0.3,-2.16 0.29,0.65 0.3,3.42 0.3,3.69 0.29,1.3 0.3,0.42 0.3,0.42 0.3,-0.29 0.29,-0.64 0.3,-0.28 0.3,-0.1 0.29,-0.21 0.3,-0.07 0.3,0.63 0.29,0.66 0.3,-0.54 0.3,0.03 0.29,0.03 0.3,0.02 0.3,0.04 0.29,0.07 0.3,0.12 0.3,0.14 0.29,0.17 0.3,0.15 0.3,0.13 0.3,0.09 0.29,0.07 0.3,0.07 0.3,0.13 0.29,0.2 0.3,0.25 0.3,0.35 0.29,0.38 0.3,0.39 0.3,0.36 0.29,0.29 0.3,0.21 0.3,0.13 0.29,0.06 0.3,0.07 0.3,0.1 0.29,0.14 0.3,0.19 0.3,0.18 0.29,0.11 0.3,0.03 0.3,-0.08 0.3,-0.15 0.29,-0.11 0.3,-0.02 0.3,0.09 0.29,0.21 0.3,0.31 0.3,0.37 0.29,0.35 0.3,0.22 0.3,0.02 0.29,-0.1 0.3,-0.08 0.3,0.1 0.29,0.38 0.3,0.59 0.3,0.58 0.29,0.32 0.3,0.05 0.3,-0.28 0.29,-0.39 0.3,-0.32 0.3,-0.21 0.3,0.02 0.29,0.11 0.3,0.14 0.3,0.13 0.29,0.13 0.3,0.17 0.3,0.25 0.29,0.35 0.3,0.55 0.3,0.36 0.29,0.08 0.3,0.07 0.3,0.14 0.29,0.37 0.3,0.41 0.3,0.2 0.29,0.12 0.3,0.07 0.3,0.04 0.3,0.04 0.29,0.11 0.3,0.2 0.3,0.18 0.29,0.14 0.3,-0.17 0.3,-0.39 0.29,-0.04 0.3,0.63 0.3,0.73 0.29,0.41 0.3,0.37 0.3,0.31 0.29,0.05 0.3,-0.14 0.3,-0.03 0.29,0.17 0.3,0.31 0.3,0.45 0.29,0.55 0.3,0.14 0.3,-0.12 0.3,-0.21 0.29,0.05 0.3,0.04 0.3,0.06 0.29,0.08 0.3,0.11 0.3,0.14 0.29,0.16 0.3,0.18 0.3,0.21 0.29,0.22 0.3,0.26 0.3,0.25 0.29,0.26 0.3,0.24 0.3,0.22 0.29,0.18 0.3,0.18 0.3,0.16 0.29,0.19 0.3,0.19 0.3,0.2 0.3,0.2 0.29,0.18 0.3,0.16 0.3,0.14 0.29,0.12 0.3,0.11 0.3,0.09 0.29,0.09 0.3,0.09 0.3,0.11 0.29,0.13 0.3,0.15 0.3,0.17 0.29,0.2 0.3,0.23 0.3,0.26 0.29,0.25 0.3,0.25 0.3,0.23 0.3,0.2 0.29,0.16 0.3,0.09 0.3,0.03 0.29,0.02 0.3,0.07 0.3,0.13 0.29,0.2 0.3,0.24 0.3,0.27 0.29,0.28 0.3,0.27 0.3,0.24 0.29,0.18 0.3,0.14 0.3,0.1 0.29,0.1 0.3,0.12 0.3,0.23 0.29,0.29 0.3,0.32 0.3,0.26 0.3,0.2 0.29,0.17 0.3,0.09 0.3,-0.01 0.29,-0.11 0.3,-0.1 0.3,0.1 0.29,0.43 0.3,0.42 0.3,0.39 0.29,0.27 0.3,0.14 0.3,0.14 0.29,0.2 0.3,0.14 0.3,0.07 0.29,0.01 0.3,0.08 0.3,0.12 0.29,0.16 0.3,0.25 0.3,0.27 0.3,0.4 0.29,0.23 0.3,0.06 0.3,0.02 0.29,-0.13 0.3,-0.28 0.3,-0.14 0.29,0.11 h 0.3 l 0.3,-0.52 0.29,-0.62 0.3,0.17 0.3,1 0.29,1.16 0.3,0.67 0.3,-0.12 0.29,-0.29 0.3,-0.09 0.3,0.16 0.29,0.92 0.3,0.21 0.3,0.22 0.3,0.22 0.29,0.24 0.3,0.23 0.3,0.23 0.29,0.21 0.3,0.2 0.3,0.16 0.29,0.15 0.3,0.15 0.3,0.17 0.29,0.18 0.3,0.21 0.3,0.22 0.29,0.22 0.3,0.2 0.3,0.21 0.29,0.21 0.3,0.22 0.3,0.21 0.3,0.19 0.29,0.16 0.3,0.1 0.3,0.09 0.29,0.1 0.3,0.11 0.3,0.17 0.29,0.2 0.3,0.19 0.3,0.14 0.29,0.09 0.3,0.02 h 0.3 l 0.29,0.04 0.3,0.1 0.3,0.19 0.29,0.25 0.3,0.25 0.3,0.17 0.29,0.07 0.3,0.03 0.3,0.05 0.3,0.11 0.29,0.17 0.3,0.21 0.3,0.18 0.29,0.12 0.3,0.06 0.3,0.01 0.29,0.02 0.3,0.07 0.3,0.19 0.29,0.45 0.3,0.38 0.3,0.06 0.29,-0.03 h 0.3 l 0.3,0.13 0.29,0.25 0.3,0.32 0.3,0.3 0.29,0.32 0.3,0.2 0.3,0.08 0.3,0.08 0.29,0.11 0.3,0.18 0.3,0.15 0.29,0.06 0.3,0.05 0.3,0.04 h 0.29 l 0.3,0.02 0.3,0.15 0.29,0.27 0.3,0.19 0.3,0.28 0.29,0.36 0.3,0.47 0.3,0.33 0.29,0.03 0.3,-0.05 0.3,0.03 0.3,-0.01 0.29,-0.11 0.3,-0.01 0.3,0.25 0.29,0.3 0.3,0.13 0.3,0.06 0.29,0.09 0.3,0.22 0.3,0.24 0.29,0.29 h 0.3 l 0.3,0.26 0.29,0.25 0.3,0.25 0.3,0.23 0.29,0.2 0.3,0.16 0.3,0.14 0.29,0.09 0.3,0.08 0.3,0.06 0.3,0.07 0.29,0.07 0.3,0.08 0.3,0.09 0.29,0.1 0.3,0.1 0.3,0.1 0.29,0.09 0.3,0.11 0.3,0.13 0.29,0.15 0.3,0.16 0.3,0.19 0.29,0.2 0.3,0.18 0.3,0.17 0.29,0.13 0.3,0.13 0.3,0.11 0.29,0.13 0.3,0.13 0.3,0.13 0.3,0.13 0.29,0.13 0.3,0.17 0.3,0.21 0.29,0.23 0.3,0.23 0.3,0.19 0.29,0.16 0.3,0.15 0.3,0.16 0.29,0.18 0.3,0.19 0.3,0.17 0.29,0.14 0.3,0.11 0.3,0.09 0.29,0.08 0.3,0.08 0.3,0.07 0.3,0.09 0.29,0.1 0.3,0.14 0.3,0.2 0.29,0.25 0.3,0.21 0.3,0.09 0.29,-0.01 0.3,-0.03 0.3,0.04 0.29,0.12 0.3,0.2 0.3,0.26 0.29,0.27 0.3,0.2 0.3,0.12 0.29,0.07 0.3,0.18 0.3,0.22 0.29,0.14 0.3,0.13 0.3,0.15 0.3,0.13 0.29,0.15 0.3,0.22 0.3,0.16 0.29,-0.12 0.3,-1.06 0.3,-1.05 H 276 l 0.3,1.04 0.3,1.23 0.29,0.47 0.3,0.18 0.3,-0.24 0.29,-0.44 0.3,-0.81 0.3,-0.32 0.29,0.78 0.3,1.25 0.3,0.96 0.29,0.56 0.3,0.22 0.3,0.1 0.3,0.06 0.29,0.08 0.3,0.16 0.3,0.35 0.29,0.27 0.3,0.25 0.3,0.26 0.29,0.17 0.3,0.12 0.3,0.18 0.29,0.17 0.3,0.14 0.3,0.11 0.29,0.11 0.3,0.1 0.3,0.1 0.29,0.11 0.3,0.13 0.3,0.14 0.3,0.14 0.29,0.15 0.3,0.14 0.3,0.13 0.29,0.11 0.3,0.1 0.3,0.09 0.29,0.09 0.3,0.09 0.3,0.09 0.29,0.08 0.3,0.09 0.3,0.09 0.29,0.11 0.3,0.09 0.3,0.07 0.29,0.03 0.3,-0.01 h 0.3 l 0.29,0.03 0.3,0.08 0.3,0.1 0.3,0.03 0.29,-0.11 0.3,-0.18 0.3,-0.17 0.29,-0.08 h 0.3 l 0.3,-0.03 0.29,-0.37 0.3,-0.84 0.3,-1.16 0.29,-1.18 0.3,-0.89 0.3,-0.36 0.29,0.31 0.3,0.94 0.3,1.39 0.29,1.54 0.3,0.89 0.3,1.2 0.29,0.85 0.3,0.58 0.3,0.58 0.3,0.44 0.29,0.24 0.3,0.18 0.3,0.12 0.29,0.08 0.3,0.08 0.3,0.11 0.29,0.18 0.3,0.35 0.3,0.34 0.29,0.14 0.3,0.1 0.3,0.09 0.29,0.06 0.3,-0.45 0.3,-0.85 0.29,-0.95 0.3,-0.57 0.3,0.73 0.3,1.06 0.29,1.28 0.3,0.52 h 0.3 l 0.29,-0.06 0.3,0.02 0.3,0.25 0.29,0.35 0.3,0.32 0.3,0.23 0.29,0.16 0.3,0.14 0.3,0.23 0.29,0.31 0.3,0.23 0.3,-0.01 0.29,-0.2 0.3,-0.19 0.3,-0.07 0.29,-0.14 0.3,-0.24 0.3,-0.6 0.3,-1.29 0.29,-0.5 0.3,-0.72 0.3,-0.84 0.29,-1.33 0.3,-1.62 0.3,-2.24 0.29,-2.49 0.3,-2.73 0.3,-2.5 0.29,-2.39 0.3,-1.55 0.3,-1.25 0.29,-0.35 0.3,0.32 0.3,0.91 0.29,2.05 0.3,2.51 0.3,3.39 0.29,3.68 0.3,3.73 0.3,2.64 0.3,1.55 0.29,0.64 0.3,-0.26 0.3,-0.3 0.29,-0.29 0.3,0.01 0.3,0.29 0.29,0.51 0.3,0.71 0.3,0.69 0.29,0.58 0.3,0.43 0.3,0.21 0.29,0.04 0.3,-0.12 0.3,-0.29 0.29,-0.52 0.3,-0.87 0.3,-1.09 0.3,-1.2 0.29,-1.18 0.3,-0.99 0.3,-0.6 0.29,-0.15 0.3,0.25 0.3,0.57 0.29,0.8 0.3,0.96 0.3,1.05 0.29,1.12 0.3,1.07 0.3,0.88 0.29,0.64 0.3,0.5 0.3,0.5 0.29,0.6 0.3,0.69 0.3,0.74 0.29,0.41 0.3,0.17 h 0.3 l 0.3,-0.2 0.29,-0.49 0.3,-0.83 0.3,-1.1 0.29,-1.17 0.3,-1.1 0.3,-3.65 0.29,-9.04 0.3,-7.46 0.3,-5.58 0.29,-3.29 0.3,-0.97 0.3,2.96 0.29,8.14 0.3,8.29 0.3,8.97 0.29,6 0.3,0.71 0.3,-0.16 0.29,-0.46 0.3,-0.75 0.3,-0.74 0.3,-1.41 0.29,-1.53 0.3,-1.02 0.3,-1.19 0.29,-0.49 0.3,0.43 0.3,0.91 0.29,1.14 0.3,1.17 0.3,0.98 0.29,0.92 0.3,0.84 0.3,0.62 0.29,0.19 0.3,-0.23 0.3,-0.56 0.29,-0.86 0.3,-0.98 0.3,-0.81 0.3,-11.53 0.29,-2.16 0.3,-1.72 0.3,-1.3 0.29,-0.5 0.3,-0.18 0.3,0.76 0.29,1.25 0.3,1.84 0.3,2.67 0.29,2.97 0.3,3.42 0.3,3.05 0.29,2.68 0.3,1.4 0.3,0.77 0.29,0.35 0.3,0.1 0.3,0.05 h 0.29 l 0.3,-0.05 0.3,-0.33 0.3,-0.99 0.29,-1.9 0.3,-3.74 0.3,-4.2 0.29,-4.06 0.3,-3.5 0.3,-2.36 0.29,-1.24 0.3,-0.19 0.3,0.91 0.29,2.04 0.3,3.43 0.3,4.46 0.29,4.84 0.3,4.16 0.3,2.64 0.29,0.97 0.3,0.2 0.3,0.06 0.29,0.05 0.3,0.02 0.3,-0.3 0.3,-1.22 0.29,-2.58 0.3,-3.54 0.3,-3.42 0.29,-2.41 0.3,-0.97 0.3,-0.01 0.29,1.6 0.3,3.03 0.3,3.88 0.29,4.4 0.3,1.69 0.3,0.17 0.29,0.02 0.3,-0.14 0.3,-0.33 0.29,-0.55 0.3,-1 0.3,-1.74 0.29,-3.66 0.3,-2.68 0.3,-0.41 0.3,0.87 0.29,1.95 0.3,3.44 0.3,2.43 0.29,0.65 0.3,0.32 0.3,0.18 0.29,0.01 0.3,-0.15 0.3,-0.97 0.29,-2.03 0.3,-1.77 0.3,-1.87 0.29,-0.56 0.3,0.27 0.3,0.42 0.29,1.16 0.3,1.72 0.3,1.05 0.3,-0.07 0.29,-6.4 0.3,-11.77 0.3,-11.46 0.29,-6.32 0.3,-1.98 0.3,1.81 0.29,6.1 0.3,13.93 0.3,11.22 0.29,3.14 0.3,-16.9 0.3,3.67 0.29,4.19 0.3,3.93 0.3,3.46 0.29,2.3 0.3,1.75 0.3,0.89 0.29,0.77 0.3,0.61 0.3,0.4 0.3,0.31 0.29,0.19 0.3,0.23 0.3,0.29 0.29,0.42 0.3,0.45 0.3,0.38 0.29,0.21 0.3,-0.06 0.3,-0.15 0.29,-0.21 0.3,-0.17 0.3,-0.31 0.29,-0.56 0.3,-0.99 0.3,-1.43 0.29,-1.32 0.3,-0.97 0.3,-0.39 0.29,0.49 0.3,1.27 0.3,1.63 0.3,1.56 0.29,1.06 0.3,0.39 0.3,0.18 0.29,0.51 0.3,0.8 0.3,0.77 0.29,0.42 h 0.3 l 0.3,-0.12 0.29,0.12 0.3,0.39 0.3,0.27 0.29,-0.35 0.3,-0.96 0.3,-1.57 0.29,-3.75 0.3,-6.46 0.3,-6.7 0.3,-5.25 0.29,-3.39 0.3,-1.48 0.3,0.4 0.29,2.29 0.3,4.19 0.3,8.81 0.29,10.7 0.3,3.04 0.3,1.16 0.29,0.71 0.3,0.33 0.3,-0.05 0.29,-0.2 0.3,0.14 0.3,0.28 0.29,0.23 0.3,0.12 0.3,-0.25 0.29,-0.7 0.3,-1.72 0.3,-1.25 0.3,0.03 0.29,1.08 0.3,0.96 0.3,0.12 0.29,0.31 0.3,0.9 0.3,0.76 0.29,0.23 0.3,0.11 0.3,0.21 0.29,-0.42 0.3,-1.39 0.3,-2.44 0.29,-7.56 0.3,-9.52 0.3,-3.44 0.29,0.85 0.3,4.6 0.3,7.65 0.29,9.19 0.3,2.07 0.3,1 0.3,0.26 0.29,-0.63 0.3,-0.24 0.3,0.05 0.29,0.17 0.3,-0.24 0.3,-0.85 0.29,-0.32 0.3,0.41"
+         id="path110" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="39.650002"
+         color="#d95319"
+         id="use110" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_3a"
+     style="stroke-width:3;stroke-dasharray:none">
+    <title
+       id="title111">Kp=4000 Ki=2</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g113"
+       style="stroke-width:3;stroke-dasharray:none">
+      <g
+         transform="translate(245.11,57.76)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g112"
+         style="stroke-width:3;stroke-dasharray:none">
+        <text
+           id="text111"
+           style="stroke-width:3;stroke-dasharray:none"><tspan
+             font-family="Arial"
+             id="tspan111"
+             style="stroke-width:3;stroke-dasharray:none">Kp=4000 Ki=2</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g114"
+       style="stroke-width:3;stroke-dasharray:none">
+      <path
+         stroke="#edb120"
+         d="m 207.99,54.83 h 30.82 m -193.44,64.46 0.3,-0.08 0.29,-0.09 0.3,-0.09 0.3,-0.09 0.29,-0.1 0.3,-0.09 0.3,-0.09 0.29,-0.09 0.3,-0.09 0.3,-0.08 0.3,-0.09 0.29,-0.08 0.3,-0.06 0.3,-0.06 0.29,-0.06 0.3,-0.06 0.3,-0.03 h 0.29 0.3 0.3 l 0.29,0.01 0.3,0.11 0.3,0.11 0.29,0.1 0.3,0.11 0.3,0.25 0.29,0.26 0.3,0.27 0.3,0.27 0.29,0.42 0.3,0.45 0.3,0.45 0.3,0.45 0.29,0.61 0.3,0.61 0.3,0.61 0.29,0.62 0.3,0.68 0.3,0.67 0.29,0.67 0.3,0.6 0.3,0.59 0.29,0.58 0.3,0.5 0.3,0.34 0.29,0.33 0.3,0.31 0.3,-0.03 0.29,-0.03 0.3,-0.03 0.3,-0.28 0.29,-0.32 0.3,-0.31 0.3,-0.35 0.3,-0.35 0.29,-0.36 0.3,-0.27 0.3,-0.27 0.29,-0.26 0.3,-0.27 0.3,-0.26 0.29,-0.33 0.3,-0.48 0.3,-0.48 0.29,-0.62 0.3,-0.71 0.3,-0.71 0.29,-0.69 0.3,-0.68 0.3,-0.52 0.29,-0.37 0.3,-0.33 0.3,0.1 0.3,0.09 0.29,0.46 0.3,0.61 0.3,0.79 0.29,1.08 0.3,1.12 0.3,1.44 0.29,1.43 0.3,1.61 0.3,1.63 0.29,1.59 0.3,1.59 0.3,1.4 0.29,1.3 0.3,1.04 0.3,0.87 0.29,0.49 0.3,0.28 0.3,-0.43 0.29,-0.75 0.3,-1.51 0.3,-1.72 0.3,-1.82 0.29,-1.76 0.3,-1.23 0.3,-0.99 0.29,-0.42 0.3,-0.02 0.3,0.32 0.29,0.7 0.3,0.8 0.3,0.87 0.29,0.85 0.3,0.81 0.3,0.87 0.29,0.95 0.3,1.11 0.3,1.23 0.29,1.24 0.3,1 0.3,0.33 0.29,-0.21 0.3,-1.11 0.3,-1.31 0.3,-1.31 0.29,-1.06 0.3,-0.58 0.3,-0.25 0.29,0.07 0.3,0.34 0.3,0.28 0.29,0.19 0.3,0.09 0.3,0.14 0.29,0.09 0.3,-0.28 0.3,-0.83 0.29,-1.37 0.3,-1.39 0.3,-0.78 0.29,-0.14 0.3,0.36 0.3,0.56 0.3,0.44 0.29,0.13 0.3,-0.05 0.3,-0.08 0.29,-0.13 0.3,-0.14 0.3,0.02 0.29,0.48 0.3,1.1 0.3,1.68 0.29,1.83 0.3,1.25 0.3,0.38 0.29,-0.32 0.3,-0.52 0.3,-0.33 0.29,-0.31 0.3,-0.27 0.3,0.05 0.29,0.42 0.3,0.07 0.3,-1.15 0.3,-1.78 0.29,-1.05 0.3,0.37 0.3,3.02 0.29,3.3 0.3,-0.07 0.3,-1.23 0.29,-1.29 0.3,-1.54 0.3,-1.33 0.29,-0.48 0.3,0.22 0.3,1.82 0.29,2.96 0.3,2.33 0.3,3.49 0.29,1.91 0.3,-1.21 0.3,-1.07 0.29,-0.46 0.3,-1.93 0.3,-2.33 0.3,-0.8 0.29,0.78 0.3,1.29 0.3,-0.22 0.29,-2.04 0.3,-1.18 0.3,1.15 0.29,2.43 0.3,2.08 0.3,1.84 0.29,2 0.3,0.74 0.3,-1.81 0.29,-1.48 0.3,0.1 0.3,-1.1 0.29,-2.62 0.3,-1.34 0.3,1.88 0.3,1.44 0.29,-0.12 0.3,-0.14 0.3,-0.13 0.29,-0.11 0.3,-0.04 0.3,0.08 0.29,0.2 0.3,0.34 0.3,0.33 0.29,0.49 0.3,0.48 0.3,0.44 0.29,0.37 0.3,0.3 0.3,0.23 0.29,-0.14 0.3,-0.45 0.3,-0.68 0.29,-0.82 0.3,-0.78 0.3,-0.6 0.3,-0.34 0.29,0.11 0.3,0.66 0.3,0.69 0.29,0.76 0.3,0.73 0.3,0.88 0.29,0.59 0.3,0.18 0.3,-0.05 0.29,-0.3 0.3,-0.27 0.3,-0.24 0.29,-0.09 0.3,0.29 0.3,0.82 0.29,1.18 0.3,0.9 0.3,1.26 0.29,1.02 0.3,0.73 0.3,0.61 0.3,0.49 0.29,0.28 0.3,0.02 0.3,-0.01 0.29,0.14 0.3,0.44 0.3,0.38 0.29,0.27 0.3,0.18 0.3,0.26 0.29,0.65 0.3,0.59 0.3,0.2 0.29,-0.55 0.3,-0.73 0.3,0.2 0.29,0.99 0.3,1.65 0.3,2.58 0.29,2.24 0.3,1.31 0.3,-0.02 0.3,-1.38 0.29,-1.79 0.3,-1.24 0.3,-0.36 0.29,0.35 0.3,0.63 0.3,0.34 0.29,-0.23 0.3,-0.47 0.3,-0.31 0.29,0.05 0.3,0.54 0.3,1.28 0.29,1.11 0.3,0.31 0.3,0.15 0.29,0.19 0.3,-0.01 0.3,0.24 0.3,0.88 0.29,0.84 0.3,0.53 0.3,0.2 0.29,-0.29 0.3,-1.3 0.3,-1.68 0.29,-0.59 0.3,0.96 0.3,1.81 0.29,2.11 0.3,-0.99 0.3,0.38 0.29,0.33 0.3,0.28 0.3,0.23 0.29,0.15 0.3,0.02 0.3,-0.1 0.29,-0.21 0.3,-0.34 0.3,-0.34 0.3,-0.25 0.29,-0.12 0.3,0.09 0.3,0.35 0.29,0.49 0.3,0.55 0.3,0.51 0.29,0.35 0.3,0.1 0.3,-0.08 0.29,-0.15 0.3,-0.11 0.3,0.01 0.29,0.17 0.3,0.32 0.3,0.39 0.29,0.39 0.3,0.29 0.3,0.16 0.29,0.06 0.3,0.04 0.3,0.06 0.3,0.08 0.29,0.09 0.3,0.04 h 0.3 l 0.29,0.02 0.3,0.12 0.3,0.24 0.29,0.28 0.3,0.18 0.3,-0.05 0.29,-0.25 0.3,-0.31 0.3,0.17 0.29,0.47 0.3,0.58 0.3,0.43 0.29,0.11 0.3,-0.44 0.3,-0.53 0.3,-0.15 0.29,0.06 0.3,0.32 0.3,0.34 0.29,0.12 0.3,-0.16 0.3,-0.54 0.29,-0.47 0.3,-0.33 0.3,0.38 0.29,0.73 0.3,1.12 0.3,0.36 0.29,-0.71 0.3,-0.69 0.3,-0.09 0.29,0.3 0.3,0.34 0.3,0.17 0.29,0.09 0.3,0.13 0.3,0.13 0.3,0.05 0.29,-0.03 0.3,-0.04 h 0.3 l 0.29,-0.04 0.3,-0.13 0.3,-0.11 0.29,0.12 0.3,0.37 0.3,0.38 0.29,0.02 0.3,0.03 0.3,0.08 0.29,-0.34 0.3,-1.32 0.3,-1.13 0.29,0.65 0.3,1.97 0.3,0.92 0.29,-0.34 0.3,0.06 0.3,0.64 0.3,0.2 0.29,-0.74 0.3,-0.8 0.3,-0.12 0.29,0.61 0.3,1.17 0.3,0.02 0.29,-0.98 0.3,0.55 0.3,0.19 0.29,0.17 0.3,0.16 0.3,0.08 0.29,0.04 0.3,-0.06 0.3,-0.07 0.29,-0.09 0.3,-0.02 0.3,0.02 0.3,0.12 0.29,0.19 0.3,0.22 0.3,0.25 0.29,0.23 0.3,0.22 0.3,0.17 0.29,0.14 0.3,0.12 0.3,0.07 0.29,0.04 h 0.3 l 0.3,-0.03 0.29,-0.08 0.3,-0.12 0.3,-0.13 0.29,-0.13 0.3,-0.09 0.3,-0.03 0.29,0.02 0.3,0.04 0.3,0.06 0.3,0.05 0.29,0.03 0.3,0.02 h 0.3 l 0.29,-0.02 0.3,-0.04 0.3,-0.03 h 0.29 l 0.3,0.08 0.3,0.11 0.29,0.11 0.3,0.08 0.3,0.06 0.29,0.07 0.3,0.11 0.3,0.14 0.29,0.17 0.3,0.1 0.3,0.08 0.29,-0.05 0.3,-0.17 0.3,-0.31 0.3,-0.27 0.29,-0.2 0.3,-0.28 0.3,-0.33 0.29,-0.28 0.3,-0.08 0.3,0.17 0.29,0.38 0.3,0.61 0.3,0.3 0.29,-0.14 0.3,-0.34 0.3,-0.38 0.29,-0.26 0.3,0.21 0.3,0.33 0.29,0.27 0.3,0.1 0.3,-0.05 0.3,0.1 0.29,0.42 0.3,0.46 0.3,0.19 0.29,0.18 0.3,0.05 0.3,-0.26 0.29,-0.43 0.3,-0.44 0.3,-0.4 0.29,-0.33 0.3,-0.22 0.3,-0.04 h 0.29 l 0.3,0.04 0.3,0.21 0.29,0.38 0.3,0.39 0.3,0.29 0.29,0.16 0.3,0.05 0.3,0.02 0.3,-0.35 0.29,-0.02 0.3,-0.03 0.3,-0.03 h 0.29 l 0.3,0.01 0.3,0.04 0.29,0.07 0.3,0.08 0.3,0.1 0.29,0.09 0.3,0.06 0.3,0.03 0.29,-0.04 0.3,-0.07 0.3,-0.1 0.29,-0.13 0.3,-0.13 0.3,-0.12 0.29,-0.08 0.3,-0.07 0.3,-0.03 h 0.3 l 0.29,0.02 0.3,0.04 0.3,0.03 0.29,0.04 0.3,0.02 0.3,0.01 0.29,-0.01 0.3,-0.02 0.3,-0.03 0.29,-0.05 0.3,-0.05 0.3,-0.07 0.29,-0.09 0.3,-0.1 0.3,-0.09 0.29,-0.09 0.3,-0.11 0.3,-0.11 0.3,-0.11 0.29,-0.09 0.3,-0.07 0.3,-0.04 0.29,-0.07 0.3,-0.1 0.3,-0.1 0.29,-0.09 0.3,-0.04 0.3,-0.01 0.29,0.04 0.3,0.03 0.3,0.02 0.29,-0.04 0.3,-0.06 0.3,-0.05 0.29,-0.02 0.3,-0.01 0.3,-0.05 0.29,-0.1 0.3,-0.15 0.3,-0.21 0.3,-0.34 0.29,-0.47 0.3,-0.5 0.3,-0.44 0.29,-0.31 0.3,-0.15 h 0.3 l 0.29,0.14 0.3,0.11 0.3,0.08 0.29,0.01 0.3,-0.04 0.3,-0.1 0.29,-0.12 0.3,-0.14 0.3,-0.19 0.29,-0.44 0.3,-0.44 0.3,-0.13 0.29,0.01 0.3,0.05 0.3,0.11 0.3,0.49 0.29,0.61 0.3,0.23 0.3,0.1 0.29,0.06 0.3,-0.08 0.3,-0.14 0.29,0.05 0.3,0.13 0.3,0.07 0.29,0.01 0.3,-0.09 0.3,-0.06 0.29,0.12 0.3,0.37 0.3,0.39 0.29,0.39 0.3,0.15 0.3,-0.14 0.29,-0.31 h 0.3 0.3 l 0.3,0.02 0.29,0.05 0.3,0.07 0.3,0.11 0.29,0.12 0.3,0.14 0.3,0.15 0.29,0.15 0.3,0.15 0.3,0.15 0.29,0.15 0.3,0.1 0.3,0.03 0.29,-0.02 0.3,-0.13 0.3,-0.19 0.29,-0.24 0.3,-0.27 0.3,-0.26 0.3,-0.2 0.29,-0.14 0.3,0.03 0.3,0.21 0.29,0.34 0.3,0.46 0.3,0.53 0.29,0.44 0.3,0.27 0.3,0.06 0.29,-0.18 0.3,-0.38 0.3,-0.42 0.29,-0.35 0.3,-0.2 h 0.3 l 0.29,0.19 0.3,0.33 0.3,0.39 0.29,0.37 0.3,0.34 0.3,0.28 0.3,0.21 0.29,0.11 0.3,0.06 0.3,0.13 0.29,0.35 0.3,0.68 0.3,0.55 0.29,1.22 0.3,1.37 0.3,1.33 0.29,1.68 0.3,1.29 0.3,0.46 0.29,0.1 0.3,-0.19 0.3,-0.43 0.29,-0.62 0.3,-0.73 0.3,-0.69 0.29,-0.49 0.3,0.24 0.3,0.56 0.3,0.66 0.29,0.61 0.3,0.68 0.3,0.49 0.29,0.25 0.3,0.25 0.3,0.64 0.29,1.17 0.3,1.14 0.3,1.78 0.29,1.37 0.3,0.39 0.3,0.06 0.29,0.11 0.3,0.75 0.3,1.28 0.29,1.45 0.3,1.38 0.3,1.03 0.3,0.74 0.29,0.52 0.3,0.48 0.3,0.48 0.29,0.52 0.3,0.47 0.3,0.36 0.29,0.28 0.3,0.5 0.3,0.46 0.29,0.44 0.3,-0.26 0.3,0.47 0.29,0.49 0.3,0.49 0.3,0.48 0.29,0.47 0.3,0.45 0.3,0.41 0.29,0.38 0.3,0.32 0.3,0.31 0.3,0.23 0.29,0.21 0.3,0.17 0.3,0.15 0.29,0.14 0.3,0.15 0.3,0.15 0.29,0.16 0.3,0.15 0.3,0.13 0.29,0.08 0.3,0.06 0.3,0.05 0.29,0.05 0.3,0.08 0.3,0.11 0.29,0.17 0.3,0.18 0.3,0.16 0.29,0.13 0.3,0.07 0.3,0.04 0.3,0.03 0.29,0.06 0.3,0.1 0.3,0.11 0.29,0.07 h 0.3 l 0.3,-0.12 0.29,-0.21 0.3,-0.29 0.3,-0.37 0.29,-0.43 0.3,-0.46 0.3,-0.38 0.29,-0.31 0.3,-0.26 0.3,-0.22 0.29,-0.11 0.3,0.1 0.3,0.36 0.3,0.52 0.29,0.46 0.3,0.3 0.3,0.24 0.29,0.29 0.3,0.3 0.3,0.14 0.29,-0.12 0.3,-0.21 h 0.3 l 0.29,0.32 0.3,0.57 0.3,0.67 0.29,0.69 0.3,0.68 0.3,0.68 0.29,0.65 0.3,0.89 0.3,0.77 0.29,0.34 0.3,0.18 0.3,0.08 0.3,0.1 0.29,0.26 0.3,0.23 0.3,-0.01 0.29,-0.28 0.3,-0.96 0.3,-0.78 0.29,0.21 0.3,1.35 0.3,1.42 0.29,0.37 0.3,-0.15 0.3,-0.46 0.29,-0.48 0.3,-0.83 0.3,-0.43 0.29,0.43 0.3,0.78 0.3,0.58 0.29,0.29 0.3,0.06 0.3,0.01 0.3,0.08 0.29,0.34 0.3,0.44 0.3,0.15 0.29,0.06 0.3,0.25 0.3,0.18 0.29,0.07 0.3,0.3 0.3,0.2 0.29,0.24 0.3,0.28 0.3,0.31 0.29,0.33 0.3,0.33 0.3,0.32 0.29,0.3 0.3,0.29 0.3,0.26 0.3,0.23 0.29,0.17 0.3,0.13 0.3,0.07 0.29,0.04 0.3,0.02 h 0.3 0.29 0.3 l 0.3,0.02 0.29,0.05 0.3,0.09 0.3,0.12 0.29,0.15 0.3,0.13 0.3,0.1 0.29,0.08 0.3,0.08 0.3,0.12 0.29,0.16 0.3,0.18 0.3,0.15 0.3,0.04 0.29,-0.1 0.3,-0.15 0.3,-0.15 0.29,-0.08 0.3,-0.05 0.3,-0.15 0.29,-0.52 0.3,-0.94 0.3,-1.19 0.29,-1.16 0.3,-0.82 0.3,-0.28 0.29,0.37 0.3,0.99 0.3,1.43 0.29,1.59 0.3,0.92 0.3,1.25 0.29,0.91 0.3,0.64 0.3,0.63 0.3,0.43 0.29,0.25 0.3,0.28 0.3,0.25 0.29,0.21 0.3,0.14 0.3,0.09 0.29,0.04 0.3,0.04 0.3,0.06 0.29,0.07 0.3,0.12 0.3,0.15 0.29,0.09 0.3,-0.52 0.3,-0.91 0.29,-1 0.3,-0.54 0.3,0.87 0.3,1.24 0.29,1.56 0.3,0.75 0.3,0.07 0.29,-0.1 0.3,-0.17 0.3,-0.07 0.29,0.16 0.3,0.37 0.3,0.34 0.29,0.19 0.3,0.07 0.3,-0.02 0.29,-0.05 0.3,-0.02 0.3,0.03 0.29,0.1 0.3,0.14 0.3,0.12 0.29,0.08 0.3,-0.11 0.3,-0.71 0.3,-1.5 0.29,-0.56 0.3,-0.9 0.3,-1.06 0.29,-1.72 0.3,-1.99 0.3,-2.57 0.29,-2.63 0.3,-2.67 0.3,-2.22 0.29,-2.02 0.3,-1.05 0.3,-0.74 0.29,0.2 0.3,0.86 0.3,1.45 0.29,2.51 0.3,2.86 0.3,3.47 0.29,3.23 0.3,2.97 0.3,1.57 0.3,0.93 0.29,0.39 0.3,-0.07 0.3,-0.13 0.29,-0.14 0.3,0.06 0.3,0.29 0.29,0.46 0.3,0.65 0.3,0.65 0.29,0.59 0.3,0.49 0.3,0.3 0.29,0.09 0.3,-0.11 0.3,-0.32 0.29,-0.58 0.3,-0.88 0.3,-1.05 0.3,-1.14 0.29,-1.1 0.3,-0.93 0.3,-0.56 0.29,-0.12 0.3,0.24 0.3,0.53 0.29,0.73 0.3,0.85 0.3,0.94 0.29,1.01 0.3,1 0.3,0.88 0.29,0.68 0.3,0.52 0.3,0.47 0.29,0.49 0.3,0.51 0.3,0.53 0.29,0.28 0.3,0.17 0.3,0.08 0.3,-0.07 0.29,-0.38 0.3,-0.77 0.3,-1.08 0.29,-1.33 0.3,-1.98 0.3,-8.42 0.29,-9.85 0.3,-5.52 0.3,-3.39 0.29,-1.17 0.3,1.07 0.3,5.61 0.29,10.91 0.3,8.45 0.3,6.08 0.29,2.59 0.3,0.45 0.3,-0.01 0.29,-0.36 0.3,-0.95 0.3,-0.98 0.3,-1.57 0.29,-1.44 0.3,-0.86 0.3,-0.91 0.29,-0.36 0.3,0.41 0.3,0.83 0.29,1.01 0.3,0.97 0.3,0.85 0.29,0.93 0.3,1 0.3,0.85 0.29,0.23 0.3,-0.55 0.3,-0.78 0.29,-1 0.3,-1.01 0.3,-0.73 0.3,-13.2 0.29,-1.71 0.3,-1.22 0.3,-0.78 0.29,0.04 0.3,0.35 0.3,1.29 0.29,1.77 0.3,2.33 0.3,3.01 0.29,3.18 0.3,3.22 0.3,2.43 0.29,1.88 0.3,0.72 0.3,0.4 0.29,0.2 0.3,0.12 0.3,0.07 0.29,-0.02 0.3,-0.23 0.3,-1.08 0.3,-2.07 0.29,-3.21 0.3,-4.19 0.3,-3.89 0.29,-3.35 0.3,-2.56 0.3,-1.36 0.29,-0.24 0.3,0.8 0.3,1.87 0.29,2.98 0.3,4.22 0.3,4.79 0.29,4.31 0.3,2.95 0.3,1.33 0.29,0.3 0.3,-0.01 0.3,-0.07 0.29,-0.12 0.3,-0.38 0.3,-1.2 0.3,-2.45 0.29,-3.37 0.3,-3.34 0.3,-2.46 0.29,-1.11 0.3,0.4 0.3,0.8 0.29,2.79 0.3,3.75 0.3,3.61 0.29,2.47 0.3,0.45 0.3,0.05 0.29,0.04 0.3,-0.09 0.3,-0.4 0.29,-1.02 0.3,-1.89 0.3,-2.46 0.29,-3.04 0.3,-0.98 0.3,0.95 0.3,1.95 0.29,2.33 0.3,2.35 0.3,0.92 0.29,0.25 0.3,0.18 0.3,0.08 0.29,-0.05 0.3,-0.24 0.3,-1.54 0.29,-2.47 0.3,-1.47 0.3,-0.75 0.29,0.36 0.3,0.15 0.3,-0.1 0.29,0.92 0.3,1.66 0.3,0.27 0.3,-5.01 0.29,-13.11 0.3,-9.65 0.3,-6.4 0.29,-2.48 0.3,1.73 0.3,5.46 0.29,8.64 0.3,13.2 0.3,4.77 0.29,2.07 0.3,-13.84 0.3,3.84 0.29,3.91 0.3,3.43 0.3,2.6 0.29,1.67 0.3,1.21 0.3,0.71 0.29,0.61 0.3,0.44 0.3,0.27 0.3,0.22 0.29,0.21 0.3,0.31 0.3,0.4 0.29,0.5 0.3,0.46 0.3,0.38 0.29,0.19 0.3,0.06 0.3,0.04 0.29,0.05 0.3,-0.04 0.3,-0.4 0.29,-0.82 0.3,-1.31 0.3,-1.44 0.29,-1.06 0.3,-0.52 0.3,0.14 0.29,0.94 0.3,1.41 0.3,1.34 0.3,0.95 0.29,0.46 0.3,0.2 0.3,0.47 0.29,0.78 0.3,0.78 0.3,0.43 0.29,0.01 0.3,-0.17 0.3,-0.01 0.29,0.25 0.3,0.23 0.3,-0.26 0.29,-0.88 0.3,-1.59 0.3,-3.53 0.29,-6.14 0.3,-6.46 0.3,-5.19 0.3,-3.44 0.29,-1.62 0.3,0.21 0.3,2.02 0.29,3.86 0.3,5.64 0.3,9.57 0.29,7.63 0.3,1.26 0.3,0.6 0.29,0.36 0.3,0.12 0.3,0.06 0.29,0.23 0.3,0.38 0.3,0.29 0.29,0.29 0.3,0.09 0.3,-0.92 0.29,-1.32 0.3,-1.63 0.3,-0.34 0.3,0.56 0.29,0.84 0.3,0.22 0.3,0.17 0.29,0.93 0.3,1.05 0.3,0.24 0.29,-0.01 0.3,0.08 0.3,-0.32 0.29,-1.14 0.3,-3.18 0.3,-6.27 0.29,-7.71 0.3,-5.17 0.3,0.08 0.29,4 0.3,7.41 0.3,7.24 0.29,4.57 0.3,1.01 0.3,0.41 0.3,-0.11 0.29,-0.74 0.3,-0.39 0.3,0.27 0.29,0.42 0.3,-0.6 0.3,-0.08 0.29,0.86 0.3,1"
+         id="path113"
+         style="stroke-width:3;stroke-dasharray:none" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="54.830002"
+         color="#edb120"
+         id="use113"
+         style="stroke-width:3;stroke-dasharray:none" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_4a">
+    <title
+       id="title114">Kp=4000 Ki=4</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g116">
+      <g
+         transform="translate(245.11,72.94)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g115">
+        <text
+           id="text114"><tspan
+             font-family="Arial"
+             id="tspan114">Kp=4000 Ki=4</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g117">
+      <path
+         stroke="#7e2f8e"
+         d="m 207.99,70.01 h 30.82 m -193.44,47.68 0.3,0.1 0.29,0.17 0.3,0.21 0.3,0.21 0.29,0.22 0.3,0.21 0.3,0.23 0.29,0.29 0.3,0.3 0.3,0.29 0.3,0.29 0.29,0.29 0.3,0.27 0.3,0.27 0.29,0.28 0.3,0.27 0.3,0.22 0.29,0.19 0.3,0.19 0.3,0.18 0.29,0.18 0.3,0.15 0.3,0.14 0.29,0.15 0.3,0.14 0.3,0.17 0.29,0.17 0.3,0.17 0.3,0.18 0.29,0.17 0.3,0.18 0.3,0.18 0.3,0.18 0.29,0.1 0.3,0.1 0.3,0.11 0.29,0.06 0.3,-0.02 0.3,-0.03 0.29,-0.02 0.3,-0.11 0.3,-0.12 0.29,-0.13 0.3,-0.14 0.3,-0.17 0.29,-0.17 0.3,-0.17 0.3,-0.12 0.29,-0.12 0.3,-0.13 0.3,-0.03 0.29,-0.03 0.3,-0.03 0.3,0.04 0.3,0.06 0.29,0.05 0.3,0.06 0.3,0.07 0.29,0.06 0.3,0.06 0.3,0.05 0.29,0.08 0.3,0.12 0.3,0.13 0.29,0.25 0.3,0.32 0.3,0.34 0.29,0.6 0.3,0.61 0.3,0.75 0.29,0.88 0.3,0.89 0.3,0.94 0.3,0.93 0.29,0.57 0.3,0.41 h 0.3 l 0.29,-0.64 0.3,-0.73 0.3,-1.28 0.29,-1.27 0.3,-1.22 0.3,-1.21 0.29,-0.9 0.3,-0.81 0.3,-0.48 0.29,-0.33 h 0.3 l 0.3,0.18 0.29,0.52 0.3,0.69 0.3,1 0.29,1.12 0.3,1.18 0.3,1.2 0.3,0.64 0.29,0.52 0.3,-0.27 0.3,-0.37 0.29,-0.58 0.3,-0.48 0.3,-0.39 0.29,-0.14 0.3,-0.05 0.3,0.18 0.29,0.31 0.3,0.46 0.3,0.67 0.29,0.73 0.3,0.75 0.3,0.47 0.29,0.26 0.3,-0.17 0.3,-0.19 0.29,-0.12 0.3,0.27 0.3,0.65 0.3,0.85 0.29,0.93 0.3,0.39 0.3,-0.04 0.29,-0.44 0.3,-0.47 0.3,-0.07 0.29,0.33 0.3,0.72 0.3,0.91 0.29,0.57 0.3,0.14 0.3,-0.25 0.29,-0.44 0.3,-0.3 0.3,0.01 0.29,0.37 0.3,0.73 0.3,1.04 0.3,1.16 0.29,0.98 0.3,0.34 0.3,-0.33 0.29,-0.72 0.3,-0.91 0.3,-0.89 0.29,-0.61 0.3,-0.01 0.3,0.68 0.29,0.98 0.3,0.46 0.3,-0.07 0.29,-1.02 0.3,-1.03 0.3,-0.53 0.29,0.14 0.3,-0.2 0.3,-0.74 0.29,-0.85 0.3,-0.36 0.3,0.47 0.3,1.33 0.29,1.89 0.3,1.98 0.3,2.01 0.29,0.47 0.3,-0.66 0.3,-0.95 0.29,-0.93 0.3,-0.86 0.3,-0.06 0.29,0.46 0.3,0.63 0.3,1.13 0.29,1.2 0.3,0.45 0.3,0.5 0.29,1.55 0.3,2.31 0.3,0.92 0.29,-1.03 0.3,-3.4 0.3,-2.97 0.3,-0.87 0.29,0.19 0.3,-0.6 0.3,-0.72 0.29,0.91 0.3,2.06 0.3,0.96 0.29,-0.62 0.3,-1.06 0.3,-0.27 0.29,1.48 0.3,1.45 0.3,-2.65 0.29,-2.85 0.3,-0.54 0.3,1.58 0.29,1.8 0.3,2.88 0.3,4.85 0.3,-3.97 0.29,0.45 0.3,0.07 0.3,-0.28 0.29,-0.5 0.3,-0.56 0.3,-0.51 0.29,-0.4 0.3,-0.3 0.3,-0.17 0.29,-0.17 0.3,-0.13 0.3,-0.11 0.29,-0.08 0.3,-0.03 0.3,0.02 0.29,0.11 0.3,0.11 0.3,0.16 0.29,0.21 0.3,0.28 0.3,0.34 0.3,0.38 0.29,0.57 0.3,0.51 0.3,0.28 0.29,0.27 0.3,0.28 0.3,0.38 0.29,0.24 0.3,0.03 0.3,-0.05 0.29,-0.01 0.3,0.1 0.3,0.19 0.29,0.38 0.3,0.38 0.3,0.32 0.29,0.29 0.3,0.2 0.3,0.3 0.29,0.35 0.3,0.43 0.3,0.42 0.3,0.26 0.29,0.06 0.3,0.02 0.3,0.25 0.29,0.74 0.3,1.61 0.3,1.43 0.29,1.18 0.3,0.86 0.3,0.59 0.29,0.82 0.3,0.68 0.3,0.55 0.29,0.41 0.3,0.28 0.3,0.4 0.29,0.29 0.3,0.11 0.3,-0.08 0.29,-0.3 0.3,-0.64 0.3,-0.72 0.3,-0.18 0.29,0.69 0.3,1.28 0.3,1.06 0.29,0.1 0.3,-0.56 0.3,-0.34 0.29,0.26 0.3,0.53 0.3,0.11 0.29,-0.64 0.3,-1 0.3,-0.63 0.29,0.55 0.3,1.15 0.3,1.18 0.29,0.87 0.3,0.03 0.3,-0.79 0.3,-0.69 0.29,0.12 0.3,0.84 0.3,0.51 0.29,-0.65 0.3,-0.71 0.3,0.29 0.29,1.35 0.3,1.29 0.3,1.14 0.29,0.87 0.3,-1.63 0.3,0.13 0.29,0.09 0.3,0.11 0.3,0.12 0.29,0.15 0.3,0.15 0.3,0.13 0.29,0.11 0.3,0.05 0.3,0.01 0.3,0.01 0.29,0.01 0.3,0.02 0.3,0.09 0.29,0.16 0.3,0.25 0.3,0.34 0.29,0.41 0.3,0.43 0.3,0.39 0.29,0.29 0.3,0.21 0.3,0.11 0.29,0.03 0.3,-0.03 0.3,-0.09 0.29,-0.08 0.3,-0.05 0.3,0.02 0.29,0.05 0.3,0.07 0.3,0.06 0.3,0.06 0.29,0.12 0.3,0.17 0.3,0.2 0.29,0.18 0.3,0.06 0.3,-0.08 0.29,-0.18 0.3,-0.19 0.3,-0.12 0.29,-0.02 0.3,0.2 0.3,0.3 0.29,0.17 0.3,0.11 0.3,0.11 0.29,0.19 0.3,0.58 0.3,0.65 0.3,0.16 0.29,-0.17 0.3,-0.67 0.3,-0.61 0.29,-0.21 0.3,-0.05 0.3,0.03 0.29,-0.01 0.3,-0.04 0.3,0.04 0.29,0.16 0.3,0.49 0.3,0.66 0.29,0.59 0.3,0.33 0.3,0.03 0.29,-0.08 0.3,-0.07 0.3,-0.04 0.29,-0.02 0.3,0.03 0.3,0.13 0.3,0.09 0.29,-0.11 0.3,-0.19 0.3,0.14 0.29,0.53 0.3,0.74 0.3,0.25 0.29,-0.13 0.3,-0.2 0.3,-0.05 0.29,0.14 0.3,-0.05 0.3,-0.28 0.29,-0.58 0.3,-1.23 0.3,-1.34 0.29,0.05 0.3,1.39 0.3,1.24 0.29,0.52 0.3,0.27 0.3,0.3 0.3,0.29 0.29,0.17 0.3,0.32 0.3,0.64 0.29,0.49 0.3,-0.06 0.3,-0.07 0.29,0.45 0.3,-0.96 0.3,-0.11 0.29,-0.11 0.3,-0.1 0.3,-0.08 0.29,-0.07 0.3,-0.06 0.3,-0.06 0.29,-0.05 0.3,-0.01 0.3,0.01 0.3,0.07 0.29,0.09 0.3,0.08 0.3,0.03 0.29,-0.04 0.3,-0.09 0.3,-0.11 0.29,-0.08 0.3,-0.04 0.3,0.02 0.29,0.07 0.3,0.09 0.3,0.11 0.29,0.12 0.3,0.11 0.3,0.09 0.29,0.06 0.3,-0.02 0.3,-0.09 0.29,-0.12 0.3,-0.14 0.3,-0.13 0.3,-0.13 0.29,-0.14 0.3,-0.15 0.3,-0.1 0.29,0.01 0.3,0.19 0.3,0.39 0.29,0.52 0.3,0.45 0.3,0.24 0.29,0.02 0.3,-0.12 0.3,-0.14 0.29,-0.07 0.3,-0.01 0.3,-0.02 0.29,-0.11 0.3,-0.1 0.3,-0.22 0.29,-0.18 0.3,-0.09 0.3,0.12 0.3,0.27 0.29,0.09 0.3,-0.07 0.3,-0.13 0.29,-0.04 0.3,0.09 0.3,0.2 0.29,0.2 0.3,0.14 0.3,-0.11 0.29,-0.17 0.3,-0.09 0.3,0.04 0.29,0.09 0.3,-0.09 0.3,-0.06 0.29,0.1 0.3,0.42 0.3,0.42 0.3,0.13 0.29,0.02 0.3,-0.14 0.3,-0.18 0.29,-0.31 0.3,-0.3 0.3,-0.23 0.29,-0.1 0.3,0.15 0.3,0.26 0.29,0.23 0.3,0.19 0.3,-0.02 0.29,-0.35 0.3,-0.48 0.3,-0.24 0.29,-0.04 0.3,-0.11 0.3,-0.16 0.29,0.03 0.3,0.26 0.3,0.29 0.3,0.08 0.29,0.1 0.3,0.05 0.3,0.04 0.29,-0.04 0.3,-0.06 0.3,-0.11 0.29,-0.12 0.3,-0.13 0.3,-0.09 0.29,-0.09 0.3,-0.06 0.3,-0.07 0.29,-0.08 0.3,-0.11 0.3,-0.11 0.29,-0.1 0.3,-0.06 0.3,0.01 0.29,0.07 0.3,0.09 0.3,0.08 h 0.3 l 0.29,-0.07 0.3,-0.19 0.3,-0.22 0.29,-0.22 0.3,-0.17 0.3,-0.11 0.29,-0.08 0.3,-0.06 0.3,-0.06 0.29,-0.08 0.3,-0.11 0.3,-0.14 0.29,-0.18 0.3,-0.19 0.3,-0.19 0.29,-0.16 0.3,-0.09 0.3,-0.05 h 0.3 0.29 l 0.3,-0.02 0.3,-0.09 0.29,-0.19 0.3,-0.28 0.3,-0.34 0.29,-0.38 0.3,-0.37 0.3,-0.32 0.29,-0.23 0.3,-0.1 0.3,-0.03 0.29,-0.03 0.3,-0.11 0.3,-0.14 0.29,-0.13 0.3,-0.07 0.3,-0.03 0.29,-0.04 0.3,-0.12 0.3,-0.21 0.3,-0.26 0.29,-0.24 0.3,-0.18 0.3,-0.12 0.29,-0.08 0.3,-0.06 0.3,-0.09 0.29,-0.05 0.3,0.02 0.3,0.02 0.29,-0.05 0.3,-0.17 0.3,-0.54 0.29,-0.52 0.3,-0.08 0.3,0.14 0.29,0.44 0.3,0.45 0.3,0.19 0.29,0.06 0.3,0.15 0.3,0.37 0.3,0.85 0.29,0.69 0.3,0.21 0.3,0.34 0.29,0.51 0.3,0.36 0.3,0.05 0.29,-0.08 0.3,0.02 0.3,0.09 0.29,0.02 0.3,-0.06 0.3,-0.07 0.29,0.07 0.3,0.53 0.3,0.58 0.29,0.38 0.3,0.21 0.3,0.08 0.29,-0.41 0.3,0.49 0.3,0.53 0.3,0.56 0.29,0.53 0.3,0.53 0.3,0.45 0.29,0.44 0.3,0.41 0.3,0.42 0.29,0.45 0.3,0.48 0.3,0.49 0.29,0.5 0.3,0.47 0.3,0.46 0.29,0.44 0.3,0.44 0.3,0.43 0.29,0.42 0.3,0.37 0.3,0.31 0.3,0.25 0.29,0.2 0.3,0.15 0.3,0.18 0.29,0.22 0.3,0.29 0.3,0.41 0.29,0.49 0.3,0.52 0.3,0.52 0.29,0.51 0.3,0.48 0.3,0.45 0.29,0.44 0.3,0.41 0.3,0.39 0.29,0.35 0.3,0.33 0.3,0.3 0.29,0.28 0.3,0.24 0.3,0.22 0.3,0.21 0.29,0.21 0.3,0.22 0.3,0.23 0.29,0.24 0.3,0.23 0.3,0.13 0.29,0.21 0.3,0.24 0.3,0.27 0.29,0.48 0.3,0.49 0.3,0.28 0.29,0.26 0.3,0.25 0.3,0.27 0.29,0.29 0.3,0.29 0.3,0.28 0.29,0.37 0.3,0.34 0.3,0.27 0.3,0.32 0.29,0.36 0.3,0.55 0.3,0.47 0.29,0.23 0.3,0.18 0.3,0.25 0.29,0.24 0.3,0.1 0.3,0.06 0.29,-0.01 h 0.3 l 0.3,0.14 0.29,0.31 0.3,0.41 0.3,0.39 0.29,0.32 0.3,0.23 0.3,0.09 0.3,-0.02 h 0.29 l 0.3,0.1 0.3,0.04 0.29,-0.13 h 0.3 l 0.3,0.34 0.29,0.63 0.3,0.89 0.3,0.68 0.29,0.7 0.3,0.6 0.3,0.7 0.29,0.64 0.3,0.63 0.3,0.52 0.29,0.49 0.3,0.38 0.3,0.33 0.29,0.26 0.3,0.21 0.3,0.18 0.3,0.13 0.29,0.13 0.3,0.11 0.3,0.12 0.29,0.13 0.3,0.15 0.3,0.17 0.29,0.2 0.3,0.19 0.3,0.2 0.29,0.15 0.3,0.13 0.3,0.11 0.29,0.07 0.3,0.07 0.3,0.08 0.29,0.1 0.3,0.13 0.3,0.16 0.29,0.19 0.3,0.19 0.3,0.16 0.3,0.09 0.29,-0.03 0.3,-0.16 0.3,-0.24 0.29,-0.28 0.3,-0.25 0.3,-0.13 0.29,-0.02 0.3,0.07 0.3,0.15 0.29,0.19 0.3,0.23 0.3,0.27 0.29,0.29 0.3,0.3 0.3,0.28 0.29,0.26 0.3,0.23 0.3,0.19 0.3,0.15 0.29,0.13 0.3,0.14 0.3,0.18 0.29,0.24 0.3,0.31 0.3,0.39 0.29,0.49 0.3,0.3 0.3,0.13 0.29,-0.01 0.3,-0.01 0.3,0.07 0.29,0.13 0.3,0.12 0.3,0.07 0.29,0.09 0.3,0.35 0.3,0.56 0.29,0.36 0.3,0.27 0.3,0.2 0.3,0.14 0.29,0.09 0.3,0.01 h 0.3 l 0.29,-0.14 0.3,-0.76 0.3,-0.75 0.29,0.12 0.3,1.16 0.3,1.23 0.29,0.4 0.3,0.11 0.3,-0.29 0.29,-0.53 0.3,-1.03 0.3,-0.56 0.29,0.58 0.3,1.13 0.3,0.87 0.29,0.5 0.3,0.35 0.3,0.35 0.3,0.3 0.29,0.24 0.3,0.12 0.3,-0.07 h 0.29 l 0.3,0.26 0.3,0.33 0.29,0.27 0.3,-0.04 0.3,0.23 0.29,0.23 0.3,0.24 0.3,0.22 0.29,0.22 0.3,0.2 0.3,0.2 0.29,0.18 0.3,0.17 0.3,0.15 0.3,0.13 0.29,0.09 0.3,0.08 0.3,0.05 0.29,0.04 0.3,0.05 0.3,0.06 0.29,0.1 0.3,0.11 0.3,0.13 0.29,0.15 0.3,0.14 0.3,0.13 0.29,0.09 0.3,0.06 0.3,0.04 0.29,0.02 0.3,0.02 0.3,0.04 0.29,0.06 0.3,0.07 0.3,0.04 0.3,-0.08 0.29,-0.2 0.3,-0.24 0.3,-0.2 0.29,-0.08 0.3,0.03 h 0.3 l 0.29,-0.38 0.3,-0.88 0.3,-1.21 0.29,-1.21 0.3,-0.87 0.3,-0.29 0.29,0.42 0.3,1.07 0.3,1.55 0.29,1.69 0.3,0.98 0.3,1.23 0.29,0.78 0.3,0.48 0.3,0.52 0.3,0.51 0.29,0.29 0.3,0.19 0.3,0.07 0.29,0.01 0.3,0.02 0.3,0.08 0.29,0.12 0.3,0.24 0.3,0.23 0.29,0.15 0.3,0.16 0.3,0.15 0.29,-0.02 0.3,-0.59 0.3,-0.83 0.29,-0.85 0.3,-0.34 0.3,0.95 0.3,1.15 0.29,1.33 0.3,0.59 0.3,0.11 0.29,-0.01 0.3,-0.15 0.3,-0.16 0.29,0.02 0.3,0.29 0.3,0.36 0.29,0.24 0.3,0.15 0.3,0.12 0.29,0.14 0.3,0.16 0.3,0.16 0.29,0.13 0.3,0.06 0.3,-0.05 0.29,-0.08 0.3,-0.06 0.3,-0.59 0.3,-1.38 0.29,-0.56 0.3,-0.8 0.3,-0.89 0.29,-1.3 0.3,-1.53 0.3,-2.06 0.29,-2.32 0.3,-2.59 0.3,-2.46 0.29,-2.39 0.3,-1.64 0.3,-1.34 0.29,-0.48 0.3,0.17 0.3,0.76 0.29,1.89 0.3,2.34 0.3,3.2 0.29,3.52 0.3,3.58 0.3,2.68 0.3,1.7 0.29,0.88 0.3,-0.02 0.3,-0.12 0.29,-0.16 0.3,0.04 0.3,0.29 0.29,0.47 0.3,0.67 0.3,0.69 0.29,0.61 0.3,0.5 0.3,0.3 0.29,0.06 0.3,-0.15 0.3,-0.42 0.29,-0.74 0.3,-1.12 0.3,-1.3 0.3,-1.3 0.29,-1.18 0.3,-0.88 0.3,-0.41 0.29,0.07 0.3,0.46 0.3,0.73 0.29,0.87 0.3,0.91 0.3,0.94 0.29,0.98 0.3,1.01 0.3,0.9 0.29,0.68 0.3,0.48 0.3,0.41 0.29,0.47 0.3,0.53 0.3,0.58 0.29,0.39 0.3,0.28 0.3,0.12 0.3,-0.19 0.29,-0.62 0.3,-1.02 0.3,-1.21 0.29,-1.18 0.3,-0.99 0.3,-2.74 0.29,-7.95 0.3,-7.54 0.3,-5.99 0.29,-3.76 0.3,-1.47 0.3,2.25 0.29,7.28 0.3,7.85 0.3,9.17 0.29,7.47 0.3,0.94 0.3,-0.21 0.29,-0.51 0.3,-0.87 0.3,-0.84 0.3,-1.49 0.29,-1.57 0.3,-0.98 0.3,-0.98 0.29,-0.25 0.3,0.66 0.3,1.09 0.29,1.12 0.3,1.01 0.3,0.95 0.29,0.97 0.3,0.78 0.3,0.55 0.29,0.05 0.3,-0.63 0.3,-0.67 0.29,-0.81 0.3,-1.05 0.3,-0.95 0.3,-10.07 0.29,-2.26 0.3,-1.84 0.3,-1.45 0.29,-0.66 0.3,-0.36 0.3,0.59 0.29,1.07 0.3,1.67 0.3,2.51 0.29,2.84 0.3,3.34 0.3,3.09 0.29,2.78 0.3,1.54 0.3,0.87 0.29,0.41 0.3,0.16 0.3,0.16 0.29,0.15 0.3,0.16 0.3,-0.05 0.3,-0.65 0.29,-1.51 0.3,-3.53 0.3,-4.22 0.29,-4.23 0.3,-3.76 0.3,-2.66 0.29,-1.54 0.3,-0.51 0.3,0.59 0.29,1.72 0.3,3.12 0.3,4.23 0.29,4.83 0.3,4.5 0.3,3.18 0.29,1.4 0.3,0.34 0.3,0.09 0.29,0.06 0.3,0.02 0.3,-0.23 0.3,-1.01 0.29,-2.28 0.3,-3.38 0.3,-3.53 0.29,-2.71 0.3,-1.36 0.3,-0.27 0.29,1.16 0.3,2.65 0.3,3.71 0.29,4.8 0.3,2.11 0.3,0.19 0.29,0.02 0.3,-0.12 0.3,-0.27 0.29,-0.47 0.3,-0.78 0.3,-1.39 0.29,-3.36 0.3,-2.91 0.3,-0.8 0.3,0.42 0.29,1.56 0.3,3.25 0.3,2.66 0.29,0.79 0.3,0.37 0.3,0.11 0.29,-0.16 0.3,-0.21 0.3,-0.77 0.29,-1.66 0.3,-1.66 0.3,-2.1 0.29,-0.88 0.3,0.27 0.3,0.66 0.29,1.33 0.3,1.87 0.3,1.24 0.3,0.15 0.29,-4.46 0.3,-10.83 0.3,-12.42 0.29,-7.29 0.3,-3.17 0.3,0.58 0.29,4.89 0.3,12.4 0.3,12.69 0.29,5.18 0.3,-17.59 0.3,3.51 0.29,4.14 0.3,3.95 0.3,3.62 0.29,2.48 0.3,1.93 0.3,0.99 0.29,0.9 0.3,0.74 0.3,0.54 0.3,0.44 0.29,0.25 0.3,0.24 0.3,0.26 0.29,0.38 0.3,0.43 0.3,0.4 0.29,0.28 0.3,0.05 0.3,-0.04 0.29,-0.1 h 0.3 l 0.3,-0.06 0.29,-0.26 0.3,-0.69 0.3,-1.41 0.29,-1.47 0.3,-1.26 0.3,-0.77 0.29,0.09 0.3,0.89 0.3,1.34 0.3,1.39 0.29,1.03 0.3,0.37 0.3,0.02 0.29,0.27 0.3,0.62 0.3,0.78 0.29,0.63 0.3,0.28 0.3,0.06 0.29,0.12 0.3,0.36 0.3,0.39 0.29,-0.03 0.3,-0.61 0.3,-1.13 0.29,-2.83 0.3,-5.86 0.3,-6.92 0.3,-5.78 0.29,-3.98 0.3,-2.1 0.3,-0.21 0.29,1.65 0.3,3.54 0.3,8.09 0.29,11.08 0.3,4.2 0.3,1.68 0.29,0.94 0.3,0.54 0.3,0.03 0.29,-0.43 0.3,-0.15 0.3,0.24 0.29,0.41 0.3,0.62 0.3,0.29 0.29,-0.39 0.3,-1.61 0.3,-1.53 0.3,-0.28 0.29,0.75 0.3,0.91 0.3,0.09 h 0.29 l 0.3,0.49 0.3,0.65 0.29,0.27 0.3,0.14 0.3,0.42 0.29,0.04 0.3,-1.09 0.3,-1.77 0.29,-6.07 0.3,-10.21 0.3,-4.56 0.29,-0.44 0.3,3.17 0.3,6.75 0.29,10.38 0.3,3.19 0.3,1.1 0.3,0.23 0.29,-0.98 0.3,-0.41 0.3,-0.01 0.29,0.02 0.3,0.04 h 0.3 l 0.29,0.15 0.3,0.63"
+         id="path116" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="70.010002"
+         color="#7e2f8e"
+         id="use116" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_5a">
+    <title
+       id="title117">Kp=400 Ki=2</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g119">
+      <g
+         transform="translate(245.11,88.12)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g118">
+        <text
+           id="text117"><tspan
+             font-family="Arial"
+             id="tspan117">Kp=400 Ki=2</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g120">
+      <path
+         stroke="#77ac30"
+         d="m 207.99,85.19 h 30.82 m -193.44,16.29 0.3,0.21 0.29,0.24 0.3,0.27 0.3,0.27 0.29,0.27 0.3,0.26 0.3,0.28 0.29,0.32 0.3,0.31 0.3,0.32 0.3,0.31 0.29,0.31 0.3,0.28 0.3,0.28 0.29,0.28 0.3,0.28 0.3,0.2 0.29,0.13 0.3,0.14 0.3,0.13 0.29,0.12 0.3,-0.02 0.3,-0.02 0.29,-0.02 0.3,-0.02 0.3,-0.07 0.29,-0.08 0.3,-0.08 0.3,-0.08 0.29,-0.09 0.3,-0.09 0.3,-0.09 0.3,-0.08 0.29,-0.14 0.3,-0.15 0.3,-0.14 0.29,-0.19 0.3,-0.29 0.3,-0.28 0.29,-0.29 0.3,-0.39 0.3,-0.41 0.29,-0.42 0.3,-0.41 0.3,-0.39 0.29,-0.4 0.3,-0.38 0.3,-0.21 0.29,-0.22 0.3,-0.21 0.3,0.01 0.29,0.04 0.3,0.04 0.3,0.22 0.3,0.24 0.29,0.25 0.3,0.31 0.3,0.31 0.29,0.31 0.3,0.22 0.3,0.23 0.29,0.19 0.3,0.12 0.3,0.12 0.29,0.13 0.3,0.12 0.3,0.12 0.29,0.21 0.3,0.21 0.3,0.25 0.29,0.28 0.3,0.28 0.3,0.24 0.3,0.24 0.29,0.11 0.3,0.04 0.3,-0.02 0.29,-0.16 0.3,-0.15 0.3,-0.18 0.29,-0.17 0.3,-0.07 0.3,-0.06 0.29,-0.05 0.3,-0.05 0.3,-0.18 0.29,-0.25 0.3,-0.36 0.3,-0.43 0.29,-0.43 0.3,-0.42 0.3,-0.34 0.29,-0.29 0.3,-0.17 0.3,-0.14 0.3,0.01 0.29,0.05 0.3,0.3 0.3,0.41 0.29,0.68 0.3,0.9 0.3,1.08 0.29,1.28 0.3,1.27 0.3,1.07 0.29,0.75 0.3,0.42 0.3,0.06 0.29,0.02 0.3,0.05 0.3,0.18 0.29,0.21 0.3,0.07 0.3,-0.31 0.29,-0.62 0.3,-1.05 0.3,-1.16 0.3,-1.17 0.29,-1.05 0.3,-0.75 0.3,-0.48 0.29,-0.16 0.3,0.36 0.3,0.7 0.29,0.85 0.3,0.87 0.3,0.56 0.29,0.1 0.3,-0.24 0.3,-0.5 0.29,-0.61 0.3,-0.5 0.3,-0.22 0.29,0.14 0.3,0.54 0.3,0.98 0.3,1.44 0.29,1.84 0.3,1.95 0.3,1.32 0.29,0.11 0.3,-0.93 0.3,-1.34 0.29,-1.26 0.3,-1.11 0.3,-0.98 0.29,-0.68 h 0.3 l 0.3,0.3 0.29,1.6 0.3,2.16 0.3,1.23 0.29,-1.93 0.3,-1.86 0.3,-1.35 0.29,-0.6 0.3,0.2 0.3,0.92 0.3,1.42 0.29,1.62 0.3,1.45 0.3,0.79 0.29,-1.37 0.3,-1.85 0.3,-1.64 0.29,-0.96 0.3,-0.09 0.3,0.41 0.29,0.15 0.3,0.21 0.3,0.74 0.29,0.98 0.3,0.54 0.3,0.67 0.29,0.92 0.3,1.09 0.3,0.88 0.29,0.73 0.3,1.4 0.3,0.78 0.3,0.62 0.29,1.82 0.3,0.94 0.3,-2.03 0.29,-2.43 0.3,-0.71 0.3,0.88 0.29,1.34 0.3,2.01 0.3,2.07 0.29,-1.23 0.3,-5.31 0.3,-3.39 0.29,-0.6 0.3,3.38 0.3,5.66 0.29,2.63 0.3,-0.59 0.3,-3.1 0.3,-1.46 0.29,0.09 0.3,0.15 0.3,0.26 0.29,0.36 0.3,0.41 0.3,0.4 0.29,0.37 0.3,0.33 0.3,0.26 0.29,0.41 0.3,0.52 0.3,0.63 0.29,0.62 0.3,0.48 0.3,0.06 0.29,-0.64 0.3,-0.7 0.3,-0.71 0.29,-0.61 0.3,-0.43 0.3,-0.27 0.3,-0.13 0.29,-0.09 0.3,-0.08 0.3,-0.05 0.29,-0.01 0.3,0.06 0.3,0.31 0.29,0.47 0.3,0.32 0.3,0.29 0.29,0.05 0.3,-0.05 0.3,0.01 0.29,0.31 0.3,0.66 0.3,0.98 0.29,0.99 0.3,0.52 0.3,0.49 0.29,0.3 0.3,0.22 0.3,0.13 0.3,-0.17 0.29,-0.48 0.3,-0.69 0.3,-0.58 0.29,-0.28 0.3,0.08 0.3,0.32 0.29,0.43 0.3,0.42 0.3,0.28 0.29,0.24 0.3,0.19 0.3,0.33 0.29,0.72 0.3,1.05 0.3,1.19 0.29,0.77 0.3,0.43 0.3,0.11 0.29,-0.28 0.3,-0.56 0.3,-0.72 0.3,-0.61 0.29,-0.16 0.3,0.27 0.3,0.31 0.29,-0.1 0.3,-0.36 0.3,-0.2 0.29,-0.06 0.3,-0.36 0.3,-0.58 0.29,-0.17 0.3,0.59 0.3,1.48 0.29,1.62 0.3,0.91 0.3,0.28 0.29,-0.37 0.3,-0.33 0.3,0.14 0.3,0.29 h 0.29 l 0.3,-0.37 0.3,-0.24 0.29,0.19 0.3,0.27 0.3,0.47 0.29,1.01 0.3,0.42 0.3,-0.36 0.29,0.01 0.3,1.16 0.3,0.4 0.29,0.23 0.3,0.06 0.3,-0.08 0.29,-0.22 0.3,-0.27 0.3,-0.22 0.29,-0.16 0.3,0.01 0.3,0.19 0.3,0.33 0.29,0.43 0.3,0.51 0.3,0.48 0.29,0.36 0.3,0.25 0.3,0.15 0.29,0.11 0.3,0.15 0.3,0.25 0.29,0.34 0.3,0.4 0.3,0.38 0.29,0.3 0.3,0.14 0.3,-0.02 0.29,-0.1 0.3,-0.04 0.3,0.15 0.29,0.35 0.3,0.46 0.3,0.45 0.3,0.32 0.29,0.22 0.3,0.18 0.3,0.29 0.29,0.4 0.3,0.39 0.3,0.24 0.29,0.05 0.3,-0.05 0.3,-0.08 0.29,-0.1 0.3,-0.32 0.3,-0.44 0.29,-0.16 0.3,0.13 0.3,0.43 0.29,0.64 0.3,0.88 0.3,0.45 0.3,0.03 0.29,-0.03 0.3,-0.07 0.3,-0.12 0.29,-0.1 0.3,-0.07 0.3,0.09 0.29,0.15 0.3,0.32 0.3,0.41 0.29,0.32 0.3,0.56 0.3,0.62 0.29,0.69 0.3,0.64 0.3,0.46 0.29,0.34 0.3,0.17 0.3,-0.02 0.29,-0.12 0.3,-0.01 0.3,0.26 0.3,0.46 0.29,0.47 0.3,0.35 0.3,0.14 0.29,0.15 0.3,-0.1 0.3,-0.43 0.29,-0.16 0.3,0.24 0.3,0.7 0.29,0.8 0.3,0.58 0.3,0.41 0.29,-1.26 0.3,-4.14 0.3,-3.28 0.29,-0.12 0.3,2.83 0.3,3.49 0.29,1.67 0.3,0.49 0.3,0.55 0.3,0.8 0.29,0.57 0.3,0.1 0.3,-0.09 0.29,0.04 0.3,0.29 0.3,0.45 0.29,0.13 0.3,0.11 0.3,0.24 0.29,0.25 0.3,0.25 0.3,0.24 0.29,0.23 0.3,0.19 0.3,0.17 0.29,0.15 0.3,0.14 0.3,0.15 0.3,0.17 0.29,0.2 0.3,0.23 0.3,0.26 0.29,0.28 0.3,0.3 0.3,0.29 0.29,0.29 0.3,0.28 0.3,0.25 0.29,0.23 0.3,0.21 0.3,0.19 0.29,0.16 0.3,0.15 0.3,0.14 0.29,0.14 0.3,0.18 0.3,0.23 0.29,0.28 0.3,0.32 0.3,0.31 0.3,0.25 0.29,0.16 0.3,0.13 0.3,0.13 0.29,0.18 0.3,0.25 0.3,0.32 0.29,0.33 0.3,0.3 0.3,0.19 0.29,0.03 0.3,-0.11 0.3,-0.13 0.29,0.02 0.3,0.26 0.3,0.46 0.29,0.54 0.3,0.32 0.3,0.41 0.29,0.28 0.3,0.17 0.3,0.27 0.3,0.55 0.29,0.57 0.3,0.56 0.3,0.38 0.29,0.18 0.3,0.04 0.3,0.01 0.29,0.04 0.3,0.22 0.3,0.33 0.29,0.17 0.3,0.06 0.3,-0.03 0.29,0.05 0.3,0.26 0.3,0.28 0.29,0.31 0.3,0.45 0.3,0.31 0.3,0.11 0.29,0.25 0.3,0.43 0.3,0.32 0.29,0.14 0.3,-0.42 0.3,-0.73 0.29,-0.25 0.3,0.64 0.3,0.92 0.29,0.58 0.3,0.33 0.3,0.29 0.29,0.18 0.3,-0.11 0.3,-0.15 0.29,0.07 0.3,0.25 0.3,0.34 0.29,0.54 0.3,0.48 0.3,0.39 0.3,0.25 0.29,0.33 0.3,0.3 0.3,0.29 0.29,0.27 0.3,0.26 0.3,0.25 0.29,0.25 0.3,0.26 0.3,0.27 0.29,0.28 0.3,0.25 0.3,0.24 0.29,0.18 0.3,0.15 0.3,0.12 0.29,0.09 0.3,0.1 0.3,0.12 0.29,0.16 0.3,0.2 0.3,0.28 0.3,0.31 0.29,0.35 0.3,0.35 0.3,0.34 0.29,0.31 0.3,0.28 0.3,0.26 0.29,0.25 0.3,0.22 0.3,0.16 0.29,0.12 0.3,0.09 0.3,0.06 0.29,0.07 0.3,0.08 0.3,0.08 0.29,0.08 0.3,0.12 0.3,0.19 0.3,0.23 0.29,0.27 0.3,0.26 0.3,0.26 0.29,0.28 0.3,0.32 0.3,0.31 0.29,0.27 0.3,0.22 0.3,0.17 0.29,0.13 0.3,0.04 0.3,-0.04 0.29,-0.06 0.3,0.01 0.3,0.14 0.29,0.25 0.3,0.29 0.3,0.32 0.29,0.22 0.3,0.19 0.3,0.19 0.3,0.21 0.29,0.19 0.3,0.13 0.3,0.11 0.29,0.12 0.3,0.18 0.3,0.33 0.29,0.32 0.3,0.18 0.3,0.15 0.29,0.12 0.3,0.07 0.3,0.07 0.29,0.16 0.3,0.16 0.3,0.15 0.29,0.09 0.3,-0.02 0.3,-0.06 0.29,-0.02 0.3,0.19 0.3,0.27 0.3,0.41 0.29,0.37 0.3,0.23 0.3,0.24 0.29,0.05 0.3,-0.05 h 0.3 l 0.29,0.19 0.3,0.22 0.3,-0.3 0.29,-0.71 0.3,-0.08 0.3,0.73 0.29,0.76 0.3,0.37 0.3,0.14 0.29,0.17 0.3,0.15 0.3,0.14 0.29,0.39 0.3,0.06 0.3,0.06 0.3,0.05 0.29,0.08 0.3,0.08 0.3,0.13 0.29,0.14 0.3,0.15 0.3,0.16 0.29,0.15 0.3,0.14 0.3,0.11 0.29,0.1 0.3,0.1 0.3,0.12 0.29,0.15 0.3,0.19 0.3,0.21 0.29,0.24 0.3,0.25 0.3,0.24 0.3,0.23 0.29,0.21 0.3,0.16 0.3,0.13 0.29,0.1 0.3,0.07 0.3,0.06 0.29,0.06 0.3,0.06 0.3,0.07 0.29,0.08 0.3,0.07 0.3,0.09 0.29,0.11 0.3,0.14 0.3,0.2 0.29,0.25 0.3,0.29 0.3,0.3 0.29,0.24 0.3,0.16 0.3,0.11 0.3,0.08 0.29,0.08 0.3,0.08 0.3,0.09 0.29,0.07 0.3,0.01 0.3,-0.03 0.29,-0.12 0.3,-0.11 0.3,0.03 0.29,0.35 0.3,0.46 0.3,0.26 0.29,0.21 0.3,0.19 0.3,0.14 0.29,0.1 0.3,0.07 0.3,0.08 0.29,0.14 0.3,0.14 0.3,0.04 h 0.3 l 0.29,0.02 0.3,0.13 0.3,0.23 0.29,0.13 0.3,0.08 0.3,0.14 0.29,0.3 0.3,0.25 0.3,0.21 0.29,0.01 0.3,-0.02 0.3,0.1 0.29,0.21 0.3,0.22 0.3,0.15 0.29,0.05 0.3,0.04 0.3,0.1 0.3,0.11 0.29,0.09 0.3,0.14 0.3,0.27 0.29,0.31 0.3,0.2 0.3,0.07 0.29,-0.01 0.3,0.05 0.3,0.15 0.29,0.2 0.3,-0.2 0.3,0.08 0.29,0.09 0.3,0.08 0.3,0.1 0.29,0.11 0.3,0.12 0.3,0.13 0.29,0.14 0.3,0.13 0.3,0.14 0.3,0.13 0.29,0.14 0.3,0.14 0.3,0.16 0.29,0.17 0.3,0.18 0.3,0.2 0.29,0.19 0.3,0.18 0.3,0.18 0.29,0.16 0.3,0.16 0.3,0.16 0.29,0.14 0.3,0.09 0.3,0.06 0.29,-0.01 0.3,-0.01 0.3,0.01 0.29,0.08 0.3,0.19 0.3,0.25 0.3,0.28 0.29,0.27 0.3,0.23 0.3,0.21 0.29,0.18 0.3,0.16 0.3,0.13 0.29,0.13 0.3,0.12 0.3,0.13 0.29,0.14 0.3,0.14 0.3,0.13 0.29,0.11 0.3,0.11 0.3,0.11 0.29,0.11 0.3,0.1 0.3,0.1 0.3,0.12 0.29,0.17 0.3,0.2 0.3,0.17 0.29,0.09 0.3,0.06 0.3,0.1 0.29,0.23 0.3,0.24 0.3,0.19 0.29,0.13 0.3,0.13 0.3,0.19 0.29,0.22 0.3,0.23 0.3,0.18 0.29,0.13 0.3,0.07 0.3,0.02 0.29,0.03 0.3,0.07 0.3,0.08 0.3,0.13 0.29,0.28 0.3,0.34 0.3,0.12 0.29,-0.19 0.3,-1.01 0.3,-0.87 0.29,0.16 0.3,1.22 0.3,1.19 0.29,0.31 0.3,0.02 0.3,-0.2 0.29,-0.34 0.3,-0.79 0.3,-0.48 0.29,0.58 0.3,1.17 0.3,0.93 0.29,0.55 0.3,0.34 0.3,0.23 0.3,0.08 0.29,0.06 0.3,0.13 0.3,0.21 0.29,0.09 0.3,-0.01 h 0.3 l 0.29,0.16 0.3,0.12 0.3,0.14 0.29,0.15 0.3,0.17 0.3,0.2 0.29,0.22 0.3,0.24 0.3,0.24 0.29,0.25 0.3,0.23 0.3,0.22 0.3,0.19 0.29,0.18 0.3,0.15 0.3,0.12 0.29,0.11 0.3,0.11 0.3,0.11 0.29,0.14 0.3,0.17 0.3,0.2 0.29,0.22 0.3,0.19 0.3,0.15 0.29,0.06 0.3,-0.02 0.3,-0.06 0.29,-0.07 0.3,-0.02 0.3,0.04 0.29,0.09 0.3,0.09 0.3,0.05 0.3,-0.12 0.29,-0.25 0.3,-0.3 0.3,-0.27 0.29,-0.18 0.3,-0.08 0.3,-0.1 0.29,-0.37 0.3,-0.76 0.3,-1.03 0.29,-1.04 0.3,-0.75 0.3,-0.22 0.29,0.42 0.3,1.06 0.3,1.52 0.29,1.66 0.3,0.97 0.3,1.22 0.29,0.75 0.3,0.42 0.3,0.36 0.3,0.28 0.29,0.15 0.3,0.12 0.3,0.12 0.29,0.13 0.3,0.15 0.3,0.16 0.29,0.15 0.3,0.18 0.3,0.14 0.29,0.1 0.3,0.13 0.3,0.14 0.29,-0.07 0.3,-0.72 0.3,-0.98 0.29,-0.99 0.3,-0.48 0.3,0.97 0.3,1.29 0.29,1.61 0.3,0.8 0.3,0.14 0.29,0.02 0.3,-0.04 0.3,-0.01 0.29,0.07 0.3,0.29 0.3,0.48 0.29,0.51 0.3,0.32 0.3,0.05 0.29,-0.05 0.3,-0.14 0.3,-0.23 0.29,-0.2 0.3,-0.04 0.3,0.09 0.29,0.05 0.3,-0.06 0.3,-0.59 0.3,-1.56 0.29,-0.56 0.3,-0.81 0.3,-0.92 0.29,-1.45 0.3,-1.73 0.3,-2.34 0.29,-2.52 0.3,-2.72 0.3,-2.39 0.29,-2.25 0.3,-1.35 0.3,-1.04 0.29,-0.13 0.3,0.55 0.3,1.14 0.29,2.26 0.3,2.66 0.3,3.42 0.29,3.45 0.3,3.34 0.3,2.06 0.3,1.24 0.29,0.54 0.3,-0.11 0.3,-0.18 0.29,-0.22 0.3,0.01 0.3,0.29 0.29,0.5 0.3,0.74 0.3,0.82 0.29,0.76 0.3,0.64 0.3,0.38 0.29,0.08 0.3,-0.2 0.3,-0.49 0.29,-0.81 0.3,-1.16 0.3,-1.29 0.3,-1.28 0.29,-1.14 0.3,-0.86 0.3,-0.45 0.29,-0.05 0.3,0.28 0.3,0.54 0.29,0.74 0.3,0.86 0.3,0.96 0.29,1.05 0.3,1.07 0.3,0.96 0.29,0.77 0.3,0.61 0.3,0.58 0.29,0.63 0.3,0.67 0.3,0.65 0.29,0.31 0.3,0.1 0.3,-0.04 0.3,-0.24 0.29,-0.56 0.3,-0.92 0.3,-1.16 0.29,-1.19 0.3,-1.12 0.3,-5.06 0.29,-9.91 0.3,-6.86 0.3,-4.74 0.29,-2.43 0.3,-0.11 0.3,4.17 0.29,9.63 0.3,8.96 0.3,8.31 0.29,3.71 0.3,0.08 0.3,-0.22 0.29,-0.42 0.3,-0.71 0.3,-0.75 0.3,-1.45 0.29,-1.49 0.3,-0.91 0.3,-0.97 0.29,-0.36 0.3,0.47 0.3,0.95 0.29,1.06 0.3,0.93 0.3,0.76 0.29,0.82 0.3,0.91 0.3,0.78 0.29,0.27 0.3,-0.47 0.3,-0.81 0.29,-1.01 0.3,-0.99 0.3,-0.65 0.3,-11.96 0.29,-2.04 0.3,-1.56 0.3,-1.13 0.29,-0.32 h 0.3 l 0.3,0.95 0.29,1.43 0.3,2.03 0.3,2.82 0.29,3.07 0.3,3.39 0.3,2.87 0.29,2.42 0.3,1.14 0.3,0.63 0.29,0.3 0.3,0.13 0.3,0.06 0.29,0.01 0.3,-0.1 0.3,-0.56 0.3,-1.35 0.29,-2.37 0.3,-3.98 0.3,-4.15 0.29,-3.85 0.3,-3.19 0.3,-2.02 0.29,-0.89 0.3,0.16 0.3,1.26 0.29,2.39 0.3,3.74 0.3,4.66 0.29,4.71 0.3,3.71 0.3,2.05 0.29,0.59 0.3,0.05 0.3,-0.03 0.29,-0.01 0.3,-0.08 0.3,-0.52 0.3,-1.6 0.29,-2.92 0.3,-3.58 0.3,-3.15 0.29,-1.99 0.3,-0.47 0.3,0.29 0.29,2.09 0.3,3.46 0.3,4.09 0.29,3.94 0.3,1.04 0.3,0.05 0.29,0.1 0.3,0.04 0.3,-0.21 0.29,-0.66 0.3,-1.35 0.3,-2.17 0.29,-3.7 0.3,-2.15 0.3,0.11 0.3,1.37 0.29,2.26 0.3,3.19 0.3,1.66 0.29,0.38 0.3,0.3 0.3,0.25 0.29,0.02 0.3,-0.17 0.3,-0.99 0.29,-2.09 0.3,-1.76 0.3,-1.64 0.29,-0.2 0.3,0.38 0.3,-0.06 0.29,0.46 0.3,1.43 0.3,1.32 0.3,-0.29 0.29,-9.54 0.3,-11.9 0.3,-9.91 0.29,-5.06 0.3,-0.62 0.3,3.22 0.29,7.3 0.3,14.7 0.3,8.26 0.29,2.1 0.3,-15.6 0.3,3.73 0.29,4.13 0.3,3.77 0.3,3.17 0.29,2.04 0.3,1.49 0.3,0.77 0.29,0.64 0.3,0.46 0.3,0.21 0.3,0.11 0.29,-0.01 0.3,0.08 0.3,0.17 0.29,0.36 0.3,0.48 0.3,0.52 0.29,0.49 0.3,0.34 0.3,0.28 0.29,0.22 0.3,0.16 0.3,-0.09 0.29,-0.47 0.3,-1.02 0.3,-1.52 0.29,-1.35 0.3,-0.96 0.3,-0.32 0.29,0.56 0.3,1.27 0.3,1.5 0.3,1.3 0.29,0.77 0.3,0.21 0.3,0.21 0.29,0.59 0.3,0.84 0.3,0.74 0.29,0.36 0.3,-0.01 0.3,-0.05 0.29,0.2 0.3,0.4 0.3,0.16 0.29,-0.49 0.3,-1.02 0.3,-1.92 0.29,-4.63 0.3,-6.86 0.3,-6.47 0.3,-4.83 0.29,-2.92 0.3,-1.02 0.3,0.87 0.29,2.77 0.3,4.69 0.3,9.26 0.29,10.05 0.3,2.32 0.3,0.92 0.29,0.45 0.3,-0.09 0.3,-0.43 0.29,-0.35 0.3,0.4 0.3,0.6 0.29,0.53 0.3,0.24 0.3,-0.4 0.29,-0.76 0.3,-1.52 0.3,-0.88 0.3,0.27 0.29,1.07 0.3,0.59 0.3,-0.04 0.29,0.3 0.3,0.72 0.3,0.28 0.29,0.06 0.3,0.3 0.3,0.59 0.29,-0.2 0.3,-1.4 0.3,-3.25 0.29,-8.54 0.3,-8.73 0.3,-2.52 0.29,1.84 0.3,5.67 0.3,8.11 0.29,7.82 0.3,1.41 0.3,0.59 0.3,-0.32 0.29,-0.9 0.3,-0.36 0.3,0.21 0.29,0.74 0.3,0.24 0.3,-0.33 0.29,0.26 0.3,0.76"
+         id="path119" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="85.190002"
+         color="#77ac30"
+         id="use119" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_6a">
+    <title
+       id="title120">Kp=400 Ki=40</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g122">
+      <g
+         transform="translate(245.11,103.3)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g121">
+        <text
+           id="text120"><tspan
+             font-family="Arial"
+             id="tspan120">Kp=400 Ki=40</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g123">
+      <path
+         stroke="#4dbeee"
+         d="m 207.99,100.37 h 30.82 m -193.44,26.34 0.3,0.11 0.29,0.05 0.3,0.01 0.3,0.01 0.29,0.01 0.3,0.01 0.3,0.01 h 0.29 l 0.3,-0.01 h 0.3 0.3 l 0.29,0.02 0.3,0.07 0.3,0.06 0.29,0.07 0.3,0.07 0.3,0.13 0.29,0.16 0.3,0.16 0.3,0.17 0.29,0.17 0.3,0.21 0.3,0.21 0.29,0.22 0.3,0.21 0.3,0.18 0.29,0.17 0.3,0.18 0.3,0.17 0.29,0.08 0.3,0.07 0.3,0.07 0.3,0.07 h 0.29 l 0.3,-0.01 h 0.3 l 0.29,0.01 0.3,0.04 0.3,0.04 0.29,0.04 0.3,0.12 0.3,0.15 0.29,0.15 0.3,0.18 0.3,0.23 0.29,0.22 0.3,0.23 0.3,0.2 0.29,0.2 0.3,0.19 0.3,0.07 0.29,0.06 0.3,0.05 0.3,-0.11 0.3,-0.14 0.29,-0.13 0.3,-0.26 0.3,-0.27 0.29,-0.27 0.3,-0.27 0.3,-0.28 0.29,-0.25 0.3,-0.22 0.3,-0.21 0.29,-0.19 0.3,-0.19 0.3,-0.18 0.29,-0.2 0.3,-0.19 0.3,-0.18 0.29,-0.17 0.3,-0.16 0.3,-0.07 0.3,-0.06 0.29,0.02 0.3,0.06 0.3,0.11 0.29,0.18 0.3,0.21 0.3,0.37 0.29,0.37 0.3,0.63 0.3,0.66 0.29,0.89 0.3,0.95 0.3,0.97 0.29,0.98 0.3,0.66 0.3,0.49 0.29,0.04 0.3,-0.19 0.3,-0.42 0.29,-0.51 0.3,-0.47 0.3,-0.45 0.3,-0.22 0.29,-0.16 0.3,0.17 0.3,0.29 0.29,0.58 0.3,0.76 0.3,0.92 0.29,0.99 0.3,0.94 0.3,0.63 0.29,0.24 0.3,-0.17 0.3,-0.82 0.29,-1 0.3,-1.19 0.3,-0.98 0.29,-0.8 0.3,-0.27 0.3,0.2 0.29,0.52 0.3,0.97 0.3,1.06 0.3,1.04 0.29,0.87 0.3,0.49 0.3,0.1 0.29,-0.35 0.3,-1.02 0.3,-1.2 0.29,-1.09 0.3,-0.8 0.3,-0.23 0.29,0.22 0.3,0.43 0.3,0.54 0.29,0.6 0.3,0.77 0.3,1.13 0.29,1.38 0.3,1.4 0.3,1.12 0.3,0.58 0.29,0.15 0.3,0.27 0.3,0.81 0.29,1.2 0.3,1 0.3,0.3 0.29,-0.22 0.3,-0.22 0.3,-0.27 0.29,-1.06 0.3,-2.35 0.3,-1.71 0.29,-2.98 0.3,-2.24 0.3,-1.62 0.29,-0.27 0.3,0.21 0.3,0.21 0.29,0.27 0.3,0.43 0.3,0.52 0.3,0.46 0.29,0.47 0.3,0.71 0.3,1.22 0.29,0.52 0.3,-0.04 0.3,0.1 0.29,0.08 0.3,-0.78 0.3,-1.04 0.29,-0.11 0.3,0.38 0.3,0.78 0.29,1.06 0.3,0.98 0.3,0.27 0.29,-1.38 0.3,-1.2 0.3,-0.37 0.29,-0.18 0.3,-0.44 0.3,0.28 0.3,1.56 0.29,1.27 0.3,-0.55 0.3,-0.94 0.29,-0.13 0.3,0.84 0.3,1.52 0.29,0.5 0.3,-1.55 0.3,-1.2 0.29,0.35 0.3,1.98 0.3,1.68 0.29,-0.76 0.3,-2.67 0.3,-0.62 0.29,0.22 0.3,-1.09 0.3,-1.38 0.3,2.01 0.29,-0.17 0.3,-0.18 0.3,-0.17 0.29,-0.14 0.3,-0.1 0.3,-0.03 0.29,0.07 0.3,0.16 0.3,0.17 0.29,0.23 0.3,0.16 0.3,-0.01 0.29,-0.2 0.3,-0.37 0.3,-0.6 0.29,-0.39 0.3,-0.03 0.3,0.13 0.29,0.21 0.3,0.19 0.3,0.09 0.3,-0.03 0.29,-0.14 0.3,0.01 0.3,0.22 0.29,0.41 0.3,0.54 0.3,0.89 0.29,0.82 0.3,0.49 0.3,0.76 0.29,0.86 0.3,0.58 0.3,0.46 0.29,0.16 0.3,-0.41 0.3,-0.84 0.29,-0.91 0.3,-0.57 0.3,-0.68 0.29,-0.4 0.3,0.05 0.3,0.39 0.3,0.64 0.29,0.67 0.3,0.5 0.3,0.36 0.29,0.17 0.3,-0.07 0.3,-0.34 0.29,-0.54 0.3,-0.55 0.3,-0.44 0.29,-0.48 0.3,-0.31 0.3,-0.24 0.29,-0.18 0.3,-0.08 0.3,0.05 0.29,0.27 0.3,0.6 0.3,1.25 0.29,1.38 0.3,0.95 0.3,0.21 0.3,-0.34 0.29,-0.57 0.3,-0.65 0.3,-0.72 0.29,-0.58 0.3,-0.23 0.3,0.01 0.29,-0.14 0.3,-0.26 h 0.3 l 0.29,0.36 0.3,0.37 0.3,-0.13 0.29,-0.69 0.3,-0.73 0.3,-0.66 0.29,-0.14 0.3,0.99 0.3,1.5 0.3,0.14 0.29,-1.39 0.3,-1.67 0.3,-0.19 0.29,1.64 0.3,2.52 0.3,2.37 0.29,0.97 0.3,-1.53 0.3,-1.68 0.29,-0.58 0.3,-0.03 0.3,-0.31 0.29,-0.32 0.3,-0.3 0.3,-0.27 0.29,-0.23 0.3,-0.17 0.3,-0.13 0.29,-0.08 0.3,-0.05 0.3,-0.06 0.3,-0.08 0.29,-0.1 0.3,-0.13 0.3,-0.11 0.29,-0.07 h 0.3 l 0.3,0.08 0.29,0.18 0.3,0.27 0.3,0.28 0.29,0.17 0.3,-0.02 0.3,-0.26 0.29,-0.44 0.3,-0.54 0.3,-0.48 0.29,-0.34 0.3,-0.12 0.3,0.1 0.29,0.27 0.3,0.35 0.3,0.38 0.3,0.33 0.29,0.24 h 0.3 l 0.3,-0.15 0.29,-0.23 0.3,-0.2 0.3,-0.14 0.29,-0.11 0.3,-0.15 0.3,-0.2 0.29,-0.22 0.3,-0.21 0.3,-0.05 0.29,0.03 0.3,0.07 0.3,0.06 0.29,0.01 0.3,-0.22 0.3,-0.41 0.3,-0.26 0.29,-0.16 0.3,0.09 0.3,0.37 0.29,0.36 0.3,0.46 0.3,0.27 0.29,0.08 0.3,0.14 0.3,0.22 0.29,0.14 0.3,0.03 0.3,-0.22 0.29,-0.42 0.3,-0.41 0.3,-0.27 0.29,-0.09 0.3,0.22 0.3,0.51 0.29,0.82 0.3,0.89 0.3,0.62 0.3,0.24 0.29,-0.11 0.3,0.06 0.3,0.56 0.29,0.99 0.3,1.19 0.3,0.52 0.29,0.2 0.3,0.26 0.3,0.3 h 0.29 l 0.3,-0.26 0.3,-0.67 0.29,-1.99 0.3,-3.15 0.3,-2.27 0.29,0.49 0.3,3.38 0.3,4.28 0.29,2.22 0.3,0.54 0.3,0.39 0.3,0.22 0.29,0.06 0.3,0.35 0.3,0.23 0.29,-0.33 0.3,-0.43 0.3,-0.11 0.29,0.24 0.3,0.55 0.3,0.27 0.29,0.35 0.3,0.42 0.3,0.48 0.29,0.51 0.3,0.48 0.3,0.45 0.29,0.39 0.3,0.32 0.3,0.29 0.3,0.23 0.29,0.21 0.3,0.19 0.3,0.17 0.29,0.19 0.3,0.21 0.3,0.27 0.29,0.33 0.3,0.39 0.3,0.44 0.29,0.46 0.3,0.47 0.3,0.46 0.29,0.43 0.3,0.37 0.3,0.31 0.29,0.26 0.3,0.18 0.3,0.14 0.29,0.11 0.3,0.09 0.3,0.09 0.3,0.07 0.29,0.06 0.3,0.05 0.3,0.07 0.29,0.13 0.3,0.25 0.3,0.41 0.29,0.57 0.3,0.59 0.3,0.44 0.29,0.22 0.3,0.06 0.3,0.1 0.29,0.28 0.3,0.48 0.3,0.54 0.29,0.47 0.3,0.24 0.3,0.4 0.29,0.43 0.3,0.39 0.3,0.25 0.3,0.1 0.29,0.18 0.3,0.32 0.3,0.37 0.29,0.34 0.3,0.27 0.3,0.22 0.29,0.23 0.3,0.47 0.3,0.55 0.29,0.26 0.3,0.08 0.3,-0.08 0.29,-0.29 0.3,-0.25 0.3,-0.02 0.29,0.1 0.3,0.33 0.3,0.39 0.3,0.28 0.29,0.47 0.3,0.48 0.3,0.31 0.29,0.28 0.3,-0.12 0.3,-0.43 0.29,-0.16 0.3,0.57 0.3,0.95 0.29,0.86 0.3,0.57 0.3,0.25 0.29,0.18 0.3,0.3 0.3,0.45 0.29,0.54 0.3,0.42 0.3,0.09 0.29,-0.21 0.3,-0.1 0.3,0.11 0.3,0.58 0.29,0.2 0.3,0.21 0.3,0.2 0.29,0.21 0.3,0.2 0.3,0.21 0.29,0.22 0.3,0.23 0.3,0.25 0.29,0.24 0.3,0.23 0.3,0.21 0.29,0.18 0.3,0.16 0.3,0.16 0.29,0.17 0.3,0.19 0.3,0.21 0.29,0.25 0.3,0.26 0.3,0.27 0.3,0.24 0.29,0.21 0.3,0.13 0.3,0.09 0.29,0.07 0.3,0.06 0.3,0.12 0.29,0.18 0.3,0.27 0.3,0.36 0.29,0.39 0.3,0.38 0.3,0.31 0.29,0.21 0.3,0.13 0.3,0.06 0.29,0.01 0.3,0.01 0.3,0.08 0.3,0.14 0.29,0.21 0.3,0.27 0.3,0.28 0.29,0.25 0.3,0.2 0.3,0.19 0.29,0.22 0.3,0.3 0.3,0.37 0.29,0.38 0.3,0.31 0.3,0.21 0.29,0.15 0.3,0.14 0.3,0.11 0.29,0.01 0.3,-0.02 0.3,0.08 0.29,0.2 0.3,0.19 0.3,0.08 0.3,0.01 0.29,0.05 0.3,0.1 0.3,0.13 0.29,0.12 0.3,0.1 0.3,0.2 0.29,0.21 0.3,0.09 0.3,0.03 0.29,0.07 0.3,0.21 0.3,0.48 0.29,0.39 0.3,0.17 0.3,0.15 0.29,0.21 0.3,0.12 0.3,0.03 0.29,0.13 0.3,0.28 0.3,0.25 0.3,0.31 0.29,0.22 0.3,0.05 0.3,-0.02 0.29,0.01 0.3,0.14 0.3,0.18 0.29,0.18 0.3,0.05 0.3,-0.56 0.29,-0.86 0.3,-0.14 0.3,0.67 0.29,0.78 0.3,0.55 0.3,0.24 0.29,0.24 0.3,0.33 0.3,0.21 0.29,0.02 0.3,0.17 0.3,0.16 0.3,0.15 0.29,0.14 0.3,0.14 0.3,0.14 0.29,0.13 0.3,0.13 0.3,0.13 0.29,0.12 0.3,0.1 0.3,0.09 0.29,0.07 0.3,0.05 0.3,0.07 0.29,0.06 0.3,0.09 0.3,0.11 0.29,0.11 0.3,0.13 0.3,0.12 0.3,0.13 0.29,0.14 0.3,0.15 0.3,0.16 0.29,0.19 0.3,0.19 0.3,0.18 0.29,0.15 0.3,0.09 0.3,0.05 0.29,0.01 0.3,0.01 0.3,0.07 0.29,0.12 0.3,0.18 0.3,0.21 0.29,0.24 0.3,0.25 0.3,0.26 0.29,0.25 0.3,0.22 0.3,0.16 0.3,0.11 0.29,0.08 0.3,0.04 0.3,0.01 0.29,-0.02 0.3,-0.05 0.3,-0.04 0.29,-0.04 0.3,0.04 0.3,0.16 0.29,0.4 0.3,0.36 0.3,0.16 0.29,0.13 0.3,0.15 0.3,0.18 0.29,0.19 0.3,0.17 0.3,0.14 0.29,0.18 0.3,0.12 0.3,0.02 0.3,0.01 0.29,0.04 0.3,0.12 0.3,0.09 0.29,0.02 0.3,0.05 0.3,0.16 0.29,0.24 0.3,0.16 0.3,0.21 0.29,0.13 0.3,0.01 0.3,-0.02 0.29,0.06 0.3,0.25 0.3,0.24 0.29,0.11 0.3,0.04 0.3,0.07 0.3,0.11 0.29,0.14 0.3,0.15 0.3,0.21 0.29,0.24 0.3,0.24 0.3,0.15 h 0.29 l 0.3,0.04 0.3,0.2 0.29,0.25 0.3,-0.02 0.3,0.09 0.29,0.08 0.3,0.09 0.3,0.1 0.29,0.12 0.3,0.15 0.3,0.16 0.29,0.18 0.3,0.16 0.3,0.16 0.3,0.13 0.29,0.12 0.3,0.1 0.3,0.1 0.29,0.12 0.3,0.15 0.3,0.16 0.29,0.18 0.3,0.17 0.3,0.17 0.29,0.14 0.3,0.14 0.3,0.13 0.29,0.15 0.3,0.17 0.3,0.18 0.29,0.19 0.3,0.19 0.3,0.17 0.29,0.17 0.3,0.15 0.3,0.15 0.3,0.13 0.29,0.11 0.3,0.13 0.3,0.13 0.29,0.16 0.3,0.17 0.3,0.14 0.29,0.1 0.3,0.07 0.3,0.05 0.29,0.07 0.3,0.09 0.3,0.11 0.29,0.12 0.3,0.11 0.3,0.14 0.29,0.17 0.3,0.2 0.3,0.24 0.3,0.24 0.29,0.2 0.3,0.15 0.3,0.12 0.29,0.11 0.3,0.12 0.3,0.11 0.29,0.13 0.3,0.14 0.3,0.15 0.29,0.11 0.3,0.07 0.3,0.09 0.29,0.18 0.3,0.29 0.3,0.33 0.29,0.29 0.3,0.3 0.3,0.22 0.29,0.09 0.3,0.05 0.3,0.06 0.3,0.09 0.29,0.15 0.3,0.1 h 0.3 l 0.29,-0.16 0.3,-0.8 0.3,-0.75 0.29,0.12 0.3,1.18 0.3,1.29 0.29,0.42 0.3,0.03 0.3,-0.33 0.29,-0.38 0.3,-0.64 0.3,-0.33 0.29,0.46 0.3,0.82 0.3,0.75 0.29,0.65 0.3,0.52 0.3,0.36 0.3,0.21 0.29,0.07 0.3,-0.1 0.3,0.01 0.29,0.21 0.3,0.2 0.3,0.08 0.29,-0.02 0.3,0.41 0.3,0.2 0.29,0.19 0.3,0.19 0.3,0.15 0.29,0.15 0.3,0.11 0.3,0.11 0.29,0.1 0.3,0.12 0.3,0.13 0.3,0.17 0.29,0.19 0.3,0.22 0.3,0.25 0.29,0.25 0.3,0.24 0.3,0.2 0.29,0.14 0.3,0.1 0.3,0.06 0.29,0.04 0.3,0.06 0.3,0.07 0.29,0.11 0.3,0.12 0.3,0.12 0.29,0.1 0.3,0.07 0.3,0.07 0.29,0.07 0.3,0.07 0.3,0.07 h 0.3 l 0.29,-0.07 0.3,-0.12 0.3,-0.12 0.29,-0.1 0.3,-0.1 0.3,-0.2 0.29,-0.55 0.3,-0.95 0.3,-1.19 0.29,-1.17 0.3,-0.87 0.3,-0.33 0.29,0.3 0.3,0.92 0.3,1.38 0.29,1.55 0.3,0.92 0.3,1.25 0.29,0.88 0.3,0.54 0.3,0.42 0.3,0.29 0.29,0.25 0.3,0.34 0.3,0.39 0.29,0.36 0.3,0.25 0.3,0.14 0.29,0.09 0.3,0.13 0.3,0.15 0.29,0.07 0.3,0.07 0.3,0.07 0.29,0.03 0.3,-0.33 0.3,-0.6 0.29,-0.69 0.3,-0.38 0.3,0.61 0.3,0.86 0.29,1.08 0.3,0.61 0.3,0.19 0.29,0.1 0.3,-0.08 0.3,-0.21 0.29,-0.17 0.3,0.08 0.3,0.3 0.29,0.39 0.3,0.25 0.3,0.09 0.29,0.1 0.3,0.21 0.3,0.19 0.29,0.07 h 0.3 l 0.3,-0.1 0.29,-0.11 0.3,-0.04 0.3,-0.41 0.3,-1 0.29,-0.5 0.3,-0.78 0.3,-0.87 0.29,-1.27 0.3,-1.51 0.3,-2.03 0.29,-2.3 0.3,-2.6 0.3,-2.48 0.29,-2.43 0.3,-1.68 0.3,-1.4 0.29,-0.53 0.3,0.12 0.3,0.71 0.29,1.84 0.3,2.3 0.3,3.18 0.29,3.52 0.3,3.59 0.3,2.6 0.3,1.52 0.29,0.62 0.3,-0.26 0.3,-0.28 0.29,-0.27 0.3,0.04 0.3,0.38 0.29,0.64 0.3,0.92 0.3,1.01 0.29,0.89 0.3,0.68 0.3,0.27 0.29,-0.08 0.3,-0.31 0.3,-0.5 0.29,-0.69 0.3,-0.95 0.3,-1.09 0.3,-1.13 0.29,-1.07 0.3,-0.86 0.3,-0.5 0.29,-0.1 0.3,0.26 0.3,0.55 0.29,0.78 0.3,0.91 0.3,0.98 0.29,1 0.3,0.93 0.3,0.78 0.29,0.64 0.3,0.57 0.3,0.54 0.29,0.52 0.3,0.5 0.3,0.55 0.29,0.4 0.3,0.26 0.3,0.06 0.3,-0.22 0.29,-0.55 0.3,-0.86 0.3,-1.04 0.29,-1.06 0.3,-0.96 0.3,-2.46 0.29,-7.55 0.3,-7.68 0.3,-6.23 0.29,-4.01 0.3,-1.7 0.3,1.93 0.29,6.91 0.3,7.66 0.3,9.15 0.29,7.82 0.3,1.11 0.3,-0.03 0.29,-0.24 0.3,-0.8 0.3,-0.86 0.3,-1.41 0.29,-1.35 0.3,-0.85 0.3,-0.99 0.29,-0.47 0.3,0.32 0.3,0.83 0.29,1.16 0.3,1.21 0.3,0.91 0.29,0.77 0.3,0.68 0.3,0.45 0.29,0.01 0.3,-0.32 0.3,-0.4 0.29,-0.66 0.3,-0.83 0.3,-0.84 0.3,-10.22 0.29,-2.34 0.3,-1.91 0.3,-1.52 0.29,-0.74 0.3,-0.43 0.3,0.51 0.29,1.01 0.3,1.61 0.3,2.48 0.29,2.84 0.3,3.42 0.3,3.26 0.29,2.98 0.3,1.66 0.3,0.87 0.29,0.35 0.3,0.09 0.3,0.12 0.29,0.13 0.3,0.12 0.3,-0.12 0.3,-0.66 0.29,-1.46 0.3,-3.38 0.3,-4.17 0.29,-4.27 0.3,-3.87 0.3,-2.8 0.29,-1.7 0.3,-0.65 0.3,0.43 0.29,1.58 0.3,2.98 0.3,4.15 0.29,4.83 0.3,4.64 0.3,3.41 0.29,1.57 0.3,0.4 0.3,0.12 0.29,0.11 0.3,0.1 0.3,-0.08 0.3,-0.78 0.29,-2.12 0.3,-3.41 0.3,-3.73 0.29,-2.98 0.3,-1.63 0.3,-0.41 0.29,0.94 0.3,2.48 0.3,3.68 0.29,5.15 0.3,2.55 0.3,0.25 0.29,0.07 0.3,-0.02 0.3,-0.21 0.29,-0.47 0.3,-0.8 0.3,-1.31 0.29,-3.25 0.3,-3.02 0.3,-0.96 0.3,0.29 0.29,1.48 0.3,3.26 0.3,2.61 0.29,0.7 0.3,0.34 0.3,0.27 0.29,0.08 0.3,-0.06 0.3,-0.52 0.29,-1.45 0.3,-1.69 0.3,-2.38 0.29,-1.14 0.3,0.15 0.3,0.47 0.29,0.97 0.3,1.64 0.3,1.39 0.3,0.58 0.29,-2.66 0.3,-10.11 0.3,-13.37 0.29,-7.98 0.3,-3.85 h 0.3 l 0.29,4.39 0.3,11.85 0.3,13.03 0.29,6 0.3,-17.12 0.3,3.58 0.29,4.22 0.3,4.02 0.3,3.67 0.29,2.47 0.3,1.88 0.3,0.91 0.29,0.8 0.3,0.65 0.3,0.44 0.3,0.34 0.29,0.19 0.3,0.22 0.3,0.27 0.29,0.45 0.3,0.53 0.3,0.52 0.29,0.4 0.3,0.11 0.3,-0.03 0.29,-0.12 0.3,-0.09 0.3,-0.17 0.29,-0.4 0.3,-0.83 0.3,-1.48 0.29,-1.5 0.3,-1.26 0.3,-0.75 0.29,0.07 0.3,0.81 0.3,1.17 0.3,1.18 0.29,0.86 0.3,0.39 0.3,0.28 0.29,0.64 0.3,1 0.3,1.11 0.29,0.8 0.3,0.3 0.3,-0.04 0.29,0.03 0.3,0.27 0.3,0.24 0.29,-0.25 0.3,-0.84 0.3,-1.23 0.29,-2.78 0.3,-5.79 0.3,-6.87 0.3,-5.74 0.29,-3.91 0.3,-2.01 0.3,-0.11 0.29,1.78 0.3,3.69 0.3,8.32 0.29,11.24 0.3,3.98 0.3,1.5 0.29,0.85 0.3,0.47 h 0.3 l 0.29,-0.31 0.3,0.03 0.3,0.27 0.29,0.3 0.3,0.18 0.3,-0.21 0.29,-0.51 0.3,-1.41 0.3,-1.33 0.3,-0.26 0.29,0.61 0.3,0.7 0.3,0.08 0.29,0.26 0.3,0.99 0.3,1.14 0.29,0.55 0.3,0.12 0.3,0.12 0.29,-0.33 0.3,-1.08 0.3,-1.59 0.29,-6.47 0.3,-10.51 0.3,-4.49 0.29,-0.24 0.3,3.47 0.3,7.02 0.29,10.35 0.3,2.89 0.3,1.05 0.3,0.43 0.29,-0.6 0.3,-0.3 0.3,-0.26 0.29,-0.67 0.3,-0.33 0.3,0.28 0.29,0.41 0.3,0.57"
+         id="path122" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="100.37"
+         color="#4dbeee"
+         id="use122" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_7a">
+    <title
+       id="title123">Kp=400 Ki=80</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g125">
+      <g
+         transform="translate(245.11,118.48)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g124">
+        <text
+           id="text123"><tspan
+             font-family="Arial"
+             id="tspan123">Kp=400 Ki=80</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g126">
+      <path
+         stroke="#a2142f"
+         d="m 207.99,115.55 h 30.82 m -193.44,12.7 0.3,0.26 0.29,0.32 0.3,0.37 0.3,0.38 0.29,0.38 0.3,0.37 0.3,0.37 0.29,0.36 0.3,0.35 0.3,0.36 0.3,0.36 0.29,0.31 0.3,0.2 0.3,0.2 0.29,0.2 0.3,0.2 0.3,0.11 0.29,0.04 0.3,0.04 0.3,0.04 0.29,0.03 0.3,-0.04 0.3,-0.05 0.29,-0.04 0.3,-0.05 0.3,-0.11 0.29,-0.11 0.3,-0.12 0.3,-0.12 0.29,-0.26 0.3,-0.28 0.3,-0.28 0.3,-0.28 0.29,-0.49 0.3,-0.5 0.3,-0.49 0.29,-0.51 0.3,-0.55 0.3,-0.55 0.29,-0.55 0.3,-0.46 0.3,-0.43 0.29,-0.43 0.3,-0.38 0.3,-0.29 0.29,-0.28 0.3,-0.29 0.3,-0.24 0.29,-0.25 0.3,-0.25 0.3,-0.27 0.29,-0.28 0.3,-0.28 0.3,-0.22 0.3,-0.22 0.29,-0.21 0.3,-0.01 0.3,0.01 0.29,0.03 0.3,0.33 0.3,0.33 0.29,0.42 0.3,0.63 0.3,0.64 0.29,0.77 0.3,0.84 0.3,0.85 0.29,0.87 0.3,0.88 0.3,0.78 0.29,0.69 0.3,0.67 0.3,0.37 0.3,0.37 0.29,0.18 0.3,0.11 0.3,0.08 0.29,0.04 0.3,0.06 0.3,0.12 0.29,0.12 0.3,0.17 0.3,0.17 0.29,0.08 0.3,0.06 0.3,-0.08 0.29,-0.15 0.3,-0.25 0.3,-0.3 0.29,-0.34 0.3,-0.35 0.3,-0.39 0.29,-0.39 0.3,-0.37 0.3,-0.36 0.3,-0.21 0.29,-0.18 0.3,0.04 0.3,0.09 0.29,0.22 0.3,0.29 0.3,0.34 0.29,0.45 0.3,0.5 0.3,0.59 0.29,0.56 0.3,0.53 0.3,0.34 0.29,0.28 0.3,0.22 0.3,0.36 0.29,0.44 0.3,0.64 0.3,0.65 0.29,0.59 0.3,0.36 0.3,0.08 0.3,-0.08 0.29,-0.24 0.3,-0.25 0.3,-0.22 0.29,-0.15 0.3,-0.03 0.3,0.07 0.29,0.17 0.3,0.24 0.3,0.28 0.29,0.16 0.3,-0.03 0.3,-0.19 0.29,-0.22 0.3,0.1 0.3,0.71 0.29,1.2 0.3,1.36 0.3,0.97 0.3,0.13 0.29,-0.69 0.3,-0.81 0.3,-0.34 0.29,0.32 0.3,0.92 0.3,1.02 0.29,0.36 0.3,-0.65 0.3,-1.15 0.29,-0.83 0.3,-0.17 0.3,0.13 0.29,0.48 0.3,0.24 0.3,-0.35 0.29,-0.52 0.3,-0.27 0.3,-0.24 0.29,-0.19 0.3,-0.05 0.3,0.16 0.3,0.16 0.29,-0.22 0.3,-0.55 0.3,-0.15 0.29,0.95 0.3,0.46 0.3,-0.2 0.29,-0.32 0.3,0.36 0.3,0.81 0.29,0.53 0.3,0.62 0.3,0.8 0.29,0.29 0.3,0.35 0.3,0.96 0.29,0.04 0.3,-1.09 0.3,-0.54 0.29,0.18 0.3,0.46 0.3,-0.12 0.3,-0.85 0.29,-0.69 0.3,-0.91 0.3,-1.37 0.29,-1.03 0.3,-0.05 0.3,0.97 0.29,1.16 0.3,0.4 0.3,-0.11 0.29,0.26 0.3,0.98 0.3,-0.44 0.29,-2.11 0.3,-0.4 0.3,3.61 0.29,2.74 0.3,-0.69 0.3,-3.26 0.3,0.44 0.29,0.07 0.3,-0.01 0.3,-0.11 0.29,-0.22 0.3,-0.34 0.3,-0.41 0.29,-0.43 0.3,-0.38 0.3,-0.22 0.29,-0.14 0.3,0.05 0.3,0.22 0.29,0.36 0.3,0.42 0.3,0.51 0.29,0.1 0.3,-0.31 0.3,-0.54 0.29,-0.66 0.3,-0.62 0.3,-0.45 0.3,-0.18 0.29,0.38 0.3,1.04 0.3,0.99 0.29,1.04 0.3,0.92 0.3,0.86 0.29,0.38 0.3,0.02 0.3,-0.12 0.29,-0.21 0.3,-0.13 0.3,-0.05 0.29,0.19 0.3,0.48 0.3,0.76 0.29,0.86 0.3,0.55 0.3,0.66 0.29,0.39 0.3,-0.08 0.3,-0.42 0.3,-0.62 0.29,-0.55 0.3,-0.27 0.3,0.08 0.29,0.57 0.3,1.31 0.3,1.18 0.29,1.07 0.3,0.88 0.3,0.6 0.29,0.38 0.3,-0.13 0.3,-0.52 0.29,-0.77 0.3,-0.36 0.3,0.01 0.29,0.02 h 0.3 l 0.3,0.24 0.29,0.86 0.3,1.29 0.3,0.74 0.3,-0.78 0.29,-1.67 0.3,-1.25 0.3,-0.33 0.29,0.22 0.3,0.14 0.3,-0.03 0.29,0.12 0.3,0.18 0.3,0.01 0.29,0.08 0.3,0.72 0.3,1.99 0.29,1.91 0.3,0.2 0.3,-0.95 0.29,-2.12 0.3,-2.01 0.3,-0.98 0.3,-0.25 0.29,-0.12 0.3,-0.03 0.3,0.44 0.29,0.7 0.3,0.41 0.3,0.26 0.29,0.34 0.3,0.26 0.3,0.48 0.29,0.35 0.3,-0.65 h 0.3 l 0.29,-0.02 h 0.3 l 0.3,0.01 0.29,0.02 0.3,0.03 0.3,0.01 0.29,-0.01 0.3,-0.04 0.3,-0.09 0.3,-0.1 0.29,-0.11 0.3,-0.11 0.3,-0.06 0.29,-0.03 0.3,-0.01 0.3,-0.02 0.29,-0.07 0.3,-0.13 0.3,-0.2 0.29,-0.25 0.3,-0.31 0.3,-0.39 0.29,-0.47 0.3,-0.51 0.3,-0.49 0.29,-0.36 0.3,-0.19 0.3,0.01 0.29,0.22 0.3,0.4 0.3,0.51 0.3,0.49 0.29,0.33 0.3,-0.09 0.3,-0.35 0.29,-0.47 0.3,-0.48 0.3,-0.43 0.29,-0.36 0.3,-0.28 0.3,-0.22 0.29,-0.2 0.3,-0.32 0.3,-0.38 0.29,-0.28 0.3,-0.3 0.3,-0.31 0.29,-0.27 0.3,-0.23 0.3,-0.02 0.3,0.05 0.29,0.06 0.3,0.21 0.3,0.43 0.29,0.4 0.3,0.24 0.3,-0.47 0.29,-0.71 0.3,-1.13 0.3,-0.91 0.29,-0.4 0.3,-0.26 0.3,0.05 0.29,0.15 0.3,0.01 0.3,-0.11 0.29,-0.02 0.3,0.05 0.3,-0.07 0.29,-0.19 0.3,-0.11 0.3,0.02 0.3,-0.01 0.29,-0.11 0.3,0.06 0.3,0.31 0.29,0.29 0.3,0.25 0.3,0.36 0.29,0.3 0.3,0.01 0.3,-0.49 0.29,-0.65 0.3,-0.22 0.3,0.15 0.29,-0.29 0.3,-2.45 0.3,-2.56 0.29,0.01 0.3,2.41 0.3,2.13 0.29,0.56 0.3,0.32 0.3,0.19 0.3,-0.2 0.29,-0.07 0.3,0.57 0.3,0.94 0.29,0.75 0.3,0.68 0.3,0.66 0.29,0.63 0.3,-0.79 0.3,0.14 0.29,0.1 0.3,0.05 0.3,0.07 0.29,0.08 0.3,0.2 0.3,0.27 0.29,0.36 0.3,0.46 0.3,0.48 0.3,0.48 0.29,0.43 0.3,0.39 0.3,0.34 0.29,0.36 0.3,0.39 0.3,0.47 0.29,0.5 0.3,0.5 0.3,0.42 0.29,0.3 0.3,0.23 0.3,0.2 0.29,0.24 0.3,0.32 0.3,0.39 0.29,0.45 0.3,0.47 0.3,0.47 0.29,0.48 0.3,0.48 0.3,0.5 0.3,0.49 0.29,0.44 0.3,0.36 0.3,0.26 0.29,0.18 0.3,0.12 0.3,0.1 0.29,0.13 0.3,0.13 0.3,0.1 0.29,0.07 0.3,0.1 0.3,0.22 0.29,0.38 0.3,0.5 0.3,0.46 0.29,0.29 0.3,0.1 0.3,0.15 0.29,0.3 0.3,0.46 0.3,0.68 0.3,0.44 0.29,0.23 0.3,0.31 0.3,0.41 0.29,0.44 0.3,0.4 0.3,0.32 0.29,0.22 0.3,0.24 0.3,0.28 0.29,0.3 0.3,0.37 0.3,0.37 0.29,0.56 0.3,0.64 0.3,0.37 0.29,0.13 0.3,-0.35 0.3,-0.41 0.3,0.01 0.29,0.51 0.3,0.68 0.3,0.35 0.29,0.11 0.3,-0.36 0.3,-0.49 0.29,0.02 0.3,0.84 0.3,1.04 0.29,0.68 0.3,0.42 0.3,0.34 0.29,0.33 0.3,0.2 0.3,0.12 0.29,0.26 0.3,0.47 0.3,0.45 0.29,0.3 0.3,0.06 0.3,0.07 0.3,0.06 0.29,0.18 0.3,0.19 0.3,0.21 0.29,0.24 0.3,0.26 0.3,0.3 0.29,0.3 0.3,0.32 0.3,0.3 0.29,0.3 0.3,0.24 0.3,0.22 0.29,0.16 0.3,0.14 0.3,0.12 0.29,0.15 0.3,0.16 0.3,0.21 0.29,0.23 0.3,0.26 0.3,0.24 0.3,0.22 0.29,0.21 0.3,0.21 0.3,0.22 0.29,0.23 0.3,0.23 0.3,0.22 0.29,0.2 0.3,0.19 0.3,0.16 0.29,0.17 0.3,0.18 0.3,0.2 0.29,0.25 0.3,0.27 0.3,0.27 0.29,0.26 0.3,0.22 0.3,0.2 0.3,0.19 0.29,0.18 0.3,0.15 0.3,0.1 0.29,0.07 0.3,0.11 0.3,0.17 0.29,0.25 0.3,0.28 0.3,0.27 0.29,0.21 0.3,0.15 0.3,0.12 0.29,0.12 0.3,0.12 0.3,0.12 0.29,0.11 0.3,0.14 0.3,0.26 0.29,0.27 0.3,0.21 0.3,0.09 0.3,-0.01 0.29,-0.01 0.3,0.12 0.3,0.28 0.29,0.38 0.3,0.34 0.3,0.31 0.29,0.25 0.3,0.15 0.3,0.09 0.29,0.06 0.3,0.09 0.3,0.21 0.29,0.29 0.3,0.23 0.3,0.18 0.29,0.09 0.3,0.04 0.3,0.09 0.29,0.23 0.3,0.25 0.3,0.14 0.3,0.11 0.29,0.08 0.3,0.1 0.3,0.22 0.29,0.21 0.3,-0.03 0.3,-0.11 0.29,0.12 0.3,0.21 0.3,-0.3 0.29,-0.59 0.3,0.15 0.3,1.01 0.29,0.9 0.3,0.25 0.3,0.1 0.29,0.28 0.3,0.25 0.3,0.1 0.29,-0.06 0.3,0.09 0.3,0.09 0.3,0.08 0.29,0.08 0.3,0.08 0.3,0.09 0.29,0.11 0.3,0.13 0.3,0.16 0.29,0.17 0.3,0.19 0.3,0.19 0.29,0.19 0.3,0.17 0.3,0.16 0.29,0.16 0.3,0.13 0.3,0.11 0.29,0.09 0.3,0.06 0.3,0.04 0.3,0.03 0.29,0.03 0.3,0.07 0.3,0.11 0.29,0.15 0.3,0.2 0.3,0.23 0.29,0.23 0.3,0.21 0.3,0.17 0.29,0.14 0.3,0.09 0.3,0.05 0.29,0.04 0.3,0.03 0.3,0.03 0.29,0.04 0.3,0.07 0.3,0.12 0.29,0.15 0.3,0.16 0.3,0.13 0.3,0.1 0.29,0.05 0.3,0.06 0.3,0.1 0.29,0.14 0.3,0.16 0.3,0.11 0.29,0.18 0.3,0.24 0.3,0.28 0.29,0.38 0.3,0.23 0.3,0.03 0.29,0.01 0.3,0.02 0.3,0.04 0.29,0.05 0.3,0.05 0.3,0.08 0.29,0.2 0.3,0.3 0.3,0.2 0.3,0.17 0.29,0.1 0.3,0.08 0.3,0.09 0.29,0.08 0.3,0.11 0.3,0.26 0.29,0.34 0.3,0.22 0.3,0.17 0.29,0.02 0.3,-0.04 0.3,0.05 0.29,0.2 0.3,0.25 0.3,0.19 0.29,0.11 0.3,0.05 0.3,-0.01 0.3,-0.03 0.29,-0.05 0.3,0.01 0.3,0.19 0.29,0.24 0.3,0.17 0.3,0.16 0.29,0.2 0.3,0.17 0.3,0.06 0.29,0.12 0.3,0.25 0.3,0.16 0.29,0.15 0.3,0.16 0.3,0.17 0.29,0.17 0.3,0.19 0.3,0.2 0.29,0.21 0.3,0.22 0.3,0.21 0.3,0.18 0.29,0.17 0.3,0.12 0.3,0.11 0.29,0.08 0.3,0.05 0.3,0.04 0.29,0.03 0.3,0.04 0.3,0.05 0.29,0.09 0.3,0.14 0.3,0.16 0.29,0.2 0.3,0.19 0.3,0.18 0.29,0.13 0.3,0.11 0.3,0.11 0.29,0.14 0.3,0.18 0.3,0.18 0.3,0.18 0.29,0.13 0.3,0.08 0.3,0.07 0.29,0.09 0.3,0.13 0.3,0.16 0.29,0.16 0.3,0.15 0.3,0.15 0.29,0.18 0.3,0.21 0.3,0.23 0.29,0.21 0.3,0.18 0.3,0.15 0.29,0.11 0.3,0.09 0.3,0.08 0.3,0.1 0.29,0.16 0.3,0.2 0.3,0.17 0.29,0.12 0.3,0.07 0.3,0.06 0.29,0.13 0.3,0.16 0.3,0.16 0.29,0.15 0.3,0.16 0.3,0.21 0.29,0.24 0.3,0.22 0.3,0.16 0.29,0.09 0.3,0.15 0.3,0.21 0.29,0.15 0.3,0.13 0.3,0.13 0.3,0.14 0.29,0.2 0.3,0.17 0.3,0.04 0.29,-0.16 0.3,-0.83 0.3,-0.71 0.29,0.19 0.3,1.16 0.3,1.05 0.29,0.18 h 0.3 l 0.3,-0.03 0.29,-0.21 0.3,-0.76 0.3,-0.54 0.29,0.5 0.3,1.11 0.3,0.9 0.29,0.52 0.3,0.34 0.3,0.25 0.3,0.19 0.29,0.17 0.3,0.21 0.3,0.27 0.29,0.04 0.3,-0.11 0.3,-0.07 0.29,0.04 0.3,0.1 0.3,0.13 0.29,0.14 0.3,0.14 0.3,0.14 0.29,0.14 0.3,0.14 0.3,0.15 0.29,0.15 0.3,0.18 0.3,0.18 0.3,0.2 0.29,0.21 0.3,0.21 0.3,0.19 0.29,0.17 0.3,0.14 0.3,0.11 0.29,0.12 0.3,0.11 0.3,0.14 0.29,0.13 0.3,0.12 0.3,0.11 0.29,0.07 0.3,0.07 0.3,0.09 0.29,0.12 0.3,0.21 0.3,0.26 0.29,0.28 0.3,0.22 0.3,0.11 0.3,-0.12 0.29,-0.25 0.3,-0.28 0.3,-0.2 0.29,-0.09 0.3,0.01 0.3,-0.05 0.29,-0.41 0.3,-0.89 0.3,-1.2 0.29,-1.25 0.3,-0.96 0.3,-0.43 0.29,0.23 0.3,0.89 0.3,1.39 0.29,1.62 0.3,0.97 0.3,1.33 0.29,0.91 0.3,0.55 0.3,0.45 0.3,0.34 0.29,0.25 0.3,0.26 0.3,0.2 0.29,0.1 0.3,0.03 0.3,0.04 0.29,0.07 0.3,0.21 0.3,0.24 0.29,0.17 0.3,0.17 0.3,0.17 0.29,0.19 0.3,-0.2 0.3,-0.55 0.29,-0.67 0.3,-0.36 0.3,0.69 0.3,0.92 0.29,1.05 0.3,0.38 0.3,-0.05 0.29,-0.2 0.3,-0.19 0.3,0.09 0.29,0.35 0.3,0.45 0.3,0.36 0.29,0.23 0.3,0.13 0.3,0.06 0.29,0.04 0.3,-0.02 0.3,-0.08 0.29,-0.15 0.3,-0.08 0.3,0.15 0.29,0.29 0.3,0.05 0.3,-0.41 0.3,-1.42 0.29,-0.57 0.3,-1.06 0.3,-1.22 0.29,-1.95 0.3,-2.19 0.3,-2.7 0.29,-2.66 0.3,-2.6 0.3,-2.08 0.29,-1.85 0.3,-0.84 0.3,-0.5 0.29,0.45 0.3,1.13 0.3,1.73 0.29,2.8 0.3,3.13 0.3,3.68 0.29,3.2 0.3,2.79 0.3,1.12 0.3,0.51 0.29,0.02 0.3,-0.33 0.3,-0.32 0.29,-0.28 0.3,-0.01 0.3,0.3 0.29,0.56 0.3,0.85 0.3,0.97 0.29,0.88 0.3,0.7 0.3,0.3 0.29,-0.06 0.3,-0.3 0.3,-0.51 0.29,-0.71 0.3,-0.96 0.3,-1.1 0.3,-1.17 0.29,-1.12 0.3,-0.95 0.3,-0.59 0.29,-0.17 0.3,0.19 0.3,0.48 0.29,0.68 0.3,0.82 0.3,0.97 0.29,1.08 0.3,1.11 0.3,0.97 0.29,0.76 0.3,0.61 0.3,0.56 0.29,0.58 0.3,0.59 0.3,0.62 0.29,0.36 0.3,0.2 0.3,0.05 0.3,-0.16 0.29,-0.46 0.3,-0.77 0.3,-1.03 0.29,-1.25 0.3,-2.22 0.3,-10.44 0.29,-10.13 0.3,-5.01 0.3,-2.67 0.29,-0.35 0.3,1.97 0.3,7.01 0.29,12.8 0.3,8.23 0.3,3.68 0.29,0.74 0.3,0.09 0.3,0.05 0.29,-0.05 0.3,-0.52 0.3,-0.7 0.3,-1.47 0.29,-1.71 0.3,-1.14 0.3,-1.2 0.29,-0.37 0.3,0.55 0.3,0.96 0.29,1.13 0.3,1.05 0.3,0.86 0.29,0.82 0.3,0.71 0.3,0.47 0.29,0.08 0.3,-0.32 0.3,-0.55 0.29,-0.78 0.3,-0.91 0.3,-0.81 0.3,-13.7 0.29,-1.64 0.3,-1.15 0.3,-0.68 0.29,0.13 0.3,0.47 0.3,1.41 0.29,1.89 0.3,2.47 0.3,3.16 0.29,3.29 0.3,3.3 0.3,2.4 0.29,1.78 0.3,0.56 0.3,0.28 0.29,0.11 0.3,0.11 0.3,0.11 0.29,0.02 0.3,-0.23 0.3,-1.3 0.3,-2.41 0.29,-3.61 0.3,-4.35 0.3,-3.91 0.29,-3.27 0.3,-2.42 0.3,-1.19 0.29,-0.04 0.3,1.02 0.3,2.12 0.29,3.22 0.3,4.45 0.3,4.84 0.29,4.03 0.3,2.52 0.3,1.01 0.29,0.24 0.3,0.07 0.3,0.08 0.29,0.03 0.3,-0.3 0.3,-1.27 0.3,-2.65 0.29,-3.51 0.3,-3.33 0.3,-2.31 0.29,-0.89 0.3,0.68 0.3,0.97 0.29,3.06 0.3,3.89 0.3,3.47 0.29,2.17 0.3,0.45 0.3,0.09 0.29,-0.02 0.3,-0.24 0.3,-0.64 0.29,-1.31 0.3,-2.17 0.3,-2.6 0.29,-2.97 0.3,-0.74 0.3,1.11 0.3,2.01 0.29,2.17 0.3,1.81 0.3,0.63 0.29,0.35 0.3,0.47 0.3,0.62 0.29,0.31 0.3,-0.23 0.3,-1.77 0.29,-2.66 0.3,-1.46 0.3,-0.53 0.29,0.78 0.3,0.44 0.3,-0.35 0.29,0.42 0.3,1.43 0.3,0.74 0.3,-4.95 0.29,-14.27 0.3,-9.83 0.3,-6.04 0.29,-1.9 0.3,2.6 0.3,6.75 0.29,9.81 0.3,12.66 0.3,2.92 0.29,1.42 0.3,-13.36 0.3,3.87 0.29,3.8 0.3,3.29 0.3,2.43 0.29,1.59 0.3,1.19 0.3,0.75 0.29,0.66 0.3,0.51 0.3,0.35 0.3,0.3 0.29,0.29 0.3,0.39 0.3,0.44 0.29,0.52 0.3,0.41 0.3,0.29 0.29,0.08 0.3,-0.05 0.3,-0.06 0.29,-0.02 0.3,-0.14 0.3,-0.55 0.29,-0.97 0.3,-1.47 0.3,-1.49 0.29,-1.06 0.3,-0.47 0.3,0.24 0.29,1.06 0.3,1.47 0.3,1.31 0.3,0.87 0.29,0.36 0.3,0.19 0.3,0.55 0.29,0.89 0.3,0.88 0.3,0.5 0.29,0.03 0.3,-0.17 0.3,-0.02 0.29,0.25 0.3,0.23 0.3,-0.21 0.29,-0.78 0.3,-1.51 0.3,-3.76 0.29,-6.53 0.3,-6.62 0.3,-5.17 0.3,-3.29 0.29,-1.39 0.3,0.5 0.3,2.4 0.29,4.31 0.3,6.12 0.3,9.76 0.29,6.57 0.3,1.06 0.3,0.59 0.29,0.24 0.3,0.01 h 0.3 l 0.29,0.25 0.3,0.45 0.3,0.39 0.29,0.39 0.3,0.02 0.3,-1.13 0.29,-1.34 0.3,-1.47 0.3,-0.15 0.3,0.58 0.29,0.59 0.3,-0.05 0.3,0.16 0.29,1.11 0.3,1.24 0.3,0.05 0.29,-0.43 0.3,-0.15 0.3,-0.28 0.29,-0.69 0.3,-2.83 0.3,-6.8 0.29,-8.15 0.3,-4.91 0.3,0.69 0.29,4.9 0.3,8.62 0.3,6.96 0.29,2.8 0.3,0.45 0.3,0.43 0.3,0.5 0.29,-0.65 0.3,-0.68 0.3,0.24 0.29,0.6 0.3,-0.58 0.3,0.02 0.29,0.81 0.3,0.43"
+         id="path125" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="115.55"
+         color="#a2142f"
+         id="use125" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_8a">
+    <title
+       id="title126">Kp=400 Ki=80 LiteX M2SDR</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g128">
+      <g
+         transform="translate(245.11,133.66)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g127">
+        <text
+           id="text126"><tspan
+             font-family="Arial"
+             id="tspan126">Kp=400 Ki=80 LiteX M2SDR</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g129">
+      <path
+         stroke="#0072bd"
+         d="m 207.99,130.73 h 30.82 m -193.44,-9.87 0.3,-0.25 0.29,-0.21 0.3,-0.18 0.3,-0.18 0.29,-0.18 0.3,-0.18 0.3,-0.13 0.29,-0.01 0.3,-0.01 0.3,-0.01 0.3,-0.01 0.29,0.06 0.3,0.25 0.3,0.24 0.29,0.25 0.3,0.24 0.3,0.42 0.29,0.54 0.3,0.54 0.3,0.54 0.29,0.57 0.3,0.8 0.3,0.8 0.29,0.8 0.3,0.8 0.3,0.84 0.29,0.84 0.3,0.85 0.3,0.84 0.29,0.54 0.3,0.48 0.3,0.49 0.3,0.48 0.29,0.01 h 0.3 0.3 l 0.29,-0.04 0.3,-0.16 0.3,-0.16 0.29,-0.15 0.3,-0.08 0.3,-0.04 0.29,-0.04 0.3,0.01 0.3,0.12 0.29,0.12 0.3,0.13 0.3,0.23 0.29,0.24 0.3,0.23 0.3,0.29 0.29,0.3 0.3,0.3 0.3,0.36 0.3,0.37 0.29,0.37 0.3,0.35 0.3,0.34 0.29,0.34 0.3,0.13 0.3,0.12 0.29,0.05 0.3,-0.14 0.3,-0.13 0.29,-0.18 0.3,-0.21 0.3,-0.2 0.29,-0.16 0.3,-0.15 0.3,-0.17 0.29,-0.18 0.3,-0.18 0.3,-0.22 0.3,-0.23 0.29,-0.19 0.3,-0.16 0.3,-0.12 0.29,-0.02 0.3,-0.01 0.3,0.1 0.29,0.09 0.3,0.15 0.3,0.15 0.29,0.18 0.3,0.19 0.3,0.14 0.29,0.12 0.3,-0.08 0.3,-0.18 0.29,-0.4 0.3,-0.5 0.3,-0.47 0.29,-0.46 0.3,-0.15 0.3,-0.07 0.3,0.4 0.29,0.46 0.3,0.78 0.3,0.78 0.29,0.77 0.3,0.59 0.3,0.43 0.29,0.11 0.3,-0.01 0.3,-0.23 0.29,-0.29 0.3,-0.35 0.3,-0.35 0.29,-0.35 0.3,-0.32 0.3,-0.33 0.29,-0.32 0.3,-0.33 0.3,-0.33 0.29,-0.32 0.3,-0.24 0.3,-0.1 0.3,0.04 0.29,0.27 0.3,0.57 0.3,0.75 0.29,0.91 0.3,1.06 0.3,1.09 0.29,1.09 0.3,1.06 0.3,0.9 0.29,0.33 0.3,-0.44 0.3,-1.14 0.29,-1.57 0.3,-1.39 0.3,-0.87 0.29,-0.41 0.3,-0.02 0.3,0.27 0.3,0.51 0.29,0.7 0.3,0.82 0.3,0.7 0.29,0.42 0.3,0.2 0.3,0.17 0.29,0.25 0.3,0.19 0.3,-0.15 0.29,-0.65 0.3,-0.97 0.3,-0.58 0.29,-0.7 0.3,-0.16 0.3,0.81 0.29,1.63 0.3,1.48 0.3,1.52 0.29,1.19 0.3,0.67 0.3,0.13 0.3,-0.38 0.29,-0.75 0.3,-0.69 0.3,0.01 0.29,1.07 0.3,0.71 0.3,-0.08 0.29,-1 0.3,-1.84 0.3,-0.87 0.29,0.15 0.3,0.29 0.3,-0.3 0.29,-1.06 0.3,-0.48 0.3,0.93 0.29,2.62 0.3,2.27 0.3,0.36 0.29,-0.55 0.3,-1.11 0.3,-1.02 0.3,-0.46 0.29,-0.16 h 0.3 l 0.3,0.65 0.29,1.02 0.3,0.26 0.3,-0.23 0.29,0.22 0.3,0.32 0.3,-0.47 0.29,-1.22 0.3,-0.4 0.3,0.68 0.29,0.16 0.3,-0.27 0.3,0.53 0.29,1.6 0.3,1.17 0.3,-2.57 0.3,-1.35 0.29,-0.21 0.3,-0.19 0.3,-0.14 0.29,-0.06 h 0.3 l 0.3,0.06 0.29,0.07 0.3,0.07 0.3,0.05 0.29,0.07 0.3,0.13 0.3,0.23 0.29,0.37 0.3,0.47 0.3,0.73 0.29,0.42 0.3,-0.06 0.3,-0.27 0.29,-0.33 0.3,-0.25 0.3,-0.08 0.3,0.13 0.29,0.5 0.3,0.61 0.3,0.34 0.29,0.23 0.3,0.14 0.3,0.17 0.29,0.29 0.3,0.3 0.3,0.5 0.29,0.43 0.3,0.17 0.3,0.09 0.29,0.08 0.3,0.12 0.3,0.23 0.29,0.33 0.3,0.26 0.3,0.43 0.29,0.42 0.3,0.3 0.3,0.12 0.3,-0.08 0.29,-0.14 0.3,-0.05 0.3,0.1 0.29,0.2 0.3,0.11 0.3,-0.16 0.29,-0.28 0.3,-0.2 0.3,0.1 0.29,0.66 0.3,0.92 0.3,1.24 0.29,1.64 0.3,0.76 0.3,-0.58 0.29,-0.85 0.3,-0.7 0.3,-0.3 0.29,0.59 0.3,1.17 0.3,1.07 0.3,0.32 0.29,-0.24 0.3,-0.24 0.3,-0.3 0.29,-0.83 0.3,-1.16 0.3,-0.64 0.29,0.29 0.3,0.77 0.3,0.44 0.29,-0.13 0.3,-0.39 0.3,-0.44 0.29,-0.34 0.3,-0.16 0.3,0.06 0.29,0.49 0.3,0.78 0.3,1.09 0.3,1.34 0.29,0.89 0.3,0.07 0.3,-1.21 0.29,-1.67 0.3,-0.91 0.3,0.32 0.29,0.86 0.3,-0.14 0.3,-0.97 0.29,-0.81 0.3,-0.17 0.3,-0.31 0.29,-0.26 0.3,-0.23 0.3,-0.18 0.29,-0.13 0.3,-0.03 0.3,0.04 0.29,0.11 0.3,0.22 0.3,0.31 0.3,0.34 0.29,0.37 0.3,0.33 0.3,0.21 0.29,0.08 0.3,-0.04 0.3,-0.13 0.29,-0.16 0.3,-0.12 0.3,-0.03 0.29,0.06 0.3,0.15 0.3,0.21 0.29,0.25 0.3,0.23 0.3,0.16 0.29,0.03 0.3,-0.14 0.3,-0.3 0.29,-0.44 0.3,-0.52 0.3,-0.52 0.3,-0.44 0.29,-0.34 0.3,-0.1 h 0.3 l 0.29,0.02 0.3,0.02 0.3,0.02 0.29,0.08 0.3,0.16 0.3,0.21 0.29,0.19 0.3,0.06 0.3,-0.27 0.29,-0.37 0.3,-0.45 0.3,-0.41 0.29,-0.3 0.3,-0.18 0.3,-0.06 0.3,-0.11 0.29,-0.22 0.3,-0.45 0.3,-0.34 0.29,-0.07 0.3,0.12 0.3,0.07 0.29,-0.17 0.3,-0.56 0.3,-0.55 0.29,-0.22 0.3,-0.14 0.3,0.01 0.29,0.19 0.3,0.16 0.3,-0.34 0.29,-0.69 0.3,-0.47 0.3,0.03 0.29,0.4 0.3,0.34 0.3,0.28 0.3,0.43 0.29,0.45 0.3,-0.11 0.3,-0.75 0.29,-0.91 0.3,-0.64 0.3,0.32 0.29,0.58 0.3,0.35 0.3,-0.38 0.29,-0.92 0.3,-0.49 0.3,-0.15 0.29,0.12 0.3,0.67 0.3,1.17 0.29,0.79 0.3,-0.16 0.3,-0.48 0.29,-0.13 0.3,0.4 0.3,0.31 0.3,-0.56 0.29,-0.79 0.3,0.12 0.3,1.17 0.29,1.08 0.3,0.16 0.3,-0.41 0.29,-0.4 0.3,0.53 0.3,0.12 0.29,0.17 0.3,0.19 0.3,0.3 0.29,0.34 0.3,0.46 0.3,0.49 0.29,0.52 0.3,0.48 0.3,0.44 0.3,0.34 0.29,0.28 0.3,0.25 0.3,0.25 0.29,0.31 0.3,0.35 0.3,0.44 0.29,0.47 0.3,0.49 0.3,0.47 0.29,0.44 0.3,0.42 0.3,0.42 0.29,0.41 0.3,0.38 0.3,0.35 0.29,0.28 0.3,0.18 0.3,0.15 0.29,0.16 0.3,0.2 0.3,0.29 0.3,0.4 0.29,0.46 0.3,0.47 0.3,0.43 0.29,0.36 0.3,0.3 0.3,0.28 0.29,0.33 0.3,0.37 0.3,0.38 0.29,0.37 0.3,0.36 0.3,0.37 0.29,0.36 0.3,0.34 0.3,0.29 0.29,0.26 0.3,0.15 0.3,0.3 0.29,0.32 0.3,0.31 0.3,0.47 0.3,0.49 0.29,0.28 0.3,0.2 0.3,0.18 0.29,0.27 0.3,0.37 0.3,0.41 0.29,0.36 0.3,0.29 0.3,0.07 0.29,-0.19 0.3,-0.63 0.3,-1.1 0.29,-1.5 0.3,-0.09 0.3,1.11 0.29,1.7 0.3,2.22 0.3,1.21 0.3,0.36 0.29,0.48 0.3,0.4 0.3,0.11 0.29,0.06 0.3,0.19 0.3,0.27 0.29,0.06 0.3,-0.18 0.3,-0.06 0.29,0.27 0.3,0.37 0.3,0.18 0.29,0.01 h 0.3 l 0.3,0.27 0.29,0.73 0.3,0.74 0.3,0.57 0.29,0.67 0.3,0.22 0.3,0.01 0.3,-0.25 0.29,0.19 0.3,0.16 0.3,0.18 0.29,0.22 0.3,0.24 0.3,0.28 0.29,0.3 0.3,0.32 0.3,0.29 0.29,0.28 0.3,0.21 0.3,0.19 0.29,0.15 0.3,0.16 0.3,0.16 0.29,0.21 0.3,0.25 0.3,0.29 0.29,0.32 0.3,0.34 0.3,0.36 0.3,0.36 0.29,0.35 0.3,0.33 0.3,0.27 0.29,0.23 0.3,0.13 0.3,0.08 0.29,0.07 0.3,0.09 0.3,0.17 0.29,0.21 0.3,0.22 0.3,0.2 0.29,0.11 0.3,0.05 h 0.3 l 0.29,-0.01 0.3,0.04 0.3,0.11 0.3,0.21 0.29,0.31 0.3,0.38 0.3,0.41 0.29,0.34 0.3,0.24 0.3,0.16 0.29,0.12 0.3,0.12 0.3,0.11 0.29,0.11 0.3,0.07 0.3,0.08 0.29,0.13 0.3,0.22 0.3,0.29 0.29,0.28 0.3,0.22 0.3,0.17 0.29,0.1 0.3,0.1 0.3,0.12 0.3,0.11 0.29,0.15 0.3,0.18 0.3,0.21 0.29,0.14 0.3,0.02 0.3,-0.06 0.29,0.07 0.3,0.22 0.3,0.31 0.29,0.34 0.3,0.27 0.3,0.17 0.29,0.01 0.3,-0.07 0.3,-0.1 0.29,-0.07 0.3,0.18 0.3,0.34 0.29,0.6 0.3,0.44 0.3,0.16 0.3,0.18 0.29,0.15 0.3,0.07 0.3,0.03 0.29,-0.03 0.3,0.08 0.3,0.21 0.29,0.23 0.3,0.22 0.3,0.22 0.29,0.11 0.3,-0.02 0.3,0.05 0.29,0.13 0.3,0.08 0.3,0.16 0.29,0.33 0.3,0.24 h 0.3 l 0.29,-0.12 0.3,0.12 0.3,0.12 0.3,0.1 0.29,0.08 0.3,0.07 0.3,0.04 0.29,0.04 0.3,0.04 0.3,0.09 0.29,0.12 0.3,0.18 0.3,0.2 0.29,0.22 0.3,0.22 0.3,0.19 0.29,0.18 0.3,0.15 0.3,0.15 0.29,0.15 0.3,0.14 0.3,0.15 0.3,0.14 0.29,0.14 0.3,0.12 0.3,0.11 0.29,0.09 0.3,0.09 0.3,0.09 0.29,0.11 0.3,0.13 0.3,0.14 0.29,0.16 0.3,0.19 0.3,0.2 0.29,0.23 0.3,0.24 0.3,0.23 0.29,0.22 0.3,0.19 0.3,0.13 0.29,0.11 0.3,0.09 0.3,0.09 0.3,0.08 0.29,0.1 0.3,0.12 0.3,0.17 0.29,0.21 0.3,0.2 0.3,0.12 0.29,0.15 0.3,0.12 0.3,0.11 0.29,0.17 0.3,0.11 0.3,0.01 h 0.29 l 0.3,0.04 0.3,0.1 0.29,0.13 0.3,0.14 0.3,0.15 0.29,0.22 0.3,0.21 0.3,0.1 0.3,0.07 0.29,0.05 0.3,0.11 0.3,0.23 0.29,0.22 0.3,0.24 0.3,0.29 0.29,0.11 0.3,-0.03 0.3,-0.02 0.29,0.13 0.3,0.16 0.3,0.16 0.29,0.07 0.3,0.06 0.3,-0.18 0.29,-4.03 0.3,-8.19 0.3,-8.55 0.3,-4.81 0.29,-0.89 0.3,2.56 0.3,6.26 0.29,9.85 0.3,7.13 0.3,2.37 0.29,0.21 0.3,0.24 0.3,0.16 0.29,0.08 0.3,-2.22 0.3,1.43 0.29,0.5 0.3,0.45 0.3,0.21 0.29,0.21 0.3,0.18 0.3,0.19 0.29,0.18 0.3,0.15 0.3,0.15 0.3,0.09 0.29,0.08 0.3,0.06 0.3,0.08 0.29,0.1 0.3,0.16 0.3,0.17 0.29,0.21 0.3,0.19 0.3,0.17 0.29,0.12 0.3,0.09 0.3,0.07 0.29,0.08 0.3,0.09 0.3,0.11 0.29,0.15 0.3,0.17 0.3,0.17 0.29,0.18 0.3,0.19 0.3,0.19 0.3,0.19 0.29,0.15 0.3,0.11 0.3,0.07 0.29,0.06 0.3,0.07 0.3,0.14 0.29,0.2 0.3,0.21 0.3,0.01 0.29,-0.8 0.3,-4.19 0.3,-7.36 0.29,-7.51 0.3,-6.37 0.3,-4.72 0.29,-2.95 0.3,-1.15 0.3,0.68 0.3,2.6 0.29,4.69 0.3,6.89 0.3,8.76 0.29,8.5 0.3,4.33 0.3,1.04 0.29,0.17 0.3,0.1 0.3,0.16 0.29,0.21 0.3,0.22 0.3,0.18 0.29,0.13 0.3,0.07 0.3,0.09 0.29,0.16 0.3,0.31 0.3,0.27 0.29,0.14 0.3,0.11 0.3,0.09 0.3,0.06 0.29,0.15 0.3,0.24 0.3,0.18 0.29,0.14 0.3,0.07 0.3,0.08 0.29,0.15 0.3,0.15 0.3,-0.42 0.29,-0.69 0.3,-0.67 0.3,0.39 0.29,0.86 0.3,1.12 0.3,0.46 0.29,0.06 0.3,0.14 0.3,0.17 0.29,0.13 0.3,0.23 0.3,0.38 0.3,0.26 0.29,0.03 0.3,-0.03 0.3,0.16 0.29,0.19 0.3,0.14 0.3,0.12 0.29,0.18 0.3,-0.62 0.3,-0.44 0.29,-0.56 0.3,-0.66 0.3,-0.6 0.29,-0.55 0.3,-0.2 0.3,0.02 0.29,0.3 0.3,0.69 0.3,0.82 0.3,0.98 0.29,0.91 0.3,0.85 0.3,0.6 0.29,0.46 0.3,0.36 0.3,0.26 0.29,0.21 0.3,0.15 0.3,0.02 0.29,-0.2 0.3,-0.37 0.3,-0.54 0.29,-0.6 0.3,-0.42 0.3,-0.15 0.29,0.17 0.3,0.62 0.3,0.83 0.29,0.84 0.3,0.69 0.3,0.41 0.3,0.08 0.29,-0.08 0.3,-0.1 0.3,-0.03 0.29,0.12 0.3,0.26 0.3,0.34 0.29,0.32 0.3,0.25 0.3,0.2 0.29,0.21 0.3,0.22 0.3,0.21 0.29,0.17 0.3,0.13 0.3,0.11 0.29,0.08 0.3,0.04 0.3,-0.09 0.29,-0.51 0.3,-1.12 0.3,-2.12 0.3,-1.04 0.29,0.51 0.3,1.34 0.3,1.73 0.29,1.52 0.3,0.92 0.3,0.2 0.29,-1.87 0.3,-11.6 0.3,-10.39 0.29,-5.39 0.3,-3.44 0.3,-1.54 0.29,1.37 0.3,5.32 0.3,6.11 0.29,7.93 0.3,10.78 0.3,4.51 0.3,-0.11 0.29,-1.03 0.3,-1.46 0.3,-0.66 0.29,0.35 0.3,1.53 0.3,1.63 0.29,0.95 0.3,0.4 0.3,0.22 0.29,-0.14 0.3,-0.43 0.3,-0.27 0.29,0.23 0.3,0.64 0.3,0.51 0.29,0.18 0.3,0.1 0.3,-0.32 0.29,-1.92 0.3,-1.83 0.3,-0.4 0.3,2.96 0.29,0.26 0.3,0.34 0.3,0.34 0.29,0.3 0.3,0.28 0.3,0.25 0.29,0.23 0.3,0.23 0.3,0.2 0.29,0.19 0.3,0.14 0.3,0.15 0.29,0.18 0.3,0.23 0.3,0.28 0.29,0.3 0.3,0.28 0.3,0.22 0.29,0.11 0.3,0.03 0.3,-0.26 0.3,-1.09 0.29,-1.91 0.3,-5.1 0.3,-5.75 0.29,-6.14 0.3,-5.15 0.3,-4.06 0.29,-3.1 0.3,-1.85 0.3,-0.39 0.29,0.69 0.3,1.84 0.3,3.37 0.29,4.93 0.3,6.14 0.3,7 0.29,7.1 0.3,4.1 0.3,2.07 0.3,0.89 0.29,0.3 0.3,-0.1 0.3,-0.42 0.29,-0.42 0.3,-0.21 0.3,0.08 0.29,0.3 0.3,0.44 0.3,0.44 0.29,0.37 0.3,0.15 0.3,-0.14 0.29,-0.18 0.3,0.14 0.3,0.57 0.29,0.81 0.3,0.65 0.3,0.26 0.29,-0.63 0.3,-3.46 0.3,-8.14 0.3,-8.94 0.29,-7.02 0.3,-4.63 0.3,-2.26 0.29,0.07 0.3,2.37 0.3,7.45 0.29,13.16 0.3,8.09 0.3,3.74 0.29,0.96 0.3,0.24 0.3,-0.11 0.29,-0.1 0.3,0.37 0.3,0.73 0.29,0.97 0.3,0.19 0.3,-0.36 0.29,-0.64 0.3,-0.11 0.3,0.36 0.3,0.52 0.29,-0.02 0.3,-0.88 0.3,-8.19 0.29,-11.12 0.3,-8.87 0.3,-3.73 0.29,1.56 0.3,6.37 0.3,10.4 0.29,12.84 0.3,2.91 0.3,0.27 0.29,-0.5 0.3,-0.59 0.3,0.38 0.29,0.57 0.3,0.07 0.3,-0.47 0.3,-8.15 0.29,-2.94 0.3,-2.75 0.3,-2.57 0.29,-1.86 0.3,-1.57 0.3,-0.64 0.29,-0.14 0.3,0.45 0.3,1.4 0.29,1.85 0.3,2.71 0.3,3.31 0.29,3.59 0.3,3.55 0.3,2.23 0.29,1.04 0.3,-1.48 0.3,-2.29 0.29,-2.6 0.3,-2.39 0.3,-1.64 0.3,-0.98 0.29,-0.26 0.3,0.85 0.3,1.68 0.29,2.35 0.3,2.87 0.3,2.9 0.29,1.7 0.3,-0.08 0.3,-1.93 0.29,-3.39 0.3,-3.59 0.3,-2.83 0.29,-1.84 0.3,-0.71 0.3,0.5 0.29,1.76 0.3,2.95 0.3,3.59 0.29,-0.35 0.3,-6.84 0.3,-8.76 0.3,-7.69 0.29,-5.86 0.3,-4 0.3,-2.19 0.29,-0.36 0.3,1.5 0.3,1.58 0.29,4.67 0.3,6.78 0.3,8.95 0.29,12.25 0.3,0.8 0.3,-3.16 0.29,-1.99 0.3,-0.44 0.3,1.15 0.29,2.6 0.3,3.56 0.3,3.34 0.29,0.3 0.3,-4.91 0.3,-4.19 0.3,-3.12 0.29,-1.58 0.3,0.93 0.3,4.19 0.29,4.21 0.3,3.89 0.3,2.19 0.29,-0.84 0.3,-1.4 0.3,-1.48 0.29,0.11 0.3,1.12 0.3,1.91 0.29,0.53 0.3,-4.05 0.3,-6.13 0.29,-4.73 0.3,-1.45 0.3,2.5 0.3,5.56 0.29,5.57 0.3,1.81 0.3,-3.11 0.29,-3.73 0.3,-2.71 0.3,-1.52 0.29,-0.23 0.3,2.07 0.3,3.1 0.29,1.09 0.3,-1.53 0.3,0.42 0.29,-0.26 0.3,-0.86 0.3,-1.87 0.29,-2.75 0.3,-3.14 0.3,-3.14 0.29,-2.83 0.3,-2.38 0.3,-1.52 0.3,-1.05 0.29,-0.18 0.3,0.68 0.3,1.28 0.29,2.28 0.3,3.14 0.3,3.68 0.29,4.24 0.3,3.52 0.3,2.45 0.29,1.07 0.3,0.05 0.3,0.12 0.29,0.24 0.3,0.4 0.3,0.34 0.29,0.11 0.3,-0.13 0.3,-0.38 0.29,-0.48 0.3,-0.34 0.3,-0.11 0.3,0.16 0.29,0.39 0.3,0.63 0.3,0.91 0.29,1.19 0.3,1.31 0.3,1.16 0.29,0.46 0.3,-1.14 0.3,-3.55 0.29,-5.49 0.3,-5.57 0.3,-4.42 0.29,-2.84 0.3,-1.13 0.3,0.68 0.29,2.54 0.3,4.32 0.3,5.78 0.3,5.87 0.29,3.28 0.3,0.32 0.3,-0.66 0.29,-0.62 0.3,-0.23 0.3,0.82 0.29,1.73 0.3,0.99 0.3,0.33 0.29,-0.27 0.3,-0.46 0.3,-0.26 0.29,0.35 0.3,0.74 0.3,-0.12 0.29,-2.74 0.3,-10.62 0.3,-8.47 0.29,-3.89 0.3,-2.05 0.3,1.67 0.3,3.58 0.29,7.84 0.3,9.44 0.3,2.78 0.29,1.2 0.3,0.91 0.3,0.97 0.29,1.1 0.3,0.67 0.3,0.17 0.29,-0.86 0.3,-1.51 0.3,-1.41 0.29,-0.97 0.3,-4.85 0.3,-9.13 0.29,-9.08 0.3,-4.78 0.3,-0.43 0.29,5.39 0.3,9.26 0.3,9.79 0.3,6.37 0.29,1.75 0.3,0.81 0.3,0.01 0.29,-0.34 0.3,-0.6 0.3,-1 0.29,-0.87 0.3,-1.08"
+         id="path128" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="130.73"
+         color="#0072bd"
+         id="use128" />
+    </g>
+  </g>
+  <g
+     id="gnuplot_plot_9a">
+    <title
+       id="title129">WRS</title>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g131">
+      <g
+         transform="translate(245.11,148.84)"
+         stroke="none"
+         fill="#000000"
+         font-family="Arial"
+         font-size="9px"
+         text-anchor="start"
+         id="g130">
+        <text
+           id="text129"><tspan
+             font-family="Arial"
+             id="tspan129">WRS</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="#000000"
+       stroke="currentColor"
+       stroke-width="0.5"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g132">
+      <path
+         stroke="#d95319"
+         d="m 207.99,145.91 h 30.82 M 45.37,120.8 l 0.3,0.04 0.29,0.15 0.3,0.25 0.3,0.25 0.29,0.25 0.3,0.24 0.3,0.31 0.29,0.47 0.3,0.47 0.3,0.47 0.3,0.47 0.29,0.52 0.3,0.65 0.3,0.65 0.29,0.66 0.3,0.65 0.3,0.67 0.29,0.68 0.3,0.68 0.3,0.68 0.29,0.65 0.3,0.5 0.3,0.5 0.29,0.49 0.3,0.5 0.3,0.26 0.29,0.23 0.3,0.23 0.3,0.23 0.29,0.02 0.3,-0.01 0.3,-0.01 0.3,-0.02 0.29,-0.27 0.3,-0.27 0.3,-0.27 0.29,-0.34 0.3,-0.5 0.3,-0.49 0.29,-0.5 0.3,-0.52 0.3,-0.54 0.29,-0.54 0.3,-0.48 0.3,-0.39 0.29,-0.38 0.3,-0.37 0.3,-0.1 0.29,-0.11 0.3,-0.1 0.3,0.21 0.29,0.24 0.3,0.24 0.3,0.55 0.3,0.59 0.29,0.59 0.3,0.82 0.3,0.84 0.29,0.84 0.3,0.82 0.3,0.82 0.29,0.7 0.3,0.45 0.3,0.44 0.29,0.13 0.3,-0.04 0.3,-0.07 0.29,-0.37 0.3,-0.36 0.3,-0.4 0.29,-0.44 0.3,-0.42 0.3,-0.27 0.3,-0.28 0.29,-0.07 0.3,0.02 0.3,0.15 0.29,0.36 0.3,0.38 0.3,0.6 0.29,0.61 0.3,0.59 0.3,0.6 0.29,0.33 0.3,0.26 0.3,-0.03 0.29,-0.17 0.3,-0.27 0.3,-0.31 0.29,-0.23 0.3,-0.17 0.3,-0.05 h 0.29 l 0.3,0.03 0.3,0.02 0.3,-0.1 0.29,-0.13 0.3,-0.24 0.3,-0.22 0.29,-0.19 0.3,-0.09 0.3,0.02 0.29,0.25 0.3,0.33 0.3,0.55 0.29,0.52 0.3,0.49 0.3,0.03 0.29,-0.23 0.3,-0.71 0.3,-0.82 0.29,-0.82 0.3,-0.59 0.3,-0.37 0.29,-0.25 0.3,-0.16 0.3,-0.16 0.3,-0.11 0.29,0.02 0.3,0.41 0.3,0.66 0.29,0.88 0.3,0.92 0.3,0.59 0.29,0.27 0.3,-0.09 0.3,-0.42 0.29,-0.55 0.3,-0.49 0.3,-0.31 0.29,-0.05 0.3,0.26 0.3,0.31 0.29,0.12 0.3,-0.15 0.3,-0.39 0.3,-0.45 0.29,-0.27 0.3,0.13 0.3,0.62 0.29,1.03 0.3,1.18 0.3,0.98 0.29,0.7 0.3,0.6 0.3,0.75 0.29,0.75 0.3,0.31 0.3,-0.06 0.29,-0.65 0.3,-0.62 0.3,-0.45 0.29,-0.06 0.3,0.41 0.3,0.86 0.29,1.03 0.3,0.64 0.3,0.1 h 0.3 l 0.29,0.18 0.3,0.02 0.3,-1.56 0.29,-2 0.3,-0.51 0.3,0.44 0.29,1.23 0.3,2.18 0.3,0.69 0.29,-0.93 0.3,-0.85 0.3,0.39 0.29,1.37 0.3,0.09 0.3,-1.24 0.29,-1.03 0.3,0.04 0.3,1.04 0.29,1.08 0.3,1.16 0.3,0.89 0.3,0.64 0.29,-1.22 0.3,-2.98 0.3,-2.05 0.29,-0.4 0.3,0.78 0.3,1.73 0.29,1.99 0.3,1.52 0.3,1.25 0.29,0.95 0.3,-0.26 0.3,-1.68 0.29,-2.54 0.3,-2.76 0.3,-1.26 0.29,0.31 0.3,1.77 0.3,2.29 0.3,-2.69 h 0.29 0.3 0.3 l 0.29,0.02 0.3,0.08 0.3,0.15 0.29,0.23 0.3,0.28 0.3,0.24 0.29,0.28 0.3,0.2 0.3,0.07 0.29,-0.09 0.3,-0.2 0.3,-0.34 0.29,-0.13 0.3,0.14 0.3,0.33 0.29,0.47 0.3,0.51 0.3,0.45 0.3,0.35 0.29,0.35 0.3,0.35 0.3,0.32 0.29,0.37 0.3,0.36 0.3,0.36 0.29,0.23 0.3,0.18 0.3,0.61 0.29,1.03 0.3,0.89 0.3,0.89 0.29,0.91 0.3,0.28 0.3,-0.33 0.29,-0.43 0.3,-0.2 0.3,0.04 0.29,0.42 0.3,0.89 0.3,1.18 0.3,1.19 0.29,0.99 0.3,0.58 0.3,0.35 0.29,0.27 0.3,0.45 0.3,0.39 0.29,0.33 0.3,0.27 0.3,0.23 0.29,0.34 0.3,0.3 0.3,0.35 0.29,0.5 0.3,0.59 0.3,0.74 0.29,0.66 0.3,0.76 0.3,1.22 0.29,1.6 0.3,1.94 0.3,1.86 0.3,1.1 0.29,0.11 0.3,-0.29 0.3,0.12 0.29,0.68 0.3,0.59 0.3,-0.09 0.29,-0.47 0.3,-0.2 0.3,0.36 0.29,0.83 0.3,0.99 0.3,0.85 0.29,0.4 0.3,0.24 0.3,0.29 0.29,0.7 0.3,1.49 0.3,2.11 0.3,1.85 0.29,0.82 0.3,0.34 h 0.3 l 0.29,0.2 0.3,0.59 0.3,0.28 0.29,-0.68 0.3,-0.3 0.3,0.65 0.29,0.68 0.3,0.02 0.3,0.43 0.29,0.53 0.3,0.56 0.3,0.56 0.29,0.5 0.3,0.32 0.3,0.2 0.29,0.06 0.3,-0.02 0.3,0.03 0.3,0.12 0.29,0.24 0.3,0.39 0.3,0.56 0.29,0.66 0.3,0.75 0.3,0.81 0.29,0.83 0.3,0.78 0.3,0.65 0.29,0.5 0.3,0.34 0.3,0.21 0.29,0.08 h 0.3 0.3 l 0.29,0.06 0.3,0.21 0.3,0.38 0.29,0.49 0.3,0.53 0.3,0.51 0.3,0.47 0.29,0.52 0.3,0.46 0.3,0.48 0.29,0.47 0.3,0.46 0.3,0.44 0.29,0.43 0.3,0.43 0.3,0.4 0.29,0.32 0.3,0.18 0.3,-0.2 0.29,-0.33 0.3,-0.35 0.3,-0.27 0.29,-0.12 0.3,0.12 0.3,0.27 0.3,0.19 0.29,0.18 0.3,0.24 0.3,0.16 0.29,-0.01 0.3,-0.1 0.3,-0.07 0.29,0.06 0.3,0.31 0.3,0.56 0.29,0.5 0.3,0.76 0.3,0.59 0.29,0.22 0.3,0.08 0.3,0.31 0.29,0.75 0.3,1.2 0.3,1.27 0.29,0.85 0.3,0.41 0.3,0.06 0.3,-0.03 0.29,-0.03 0.3,-0.13 0.3,-0.17 0.29,-0.09 0.3,0.07 0.3,0.17 0.29,0.25 0.3,0.41 0.3,0.53 0.29,0.26 0.3,-0.08 0.3,-0.51 0.29,-1.1 0.3,-0.82 0.3,0.18 0.29,1.04 0.3,1.49 0.3,1.64 0.29,1.11 0.3,0.16 0.3,-0.04 0.3,0.28 0.29,0.49 0.3,0.66 0.3,0.75 0.29,0.38 0.3,0.12 0.3,0.17 0.29,-0.12 0.3,-0.94 0.3,-0.32 0.29,-0.36 0.3,-0.4 0.3,-0.3 0.29,-0.25 0.3,0.03 0.3,0.18 0.29,0.39 0.3,0.64 0.3,0.71 0.3,0.8 0.29,0.72 0.3,0.64 0.3,0.43 0.29,0.24 0.3,0.11 0.3,-0.12 0.29,-0.27 0.3,-0.37 0.3,-0.48 0.29,-0.44 0.3,-0.32 0.3,-0.18 0.29,0.12 0.3,0.36 0.3,0.54 0.29,0.66 0.3,0.68 0.3,0.53 0.29,0.37 0.3,0.21 0.3,0.09 0.3,-0.06 0.29,-0.31 0.3,-0.67 0.3,-0.99 0.29,-1.09 0.3,-0.86 0.3,-0.34 0.29,0.43 0.3,1.05 0.3,1.44 0.29,1.49 0.3,1.24 0.3,0.81 0.29,0.38 h 0.3 l 0.3,-0.29 0.29,-0.45 0.3,-0.27 0.3,-0.21 0.29,0.21 0.3,0.65 0.3,1.45 0.3,1.33 0.29,0.49 0.3,0.2 0.3,-0.07 0.29,-0.37 0.3,-0.59 0.3,-0.55 0.29,-0.22 0.3,0.58 0.3,1.11 0.29,0.63 0.3,0.39 0.3,0.13 0.29,-0.34 0.3,-0.84 0.3,-0.55 0.29,-0.22 0.3,0.51 0.3,1.02 0.3,0.67 0.29,0.58 0.3,0.15 0.3,-0.15 0.29,-0.46 0.3,-0.45 0.3,0.1 0.29,0.77 0.3,1.24 0.3,1.09 0.29,0.54 0.3,-0.1 0.3,-1 0.29,-0.99 0.3,0.01 0.3,0.93 0.29,1.21 0.3,0.79 0.3,0.05 0.29,-0.75 0.3,-0.9 0.3,-0.38 0.3,0.87 0.29,-0.02 0.3,0.01 0.3,0.03 0.29,0.12 0.3,0.16 0.3,0.24 0.29,0.26 0.3,0.27 0.3,0.25 0.29,0.23 0.3,0.19 0.3,0.17 0.29,0.17 0.3,0.15 0.3,0.14 0.29,0.12 0.3,0.11 0.3,0.11 0.29,0.09 0.3,0.09 0.3,0.06 0.3,0.05 0.29,0.05 0.3,0.04 0.3,0.04 0.29,0.05 0.3,0.06 0.3,0.1 0.29,0.11 0.3,0.11 0.3,0.03 0.29,-0.03 0.3,-0.1 0.3,-0.19 0.29,-0.27 0.3,-0.29 0.3,-0.26 0.29,-0.12 0.3,0.17 0.3,0.36 0.3,0.49 0.29,0.5 0.3,0.41 0.3,0.22 0.29,0.1 0.3,0.08 0.3,0.11 0.29,0.15 0.3,0.15 0.3,0.14 0.29,0.09 0.3,-0.02 0.3,-0.14 0.29,-0.18 0.3,-0.14 0.3,-0.06 0.29,0.02 0.3,0.09 0.3,0.11 0.29,0.04 0.3,-0.02 0.3,-0.06 0.3,-0.04 0.29,0.01 0.3,0.05 0.3,0.02 0.29,-0.01 0.3,0.04 0.3,0.18 0.29,0.2 0.3,0.09 0.3,0.02 0.29,-0.05 0.3,-0.07 0.3,0.04 0.29,0.23 0.3,0.2 0.3,0.1 0.29,-0.13 0.3,-0.25 0.3,-0.2 0.29,-0.29 0.3,-0.06 0.3,0.16 0.3,0.32 0.29,0.22 0.3,0.1 0.3,0.18 0.29,0.17 0.3,-0.02 0.3,-0.26 0.29,-0.34 0.3,-0.07 0.3,0.32 0.29,0.39 0.3,0.06 0.3,-0.33 0.29,-0.44 0.3,0.11 0.3,0.45 0.29,0.2 0.3,-0.01 0.3,-0.08 0.29,0.12 0.3,0.06 0.3,0.04 0.3,0.02 0.29,-0.01 0.3,-0.02 0.3,-0.04 0.29,-0.03 0.3,-0.01 0.3,0.01 0.29,0.01 0.3,0.02 0.3,-0.01 0.29,-0.04 0.3,-0.15 0.3,-0.25 0.29,-0.33 0.3,-0.39 0.3,-0.32 0.29,-0.23 0.3,-0.05 0.3,0.17 0.3,0.28 0.29,0.35 0.3,0.32 0.3,0.23 0.29,0.16 0.3,0.06 0.3,-0.04 0.29,-0.23 0.3,-0.73 0.3,-1.54 0.29,-2.65 0.3,-3.46 0.3,-3.18 0.29,-2.43 0.3,-1.46 0.3,-0.36 0.29,0.8 0.3,1.92 0.3,3.02 0.29,3.54 0.3,3.32 0.3,2.37 0.3,1.22 0.29,0.33 0.3,-0.17 0.3,-0.59 0.29,-1.2 0.3,-2 0.3,-1.46 0.29,-2.48 0.3,-1.77 0.3,-0.71 0.29,0.97 0.3,2.6 0.3,2.27 0.29,2.24 0.3,1.74 0.3,0.93 0.29,0.18 0.3,-0.18 0.3,-0.15 0.29,0.09 0.3,-1 0.3,-3.21 0.3,-4.47 0.29,-3.97 0.3,-3.09 0.3,0.29 0.29,2.4 0.3,3.83 0.3,6.23 0.29,4.07 0.3,0.56 0.3,0.2 0.29,0.12 h 0.3 l 0.3,-0.19 0.29,-0.27 0.3,-0.02 0.3,0.16 0.29,-0.92 0.3,-2.35 0.3,-2.15 0.3,-0.31 0.29,1.96 0.3,2.39 0.3,-0.78 0.29,-3.08 0.3,-2.3 0.3,-0.08 0.29,1.73 0.3,-0.62 0.3,-3.58 0.29,-3.36 0.3,1.94 0.3,0.01 0.29,0.53 0.3,0.61 0.3,0.98 0.29,1.01 0.3,1.08 0.3,0.82 0.29,0.53 0.3,-0.47 0.3,-0.91 0.3,-2.17 0.29,-2.27 0.3,-2.31 0.3,-1.88 0.29,-1.48 0.3,-0.45 0.3,0.02 0.29,0.98 0.3,1.81 0.3,2.32 0.29,3.16 0.3,3.07 0.3,2.91 0.29,1.54 0.3,0.92 0.3,0.42 0.29,0.2 0.3,0.21 0.3,0.22 0.29,0.22 0.3,0.18 0.3,0.15 0.3,0.07 0.29,-0.09 0.3,-0.37 0.3,-0.52 0.29,-0.52 0.3,-0.32 0.3,0.21 0.29,0.55 0.3,0.7 0.3,0.63 0.29,0.4 0.3,0.24 0.3,0.21 0.29,0.04 0.3,-0.28 0.3,-0.48 0.29,-0.35 0.3,0.11 0.3,0.57 0.3,0.65 0.29,0.23 0.3,-0.04 0.3,0.21 0.29,0.61 0.3,0.72 0.3,0.44 0.29,0.17 0.3,0.09 0.3,0.16 0.29,0.16 0.3,0.18 0.3,0.22 0.29,0.16 0.3,-0.13 0.3,-0.38 0.29,-0.27 0.3,0.31 0.3,0.5 0.29,0.02 0.3,-0.13 0.3,-0.07 0.3,0.14 0.29,0.71 0.3,0.92 0.3,0.42 0.29,0.2 0.3,0.15 0.3,0.15 0.29,0.12 0.3,0.15 0.3,0.17 0.29,0.12 0.3,0.07 0.3,0.02 0.29,0.09 0.3,0.19 0.3,0.07 0.29,-0.07 0.3,-0.11 0.3,0.05 0.29,0.29 0.3,0.32 0.3,0.12 0.3,-0.64 0.29,-2.5 0.3,-3.51 0.3,-0.76 0.29,2.9 0.3,3.47 0.3,1.54 0.29,-0.07 0.3,-1.04 0.3,-0.04 0.29,-1.04 0.3,-1.98 0.3,-3.7 0.29,-4.19 0.3,-4.57 0.3,-4.25 0.29,-3.88 0.3,-3.03 0.3,-2.61 0.3,-1.75 0.29,-1 0.3,-0.47 0.3,0.56 0.29,1.33 0.3,1.97 0.3,3.1 0.29,4.03 0.3,4.77 0.3,5.72 0.29,5.9 0.3,4.95 0.3,3.51 0.29,1.12 0.3,0.58 0.3,0.36 0.29,0.29 0.3,0.23 0.3,0.18 0.29,0.14 0.3,0.14 0.3,0.16 0.3,0.18 0.29,0.19 0.3,0.2 0.3,0.22 0.29,0.24 0.3,0.24 0.3,0.22 0.29,0.12 0.3,0.01 0.3,-0.05 0.29,-0.07 0.3,-0.04 h 0.3 l 0.29,0.03 0.3,0.03 0.3,0.02 0.29,-0.03 0.3,-0.05 0.3,-0.18 0.29,-0.25 0.3,-0.2 0.3,0.14 0.3,0.69 0.29,0.67 0.3,0.6 0.3,0.42 0.29,0.26 0.3,0.17 0.3,0.12 0.29,0.1 0.3,0.09 0.3,0.07 0.29,0.03 h 0.3 l 0.3,-0.1 0.29,-0.64 0.3,-1.53 0.3,-1.99 0.29,-2.68 0.3,-3.96 0.3,-2.09 0.3,0.23 0.29,2.81 0.3,4.82 0.3,3.03 0.29,2.3 0.3,0.74 0.3,0.15 0.29,-0.18 0.3,-0.81 0.3,-0.95 0.29,-0.16 0.3,0.78 0.3,1.17 0.29,0.75 0.3,0.23 0.3,0.12 0.29,0.07 0.3,-0.03 0.3,-0.04 0.29,0.19 0.3,0.27 0.3,0.11 0.3,-0.39 0.29,-0.03 0.3,-0.07 0.3,-0.08 0.29,-0.13 0.3,-0.14 0.3,-0.17 0.29,-0.16 0.3,-0.14 0.3,-0.05 0.29,-0.01 0.3,0.14 0.3,0.18 0.29,0.28 0.3,0.29 0.3,0.31 0.29,0.22 0.3,0.18 0.3,0.09 0.29,0.03 h 0.3 l 0.3,-0.01 0.3,-0.01 0.29,0.01 0.3,0.03 0.3,0.05 0.29,0.06 0.3,0.08 0.3,0.05 h 0.29 l 0.3,-0.1 0.3,-0.2 0.29,-0.17 0.3,-0.12 0.3,0.06 0.29,0.19 0.3,0.23 0.3,0.21 0.29,0.13 0.3,0.05 0.3,0.03 0.3,0.02 h 0.29 l 0.3,-0.01 0.3,-0.04 0.29,-0.07 0.3,-0.08 0.3,-0.08 0.29,-0.08 0.3,-0.07 0.3,-0.06 0.29,-0.05 0.3,-0.04 0.3,-0.04 0.29,-0.09 0.3,-0.1 0.3,-0.06 0.29,0.01 0.3,0.04 0.3,-0.03 0.29,-0.1 0.3,-0.06 0.3,0.02 0.3,0.02 0.29,-0.04 0.3,-0.11 0.3,-0.12 0.29,-0.1 0.3,-0.09 0.3,-0.2 0.29,-0.2 0.3,-0.09 0.3,-0.08 0.29,-0.12 0.3,-0.17 0.3,-0.22 0.29,-0.13 0.3,-0.09 0.3,-0.11 0.29,-0.15 0.3,-0.09 0.3,0.02 0.29,0.13 0.3,0.12 0.3,-0.05 0.3,-0.31 0.29,-0.33 0.3,-0.1 0.3,-0.04 0.29,-0.06 0.3,-0.14 0.3,-0.1 0.29,-0.05 0.3,-0.06 0.3,-0.17 0.29,-0.33 0.3,-0.38 0.3,-0.21 0.29,0.06 0.3,-0.01 0.3,-0.25 0.29,-0.32 0.3,-0.32 0.3,-0.24 0.3,0.3 0.29,-0.09 0.3,-0.1 0.3,-0.1 0.29,-0.11 0.3,-0.11 0.3,-0.12 0.29,-0.12 0.3,-0.11 0.3,-0.1 0.29,-0.1 0.3,-0.11 0.3,-0.14 0.29,-0.17 0.3,-0.22 0.3,-0.23 0.29,-0.22 0.3,-0.18 0.3,-0.1 0.29,-0.04 0.3,0.04 0.3,0.1 0.3,0.12 0.29,0.12 0.3,0.1 0.3,0.04 0.29,-0.01 0.3,-0.06 0.3,-0.09 0.29,-0.07 0.3,-0.03 0.3,-0.01 0.29,0.01 0.3,0.01 0.3,0.01 0.29,0.02 0.3,0.05 0.3,0.07 0.29,0.08 0.3,0.07 0.3,0.02 h 0.29 l 0.3,-0.01 0.3,-0.01 h 0.3 l 0.29,0.04 0.3,0.06 0.3,0.08 0.29,0.07 0.3,0.02 0.3,-0.01 0.29,-0.01 0.3,0.05 0.3,0.11 0.29,0.15 0.3,-0.01 0.3,-0.07 0.29,-0.05 0.3,0.01 0.3,0.04 0.29,0.03 h 0.3 l 0.3,-0.01 0.29,0.03 0.3,0.11 0.3,0.13 0.3,0.14 0.29,0.1 0.3,-0.01 0.3,-0.19 0.29,-0.15 0.3,-0.05 0.3,0.16 0.29,0.29 0.3,0.16 0.3,0.09 0.29,-0.01 0.3,-0.02 0.3,0.07 0.29,0.18 0.3,0.17 0.3,0.09 0.29,0.02 0.3,0.06 0.3,0.06 0.3,0.03 h 0.29 l 0.3,0.08 0.3,0.21 0.29,0.15 0.3,-0.01 0.3,-0.03 0.29,0.03 0.3,0.04 0.3,0.01 0.29,0.07 0.3,0.64 0.3,0.12 0.29,0.11 0.3,0.09 0.3,0.05 0.29,0.02 h 0.3 l 0.3,-0.03 0.29,-0.04 0.3,-0.03 0.3,-0.02 0.3,-0.01 h 0.29 l 0.3,0.03 0.3,0.03 0.29,0.06 0.3,0.09 0.3,0.1 0.29,0.13 0.3,0.13 0.3,0.14 0.29,0.12 0.3,0.1 0.3,0.1 0.29,0.09 0.3,0.08 0.3,0.1 0.29,0.09 0.3,0.09 0.3,0.09 0.29,0.11 0.3,0.13 0.3,0.15 0.3,0.16 0.29,0.16 0.3,0.14 0.3,0.14 0.29,0.14 0.3,0.13 0.3,0.1 0.29,0.03 0.3,-0.02 0.3,-0.04 0.29,-0.02 0.3,0.06 0.3,0.14 0.29,0.2 0.3,0.21 0.3,0.17 0.29,0.11 0.3,0.07 0.3,0.05 0.3,0.06 0.29,0.05 0.3,0.05 0.3,0.05 0.29,0.07 0.3,0.13 0.3,0.28 0.29,0.21 0.3,0.03 0.3,-0.01 0.29,0.02 0.3,0.06 0.3,0.09 0.29,0.02 0.3,-0.14 0.3,-0.12 0.29,-0.08 0.3,-0.12 0.3,-0.01 0.29,0.21 0.3,0.61 0.3,0.65 0.3,0.34 0.29,0.34 0.3,0.23 0.3,0.14 0.29,0.25 0.3,0.24 0.3,0.06 0.29,-0.08 0.3,-0.03 0.3,0.12 0.29,0.29 0.3,0.42 0.3,0.41 0.29,0.21 0.3,-0.08 0.3,-0.09 0.29,0.16 0.3,0.34 0.3,0.32 0.29,0.3 0.3,0.24 0.3,0.2 0.3,0.18 0.29,0.2 0.3,0.13 0.3,0.08 0.29,0.13 0.3,0.31 0.3,0.37 0.29,0.22 0.3,0.18"
+         id="path131" />
+      <use
+         xlink:href="#gpDot"
+         x="223.39999"
+         y="145.91"
+         color="#d95319"
+         id="use131" />
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#ffffff"
+     stroke="#d95319"
+     stroke-width="2"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g133" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="2"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g136">
+    <g
+       transform="rotate(-90,78.63,65.5)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="11px"
+       text-anchor="middle"
+       id="g135">
+      <text
+         id="text135"><tspan
+           font-family="Arial"
+           id="tspan133">phase noise (dBrad</tspan><tspan
+           font-family="Arial"
+           font-size="8.8px"
+           dy="-5.5"
+           id="tspan134">2</tspan><tspan
+           font-family="Arial"
+           font-size="11px"
+           dy="5.5"
+           id="tspan135">/Hz)</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="2"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g138">
+    <g
+       transform="translate(223.46,308.69)"
+       stroke="none"
+       fill="#262626"
+       font-family="Arial"
+       font-size="11px"
+       text-anchor="middle"
+       id="g137">
+      <text
+         id="text136"><tspan
+           font-family="Arial"
+           id="tspan136">frequency offset (Hz)</tspan></text>
+    </g>
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="2"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g139" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g140" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g141">
+    <path
+       stroke="#262626"
+       d="M 45.38,276.98 H 401.57"
+       id="path140" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="0.5"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g142">
+    <path
+       stroke="#262626"
+       d="M 45.38,276.98 V 11.25"
+       id="path141" />
+  </g>
+  <g
+     fill="none"
+     color="#000000"
+     stroke="#262626"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g143" />
+  <g
+     fill="none"
+     color="#000000"
+     stroke="currentColor"
+     stroke-width="1"
+     stroke-linecap="butt"
+     stroke-linejoin="miter"
+     id="g144" />
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0072bd;stroke-width:3;stroke-dasharray:none;stroke:none;stroke-opacity:1;fill-opacity:1"
+     x="48.536011"
+     y="-22.121992"
+     id="text144"
+     transform="rotate(48.488052)"><tspan
+       sodipodi:role="line"
+       id="tspan144"
+       x="48.536011"
+       y="-22.121992">free running oscillator</tspan></text>
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#d9541a;fill-opacity:1;stroke:none;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+     x="171.35632"
+     y="109.90455"
+     id="text145"
+     transform="rotate(30.774143)"><tspan
+       sodipodi:role="line"
+       id="tspan145"
+       x="171.35632"
+       y="109.90455">Creotech White Rabbit Switch</tspan></text>
+</svg>

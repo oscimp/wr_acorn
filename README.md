@@ -40,7 +40,7 @@ locked on the White Rabbit control signal is measurement as a function of contro
 parameters. Measurements performed using a Rohde & Schwarz FSWP 
 Phase Noise Analyzer with 10-correlations in the 1-Hz bin.
 
-<img src="pictures/phase_noise_edited.png">
+<img src="pictures/phase_noise_acorn_KiKp.svg">
 
 All Modified Allan deviation plot exhibit a $1/\tau$ slope, i.e. $1/\tau^2$ for the variance,
 characteristic of flicker phase noise. The MVAR of flicker PM [1] level is $0.0855 h_1/\tau^2$: at
