@@ -70,7 +70,26 @@ the digital phase detector (DMTD)
 
 \begin{frame}[fragile]\frametitle{HDL implementation on CLE215+}
 
-List of files to update and how...
+  \begin{itemize}
+    \item \texttt{board/acorn/} - FPGA-internal HDL
+      \begin{itemize}
+        \item \texttt{Manifest.py} - hdlmake imports
+        \item \texttt{wr\_acorn\_pkg.vhd} - hdl header
+        \item \texttt{xwrc\_board\_acorn.vhd} - logic around \texttt{xwrc\_platform\_xilinx} and \texttt{xwrc\_board\_common}
+          \begin{itemize}
+            \item \texttt{xwrc\_board\_common} expose dac interfaces outputs and clock inputs
+            \item traditionnal WR convert \texttt{data+load} to I²C/other dac protocol
+            \item VCO-less WR convert \texttt{data+load} to MMCM's phase-shift control
+          \end{itemize}
+      \end{itemize}
+    \item \texttt{top/acorn\_ref\_design/} - FPGA/board interface files
+
+          \texttt{acorn\_wr\_ref\_top.xdc} - set io pins and allow internal clocking of the GTP ports
+    \item \texttt{syn/acorn\_ref\_design/} - synthesis related files
+          add custom \texttt{bitstream.tcl} to allow internal clocking of the GTP ports
+    \item \texttt{platform/Xilinx} - add generic to allow internal clocking of the GTP ports
+  \end{itemize}
+
 \end{frame}
 
 
