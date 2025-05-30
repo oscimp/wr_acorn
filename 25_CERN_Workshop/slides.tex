@@ -43,6 +43,7 @@ project archive at \url{https://github.com/oscimp/wr_acorn}\\
 
 \begin{frame}[fragile]\frametitle{Context and outline}
 
+\vspace{0.2cm}
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.49\linewidth}    
 {\footnotesize
@@ -51,6 +52,8 @@ project archive at \url{https://github.com/oscimp/wr_acorn}\\
 the digital phase detector (DMTD)
 \item WR as feature of generic boards (RF signal acquisition and synthesis, Software Defined Radio -- SDR) requires getting rid of this requirement
 \item Use of clocking circuits internal to the FPGA for generating WR clocks
+\footnote{See ``More challenging that I can imagine'' on slide 8 of D. Charlet {\em \& al}, {\em Performance evaluation of a versatile and low-jitter
+White Rabbit board} at 13th White Rabbit Workshop, CERN (Mar. 2024)}
 \item Demonstration on Enjoy Digital's Acorn CLE215+ board...
 \item ... Xilinx Artix-7 A100T FPGA / 1 Gb DDR $\Rightarrow$ start from Nikhef's  CLBv3 design and Missing Link Electronics' 2024 contribution\footnotemark
 \footnotemark
@@ -65,7 +68,29 @@ the digital phase detector (DMTD)
 \footnotetext{13th White Rabbit Workshop (CERN), \url{https://www.missinglinkelectronics.com/wp-content/uploads/2024/03/MLE-Light-Rabbit-Presentation-at-13th-White-Rabbit-Workshop.pdf}}
 \end{frame}
 
-\begin{frame}[fragile]\frametitle{VCO-less DMTD implementation and characterization}
+\begin{frame}[fragile]\frametitle{VCO-less DMTD implementation and phase detection characterization}
+
+\begin{minipage}[t]{1.06\linewidth}
+\begin{minipage}{.49\linewidth}
+
+\input{figures/principle.pspdftex}
+
+\begin{itemize}
+\item Initial tests of CMOD-A7 Artix-7 generic board
+\item PLL frequency $f_{PLL}=62.5$~MHz and beatnote $f_b=3$~kHz $\Rightarrow$ counter $c$ converted
+to phase as $$\varphi=2\pi c\cdot f_b/f_{PLL}$$
+\item phase to phase noise density $$S_\varphi=\sigma^2_\varphi/f_b\mbox{ @ }f_b$$
+\item phase spectral density using {\tt pwelch} $\longrightarrow$
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\vspace{0.6cm}
+All control loop steps characterized in the frequency domain (phase noise
+at $f_{Fourier}$ offset from carrier) and time domain (Allan deviation)
+
+\includegraphics[width=1.05\linewidth]{62p5MHz.pdf}
+\end{minipage}
+\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{HDL implementation on CLE215+}
@@ -96,10 +121,10 @@ the digital phase detector (DMTD)
 \begin{frame}[fragile]\frametitle{LiteX implementation on CLE215+: {\footnotesize\url{https://github.com/enjoy-digital/litex_wr_nic}}}
 
 {\scriptsize
-\begin{verbatim}
+\begin{Verbatim}[commandchars=\\\{\}]
 wrc# pll stat
 softpll: mode:3 seq:ready n_ref 1 n_out 1
-irqs:123226 alignment_state:0 HL1 ML1 HY=23493 MY=40133 DelCnt=0 setpoint:13037 refcnt:66565 tagcnt:53
+irqs:123226 alignment_state:0 {\color{green}HL1 ML1} HY=23493 MY=40133 DelCnt=0 setpoint:13037 refcnt:66565 tagcnt:53
 softpll: ptracker0: enabled 1 n_avg 512 value 13575
 wrc# gui
 SPA7 WRPC Monitor wrpc-v5.0-ohwr-9-g5ac04dd5-dirt | Esc/q = exit; r = redraw
@@ -116,7 +141,7 @@ TAI Time: 2023-03-03-11:55:43  UTC offset: 37   PLL mode: BC  state: Locked
 Pro(tocol): R-RawEth, V-VLAN, U-UDP
 
 --------------------------- Synchronization status ----------------------------
-Servo state:          White-Rabbit: TRACK_PHASE                         
+Servo state:          White-Rabbit: {\color{green}TRACK_PHASE}
 
 --- Timing parameters ---------------------------------------------------------
 meanDelay        :              284.572 ns
@@ -125,7 +150,7 @@ delayMM          :             1097.210 ns
 delayAsymmetry   :                0.000 ns
 delayCoefficient :   +0.000000000000000000  fpa   0
 ...
-\end{verbatim}
+\end{Verbatim}
 }
 \end{frame}
 
@@ -135,9 +160,15 @@ Tuning software phase locked-loop (PLL) control coefficients
 
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.49\linewidth}
-\includegraphics[width=\linewidth]{allan_wr_acorn_new.pdf}
+\only<1>{\includegraphics[width=\linewidth]{allan_wr_acorn_new.pdf}
 
 Modified Allan deviation: phase flicker noise
+}
+\only<2>{\includegraphics[width=.8\linewidth]{2025-05-30_10-12-29.png}
+
+Low quality 200~MHz MEMS oscillator (Abracon ASDMPLV-200.000MHZ)
+}
+
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \includegraphics[width=\linewidth]{phase_noise_litex.pdf}
@@ -147,7 +178,7 @@ scaled)
 \end{minipage}
 \end{minipage}
 
-Low quality 200~MHz MEMS oscillator
+
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Results: M2SDR}
@@ -175,19 +206,10 @@ Low quality 200~MHz MEMS oscillator
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]\frametitle{Phase detection characteristics}
-
-\begin{minipage}[t]{\linewidth}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=\linewidth]{62p5MHz.pdf}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\end{minipage}
-\end{minipage}
-\end{frame}
-
 \begin{frame}[fragile]\frametitle{Conclusion \& perspectives}
 
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.55\linewidth}
 Acknowledgements: 
 \begin{itemize}
     \item Peter Jansweijer (Nikhef) for updating the CLBv3 design, 
@@ -195,6 +217,15 @@ Acknowledgements:
     \item Florent Kermarrec and Gwenhael Goavec-Merou (Enjoy Digital) for providing the
     hardware boards and LiteX implementations
     \item CERN's White Rabbit team (Tomasz Wlostowski, Tristan Gingold \& others) 
+    \item Claudio Calosso (INRIM) for fruitful discussions $\nearrow$
     \end{itemize}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\includegraphics[width=\linewidth]{figures/2025-05-26-093826_2704x1050_scrot.png}
+
+Impact of FPGA gate size and phase noise performance during the
+2025 IFCS Tutorial on low noise digital electronics
+\end{minipage}
+\end{minipage}
 \end{frame}
 \end{document}
