@@ -43,14 +43,21 @@ project archive at \url{https://github.com/oscimp/wr_acorn}\\
 
 \begin{frame}[fragile]\frametitle{Context and outline}
 
-\vspace{0.2cm}
-\begin{minipage}[t]{\linewidth}
-\begin{minipage}{.49\linewidth}    
+\vspace{0.1cm}
 {\footnotesize
 \begin{itemize}
 \item White Rabbit (WR) supported boards require two dedicated oscillators for generating
 the digital phase detector (DMTD)
-\item WR as feature of generic boards (RF signal acquisition and synthesis, Software Defined Radio -- SDR) requires getting rid of this requirement
+\item WR as feature of generic boards (RF signal acquisition and synthesis, {\bf Software 
+Defined Radio} -- SDR) requires getting rid of this requirement
+\end{itemize}
+}
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.55\linewidth}    
+{\footnotesize
+\begin{itemize}
+\item $\Rightarrow$ {\bf timing library compatible with any existing FPGA based acquisition/synthesis
+board} (at the expense of performance)
 \item Use of clocking circuits internal to the FPGA for generating WR clocks
 \footnote{See ``More challenging that I can imagine'' on slide 8 of D. Charlet {\em \& al}, {\em Performance evaluation of a versatile and low-jitter
 White Rabbit board} at 13th White Rabbit Workshop, CERN (Mar. 2024)}
@@ -64,12 +71,15 @@ White Rabbit board} at 13th White Rabbit Workshop, CERN (Mar. 2024)}
 \includegraphics[width=\linewidth]{IMG_20250425_163316_728.jpg}
 \end{minipage}
 \end{minipage}
-\footnotetext{\url{https://enjoy-digital-shop.myshopify.com/products/litex-acorn-baseboard-mini-sqrl-acorn-cle215} 215 euros + SFP adapters}
+\footnotetext{\url{https://enjoy-digital-shop.myshopify.com/products/litex-acorn-baseboard-mini-sqrl-acorn-cle215}}
 \footnotetext{13th White Rabbit Workshop (CERN), \url{https://www.missinglinkelectronics.com/wp-content/uploads/2024/03/MLE-Light-Rabbit-Presentation-at-13th-White-Rabbit-Workshop.pdf}}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{VCO-less DMTD implementation and phase detection characterization}
 
+What element of the control loop is limiting overall performance?
+
+\vspace{-0.3cm}
 \begin{minipage}[t]{1.06\linewidth}
 \begin{minipage}{.49\linewidth}
 
@@ -166,7 +176,8 @@ Modified Allan deviation: phase flicker noise
 }
 \only<2>{\includegraphics[width=.8\linewidth]{2025-05-30_10-12-29.png}
 
-Low quality 200~MHz MEMS oscillator (Abracon ASDMPLV-200.000MHZ)
+{\footnotesize Low quality 200~MHz MEMS oscillator (Abracon ASDMPLV-200.000MHZ)\par
+}
 }
 
 \end{minipage}
@@ -210,7 +221,16 @@ scaled)
 
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.55\linewidth}
-Acknowledgements: 
+{\footnotesize
+\begin{itemize}
+\item Initial steps for becoming familiar with WR architecture and internals on Artix7
+\item Functional demonstration, repository at \url{https://github.com/oscimp/wr_acorn}
+\item Impact of internal oscillator usage on phase noise and Allan deviation performance
+\item In progress: port to M2SDR with its AD9361 frontend
+\end{itemize}
+
+\vspace{.41cm}
+{\bf Acknowledgements:}
 \begin{itemize}
     \item Peter Jansweijer (Nikhef) for updating the CLBv3 design, 
     \item Frederik Pfautsch (Missing Link Electronics) for committing the various VCO-less implementations, 
@@ -219,12 +239,15 @@ Acknowledgements:
     \item CERN's White Rabbit team (Tomasz Wlostowski, Tristan Gingold \& others) 
     \item Claudio Calosso (INRIM) for fruitful discussions $\nearrow$
     \end{itemize}
+}
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \includegraphics[width=\linewidth]{figures/2025-05-26-093826_2704x1050_scrot.png}
 
+{\footnotesize
 Impact of FPGA gate size and phase noise performance during the
-2025 IFCS Tutorial on low noise digital electronics
+2025 IFCS Tutorial on low noise digital electronics\par
+}
 \end{minipage}
 \end{minipage}
 \end{frame}
