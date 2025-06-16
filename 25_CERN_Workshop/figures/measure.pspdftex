@@ -1,0 +1,16 @@
+\begin{picture}(0,0)%
+\includegraphics{measure_pspdftex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+\begin{picture}(1692,649)(6511,-4004)
+\put(8011,-3526){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$S_\varphi$}%
+}}}
+\put(7291,-3931){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$RF$}%
+}}}
+\put(6886,-3526){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$LO$}%
+}}}
+\put(7381,-3526){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$IF$ ($fb$)}%
+}}}
+\put(6526,-3931){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\usefont{T1}{ptm}{m}{n}{\color[rgb]{0,0,0}$f_{PLL}$}%
+}}}
+\end{picture}%

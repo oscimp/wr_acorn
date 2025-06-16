@@ -1,16 +1,17 @@
 \documentclass[compress,10pt,aspectratio=169]{beamer}
 %\setbeamertemplate{background canvas}[bottom=white,top=structure.fg!25]
 %\usetheme{Hannover}
-\setbeamertemplate{headline}{}
-\setbeamertemplate{footline}{June 27, 2020 - SDRA}
+%\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}{}
 \setbeamersize{text margin left=0.1cm}
-\usepackage{appendixnumberbeamer,fancyvrb}
+\usepackage{appendixnumberbeamer}
 \usepackage{hyperref,listings,picinpar,mathtools} % ,enumitem}
 \usepackage{color}
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
 \usepackage{fancyvrb}
-\usepackage{xcolor}
+%\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
 
 \definecolor{grey}{rgb}{0.95,0.95,0.95}
 \definecolor{red}{rgb}{1.0,0.0,0.0}
@@ -21,14 +22,15 @@
 %\lstset{moredelim=[is][\color{red}]{_+_}{_+_}}
 
 \beamertemplatefootpagenumber
-\beamertemplatenavigationsymbolsempty
-\setbeamertemplate{footline}[page number]{}
-\setbeamertemplate{page number in head/foot}{}
+% \setbeamertemplate{footline}[page number]{}
+%\setbeamertemplate{page number in head/foot}{}
+
+\setbeamertemplate{footline}[text line]{\hspace*{15.6cm}\insertpagenumber}
+\setbeamertemplate{navigation symbols}{}
 
 \usepackage{graphicx,verbatim,multicol,amsmath,bm}
 \graphicspath{{./figures/}{../pictures/}}
 
-\begin{document}
 \title{Yet Another White Rabbit running on a low-cost, generic FPGA board}
 \author{\'Emilien Decoux, Jean-Michel Friedt\\ \ \\ 
 FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \ 
@@ -39,6 +41,8 @@ project archive at \url{https://github.com/oscimp/wr_acorn}\\
 %\includegraphics[width=.37\linewidth]{gnuradio_logo.pdf}
 }\vspace{-1cm}  
 }
+
+\begin{document}
 \maketitle
 
 \begin{frame}[fragile]\frametitle{Context and outline}
@@ -83,7 +87,15 @@ What element of the control loop is limiting overall performance?
 \begin{minipage}[t]{1.06\linewidth}
 \begin{minipage}{.49\linewidth}
 
-\input{figures/principle.pspdftex}
+\only<1>{\input{figures/principle.pspdftex}}
+\only<2>{\vspace{-0.9cm}\begin{minipage}[t]{\linewidth}
+\begin{minipage}{0.35\linewidth}
+DDMTD characterization setup 
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\input{figures/measure.pspdftex}
+\end{minipage}
+\end{minipage}}
 
 \begin{itemize}
 \item Initial tests of CMOD-A7 Artix-7 generic board
@@ -103,7 +115,7 @@ at $f_{Fourier}$ offset from carrier) and time domain (Allan deviation)
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]\frametitle{HDL implementation on CLE215+}
+\begin{frame}[fragile]\frametitle{HDL implementation on CLE215+: {\footnotesize\url{https://github.com/oscimp/wr_acorn}}}
 
   \begin{itemize}
     \item \texttt{board/acorn/} - FPGA-internal HDL
@@ -223,7 +235,7 @@ scaled)
 \begin{minipage}{.55\linewidth}
 {\footnotesize
 \begin{itemize}
-\item Initial steps for becoming familiar with WR architecture and internals on Artix7
+\item Initial steps for becoming familiar at FEMTO-ST with WR architecture and internals on Artix7
 \item Functional demonstration, repository at \url{https://github.com/oscimp/wr_acorn}
 \item Impact of internal oscillator usage on phase noise and Allan deviation performance
 \item In progress: port to M2SDR with its AD9361 frontend
