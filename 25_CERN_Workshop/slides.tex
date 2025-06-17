@@ -34,12 +34,11 @@
 \title{Yet Another White Rabbit running on a low-cost, generic FPGA board}
 \author{\'Emilien Decoux, Jean-Michel Friedt\\ \ \\ 
 FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \ 
-\\ \ \\ jmfriedt@femto-st.fr \ \\ \ \\
+\\ \ \\ emilien.decoux@edu.univ-fcomte.fr, jmfriedt@femto-st.fr \ \\ \ \\
 project archive at \url{https://github.com/oscimp/wr_acorn}\\
 %\vspace{-1.27cm}
 \parbox{1.0\linewidth}{\includegraphics[width=.3\linewidth]{logo_femto.pdf}\hfill
-%\includegraphics[width=.37\linewidth]{gnuradio_logo.pdf}
-}\vspace{-1cm}  
+\includegraphics[width=.27\linewidth]{WR_logo_on_white}}\vspace{-1cm}  
 }
 
 \begin{document}
@@ -83,16 +82,19 @@ White Rabbit board} at 13th White Rabbit Workshop, CERN (Mar. 2024)}
 
 What element of the control loop is limiting overall performance?
 
-\vspace{-0.3cm}
+\vspace{0.3cm}
 \begin{minipage}[t]{1.06\linewidth}
 \begin{minipage}{.49\linewidth}
 
 \only<1>{\input{figures/principle.pspdftex}}
-\only<2>{\vspace{-0.9cm}\begin{minipage}[t]{\linewidth}
+\only<2>{\vspace{-0.2cm}\begin{minipage}[t]{\linewidth}
 DDMTD characterization setup
+\vspace{0.4cm}
 
 \includegraphics[width=0.9\linewidth]{dmtd_setup.png}
-\end{minipage}}
+\vspace{0.2cm}
+\end{minipage}
+}
 
 \begin{itemize}
 \item Initial tests of CMOD-A7 Artix-7 generic board
@@ -118,12 +120,15 @@ to phase as $$\varphi=2\pi c\cdot f_b/f_{PLL}$$
 \begin{minipage}{.49\linewidth}
 \includegraphics[width=\linewidth]{phase_noise.pdf}
 \end{minipage}
-\begin{minipage}{.49\linewidth}
+\begin{minipage}{.54\linewidth}
+\input{figures/principle.pspdftex}
+\vspace{0.4cm}
+
   \begin{itemize}
-    \item 1 -- 20 Hz : limited by RX clk from GTP
-    \item 20 Hz -- 3.8 kHz : limited by DMTD and/or softpll
-    \item 3.8 kHz -- 1 MHz : limited by VCO (MMCM with phase-shifts)
-    \item 5 kHz -- 1 MHz : spures from MMCM with phase-shifts
+    \item 1 -- 20 Hz: limited by RX clock from GTP
+    \item 20 Hz -- 3.8 kHz: limited by DMTD and/or softPLL
+    \item 3.8 kHz -- 1 MHz: limited by VCO (MMCM with phase-shifts)
+    \item 5 kHz -- 1 MHz: spurious from MMCM with phase-shifts
   \end{itemize}
 \end{minipage}
 \end{minipage}
@@ -154,10 +159,12 @@ to phase as $$\varphi=2\pi c\cdot f_b/f_{PLL}$$
 \end{frame}
 
 
-\begin{frame}[fragile]\frametitle{LiteX implementation on CLE215+ \& M2SDR: {\footnotesize\url{https://github.com/enjoy-digital/litex_wr_nic}}}
+\begin{frame}[fragile]\frametitle{LiteX implementation on CLE215+ \& M2SDR:\\
+\vspace{-.3cm}{\footnotesize\url{https://github.com/enjoy-digital/litex_wr_nic}}}
 
-\begin{minipage}[t]{\linewidth}
-\begin{minipage}{.7\linewidth}
+\vspace{.3cm}
+\begin{minipage}[t]{1.05\linewidth}
+\begin{minipage}{.66\linewidth}
 {\scriptsize
 \begin{Verbatim}[commandchars=\\\{\}]
 wrc# pll stat
@@ -190,9 +197,10 @@ delayCoefficient :   +0.000000000000000000  fpa   0
 \end{Verbatim}
 }
 \end{minipage}
-\begin{minipage}{.23\linewidth}
-\includegraphics[width=1.56\linewidth]{figures/2025-06-16-203322_2704x1050_scrot.png}
-M2SDR running White-Rabbit PTP core with 1 PPS output
+\begin{minipage}{.33\linewidth}
+\includegraphics[width=1.06\linewidth]{figures/2025-06-16-203322_2704x1050_scrot.png}
+
+{\footnotesize M2SDR running White-Rabbit PTP core with 1~PPS output\par}
 \end{minipage}
 \end{minipage}
 \end{frame}
@@ -201,7 +209,7 @@ M2SDR running White-Rabbit PTP core with 1 PPS output
 
 Tuning software phase locked-loop (PLL) control coefficients
 
-\begin{minipage}[t]{\linewidth}
+\begin{minipage}[t]{1.06\linewidth}
 \begin{minipage}{.49\linewidth}
 \only<1>{\includegraphics[width=\linewidth]{allan_wr_acorn_new.png}
 
@@ -227,7 +235,7 @@ scaled)
 
 \begin{frame}[fragile]\frametitle{Results: M2SDR}
 
-\begin{minipage}[t]{\linewidth}
+\begin{minipage}[t]{1.07\linewidth}
 \begin{minipage}{.49\linewidth}
 \includegraphics[width=\linewidth]{M2SDR_vs_WRS_allan}
 \end{minipage}
@@ -241,6 +249,7 @@ scaled)
 
 \begin{frame}[fragile]\frametitle{Conclusion \& perspectives}
 
+\vspace{.11cm}
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.55\linewidth}
 {\footnotesize
@@ -248,10 +257,12 @@ scaled)
 \item Initial steps for becoming familiar at FEMTO-ST with WR architecture and internals on Artix7
 \item Functional demonstration, repository at \url{https://github.com/oscimp/wr_acorn}
 \item Impact of internal oscillator usage on phase noise and Allan deviation performance
-\item In progress: port to M2SDR with its AD9361 frontend
+\item In progress: port to M2SDR {\bf with its AD9361 frontend}
+\item {\bf Challenge}: can modern FPGA, with flexible clock sources, compete with high stability external (quartz)
+oscillators?
 \end{itemize}
 
-\vspace{.41cm}
+\vspace{.11cm}
 {\bf Acknowledgements:}
 \begin{itemize}
     \item Peter Jansweijer (Nikhef) for updating the CLBv3 design, 
