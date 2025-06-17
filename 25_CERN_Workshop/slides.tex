@@ -104,10 +104,27 @@ to phase as $$\varphi=2\pi c\cdot f_b/f_{PLL}$$
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \vspace{0.6cm}
-All control loop steps characterized in the frequency domain (phase noise
-at $f_{Fourier}$ offset from carrier) and time domain (Allan deviation)
+%All control loop steps characterized in the frequency domain (phase noise
+%at $f_{Fourier}$ offset from carrier) and time domain (Allan deviation)
 
 \includegraphics[width=1.05\linewidth]{dmtd_phase_noise_by_clk_src.png}
+\end{minipage}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Reference clock characteristics}
+
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.49\linewidth}
+\includegraphics[width=\linewidth]{phase_noise.pdf}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+  \begin{itemize}
+    \item 1 -- 20 Hz : limited by RX clk from GTP
+    \item 20 Hz -- 3.8 kHz : limited by DMTD and/or softpll
+    \item 3.8 kHz -- 1 MHz : limited by VCO (MMCM with phase-shifts)
+    \item 5 kHz -- 1 MHz : spures from MMCM with phase-shifts
+  \end{itemize}
 \end{minipage}
 \end{minipage}
 \end{frame}
@@ -220,17 +237,6 @@ scaled)
 \end{minipage}
 
 100~MHz TCXO oscillator
-\end{frame}
-
-\begin{frame}[fragile]\frametitle{Reference clock characteristics}
-
-\begin{minipage}[t]{\linewidth}
-\begin{minipage}{.49\linewidth}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=\linewidth]{phase_noise.pdf}
-\end{minipage}
-\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Conclusion \& perspectives}
