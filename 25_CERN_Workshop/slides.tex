@@ -89,12 +89,9 @@ What element of the control loop is limiting overall performance?
 
 \only<1>{\input{figures/principle.pspdftex}}
 \only<2>{\vspace{-0.9cm}\begin{minipage}[t]{\linewidth}
-\begin{minipage}{0.35\linewidth}
-DDMTD characterization setup 
-\end{minipage}
-\begin{minipage}{0.49\linewidth}
-\input{figures/measure.pspdftex}
-\end{minipage}
+DDMTD characterization setup
+
+\includegraphics[width=0.9\linewidth]{dmtd_setup.png}
 \end{minipage}}
 
 \begin{itemize}
@@ -140,7 +137,7 @@ at $f_{Fourier}$ offset from carrier) and time domain (Allan deviation)
 \end{frame}
 
 
-\begin{frame}[fragile]\frametitle{LiteX implementation on CLE215+: {\footnotesize\url{https://github.com/enjoy-digital/litex_wr_nic}}}
+\begin{frame}[fragile]\frametitle{LiteX implementation on CLE215+ \& M2SDR: {\footnotesize\url{https://github.com/enjoy-digital/litex_wr_nic}}}
 
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.7\linewidth}
@@ -173,12 +170,12 @@ delayMS          :              284.572 ns
 delayMM          :             1097.210 ns 
 delayAsymmetry   :                0.000 ns
 delayCoefficient :   +0.000000000000000000  fpa   0
-...
 \end{Verbatim}
 }
 \end{minipage}
 \begin{minipage}{.23\linewidth}
 \includegraphics[width=1.56\linewidth]{figures/2025-06-16-203322_2704x1050_scrot.png}
+M2SDR running White-Rabbit PTP core with 1 PPS output
 \end{minipage}
 \end{minipage}
 \end{frame}
