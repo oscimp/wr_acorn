@@ -80,16 +80,17 @@ White Rabbit board} at 13th White Rabbit Workshop, CERN (Mar. 2024)}
 
 
 \begin{frame}[fragile]
-  \frametitle{MMCM phase-shifts for VCXO replacement}
-  \begin{minipage}{.74\linewidth}
-    \begin{itemize}
-      \item 
-    \end{itemize}
-    \includegraphics[width=.7\linewidth]{mmcm_phase_noise.png}
-  \end{minipage}
-  \begin{minipage}{.25\linewidth}
-    \includegraphics[width=\linewidth]{mmcm.png}
-  \end{minipage}
+\frametitle{Mixed-Mode Clock Manager (MMCM) phase-shifts for VCXO replacement}
+\begin{minipage}{.74\linewidth}
+Simulation v.s experimental phase noise spectra
+
+\includegraphics[width=.77\linewidth]{mmcm_phase_noise.png}
+
+$\rightarrow$ accurate understanding of the MMCM spurious sources
+\end{minipage}
+\begin{minipage}{.25\linewidth}
+\includegraphics[width=\linewidth]{mmcm.png}
+\end{minipage}
 \end{frame}
 
 
@@ -226,16 +227,16 @@ Tuning software phase locked-loop (PLL) control coefficients
 
 \begin{minipage}[t]{1.06\linewidth}
 \begin{minipage}{.49\linewidth}
-\only<1>{\includegraphics[width=\linewidth]{allan_wr_acorn_new.png}
+\only<1>{\includegraphics[width=\linewidth]{allan_wr_acorn_new.pdf}
 
 Modified Allan deviation: phase flicker noise
 }
-\only<2>{\includegraphics[width=.8\linewidth]{2025-05-30_10-12-29.png}
+\only<2>{\includegraphics[width=.7\linewidth]{2025-05-30_10-12-29.png}
 
-{\footnotesize Low quality 200~MHz MEMS oscillator (Abracon ASDMPLV-200.000MHZ)\par
+{\footnotesize Low quality 200~MHz MEMS oscillator (Abracon \\ASDMPLV-200.000MHZ): $\sigma_\tau=0.5$~ps @ 62.5~MHz:\\
+$10\log_{10}\left(\frac{(2\pi\times 62.5\cdot 10^6\times 0.5\cdot 10^{-12})^2}{10^5}\right)=-124$~dBrad$^2$/Hz\par
+\par}
 }
-}
-
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \includegraphics[width=\linewidth]{phase_noise_litex.png}
