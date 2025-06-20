@@ -115,9 +115,9 @@ DDMTD characterization setup
 \begin{itemize}
 \item Initial tests of CMOD-A7 Artix-7 generic board
 \item PLL frequency $f_{PLL}=62.5$~MHz and beatnote $f_b=3$~kHz $\Rightarrow$ counter $c$ converted
-to phase as $$\varphi=2\pi c\cdot f_b/f_{PLL}$$
-\item phase to phase noise density $$S_\varphi=\sigma^2_\varphi/f_b\mbox{ @ }f_b$$
-\item phase spectral density using {\tt pwelch} $\longrightarrow$
+to phase as $$\varphi=2\pi\cdot c\cdot f_b/f_{PLL}$$
+\item phase to phase noise density $$S_\varphi=\frac{\sigma^2_\varphi}{f_b}\mbox{ @ }f_b$$
+\item phase spectral density using {\tt pwelch} $\nearrow$
 \end{itemize}
 \end{minipage}
 \begin{minipage}{.49\linewidth}
@@ -239,10 +239,9 @@ $10\log_{10}\left(\frac{(2\pi\times 62.5\cdot 10^6\times 0.5\cdot 10^{-12})^2}{1
 }
 \end{minipage}
 \begin{minipage}{.49\linewidth}
-\includegraphics[width=\linewidth]{phase_noise_litex.png}
+\includegraphics[width=\linewidth]{phase_noise_litex.pdf}
 
-Phase noise (Rohde \& Schwarz FSWP, all 10~MHz except LiteX 62.5~MHz
-scaled)
+Phase noise (Rohde \& Schwarz FSWP, 10~MHz output)
 \end{minipage}
 \end{minipage}
 
