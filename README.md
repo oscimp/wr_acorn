@@ -42,7 +42,7 @@ Phase Noise Analyzer with 10-correlations in the 1-Hz bin.
 
 <img src="pictures/phase_noise_acorn_KiKp.svg">
 
-All Modified Allan deviation plot exhibit a $1/\tau$ slope, i.e. $1/\tau^2$ for the variance,
+All Modified Allan deviation of the 1-PPS outputs plot exhibit a $1/\tau$ slope, i.e. $1/\tau^2$ for the variance,
 characteristic of flicker phase noise. The MVAR of flicker PM [1] level is $0.0855 h_1/\tau^2$: at
 1 Hz, the phase noise of $-70$ dBc/Hz or $-67$ dBrad $^2$ /Hz would lead to 
 $\sqrt{10^{-6.7}/(10^7)^2\cdot 0.0855}=1.4\cdot 10^{-11}$. The observed $5.5\cdot 10^{-11}$ hints at a noise
@@ -105,3 +105,5 @@ Phase noise (M2SDR scaled 62.5-MHz v.s White Rabbit switch 10-MHz output):
 Allan deviation:
 
 <img src="pictures/M2SDR_vs_WRS_allan.png">
+
+<img src="pictures/Screenshot_2025-06-28_0_134354.png">
