@@ -96,6 +96,12 @@ as the last instruction of the ``__init()__`` function just before the ``main():
 
 When loading a new gateware, the PCI board must be enumerated again using ``echo 1 > /sys/bus/pci/rescan``
 
+**Note**: in case ``from litex_m2sdr import Platform`` fails when synthesizing the m2sdr branch of https://github.com/enjoy-digital/litex_wr_nic, make sure to
+```
+pip install --user -e .
+```
+in the litex_m2sdr repository.
+
 ## Results
 
 Phase noise (M2SDR scaled 62.5-MHz v.s White Rabbit switch 10-MHz output):
