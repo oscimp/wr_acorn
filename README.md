@@ -102,6 +102,8 @@ pip install --user -e .
 ```
 in the litex_m2sdr repository.
 
+**Note**: ``m2sdr_wr_nic.py --build`` synthesis fails with Vivado 2019.2 and *succeeds* with Vivado 2022.2.
+
 ## Results
 
 Phase noise (M2SDR scaled 62.5-MHz v.s White Rabbit switch 10-MHz output):
