@@ -102,7 +102,7 @@ pip install --user -e .
 ```
 in the litex_m2sdr repository.
 
-**Note**: ``m2sdr_wr_nic.py --build`` synthesis fails with Vivado 2019.2 and *succeeds* with Vivado 2022.2.
+**Note**: ``m2sdr_wr_nic.py --build`` synthesis fails with Vivado 2019.2 or 2020.1 and *succeeds* with Vivado 2022.2.
 
 ## Results
 
