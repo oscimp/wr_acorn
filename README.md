@@ -122,9 +122,12 @@ In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same filesystem tree lev
 ``pip install --user -e .``:
 ```
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
-openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+``` on the build computer running Vivado (in our case 2022.2), and then on the target computer the PCIe with the M2SDR board is connected to:
 ```
-Then from a kernel module perspective, ``scp -r litex_m2sdr/software/`` to the target computer and in ``software/kernel`` run ``make`` to
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+sudo echo 1 > /sys/bus/pci/rescan
+```
+Then from a kernel module perspective, ``scp -r litex_m2sdr/software/`` from the build computer to the target computer and in ``software/kernel`` run ``make`` to
 compile the kernel modules, leading to ``m2sdr.ko`` and ``liteuart.ko``. Once these two kernel modules are loaded
 ```
 sudo insmod liteuart.ko
@@ -137,3 +140,7 @@ WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
 Built: Jul 18 2025 08:28:12 by JM Friedt
 Built for RISCV, 128 kB RAM, stack is 2048 bytes
 ```
+
+**DO NOT** attempt to use the kernel modules found in ``litex_wr_nic``: despite similar names, they will kernel panic. Also make sure to
+recompile the kernel according to the new gateware configuration since headers are automagically generated during gateware synthesis, so
+that kernel modules must be recompiled accordingly on the target computer.
