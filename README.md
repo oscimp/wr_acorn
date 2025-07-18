@@ -145,3 +145,39 @@ Built for RISCV, 128 kB RAM, stack is 2048 bytes
 **DO NOT** attempt to use the kernel modules found in ``litex_wr_nic``: despite similar names, they will kernel panic. Also make sure to
 recompile the kernel according to the new gateware configuration since headers are automagically generated during gateware synthesis, so
 that kernel modules must be recompiled accordingly on the target computer.
+
+Result: phase-lock of the M2SDR with SDR capability on the WR switch master signal
+```
+SAWR WRPC Monitor wrpc-v5.0-ohwr-9-g5ac04dd5-dirt | Esc/q = exit; r = redraw
+
+TAI Time: 2023-05-12-12:28:06  UTC offset: 37   PLL mode: BC  state: Locked 
+---+-------------------+-------------------------+---------+---------+-----
+ # |        MAC        |       IP (source)       |    RX   |    TX   | VLAN
+---+-------------------+-------------------------+---------+---------+-----
+ 0 | 22:33:44:55:66:77 |                         |    3105 |    1291 |    0
+
+--- HAL ---|------------- PPSI ------------------------------------------------
+ Itf | Frq |  Config   | MAC of peer port  |    PTP/EXT/PDETECT States   | Pro 
+-----+-----+-----------+-------------------+-----------------------------+-----
+ wr0 | Lck | auto      | 70:b3:d5:91:ea:f0 | SLAVE    /IDLE      /EXT_ON | R-W 
+Pro(tocol): R-RawEth, V-VLAN, U-UDP
+
+--------------------------- Synchronization status ----------------------------
+Servo state:          White-Rabbit: TRACK_PHASE                         
+
+--- Timing parameters ---------------------------------------------------------
+meanDelay        :              285.439 ns
+delayMS          :              285.439 ns 
+delayMM          :             1095.745 ns 
+delayAsymmetry   :                0.000 ns
+delayCoefficient :   +0.000000000000000000  fpa   0
+ingressLatency   :                0.000 ns
+egressLatency    :                0.000 ns
+semistaticLatency:                6.400 ns
+offsetFromMaster :               -0.025 ns
+Phase setpoint   :                1.548 ns
+Skew             :                0.067 ns
+Update counter   :                  626 times
+Master PHY delays TX:               238.809 ns   RX:           279.657 ns 
+Slave  PHY delays TX:                 0.000 ns   RX:             6.400 ns 
+```
