@@ -122,7 +122,8 @@ In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same filesystem tree lev
 ``pip install --user -e .``:
 ```
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
-``` on the build computer running Vivado (in our case 2022.2), and then on the target computer the PCIe with the M2SDR board is connected to:
+```
+on the build computer running Vivado (in our case 2022.2), and then on the target computer the PCIe with the M2SDR board is connected to:
 ```
 openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
 sudo echo 1 > /sys/bus/pci/rescan
