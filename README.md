@@ -26,7 +26,6 @@ pll gain -1 0 -400 -2 12
 
 ## Results
 
-
 MDEV measurement as a function of PLL loop gain coefficients, changing Kp while
 keeping Ki fixed (-2) except for two measurements, of the time interval between the 
 White Rabbit Switche (WRS) and the CLE215+ 1-PPS outputs. For reference, WRS is the Modified 
@@ -115,3 +114,11 @@ Allan deviation:
 <img src="pictures/M2SDR_vs_WRS_allan.png">
 
 <img src="pictures/Screenshot_2025-06-28_0_134354.png">
+
+## M2SDR SDR with WR support
+
+In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same tree structure level (update ``litex_m2sdr.py`` with the two ``FIXME: Avoid harcoded path/platform`` directory information accordingly) and was installed using ``pip install --user -e .``:
+```
+./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+```
