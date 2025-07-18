@@ -117,8 +117,23 @@ Allan deviation:
 
 ## M2SDR SDR with WR support
 
-In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same tree structure level (update ``litex_m2sdr.py`` with the two ``FIXME: Avoid harcoded path/platform`` directory information accordingly) and was installed using ``pip install --user -e .``:
+In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same filesystem tree level (possibly update ``litex_m2sdr.py`` with the two 
+``FIXME: Avoid harcoded path/platform`` directory information accordingly for different tree structure) and was installed using 
+``pip install --user -e .``:
 ```
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
 openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+```
+Then from a kernel module perspective, ``scp -r litex_m2sdr/software/`` to the target computer and in ``software/kernel`` run ``make`` to
+compile the kernel modules, leading to ``m2sdr.ko`` and ``liteuart.ko``. Once these two kernel modules are loaded
+```
+sudo insmod liteuart.ko
+sudo insmod m2sdr.ko
+```
+the communication interface ``/dev/ttyLXU0`` is created and ``minicom -D /dev/ttyLXU0`` displays a prompt
+```
+wrc# ver                                                                                        
+WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
+Built: Jul 18 2025 08:28:12 by JM Friedt
+Built for RISCV, 128 kB RAM, stack is 2048 bytes
 ```
