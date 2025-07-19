@@ -59,6 +59,14 @@ locked.
 
 [1] E. Rubiola, *Enrico's Chart of Phase Noise and Two-Sample Variances*, https://rubiola.org/pdf-static/Enrico%27s-chart-EFTS.pdf (2025)
 
+## SFP brands
+
+Some SFP seem to operate properly with the Acorn (but functional with the M2SDR), some not.
+
+Tested as functional: Cisco GLC-BX-U BlueOptics BO15C3149620D
+
+Tested as **non** functional: AXCEN AXGE-1254-0531
+
 # Application to the M2SDR
 
 <img src="pictures/IMG_20250523_083705_167.jpg">
