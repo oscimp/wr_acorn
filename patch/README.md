@@ -1,5 +1,7 @@
 ## Synthetize White-Rabbit for the Litex Acorn Baseboard Mini
 
+We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence.
+
 ### 0. Synthesize the softcore
 ```sh
 git clone --recursive https://gitlab.com/ohwr/project/wrpc-sw
@@ -52,6 +54,11 @@ cd syn/acorn_ref_design
 cp ../../../wrpc-sw/wrc.bram ../../../wr-cores/bin/wrpc/wrc_phy16_direct_dmtd.bram
 hdlmake
 make -i
+```
+TODO WARNING: problem with
+```
+INFO    action.py:141: build_file_set() not parseable: .../wr_acorn/patch/wr-cores/top/acorn_ref_design/acorn_wr_ref_top.bmm
+INFO    action.py:141: build_file_set() not parseable: .../wr_acorn/patch/wr-cores/top/acorn_ref_design/acorn_wr_ref_top.xdc
 ```
 
 ### 4. Flash the bitstream
