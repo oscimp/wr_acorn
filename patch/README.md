@@ -2,7 +2,7 @@
 
 We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence.
 
-### 0. Synthesize the softcore
+### 0. Synthesize the softcore firmware
 ```sh
 git clone --recursive https://gitlab.com/ohwr/project/wrpc-sw
 cd wrpc-sw
@@ -24,7 +24,7 @@ export PATH=$HOME/WR/riscv-11.2-small/bin:$PATH  # adapt to you directory layout
 make
 ```
 
-The resutin ``wrc.bram`` will be needed later to synthesize the bitstream, assuming its location
+The resuting ``wrc.bram`` will be needed later to synthesize the bitstream, assuming its location
 will be ``wr-cores/bin/wrpc/wrc_phy16_direct_dmtd.bram`` (see below).
 
 ### 1. Get the sources
@@ -45,9 +45,10 @@ patch -p1 < ../wr_acorn.patch
 ```
 or 
 
-### 3. Synthetize
-Make sure ``hdlmake`` is installed (``pip install hdlmake``) and that Vivado is in the ``PATH`` 
-(e.g. ``source /opt/Xilinx/Vivado/2022.2/settings64.sh``)
+### 3. Synthesize
+Make sure ``hdlmake`` is installed (``pip install --user hdlmake`` or execute ``python3 ./setup.py install --user`` 
+from a clone of https://gitlab.com/ohwr/project/hdl-make) and that Vivado is in the ``PATH`` 
+(e.g. ``source /opt/Xilinx/Vivado/2022.2/settings64.sh`` -- tested with Vivado 2022.2 and 2024.2)
 
 ```sh
 cd syn/acorn_ref_design
@@ -61,7 +62,6 @@ INFO    action.py:141: build_file_set() not parseable: .../wr_acorn/patch/wr-cor
 INFO    action.py:141: build_file_set() not parseable: .../wr_acorn/patch/wr-cores/top/acorn_ref_design/acorn_wr_ref_top.xdc
 ```
 but notice that the patch did create a file ``syn/acorn_ref_design/bitstream.tcl`` including the statement
-
 ```
 set_property SEVERITY WARNING [get_drc_checks REQP-49]
 ```
