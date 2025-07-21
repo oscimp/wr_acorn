@@ -61,7 +61,7 @@ locked.
 
 ## SFP brands
 
-Some SFP seem to operate properly with the Acorn (but functional with the M2SDR), some not.
+Some SFP seem to operate properly with the Acorn, some not (but are functional with the M2SDR).
 
 Tested as functional: Cisco GLC-BX-U BlueOptics BO15C3149620D
 
@@ -139,8 +139,8 @@ sudo echo 1 > /sys/bus/pci/rescan
 Then from a kernel module perspective, ``scp -r litex_m2sdr/software/`` from the build computer to the target computer and in ``software/kernel`` run ``make`` to
 compile the kernel modules, leading to ``m2sdr.ko`` and ``liteuart.ko``. Once these two kernel modules are loaded
 ```
-sudo insmod liteuart.ko
 sudo insmod m2sdr.ko
+sudo insmod liteuart.ko
 ```
 the communication interface ``/dev/ttyLXU0`` is created and ``minicom -D /dev/ttyLXU0`` displays a prompt
 ```
