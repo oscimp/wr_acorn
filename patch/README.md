@@ -55,11 +55,19 @@ cp ../../../wrpc-sw/wrc.bram ../../../wr-cores/bin/wrpc/wrc_phy16_direct_dmtd.br
 hdlmake
 make -i
 ```
-TODO WARNING: problem with
+Do not be concerned with ``hdlmake`` stating that
 ```
 INFO    action.py:141: build_file_set() not parseable: .../wr_acorn/patch/wr-cores/top/acorn_ref_design/acorn_wr_ref_top.bmm
 INFO    action.py:141: build_file_set() not parseable: .../wr_acorn/patch/wr-cores/top/acorn_ref_design/acorn_wr_ref_top.xdc
 ```
+but notice that the patch did create a file ``syn/acorn_ref_design/bitstream.tcl`` including the statement
+
+```
+set_property SEVERITY WARNING [get_drc_checks REQP-49]
+```
+Since ``make clean`` will delete all TCL scripts, the newly generated ``bitstream.tcl`` will miss this option, leading to a failure
+to synthesize the bitstream. Thus, avoid ``make clean``, or at least include the ``bitstream.tcl`` manually in the ``syn/acorn_ref_design``
+to avoid ``Makefile`` from overwriting and deleting the mandatory option.
 
 ### 4. Flash the bitstream
 ```sh
