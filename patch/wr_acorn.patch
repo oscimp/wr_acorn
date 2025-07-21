@@ -73,11 +73,11 @@ index 00000000..8a76572a
 +-------------------------------------------------------------------------------
 +-- GNU LESSER GENERAL PUBLIC LICENSE
 +--
-+-- This source file is free software; you can redistribute it   
-+-- and/or modify it under the terms of the GNU Lesser General   
-+-- Public License as published by the Free Software Foundation; 
-+-- either version 2.1 of the License, or (at your option) any   
-+-- later version.                                               
++-- This source file is free software; you can redistribute it
++-- and/or modify it under the terms of the GNU Lesser General
++-- Public License as published by the Free Software Foundation;
++-- either version 2.1 of the License, or (at your option) any
++-- later version.
 +--
 +-- This source is distributed in the hope that it will be       
 +-- useful, but WITHOUT ANY WARRANTY; without even the implied   
@@ -1379,8 +1379,9 @@ new file mode 100644
 index 00000000..722df0d9
 --- /dev/null
 +++ b/syn/acorn_ref_design/bitstream.tcl
-@@ -0,0 +1,5 @@
+@@ -0,0 +1,6 @@
 +open_project acorn_wr_ref.xpr
++reset_runs impl_1
 +set_property SEVERITY WARNING [get_drc_checks REQP-49]
 +launch_runs impl_1 -to_step write_bitstream
 +wait_on_run impl_1
