@@ -2,7 +2,7 @@
 
 We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence.
 
-### 0. Synthesize the softcore firmware
+### 0. Compile the softcore firmware
 ```sh
 git clone --recursive https://gitlab.com/ohwr/project/wrpc-sw
 cd wrpc-sw
