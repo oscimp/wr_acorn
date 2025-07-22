@@ -6,3 +6,8 @@
 *.vrb
 *.out
 *.bak
+*.swp
+*.tgz
+patch/riscv-11.2-small/
+patch/wrpc-sw/
+patch/wr-cores/
