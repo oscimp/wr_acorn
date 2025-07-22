@@ -48,7 +48,7 @@ or
 ### 3. Synthesize the gateware
 Make sure ``hdlmake`` is installed (``pip install --user hdlmake`` or execute ``python3 ./setup.py install --user`` 
 from a clone of https://gitlab.com/ohwr/project/hdl-make) and that Vivado is in the ``PATH`` 
-(e.g. ``source /opt/Xilinx/Vivado/2022.2/settings64.sh`` -- tested with Vivado 2019.1, 2022.2 and 2024.2)
+(e.g. ``source /opt/Xilinx/Vivado/2022.2/settings64.sh`` -- tested with Vivado 2019.1, 2021.1, 2022.2 and 2024.2)
 
 ```sh
 cd syn/acorn_ref_design
