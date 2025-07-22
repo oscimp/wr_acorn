@@ -1,7 +1,7 @@
 RISCV_TOOLCHAIN=riscv-11.2-small
 RISCV_TOOLCHAIN_BASE_URL=https://gitlab.com/ohwr/project/wrpc-sw/-/wikis/uploads/9f9224d2249848ed3e854636de9c08dc/
 
-export PATH := $(RISCV_TOOLCHAIN):$(PATH)
+export PATH := $(RISCV_TOOLCHAIN)/bin/:$(PATH)
 
 all: wr-cores
 
