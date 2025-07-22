@@ -192,3 +192,21 @@ Slave  PHY delays TX:                 0.000 ns   RX:             6.400 ns
 
 If the finite state machine remains in ``Servo state:          White-Rabbit: SYNC_PHASE           (wait for hw)`` then
 execute ``ptrack ps-freeze``.
+
+## WR clock output for phase noise measurement
+To output the 62.5 MHz WR disciplined clock on the WFL output, comment https://github.com/enjoy-digital/litex_m2sdr/blob/main/litex_m2sdr.py#L522C1-L528C60
+```
+self.gpio.connect_to_pads(pads=platform.request("gpios"))
+
+# Drive led from GPIO0 when in loopback mode to ease test/verification.
+self.sync += If(self.gpio._control.fields.loopback, led_pad.eq(self.gpio.i_async[0]))
+
+# Use GPIO0 as ClkIn.
+self.comb += si5351_clk_in.eq(self.gpio.i_async[0])
+```
+and replace with
+```
+self.comb += platform.request('debug').eq(ClockSignal('wr'))
+```
+## Changing the beatnote frequency
+To change the beatnote from $62.5*(1-2^{14}/(2^{14}+1))=3814$ Hz, update the content of ``litex_wr_nic/firmware/wrpc-sw/include/spll_defs.h`` where ``HPLL_N`` is defined with the default value of 14.
