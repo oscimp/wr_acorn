@@ -189,3 +189,6 @@ Update counter   :                  626 times
 Master PHY delays TX:               238.809 ns   RX:           279.657 ns 
 Slave  PHY delays TX:                 0.000 ns   RX:             6.400 ns 
 ```
+
+If the finite state machine remains in ``Servo state:          White-Rabbit: SYNC_PHASE           (wait for hw)`` then
+execute ``ptrack ps-freeze``.
