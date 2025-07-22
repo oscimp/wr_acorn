@@ -1,8 +1,6 @@
 RISCV_TOOLCHAIN=riscv-11.2-small
 RISCV_TOOLCHAIN_BASE_URL=https://gitlab.com/ohwr/project/wrpc-sw/-/wikis/uploads/9f9224d2249848ed3e854636de9c08dc/
 
-export PATH := $(RISCV_TOOLCHAIN)/bin/:$(PATH)
-
 all: wr-cores
 
 riscv_get:
@@ -14,7 +12,7 @@ wrpc-sw: riscv_get clean-wrpc-sw
 	cd wrpc-sw && git checkout fc6a0f95ac2069d0ed73a6af4021876194f2dc54
 	cd wrpc-sw && git apply ../wrpc-sw_acorn.patch
 	cp wrpc-sw_acorn.config wrpc-sw/.config
-	cd wrpc-sw && make
+	export PATH=$$PWD/$(RISCV_TOOLCHAIN)/bin:$$PATH && echo $$PATH && cd wrpc-sw && make
 
 wr-cores: wrpc-sw clean-wr-cores
 	git clone --recursive https://gitlab.com/ohwr/project/wr-cores.git
