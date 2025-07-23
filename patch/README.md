@@ -1,6 +1,8 @@
 ## Synthetize White-Rabbit for the Litex Acorn Baseboard Mini
 
-We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence.
+We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence. 
+
+We assume that ``sudo apt install libncurses-dev libncurses5-dev libreadline-dev `` are installed.
 
 ### 0. Compile the softcore firmware
 ```sh
