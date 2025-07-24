@@ -63,7 +63,7 @@ locked.
 
 Some SFP seem to operate properly with the Acorn, some not (but are functional with the M2SDR).
 
-Tested as functional: Cisco GLC-BX-U BlueOptics BO15C3149620D
+Tested as functional: Cisco GLC-BX-U BlueOptics BO15C3149620D and <a href="https://www.fs.com/fr/products/75341.html?attribute=10414&id=2101714">FS SFP-1G34-BX20</a>
 
 Tested as **non** functional: AXCEN AXGE-1254-0531
 
