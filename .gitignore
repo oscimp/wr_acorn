@@ -8,6 +8,8 @@
 *.bak
 *.swp
 *.tgz
+.Xil
+*.jou
 patch/riscv-11.2-small/
 patch/wrpc-sw/
 patch/wr-cores/
