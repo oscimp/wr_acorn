@@ -1,0 +1,6 @@
+[submodule "RPi_HAT/KiCADComponents"]
+	path = RPi_HAT/KiCADComponents
+	url = https://github.com/takigama/KiCADComponents
+[submodule "RPi_HAT/kicad-ngff"]
+	path = RPi_HAT/kicad-ngff
+	url = https://github.com/jmgao/kicad-ngff

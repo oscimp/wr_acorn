@@ -1,6 +1,8 @@
 ## Synthetize White-Rabbit for the Litex Acorn Baseboard Mini
 
-We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence.
+We assume we are in this ``patch/`` subdirectory of the ``wr_acorn`` repository in the following command sequence. 
+
+We assume that ``sudo apt install libncurses-dev libncurses5-dev libreadline-dev `` are installed.
 
 ### 0. Compile the softcore firmware
 ```sh
@@ -17,7 +19,8 @@ make menuconfig
 
 select ``Architecture = riscV`` and ``Target Platform = Generic WR Node with 16-bit PCS/PHY``
 
-Then
+Then, using either the binary toolchain found on the <a href="https://gitlab.com/ohwr/project/wrpc-sw/-/wikis/uploads/9f9224d2249848ed3e854636de9c08dc/riscv-11.2-small.tgz">CERN</a>
+OHWR web site, but preferably generating using Crosstools-NG, include the cross-compiler in the path and cross-compile
 
 ```
 export PATH=$HOME/WR/riscv-11.2-small/bin:$PATH  # adapt to you directory layout
