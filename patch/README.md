@@ -74,6 +74,8 @@ Since ``make clean`` will delete all TCL scripts, the newly generated ``bitstrea
 to synthesize the bitstream. Thus, avoid ``make clean``, or at least include the ``bitstream.tcl`` manually in the ``syn/acorn_ref_design``
 to avoid ``Makefile`` from overwriting and deleting the mandatory option.
 
+If trying to relaunch a synthesis after removing the ``bitstream`` file, the ``bitstream.tcl`` must include ``reset_run synth_1`` before ``launch_runs impl_1 -to_step write_bitstream``.
+
 ### 4. Flash the bitstream
 ```sh
 openFPGALoader -c ft4232 -b litex-acorn-baseboard-mini -f ./acorn_wr_ref.runs/impl_1/acorn_wr_ref_top.bit
