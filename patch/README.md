@@ -30,6 +30,8 @@ make
 The resulting ``wrc.bram`` will be needed later to synthesize the bitstream, assuming its location
 will be ``wr-cores/bin/wrpc/wrc_phy16_direct_dmtd.bram`` (see below).
 
+Go back to this directory: ``cd ..``
+
 ### 1. Get the sources
 ```sh
 git clone --recursive https://gitlab.com/ohwr/project/wr-cores.git
