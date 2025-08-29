@@ -16,13 +16,14 @@ CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> 
 
 From the shell connected to the embdded RISC-V processor, the main PLL gain coefficients (proportional and integral) are set using the command
 ```
-pll gain 0 0 -400 -2 12
+pll gain 0 0 -100 -2 12
 ```
 
 and similartly for the helper PLL (any negative number will do instead of -1 as 2nd argument)
 ```
-pll gain -1 0 -400 -2 12
+pll gain -1 0 -100 -2 12
 ```
+Once both PLLs are locked, the Kp and Ki can be increased for better tracking performance.
 
 ## Results
 
@@ -101,7 +102,14 @@ minicom -D /dev/ttyLXU0
 The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
 as the last instruction of the ``__init()__`` function just before the ``main():``, after commenting ``platform.request("pps_out").eq(pps),`` to avoid a conflict on the SYNCDBG_CLK pin.
 
-When loading a new gateware, the PCI board must be enumerated again using ``echo 1 > /sys/bus/pci/rescan``
+When loading a new gateware, the PCI board must first be disabled, then flash the FPGA, and then enumerated again using
+```
+bar=`lspci | grep Xil | cut -d\  -f1`
+echo 1 > /sys/bus/pci/devices/0000:$bar/remove
+openFPGALoader -c ft4232 -b litex-acorn-baseboard-mini -f gateware.bit
+echo 1 > /sys/bus/pci/rescan
+```
+and then ``rmmod`` and ``insmod`` the ``m2sdr.ko`` module.
 
 **Note**: in case ``from litex_m2sdr import Platform`` fails when synthesizing the m2sdr branch of https://github.com/enjoy-digital/litex_wr_nic, make sure to
 ```
