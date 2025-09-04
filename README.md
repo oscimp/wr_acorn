@@ -141,7 +141,7 @@ In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same filesystem tree lev
 ```
 on the build computer running Vivado (in our case 2022.2), and then on the target computer the PCIe with the M2SDR board is connected to:
 ```
-openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
 sudo echo 1 > /sys/bus/pci/rescan
 ```
 Then from a kernel module perspective, ``scp -r litex_m2sdr/software/`` from the build computer to the target computer and in ``software/kernel`` run ``make`` to
@@ -159,7 +159,8 @@ Built for RISCV, 128 kB RAM, stack is 2048 bytes
 ```
 
 **DO NOT** attempt to use the kernel modules found in ``litex_wr_nic``: despite similar names, they will kernel panic. Also make sure to
-recompile the kernel according to the new gateware configuration since headers are automagically generated during gateware synthesis, so
+**recompile** the kernel according to the new gateware configuration since header files ``csr.h``, ``mem.h`` and ``soc.h`` are automagically 
+generated during gateware synthesis, so
 that kernel modules must be recompiled accordingly on the target computer.
 
 Result: phase-lock of the M2SDR with SDR capability on the WR switch master signal
@@ -218,3 +219,32 @@ self.comb += platform.request('debug').eq(ClockSignal('wr'))
 ```
 ## Changing the beatnote frequency
 To change the beatnote from $62.5*(1-2^{14}/(2^{14}+1))=3814$ Hz, update the content of ``litex_wr_nic/firmware/wrpc-sw/include/spll_defs.h`` where ``HPLL_N`` is defined with the default value of 14.
+
+## Firmware update without gateware generation
+
+``litex_wr_nic`` provides, in the ``test`` directory, the ``test_cpu.py`` script which allows uploading the firware without generating the full gateware.
+
+1. Install ``litex_wr_nic`` by running ``pip install --user -e .`` in the git cloned <a href="https://github.com/enjoy-digital/litex_wr_nic">litex_wr_nic</a> directory
+2. In the git cloned <a href="https://github.com/enjoy-digital/litex_m2sdr">litex_m2sdr</a> directory, synthesize the gateware (requires Vivado and litex standard install):
+```
+./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
+cp csr.csv ../litex_wr_nic/test/
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+cd litex_m2sdr/software/kernel
+make
+sudo insmod liteuart.ko
+sudo insmod m2sdr.ko
+```
+resulting in ``dmesg`` with
+```
+m2sdr 0000:06:00.0: Version LiteX-M2SDR SoC / baseboard variant / built on 2025-09-04 12:41:57
+```
+3. ``m2sdr 0000:06:00.0: Version LiteX-M2SDR SoC / baseboard variant / built on 2025-09-04 12:41:57`` in one terminal or one screen session
+3. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
+```
+cd ../litex_wr_nic/test
+./test_cpu.py --build-firmware
+./test_cpu.py --load-firmware ../litex_wr_nic/firmware/wrpc-sw/wrc.bin
+minicom -D /dev/ttyLXU0
+```
+Make sure to **remove** lines 72-73 which execute a ``git checkout`` in ``firmware/build.py`` that would delete all updates made on the ``spll_main.c`` firmware file
