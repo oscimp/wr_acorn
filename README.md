@@ -222,7 +222,7 @@ To change the beatnote from $62.5*(1-2^{14}/(2^{14}+1))=3814$ Hz, update the con
 
 ## Firmware update without gateware generation
 
-``litex_wr_nic`` provides, in the ``test`` directory, the ``test_cpu.py`` script which allows uploading the firware without generating the full gateware.
+``litex_wr_nic`` provides, in the ``test`` directory, the ``test_cpu.py`` script which allows uploading the firmware without generating the full gateware.
 
 1. Install ``litex_wr_nic`` by running ``pip install --user -e .`` in the git cloned <a href="https://github.com/enjoy-digital/litex_wr_nic">litex_wr_nic</a> directory
 2. In the git cloned <a href="https://github.com/enjoy-digital/litex_m2sdr">litex_m2sdr</a> directory, synthesize the gateware (requires Vivado and litex standard install):
@@ -230,6 +230,7 @@ To change the beatnote from $62.5*(1-2^{14}/(2^{14}+1))=3814$ Hz, update the con
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
 cp csr.csv ../litex_wr_nic/test/
 openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+# probably need to shutdown and restart the computer as the PCIe bus might be corrupt when rescanning
 cd litex_m2sdr/software/kernel
 make
 sudo insmod liteuart.ko
@@ -239,8 +240,13 @@ resulting in ``dmesg`` with
 ```
 m2sdr 0000:06:00.0: Version LiteX-M2SDR SoC / baseboard variant / built on 2025-09-04 12:41:57
 ```
-3. ``m2sdr 0000:06:00.0: Version LiteX-M2SDR SoC / baseboard variant / built on 2025-09-04 12:41:57`` in one terminal or one screen session
-3. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
+and at this point executing ``minicom -D /dev/ttyLXU0`` allows for
+```
+wrc# ver                                                                                              
+WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
+```
+3. execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session
+4. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
 ```
 cd ../litex_wr_nic/test
 ./test_cpu.py --build-firmware
