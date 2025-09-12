@@ -233,7 +233,6 @@ openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write
 # probably need to shutdown and restart the computer as the PCIe bus might be corrupt when rescanning
 cd litex_m2sdr/software/kernel
 make
-sudo insmod liteuart.ko
 sudo insmod m2sdr.ko
 ```
 resulting in ``dmesg`` with
@@ -245,8 +244,14 @@ and at this point executing ``minicom -D /dev/ttyLXU0`` allows for
 wrc# ver                                                                                              
 WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
 ```
-3. execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session
-4. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
+3. <del>execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session</del>
+At the moment ``litex_server`` does not seem functional for transfering the gateware through JTAG so we
+```
+bar=`lspci | grep Xil | cut -d\  -f1`
+sudo chown -R 777 /sys/bus/pci/devices/0000\:$bar
+
+``` 
+5. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
 ```
 cd ../litex_wr_nic/test
 ./test_cpu.py --build-firmware
