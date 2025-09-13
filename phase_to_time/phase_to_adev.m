@@ -1,8 +1,10 @@
-fc=1e7;
-N=100;
+fc=1e7; % carrier frequency
+N=100;  % interpolation factor
+% phase noise spectral SdBc @ fF
 fF=  [1    10  100 1000 10000 1e5] %  1e6  1e7];
 SdBc=[-70 -70  -95 -120 -130 -130] % -130 -130]
 
+%%%%%%%% interpolate, convert SdBc to SdBrad to Sy (linear) & integrate to AVAR
 SdBcint=[];
 fFint=[];
 for k=1:length(SdBc)-1
@@ -24,5 +26,7 @@ for tau=logspace(-2,5,1024)
   avar(m)=2*sum(Sy(1:end-1).*(fFint(2:end)-fFint(1:end-1)).*sin(4*pi*tau*fFint(1:end-1)).^4./(4*pi*tau*fFint(1:end-1)).^2);
   m=m+1;
 end
+
+% plot resulting adev=sqrt(avar)
 adev=sqrt(avar);
-loglog(logspace(-2,5,1024),adev/fc)
+loglog(logspace(-2,2,1024),adev/fc)
