@@ -15,14 +15,15 @@ end
 subplot(211)
 SdBrad=SdBcint+3;   % dBc/Hz -> dBrad^2/Hz
 Sy=(10.^(SdBrad/10)).*(fFint.^2);
-semilogx(fFint,10*log10(Sy))
-hold on
 semilogx(fFint,(SdBrad))
+hold on
+semilogx(fFint,10*log10(Sy))
 xlabel('Fourier frequency (Hz)')
-ylabel('Phase noise (dBc/Hz)')
+ylabel('phase noise (dBc/Hz)');legend('Sphi','Sy=Sphixf^2','location','southwest')
+grid on
 subplot(212)
 m=1
-for tau=logspace(-2,5,1024)
+for tau=logspace(-2,2,1024)
   avar(m)=2*sum(Sy(1:end-1).*(fFint(2:end)-fFint(1:end-1)).*sin(4*pi*tau*fFint(1:end-1)).^4./(4*pi*tau*fFint(1:end-1)).^2);
   m=m+1;
 end
@@ -30,3 +31,5 @@ end
 % plot resulting adev=sqrt(avar)
 adev=sqrt(avar);
 loglog(logspace(-2,2,1024),adev/fc)
+xlabel('tau (s)');ylabel('ADEV (no unit)')
+grid on
