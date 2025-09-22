@@ -248,7 +248,7 @@ WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
 When using the M2SDR on a different computer than the one used for the synthesis, we need to ``scp`` the ``software/kernel`` and ``csr.csv`` to the remote computer.
 
 3. <del>execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session</del>
-At the moment ``litex_server`` does not seem functional for transfering the gateware through JTAG so we
+At the moment ``litex_server --jtag`` does not seem functional for transfering the gateware through JTAG so we
 ```
 sudo insmod m2sdr.ko  # if not already loaded, e.g. on a remote computer
 bar=`lspci | grep Xil | cut -d\  -f1`
