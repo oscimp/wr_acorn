@@ -25,5 +25,4 @@ qty	Mouser reference	price/1	description
 5	70-IHLP2020CZR1R5M5A	0.86	1.5uH
 5	200-SSW10301GD 		0.903	connecteur 2x03
 20	603-RC0402FR-07137KL	0.005	137k 0402
-
-
+5       710-687712050002        2.54    50 mm long flat cable
