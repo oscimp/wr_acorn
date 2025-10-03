@@ -244,12 +244,16 @@ and at this point executing ``minicom -D /dev/ttyLXU0`` allows for
 wrc# ver                                                                                              
 WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
 ```
+
+When using the M2SDR on a different computer than the one used for the synthesis, we need to ``scp`` the ``litex_m2_sdr/software/kernel`` and ``csr.csv`` to the remote computer, as well as ``build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bi*``.
+
 3. <del>execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session</del>
-At the moment ``litex_server`` does not seem functional for transfering the gateware through JTAG so we
+At the moment ``litex_server --jtag`` does not seem functional for transfering the gateware through JTAG so we
 ```
+sudo insmod m2sdr.ko  # if not already loaded, e.g. on a remote computer
 bar=`lspci | grep Xil | cut -d\  -f1`
 sudo chown -R 777 /sys/bus/pci/devices/0000\:$bar
-
+litex_server --pcie --pcie-bar $bar
 ``` 
 5. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
 ```
