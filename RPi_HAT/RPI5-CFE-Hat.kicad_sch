@@ -10922,7 +10922,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "470"
 			(at 326.39 190.5 90)
 			(effects
 				(font
@@ -13410,7 +13410,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "10k"
 			(at 101.6 250.19 90)
 			(effects
 				(font
@@ -13739,7 +13739,7 @@
 				)
 			)
 		)
-		(property "Value" "22uF"
+		(property "Value" "22u"
 			(at 132.08 226.06 90)
 			(effects
 				(font
@@ -15845,7 +15845,7 @@
 				)
 			)
 		)
-		(property "Value" "22uF"
+		(property "Value" "22u"
 			(at 113.03 226.06 90)
 			(effects
 				(font
