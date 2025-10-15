@@ -240,7 +240,7 @@
 				)
 			)
 		)
-		(property "Value" "22uF"
+		(property "Value" "22u"
 			(at 0 1.68 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -3313,7 +3313,7 @@
 				)
 			)
 		)
-		(property "Value" "22uF"
+		(property "Value" "22u"
 			(at 0 1.68 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -6947,7 +6947,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "470"
 			(at 0 1.17 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -10063,7 +10063,7 @@
 				)
 			)
 		)
-		(property "Value" "10K"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "0fb703e3-b07e-4bef-9e81-3764e85e8d6d")
