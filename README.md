@@ -230,7 +230,7 @@ To change the beatnote from $62.5*(1-2^{14}/(2^{14}+1))=3814$ Hz, update the con
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
 cp csr.csv ../litex_wr_nic/test/
 openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
-# probably need to shutdown and restart the computer as the PCIe bus might be corrupt when rescanning
+# probably need to shutdown and restart the computer as the PCIe bus might be corrupt when rescanning the PCI bus after gateware upload
 cd litex_m2sdr/software/kernel
 make
 sudo insmod m2sdr.ko
@@ -245,7 +245,7 @@ wrc# ver
 WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
 ```
 
-When using the M2SDR on a different computer than the one used for the synthesis, we need to ``scp`` the ``litex_m2_sdr/software/kernel`` and ``csr.csv`` to the remote computer, as well as ``build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bi*``.
+When using the M2SDR on a different computer than the one used for the synthesis, we need to ``scp`` the ``litex_m2_sdr/software/kernel`` and ``csr.csv`` to the remote computer, as well as ``litex_wr_nic/firmware/wrpc-sw/wrc.bin``.
 
 3. <del>execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session</del>
 At the moment ``litex_server --jtag`` does not seem functional for transfering the gateware through JTAG so we
