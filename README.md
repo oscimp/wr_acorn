@@ -255,9 +255,9 @@ bar=`lspci | grep Xil | cut -d\  -f1`
 sudo chmod -R 777 /sys/bus/pci/devices/0000\:$bar
 litex_server --pcie --pcie-bar $bar
 ```
-Notice that ``m2sdr.ko`` must be loaded to allow executing ``litex_server``.
+Notice that ``m2sdr.ko`` must be loaded to allow executing ``litex_server``. Notice that an ``Invalid argument: mmap`` might be solved by <a href="https://stackoverflow.com/questions/18420473/invalid-argument-for-read-write-mmap">adding</a> ``iomem=relaxed`` to the kernel boot options.
 
-5. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
+5. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory (see step 2), go there and
 ```
 cd ../litex_wr_nic/test
 ./test_cpu.py --build-firmware
