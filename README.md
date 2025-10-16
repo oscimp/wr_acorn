@@ -252,9 +252,11 @@ At the moment ``litex_server --jtag`` does not seem functional for transfering t
 ```
 sudo insmod m2sdr.ko  # if not already loaded, e.g. on a remote computer
 bar=`lspci | grep Xil | cut -d\  -f1`
-sudo chown -R 777 /sys/bus/pci/devices/0000\:$bar
+sudo chmod -R 777 /sys/bus/pci/devices/0000\:$bar
 litex_server --pcie --pcie-bar $bar
-``` 
+```
+Notice that ``m2sdr.ko`` must be loaded to allow executing ``litex_server``.
+
 5. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory, go there and
 ```
 cd ../litex_wr_nic/test
