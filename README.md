@@ -12,6 +12,8 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
 CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository (tested with Xilinx Vivado 2022.2).
 
+These procedures were automated by Baptiste Marechal in the ``makefile`` branch of this repository.
+
 ## PLL gain settings
 
 From the shell connected to the embdded RISC-V processor, the main PLL gain coefficients (proportional and integral) are set using the command
@@ -67,6 +69,18 @@ Some SFP seem to operate properly with the Acorn, some not (but are functional w
 Tested as functional: Cisco GLC-BX-U BlueOptics BO15C3149620D and <a href="https://www.fs.com/fr/products/75341.html?attribute=10414&id=2101714">FS SFP-1G34-BX20</a>
 
 Tested as **non** functional: AXCEN AXGE-1254-0531
+
+# LiteX ``litex_wr_nic`` on Acorn
+
+Make sure to source the Vivado ``settings64.sh`` before executing:
+
+```
+git clone --recursive https://github.com/enjoy-digital/litex_wr_nic
+cd litex_wr_nic
+./acorn_wr_nic.py --build
+openFPGALoader -c ft4232 -b litex-acorn-baseboard-mini -f ./build/sqrl_acorn/gateware/sqrl_acorn.bin
+minicom -D /dev/ttyUSB2
+```
 
 # Application to the M2SDR
 
