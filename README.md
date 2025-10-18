@@ -29,6 +29,11 @@ Once both PLLs are locked, the Kp and Ki can be increased for better tracking pe
 
 ## Results
 
+Signals are output on the J4 header:
+```
+USB-C side <- GND DMTD_CLK_MON SYS_CLK_MON REF_CLK_MON 1PPS 3V3 -> SFP side
+```
+
 MDEV measurement as a function of PLL loop gain coefficients, changing Kp while
 keeping Ki fixed (-2) except for two measurements, of the time interval between the 
 White Rabbit Switche (WRS) and the CLE215+ 1-PPS outputs. For reference, WRS is the Modified 
