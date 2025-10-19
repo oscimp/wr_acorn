@@ -41,9 +41,9 @@ as shown in
 saved 10 minutes later, and possibly some more agressive Kp and Ki could be used to improve tracking
 capability.
 
-Additionnally, notice that the MAC address was manually changed so that each board
-has a different identifier. This might or might not be used, but at least for data transfer might
-be needed.
+Additionnally, the MAC address is the same for both M2SDR in this demonstration and yet does not
+prevent WR lock. However, manually changing the MAC so that each board
+has a different identifier might be desirable, at least for data transfer.
 * firwmare programming through the PCIe bus: we have observed that when a terminal freezes, it is due
 to an errouneous firmware transfer, as shown with the dump using ``test_cpu.py --dump-firmware``. We
 have observed that 3 out of 4 bytes are null, leading to inconsistent opcodes that cannot be executed
