@@ -32,8 +32,11 @@ for count=1:3
   end
   m=1;
   for tau=logspace(-2,2,1024)
+% see https://rubiola.org/pdf-lectures/Scientific%20Instruments%20L06-10,%20Oscillators.pdf
+% slide 49
     avar(m)=2*sum(Sy(1:end-1).*(fFint(2:end)-fFint(1:end-1)).*sin(pi*tau*fFint(1:end-1)).^4./(pi*tau*fFint(1:end-1)).^2);
-    mvar(m)=sum(Sy(1:end-1).*(fFint(2:end)-fFint(1:end-1)).*sin(pi*tau*fFint(1:end-1)).^2./(pi*tau*fFint(1:end-1)).^2);
+% slide 51
+    mvar(m)=2*sum(Sy(1:end-1).*(fFint(2:end)-fFint(1:end-1)).*sin(pi*tau*fFint(1:end-1)).^6./(pi*tau*fFint(1:end-1)).^4);
     m=m+1;
   end
   figure(99)
