@@ -33,7 +33,7 @@ Then record a dataset from
 ```
 sudo ./m2sdr_record -c 0 /tmp/0.bin 800000 & sudo ./m2sdr_record -c 1 /tmp/1.bin 800000
 ```
-and in GNU Octave:
+and in GNU Octave (see <a href="go.m">go.m"</a>):
 ```
 f=fopen('/tmp/0.bin');
 d=fread(f,inf,'int16');d=d(1:2:end)+j*d(2:2:end);d1=d(1:2:end);d2=d(2:2:end);
@@ -43,4 +43,7 @@ d=fread(f,inf,'int16');d=d(1:2:end)+j*d(2:2:end);d1=d(1:2:end);d2=d(2:2:end);
 plot(real(d1))
 ```
 
-<img src="dual_M2SDR.png">
+<img src="internal_external_syntonization.png">
+
+after repeating with ``-sync external`` to demonstrate that the Si5351 is locked on the White Rabbit
+disciplined 10 MHz output from the FPGA leading to syntonization.
