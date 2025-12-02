@@ -45,11 +45,38 @@ plt.plot(np.angle(a / b)) # plot the phase difference, expecting a constant
 plt.show()
 ```
 
-When the srd are synthonized, their phase difference is a constant, as examplified in the plot below :
+When the sdr are synthonized, their phase difference is a constant, as examplified in the plot below :
 
 <img src='pictures/phase_diff_synth.png'>
 
 # DMA synchronisation on PPS
+
+This step allow to synchronize the data stream on the PPS, effectively discarding all samples acquiered before the PPS.
+
+WARNING : this needs white rabbit to work, white rabbit will only output a PPS when locked to the master. If white rabbit isn't locked, no PPS will be emited and the synchronization mechanism will wait for it indefinitely.
+
+## DMA sync configuration
+
+To use the dma synchronisation simply use the option `-dma-sync` on `m2sdr_rf` :
+
+```
+./m2sdr_rf -sync white-rabbit -rx_freq 70000000 -rx_gain 20 -samplerate 10000000 -c 1 -dma-sync
+```
+
+Then the next time `m2sdr_record` is called, the aquisition will start on the next PPS.
+
+## DMA sync verification
+
+To check the synchronization of the m2sdr, we record a PRN (starting on the PPS) multiple times and look at the cross correlation.
+In our experiment, the PRN is generated with cmod-a7 implementing `amaranth_twstft`.
+
+The PRN is repeated 4 times per second, hence the 7 spikes on the cross correlation over one second:
+<img src='pictures/xcorrelation_full_dma_only.png'>
+
+A zoom on the central spike shows that all maximums are in a window of 100ns, which checks with the sampling period, this show that the DMA can synchronize streams up to a sampling period.
+To achieve better synchronicity we will need to synchronize the sampling clocks, which is detailed in the next section.
+<img src='pictures/xcorrelation_zoom_dma_only.png'>
+
 
 # ADC synchronisation
 
