@@ -86,7 +86,7 @@ To achieve better synchronicity we will need to synchronize the sampling clocks,
 # ADC synchronisation
 
 This step allows to synchronize the full datapath in the ad9361 to the white-rabbit's PPS and clock, this include ADC clocking, digital filters and data stream clock.
-The RF clocks for the RX and TX mixers can't be synchronized, they are syntonized on white-rabbit clock but the starting IQ phase is undeterministic.
+The RF clocks for the RX and TX mixers can't be synchronized, they are syntonized on white-rabbit clock but the starting IQ phase is undeterministic (UG-570 p. 87).
 
 ## hardware mod for SYNC\_IN pin
 
@@ -105,6 +105,27 @@ On the other side, the wire can be soldered to the side of the UFL port, so as n
 
 ## si5351-c passthrough
 
-## checking and fixing timing constraint on SYNC\_IN pin
+To achive synchronisation, the ad9361 of both m2sdr need to be referenced on the same clock, we assume white rabbit 62.5 MHz clock is the same on all locked m2sdr.
+With the basic syntonization, the white rabbit 62.5 MHz clock is converted to 10 MHZ by a PLL in the FPGA, which in turn is converted to 38.4 MHz by the si5351c, which then clock the ad9361.
+These PLL are not deterministic across multiple locks, and result in an unknown phase relationship between the refclks of two ad9361 syntonized on white rabbit.
 
-## synchronisation verification
+To avoid this undeterminism, we use the si5351 in passthrough mode to clock the ad9361 with the 62.5 MHz from white rabbit. This frequency is not optimal for the ad9361 to work with but it is in the fonctionning range.
+
+The 62.5 MHz clock must also be inverted in the si5351, in order to meet the timming constraints between the clock and the sync pulse (UG-570 p. 88).
+
+## synchronisation and verification
+
+Once the hardware mod is done, to use the adc synchronisation you must compile the gateware with `--with-white-rabbit --with-adc-sync`, and use the `-adc-sync` option on `m2sdr_rf`.
+
+Example compilation command :
+```
+./litex_m2sdr.py --variant=baseboard --with-white-rabbit --with-pcie --build --wr-sfp=0 --wr-dac-bits=24 --with-adc-sync
+```
+
+Example m2sdr configuration :
+```
+./m2sdr_rf -sync white-rabbit -rx_freq 70000000 -rx_gain 20 -samplerate 10000000 -c 1 -dma-sync -adc-sync
+```
+
+To test the synchronization, we use the same setup as with the DMA synchronization, and get better results :
+<img src='pictures/xcorrelation_zoom_adc.png'>
