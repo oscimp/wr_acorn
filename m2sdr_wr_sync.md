@@ -45,9 +45,14 @@ plt.plot(np.angle(a / b)) # plot the phase difference, expecting a constant
 plt.show()
 ```
 
-When the sdr are synthonized, their phase difference is a constant, as examplified in the plot below :
+When the sdr are syntonized, their phase difference is a constant, as examplified in the plot below :
 
 <img src='pictures/phase_diff_synth.png'>
+
+When they are not, the phase drift over time :
+
+<img src='pictures/phase_diff_freerunning.png'>
+
 
 # DMA synchronisation on PPS
 
@@ -80,7 +85,23 @@ To achieve better synchronicity we will need to synchronize the sampling clocks,
 
 # ADC synchronisation
 
+This step allows to synchronize the full datapath in the ad9361 to the white-rabbit's PPS and clock, this include ADC clocking, digital filters and data stream clock.
+The RF clocks for the RX and TX mixers can't be synchronized, they are syntonized on white-rabbit clock but the starting IQ phase is undeterministic.
+
 ## hardware mod for SYNC\_IN pin
+
+To synchronize its datapath, the ad9361 needs a pulse on its `SYNC_IN` pin. The reference manual state that if two ad9361 are referenced on the same clock with the same configuration, and the `SYNC_IN` pulses are simultaneous, then both datapaths will opperate synchronously.
+
+This pin is not connected to the FPGA on the m2sdr, but it can be connected to the SYNDEBUG UFL port, which is controled by the FPGA.
+The `SYNC_IN` signal is accessible under the board near `TP5`, on the left pad of the circled resistor :
+
+<img src='pictures/sync_in_placement.png'>
+
+To make the connection sturdy enough we advise to pass an enamel wire through the hole at TP5 :
+<img src='pictures/m2sdr_sync_in.webm'>
+
+On the other side, the wire can be soldered to the side of the UFL port, so as not to condemn it for other purposes.
+<img src='pictures/m2sdr_syncdebug.jpg'
 
 ## si5351-c passthrough
 
