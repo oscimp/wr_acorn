@@ -47,11 +47,11 @@ plt.show()
 
 When the sdr are syntonized, their phase difference is a constant, as examplified in the plot below :
 
-<img src='pictures/phase_diff_synth.png'>
+<img src='pictures/phase_drift_wr.png'>
 
 When they are not, the phase drift over time :
 
-<img src='pictures/phase_diff_freerunning.png'>
+<img src='pictures/phase_drift_freerunning.png'>
 
 
 # DMA synchronisation on PPS
@@ -98,10 +98,10 @@ The `SYNC_IN` signal is accessible under the board near `TP5`, on the left pad o
 <img src='pictures/sync_in_placement.png'>
 
 To make the connection sturdy enough we advise to pass an enamel wire through the hole at TP5 :
-<img src='pictures/m2sdr_sync_in.webm'>
+<img src='pictures/m2sdr_sync_in.webp'>
 
 On the other side, the wire can be soldered to the side of the UFL port, so as not to condemn it for other purposes.
-<img src='pictures/m2sdr_syncdebug.jpg'
+<img src='pictures/m2sdr_syncdebug.jpg'>
 
 ## si5351-c passthrough
 
