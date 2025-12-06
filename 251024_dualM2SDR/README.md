@@ -7,8 +7,8 @@ Starting from a setup where both White Rabbit are locked:
 we configure the M2SDR for external clock synchronization (i.e. locking the Si5351 to the 10 MHz WR output)
 
 ```
-sudo ./m2sdr_rf -c 0 -sync external -rx_freq 100000000 -rx_gain 20 -samplerate 8000000
-sudo ./m2sdr_rf -c 1 -sync external -rx_freq 100000000 -rx_gain 20 -samplerate 8000000
+sudo ./m2sdr_rf -c 0 -sync white-rabbit -rx_freq 100000000 -rx_gain 20 -samplerate 8000000
+sudo ./m2sdr_rf -c 1 -sync white-rabbit -rx_freq 100000000 -rx_gain 20 -samplerate 8000000
 ```
 with each command answering with messages such as
 ```
@@ -45,5 +45,5 @@ plot(real(d1))
 
 <img src="internal_external_syntonization.png">
 
-after repeating with ``-sync external`` to demonstrate that the Si5351 is locked on the White Rabbit
+after repeating with ``-sync white-rabbit`` to demonstrate that the Si5351 is locked on the White Rabbit
 disciplined 10 MHz output from the FPGA leading to syntonization.
