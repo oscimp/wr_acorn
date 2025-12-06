@@ -4,7 +4,7 @@ This step allow to syntonize multiples M2SDR together using White Rabbit. Note t
 
 ## configuration
 
-On the M2SDR, the AD9361 is clocked from an Si5351 which exists in three versions A, B and C. Only the version C support an external CMOS clock input.
+On the M2SDR, the AD9361 is clocked from an Si5351 which exists in three versions A, B and C. Only version C supports an external CMOS clock input.
 
 The Si5351C `CLK_IN` pin is connected to pin `W22` of the FPGA named `si5351/ssen_clkin` in LiteX. Outputing a White Rabbit clock on this pin and configuring the Si5351 registers to use the `CLK_IN` as reference (registers <a href="https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/application-notes/AN619.pdf">CLKi_SRC in registers 16+i and Fanout Enable in register 187</a>) will result in the AD9361 syntonization.
 
