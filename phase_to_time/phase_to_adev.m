@@ -27,13 +27,14 @@ SdBrad=SdBc+3;      % dBc/Hz -> dBrad^2/Hz
 %%%%%%%% interpolate, convert SdBc to SdBrad to Sy (linear) & integrate to AVAR
 for count=1:3
   Sy=(10.^(SdBrad(:,count)/10))'.*(fF.^2)/(fc^2);
+  SydB=10*log10(Sy);
   Syint=[];
   fFint=[];
   for k=1:length(SdBc(:,count))-1
-     Syint=[Syint Sy(k)+(Sy(k+1)-Sy(k))/(fF(k+1)-fF(k))*(linspace((fF(k)),(fF(k+1)),N)-fF(k))];
-     % fFint=[fFint logspace(log10(fF(k)),log10(fF(k+1)),N)];
-     fFint=[fFint linspace((fF(k)),(fF(k+1)),N)];
+     Syint=[Syint SydB(k)+(SydB(k+1)-SydB(k))/(log10(fF(k+1))-log10(fF(k)))*(linspace(log10(fF(k)),log10(fF(k+1)),N)-log10(fF(k)))];
+     fFint=[fFint 10.^(linspace(log10(fF(k)),log10(fF(k+1)),N))];
   end
+  Syint=10.^(Syint/10);
 
 k=find(fFint>=1);k=k(1);Syint(k) % display Sy at 1 Hz to match values from Francois Vernotte's chart
 
@@ -43,8 +44,9 @@ k=find(fFint>=1);k=k(1);Syint(k) % display Sy at 1 Hz to match values from Franc
     semilogx(fF,(SdBrad(:,count)))
     hold on
     semilogx(fF,10*log10(Sy))
+    semilogx(fFint,10*log10(Syint)+3,'.');
     xlabel('Fourier frequency (Hz)')
-    ylabel('phase noise (dBc/Hz)');legend('Sphi','Sy=Sphixf^2','location','southwest')
+    ylabel('phase noise (dBc/Hz)');legend('Sphi','Sy=Sphixf^2','interpolated Sy','location','southwest')
     grid on
     title('Class I')
   end

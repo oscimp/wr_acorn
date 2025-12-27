@@ -11,8 +11,8 @@ for count=1:3
   SdBcint=[];
   fFint=[];
   for k=1:length(SdBc(:,count))-1
-     SdBcint=[SdBcint SdBc(k,count)+(SdBc(k+1,count)-SdBc(k,count))/(fF(k+1)-fF(k))*(linspace((fF(k)),(fF(k+1)),N)-fF(k))];
-     fFint=[fFint logspace(log10(fF(k)),log10(fF(k+1)),N)];
+     SdBcint=[SdBcint SdBc(k,count)+(SdBc(k+1,count)-SdBc(k,count))/(log10(fF(k+1))-log10(fF(k)))*(linspace(log10(fF(k)),log10(fF(k+1)),N)-log10(fF(k)))];
+     fFint=[fFint 10.^(linspace(log10(fF(k)),log10(fF(k+1)),N))];
   end
 
   SdBrad=SdBcint+3;   % dBc/Hz -> dBrad^2/Hz
