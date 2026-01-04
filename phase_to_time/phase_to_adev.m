@@ -85,8 +85,10 @@ N=3
   grid on
   hold on
 end
+title('MDEV')
 legend('Class I','GM class II','BC class II')
 figure(99)
+title('ADEV')
 legend('Class I','GM class II','BC class II')
 
 % ADEV(1/f): -0.95 -102.6 v.s -1
