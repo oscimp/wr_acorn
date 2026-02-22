@@ -1,0 +1,51 @@
+diff --git a/scripts/kconfig/lxdialog/check-lxdialog.sh b/scripts/kconfig/lxdialog/check-lxdialog.sh
+index 5075ebf2..69b58dd0 100755
+--- a/scripts/kconfig/lxdialog/check-lxdialog.sh
++++ b/scripts/kconfig/lxdialog/check-lxdialog.sh
+@@ -56,7 +56,6 @@ EOF
+ 	    echo " *** "                                                  1>&2
+ 	    echo " *** Install ncurses (ncurses-devel) and try again."    1>&2
+ 	    echo " *** "                                                  1>&2
+-	    exit 1
+ 	fi
+ }
+ 
+diff --git a/softpll/spll_main.c b/softpll/spll_main.c
+index fb15f11f..020a717f 100644
+--- a/softpll/spll_main.c
++++ b/softpll/spll_main.c
+@@ -31,17 +31,17 @@ static inline void spll_log_dac(int y) {}
+ 
+ #if defined(CONFIG_TARGET_WR_SWITCH)
+ /* Standard WRS version */
+-#define MPLL_KP_DEFAULT		1100
+-#define MPLL_KI_DEFAULT		30
++#define MPLL_KP_DEFAULT		4000
++#define MPLL_KI_DEFAULT		2
+ /* WRS LJD version */
+ #define MPLL_LJD_KP_DEFAULT	2000
+ #define MPLL_LJD_KI_DEFAULT	15
+ /* WRS LJD version from Safrane */
+-#define MPLL_LJD_KP_SAFRANE	1100
+-#define MPLL_LJD_KI_SAFRANE	30
++#define MPLL_LJD_KP_SAFRANE	4000
++#define MPLL_LJD_KI_SAFRANE	2
+ /* WRS LJD version from SyncTech */
+-#define MPLL_LJD_KP_SYNCTECH	-1100
+-#define MPLL_LJD_KI_SYNCTECH	-30
++#define MPLL_LJD_KP_SYNCTECH	-4000
++#define MPLL_LJD_KI_SYNCTECH	-2
+ 
+ #define REVERSE_SPLL_WRS_START_VALUE	2 /* Can be any value not used for other
+ 					   * cases */
+@@ -108,8 +108,8 @@ void mpll_init(struct spll_main_state *s, int id_ref, int id_out)
+ 	}
+ 	init = 0;
+ #elif defined(CONFIG_WR_NODE)
+-	s->pi.kp = -1100;		// / 2;
+-	s->pi.ki = -30;			// / 2;
++	s->pi.kp = -4000;		// / 2;
++	s->pi.ki = -2;			// / 2;
+ #else
+ #error "Please set CONFIG for wr switch or wr node"
+ #endif

@@ -1,0 +1,1848 @@
+diff --git a/.gitmodules b/.gitmodules
+index c6b1cb9c..7acbd4e9 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -1,15 +1,15 @@
+ [submodule "ip_cores/general-cores"]
+ 	path = ip_cores/general-cores
+-	url = https://ohwr.org/project/general-cores.git
++	url = https://gitlab.com/ohwr/project/general-cores.git
+ [submodule "ip_cores/etherbone-core"]
+ 	path = ip_cores/etherbone-core
+-	url = https://ohwr.org/project/etherbone-core.git
++	url = https://gitlab.com/ohwr/project/etherbone-core.git
+ [submodule "ip_cores/gn4124-core"]
+ 	path = ip_cores/gn4124-core
+-	url = https://ohwr.org/project/gn4124-core.git
++	url = https://gitlab.com/ohwr/project/gn4124-core.git
+ [submodule "ip_cores/vme64x-core"]
+ 	path = ip_cores/vme64x-core
+-	url = https://ohwr.org/project/vme64x-core.git
++	url = https://gitlab.com/ohwr/project/vme64x-core.git
+ [submodule "ip_cores/urv-core"]
+ 	path = ip_cores/urv-core
+-	url = https://ohwr.org/project/urv-core.git
++	url = https://gitlab.com/ohwr/project/urv-core.git
+diff --git a/board/Manifest.py b/board/Manifest.py
+index 41c8c8eb..bdede8c2 100644
+--- a/board/Manifest.py
++++ b/board/Manifest.py
+@@ -1,5 +1,5 @@
+ try:
+-    if board in ["spec", "svec", "vfchd", "clbv2", "clbv3", "clbv4", "pxie-fmc", "diot-sb", "fasec", "zcu10x", "zc706", "common"]:
++    if board in ["m2sdr", "spec", "svec", "vfchd", "clbv2", "clbv3", "clbv4", "pxie-fmc", "diot-sb", "fasec", "zcu10x", "zc706", "common"]:
+         modules = {"local" : [ board ] }
+ except NameError:
+     # board is not defined
+diff --git a/board/m2sdr/Manifest.py b/board/m2sdr/Manifest.py
+new file mode 100644
+index 00000000..e52a7248
+--- /dev/null
++++ b/board/m2sdr/Manifest.py
+@@ -0,0 +1,11 @@
++files = [
++    "wr_m2sdr_pkg.vhd",
++    "xwrc_board_m2sdr.vhd",
++]
++
++modules = {
++    "local" : [
++        "../common",
++        "../../modules/ps_gen",
++    ]
++}
+diff --git a/board/m2sdr/wr_m2sdr_pkg.vhd b/board/m2sdr/wr_m2sdr_pkg.vhd
+new file mode 100644
+index 00000000..8a76572a
+--- /dev/null
++++ b/board/m2sdr/wr_m2sdr_pkg.vhd
+@@ -0,0 +1,142 @@
++-------------------------------------------------------------------------------
++-- Title      : WRPC Wrapper for m2sdr package
++-- Project    : WR PTP Core
++-- URL        : http://www.ohwr.org/projects/wr-cores/wiki/Wrpc_core
++-------------------------------------------------------------------------------
++-- File       : wr_m2sdr_pkg.vhd
++-- Author(s)  : Peter Jansweijer <peterj@nikhef.nl>
++-- Company    : Nikhef
++-- Created    : 2017-11-08
++-- Last update: 2017-11-08
++-- Standard   : VHDL'93
++-------------------------------------------------------------------------------
++-- Copyright (c) 2017 Nikhef
++-------------------------------------------------------------------------------
++-- GNU LESSER GENERAL PUBLIC LICENSE
++--
++-- This source file is free software; you can redistribute it
++-- and/or modify it under the terms of the GNU Lesser General
++-- Public License as published by the Free Software Foundation;
++-- either version 2.1 of the License, or (at your option) any
++-- later version.
++--
++-- This source is distributed in the hope that it will be       
++-- useful, but WITHOUT ANY WARRANTY; without even the implied   
++-- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      
++-- PURPOSE.  See the GNU Lesser General Public License for more 
++-- details.                                                     
++--
++-- You should have received a copy of the GNU Lesser General    
++-- Public License along with this source; if not, download it   
++-- from http://www.gnu.org/licenses/lgpl-2.1.html
++-- 
++-------------------------------------------------------------------------------
++
++library ieee;
++use ieee.std_logic_1164.all;
++
++library work;
++use work.wishbone_pkg.all;
++use work.wrcore_pkg.all;
++use work.wr_fabric_pkg.all;
++use work.endpoint_pkg.all;
++use work.wr_board_pkg.all;
++use work.streamers_pkg.all;
++
++package wr_m2sdr_pkg is
++
++  component xwrc_board_m2sdr is
++    generic (
++      g_simulation                : integer              := 0;
++      g_with_external_clock_input : boolean              := TRUE;
++      g_aux_clks                  : integer              := 0;
++      g_fabric_iface              : t_board_fabric_iface := plain;
++      g_streamers_op_mode         : t_streamers_op_mode  := TX_AND_RX;
++      g_tx_streamer_params        : t_tx_streamer_params := c_tx_streamer_params_defaut;
++      g_rx_streamer_params        : t_rx_streamer_params := c_rx_streamer_params_defaut;
++      g_dpram_initf               : string               := "default_xilinx";
++      g_diag_id                   : integer              := 0;
++      g_diag_ver                  : integer              := 0;
++      g_diag_ro_size              : integer              := 0;
++      g_diag_rw_size              : integer              := 0);
++    port (
++      areset_edge_n_i      : in  std_logic := '1';
++      clk_200m_local_i    : in  std_logic;
++      clk_aux_i            : in  std_logic_vector(g_aux_clks-1 downto 0)          := (others => '0');
++      clk_10m_ext_i        : in  std_logic                                        := '0';
++      pps_ext_i            : in  std_logic                                        := '0';
++      clk_sys_62m5_o       : out std_logic;
++      clk_ref_62m5_o       : out std_logic;
++      clk_dmtd_62m5_o      : out std_logic;
++      rst_sys_62m5_n_o     : out std_logic;
++      rst_ref_62m5_n_o     : out std_logic;
++      dac_refclk_cs_n_o    : out std_logic;
++      dac_refclk_sclk_o    : out std_logic;
++      dac_refclk_din_o     : out std_logic;
++      dac_dmtd_cs_n_o      : out std_logic;
++      dac_dmtd_sclk_o      : out std_logic;
++      dac_dmtd_din_o       : out std_logic;
++      sfp_txp_o            : out std_logic;
++      sfp_txn_o            : out std_logic;
++      sfp_rxp_i            : in  std_logic;
++      sfp_rxn_i            : in  std_logic;
++      sfp_det_i            : in  std_logic                                        := '1';
++      sfp_sda_i            : in  std_logic;
++      sfp_sda_o            : out std_logic;
++      sfp_scl_i            : in  std_logic;
++      sfp_scl_o            : out std_logic;
++      sfp_rate_select_o    : out std_logic;
++      sfp_tx_fault_i       : in  std_logic                                        := '0';
++      sfp_tx_disable_o     : out std_logic;
++      sfp_los_i            : in  std_logic                                        := '0';
++      eeprom_sda_i         : in  std_logic;
++      eeprom_sda_o         : out std_logic;
++      eeprom_scl_i         : in  std_logic;
++      eeprom_scl_o         : out std_logic;
++      onewire_i            : in  std_logic;
++      onewire_oen_o        : out std_logic;
++      uart_rxd_i           : in  std_logic;
++      uart_txd_o           : out std_logic;
++      wrf_src_o            : out t_wrf_source_out;
++      wrf_src_i            : in  t_wrf_source_in                                  := c_dummy_src_in;
++      wrf_snk_o            : out t_wrf_sink_out;
++      wrf_snk_i            : in  t_wrf_sink_in                                    := c_dummy_snk_in;
++      wrs_tx_data_i        : in  std_logic_vector(g_tx_streamer_params.data_width-1 downto 0) := (others => '0');
++      wrs_tx_valid_i       : in  std_logic                                        := '0';
++      wrs_tx_dreq_o        : out std_logic;
++      wrs_tx_last_i        : in  std_logic                                        := '1';
++      wrs_tx_flush_i       : in  std_logic                                        := '0';
++      wrs_tx_cfg_i         : in  t_tx_streamer_cfg                                := c_tx_streamer_cfg_default;
++      wrs_rx_first_o       : out std_logic;
++      wrs_rx_last_o        : out std_logic;
++      wrs_rx_data_o        : out std_logic_vector(g_rx_streamer_params.data_width-1 downto 0);
++      wrs_rx_valid_o       : out std_logic;
++      wrs_rx_dreq_i        : in  std_logic                                        := '0';
++      wrs_rx_cfg_i         : in t_rx_streamer_cfg                                 := c_rx_streamer_cfg_default;
++      aux_diag_i           : in  t_generic_word_array(g_diag_ro_size-1 downto 0)  := (others => (others => '0'));
++      aux_diag_o           : out t_generic_word_array(g_diag_rw_size-1 downto 0);
++      tm_dac_value_o       : out std_logic_vector(31 downto 0);
++      tm_dac_wr_o          : out std_logic_vector(g_aux_clks-1 downto 0);
++      tm_clk_aux_lock_en_i : in  std_logic_vector(g_aux_clks-1 downto 0)          := (others => '0');
++      tm_clk_aux_locked_o  : out std_logic_vector(g_aux_clks-1 downto 0);
++      timestamps_o         : out t_txtsu_timestamp;
++      timestamps_ack_i     : in  std_logic                                        := '1';
++      abscal_txts_o        : out std_logic;
++      abscal_rxts_o        : out std_logic;
++      fc_tx_pause_req_i    : in  std_logic                                        := '0';
++      fc_tx_pause_delay_i  : in  std_logic_vector(15 downto 0)                    := x"0000";
++      fc_tx_pause_ready_o  : out std_logic;
++      tm_link_up_o         : out std_logic;
++      tm_time_valid_o      : out std_logic;
++      tm_tai_o             : out std_logic_vector(39 downto 0);
++      tm_cycles_o          : out std_logic_vector(27 downto 0);
++      led_act_o            : out std_logic;
++      led_link_o           : out std_logic;
++      btn1_i               : in  std_logic                                        := '1';
++      btn2_i               : in  std_logic                                        := '1';
++      pps_p_o              : out std_logic;
++      pps_led_o            : out std_logic;
++      link_ok_o            : out std_logic);
++  end component xwrc_board_m2sdr;
++
++end wr_m2sdr_pkg;
+diff --git a/board/m2sdr/xwrc_board_m2sdr.vhd b/board/m2sdr/xwrc_board_m2sdr.vhd
+new file mode 100644
+index 00000000..48481430
+--- /dev/null
++++ b/board/m2sdr/xwrc_board_m2sdr.vhd
+@@ -0,0 +1,645 @@
++-------------------------------------------------------------------------------
++-- Title      : WRPC Wrapper for m2sdr
++-- Project    : WR PTP Core
++-- URL        : http://www.ohwr.org/projects/wr-cores/wiki/Wrpc_core
++-------------------------------------------------------------------------------
++-- File       : xwrc_board_m2sdr.vhd
++-- Author(s)  : Peter Jansweijer <peterj@nikhef.nl>
++-- Company    : Nikhef
++-- Created    : 2017-11-08
++-- Last update: 2022-05-20
++-- Standard   : VHDL'93
++-------------------------------------------------------------------------------
++-- Description: Top-level wrapper for WR PTP core including all the modules
++-- needed to operate the core on the m2sdr board.
++-------------------------------------------------------------------------------
++-- Copyright (c) 2017 Nikhef
++-------------------------------------------------------------------------------
++-- GNU LESSER GENERAL PUBLIC LICENSE
++--
++-- This source file is free software; you can redistribute it   
++-- and/or modify it under the terms of the GNU Lesser General   
++-- Public License as published by the Free Software Foundation; 
++-- either version 2.1 of the License, or (at your option) any   
++-- later version.                                               
++--
++-- This source is distributed in the hope that it will be       
++-- useful, but WITHOUT ANY WARRANTY; without even the implied   
++-- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR      
++-- PURPOSE.  See the GNU Lesser General Public License for more 
++-- details.                                                     
++--
++-- You should have received a copy of the GNU Lesser General    
++-- Public License along with this source; if not, download it   
++-- from http://www.gnu.org/licenses/lgpl-2.1.html
++-- 
++-------------------------------------------------------------------------------
++
++library ieee;
++use ieee.std_logic_1164.all;
++
++library work;
++use work.gencores_pkg.all;
++use work.wrcore_pkg.all;
++use work.wishbone_pkg.all;
++use work.wr_fabric_pkg.all;
++use work.endpoint_pkg.all;
++use work.streamers_pkg.all;
++use work.wr_xilinx_pkg.all;
++use work.wr_board_pkg.all;
++use work.wr_m2sdr_pkg.all;
++
++library unisim;
++use unisim.vcomponents.all;
++
++entity xwrc_board_m2sdr is
++  generic(
++    -- set to 1 to speed up some initialization processes during simulation
++    g_simulation                : integer              := 0;
++    -- Select whether to include external ref clock input
++    g_with_external_clock_input : boolean              := FALSE;
++    -- Number of aux clocks syntonized by WRPC to WR timebase
++    g_aux_clks                  : integer              := 0;
++    -- plain     = expose WRC fabric interface
++    -- streamers = attach WRC streamers to fabric interface
++    -- etherbone = attach Etherbone slave to fabric interface
++    g_fabric_iface              : t_board_fabric_iface := plain;
++    -- parameters configuration when g_fabric_iface = "streamers" (otherwise ignored)
++    g_streamers_op_mode        : t_streamers_op_mode  := TX_AND_RX;
++    g_tx_streamer_params       : t_tx_streamer_params := c_tx_streamer_params_defaut;
++    g_rx_streamer_params       : t_rx_streamer_params := c_rx_streamer_params_defaut;
++    -- memory initialisation file for embedded CPU
++    g_dpram_initf               : string               := "default_xilinx";
++    -- identification (id and ver) of the layout of words in the generic diag interface
++    g_diag_id                   : integer              := 0;
++    g_diag_ver                  : integer              := 0;
++    -- size the generic diag interface
++    g_diag_ro_size              : integer              := 0;
++    g_diag_rw_size              : integer              := 0;
++    g_dac_bits                  : integer              := 16
++    );
++  port (
++    ---------------------------------------------------------------------------
++    -- Clocks/resets
++    ---------------------------------------------------------------------------
++    -- Optional reset input active low with rising edge detection. Does not
++    -- reset PLLs.
++    areset_edge_n_i     : in  std_logic := '1';
++    -- Clock input from the board
++    clk_200m_local_i     : in  std_logic;
++    -- Aux clocks, which can be disciplined by the WR Core
++    clk_aux_i           : in  std_logic_vector(g_aux_clks-1 downto 0) := (others => '0');
++    -- 10MHz ext ref clock input (g_with_external_clock_input = TRUE)
++    clk_10m_ext_i       : in  std_logic                               := '0';
++    -- External PPS input (g_with_external_clock_input = TRUE)
++    pps_ext_i           : in  std_logic                               := '0';
++    -- 62.5MHz sys clock output
++    clk_sys_62m5_o      : out std_logic;
++    -- 62.5MHz ref clock output
++    clk_ref_62m5_o      : out std_logic;
++    -- 124.992 / 2 = 62.496 MHz dmtd clock output
++    clk_dmtd_62m5_o     : out std_logic;
++    -- active low reset outputs, synchronous to 62m5 and 125m clocks
++    rst_sys_62m5_n_o    : out std_logic;
++    rst_ref_62m5_n_o    : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- Shared SPI interface to DACs
++    ---------------------------------------------------------------------------
++    dac_refclk_cs_n_o : out std_logic;
++    dac_refclk_sclk_o : out std_logic;
++    dac_refclk_din_o  : out std_logic;
++
++    dac_dmtd_cs_n_o   : out std_logic;
++    dac_dmtd_sclk_o   : out std_logic;
++    dac_dmtd_din_o    : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- SFP I/O for transceiver and SFP management info
++    ---------------------------------------------------------------------------
++    sfp_txp_o         : out std_logic;
++    sfp_txn_o         : out std_logic;
++    sfp_rxp_i         : in  std_logic;
++    sfp_rxn_i         : in  std_logic;
++    sfp_det_i         : in  std_logic := '1';
++    sfp_sda_i         : in  std_logic;
++    sfp_sda_o         : out std_logic;
++    sfp_scl_i         : in  std_logic;
++    sfp_scl_o         : out std_logic;
++    sfp_rate_select_o : out std_logic;
++    sfp_tx_fault_i    : in  std_logic := '0';
++    sfp_tx_disable_o  : out std_logic;
++    sfp_los_i         : in  std_logic := '0';
++
++    ---------------------------------------------------------------------------
++    -- I2C EEPROM
++    ---------------------------------------------------------------------------
++    eeprom_sda_i : in  std_logic;
++    eeprom_sda_o : out std_logic;
++    eeprom_scl_i : in  std_logic;
++    eeprom_scl_o : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- Onewire interface
++    ---------------------------------------------------------------------------
++    onewire_i     : in  std_logic;
++    onewire_oen_o : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- UART
++    ---------------------------------------------------------------------------
++    uart_rxd_i : in  std_logic;
++    uart_txd_o : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- No Flash memory SPI interface
++    ---------------------------------------------------------------------------
++
++    ---------------------------------------------------------------------------
++    -- No External WB interface
++    ---------------------------------------------------------------------------
++
++    ---------------------------------------------------------------------------
++    -- WR fabric interface (when g_fabric_iface = "plainfbrc")
++    ---------------------------------------------------------------------------
++    wrf_src_o : out t_wrf_source_out;
++    wrf_src_i : in  t_wrf_source_in := c_dummy_src_in;
++    wrf_snk_o : out t_wrf_sink_out;
++    wrf_snk_i : in  t_wrf_sink_in   := c_dummy_snk_in;
++
++    ---------------------------------------------------------------------------
++    -- WR streamers (when g_fabric_iface = "streamers")
++    ---------------------------------------------------------------------------
++    wrs_tx_data_i  : in  std_logic_vector(g_tx_streamer_params.data_width-1 downto 0) := (others => '0');
++    wrs_tx_valid_i : in  std_logic                                        := '0';
++    wrs_tx_dreq_o  : out std_logic;
++    wrs_tx_last_i  : in  std_logic                                        := '1';
++    wrs_tx_flush_i : in  std_logic                                        := '0';
++    wrs_tx_cfg_i   : in  t_tx_streamer_cfg                                := c_tx_streamer_cfg_default;
++    wrs_rx_first_o : out std_logic;
++    wrs_rx_last_o  : out std_logic;
++    wrs_rx_data_o  : out std_logic_vector(g_rx_streamer_params.data_width-1 downto 0);
++    wrs_rx_valid_o : out std_logic;
++    wrs_rx_dreq_i  : in  std_logic                                        := '0';
++    wrs_rx_cfg_i   : in t_rx_streamer_cfg                                 := c_rx_streamer_cfg_default;
++    ---------------------------------------------------------------------------
++    -- No Etherbone WB master interface (when g_fabric_iface = "etherbone")
++    ---------------------------------------------------------------------------
++
++    ---------------------------------------------------------------------------
++    -- Generic diagnostics interface (access from WRPC via SNMP or uart console
++    ---------------------------------------------------------------------------
++    aux_diag_i : in  t_generic_word_array(g_diag_ro_size-1 downto 0) := (others => (others => '0'));
++    aux_diag_o : out t_generic_word_array(g_diag_rw_size-1 downto 0);
++
++    ---------------------------------------------------------------------------
++    -- Aux clocks control
++    ---------------------------------------------------------------------------
++    tm_dac_value_o       : out std_logic_vector(31 downto 0);
++    tm_dac_wr_o          : out std_logic_vector(g_aux_clks-1 downto 0);
++    tm_clk_aux_lock_en_i : in  std_logic_vector(g_aux_clks-1 downto 0) := (others => '0');
++    tm_clk_aux_locked_o  : out std_logic_vector(g_aux_clks-1 downto 0);
++
++    ---------------------------------------------------------------------------
++    -- External Tx Timestamping I/F
++    ---------------------------------------------------------------------------
++    timestamps_o     : out t_txtsu_timestamp;
++    timestamps_ack_i : in  std_logic := '1';
++
++    -----------------------------------------
++    -- Timestamp helper signals, used for Absolute Calibration
++    -----------------------------------------
++    abscal_txts_o       : out std_logic;
++    abscal_rxts_o       : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- Pause Frame Control
++    ---------------------------------------------------------------------------
++    fc_tx_pause_req_i   : in  std_logic                     := '0';
++    fc_tx_pause_delay_i : in  std_logic_vector(15 downto 0) := x"0000";
++    fc_tx_pause_ready_o : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- Timecode I/F
++    ---------------------------------------------------------------------------
++    tm_link_up_o    : out std_logic;
++    tm_time_valid_o : out std_logic;
++    tm_tai_o        : out std_logic_vector(39 downto 0);
++    tm_cycles_o     : out std_logic_vector(27 downto 0);
++
++    ---------------------------------------------------------------------------
++    -- Buttons, LEDs and PPS output
++    ---------------------------------------------------------------------------
++    led_act_o  : out std_logic;
++    led_link_o : out std_logic;
++    btn1_i     : in  std_logic := '1';
++    btn2_i     : in  std_logic := '1';
++    -- 1PPS output
++    pps_p_o    : out std_logic;
++    pps_led_o  : out std_logic;
++    -- Link ok indication
++    link_ok_o  : out std_logic
++    );
++
++end entity xwrc_board_m2sdr;
++
++architecture struct of xwrc_board_m2sdr is
++
++  -----------------------------------------------------------------------------
++  -- Signals
++  -----------------------------------------------------------------------------
++
++  -- DMTD clocks
++  signal clk_125m_dmtd_buf : std_logic;
++  signal clk_dmtd     : std_logic;
++
++  -- PLLs, clocks
++  signal clk_125m_gtp_buf : std_logic;
++  signal clk_pll_62m5 : std_logic;
++  signal clk_ref_62m5 : std_logic;
++  signal pll_locked   : std_logic;
++  signal clk_10m_ext  : std_logic;
++
++  -- Reset logic
++  signal areset_n_i         : std_logic;
++  signal areset_edge_ppulse : std_logic;
++  signal rst_62m5_n         : std_logic;
++  signal rstlogic_arst_n    : std_logic;
++  signal rstlogic_clk_in    : std_logic_vector(1 downto 0);
++  signal rstlogic_rst_out   : std_logic_vector(1 downto 0);
++
++  -- PLL DACs
++  signal dac_dmtd_load   : std_logic;
++  signal dac_dmtd_data   : std_logic_vector(15 downto 0);
++  signal dac_refclk_load : std_logic;
++  signal dac_refclk_data : std_logic_vector(15 downto 0);
++
++  -- OneWire
++  signal onewire_in : std_logic_vector(1 downto 0);
++  signal onewire_en : std_logic_vector(1 downto 0);
++
++  -- PHY
++  signal phy16_to_wrc   : t_phy_16bits_to_wrc;
++  signal phy16_from_wrc : t_phy_16bits_from_wrc;
++
++  -- External reference
++  signal ext_ref_mul         : std_logic;
++  signal ext_ref_mul_locked  : std_logic;
++  signal ext_ref_mul_stopped : std_logic;
++  signal ext_ref_rst         : std_logic;
++  
++  -- Tunning MMCMs
++  signal gtp_tunning_mmcm_feedback : std_logic;
++  signal gtp_tunning_mmcm_locked : std_logic;
++  signal gtp_tunning_mmcm_psdone : std_logic;
++  signal gtp_tunning_mmcm_psen : std_logic;
++  signal gtp_tunning_mmcm_psincdec : std_logic;
++  signal gtp_tunning_mmcm_clk125m : std_logic;
++  signal dmtd_tunning_mmcm_feedback : std_logic;
++  signal dmtd_tunning_mmcm_locked : std_logic;
++  signal dmtd_tunning_mmcm_psdone : std_logic;
++  signal dmtd_tunning_mmcm_psen : std_logic;
++  signal dmtd_tunning_mmcm_psincdec : std_logic;
++  signal dmtd_tunning_mmcm_clk125m : std_logic;
++
++begin  -- architecture struct
++
++  -----------------------------------------------------------------------------
++  -- Platform-dependent part (PHY, PLLs, buffers, etc)
++  -----------------------------------------------------------------------------
++
++  clk_dmtd_62m5_o <= clk_dmtd;
++  
++  cmp_xwrc_platform : xwrc_platform_xilinx
++    generic map (
++      g_fpga_family               => "artix7",
++      g_direct_dmtd               => TRUE,
++      g_with_external_clock_input => g_with_external_clock_input,
++      g_phy_refclk_sel            => 7,
++      g_use_default_plls          => TRUE,
++      g_simulation                => g_simulation)
++    port map (
++      areset_n_i            => areset_n_i,
++      clk_10m_ext_i         => clk_10m_ext_i,
++      clk_125m_dmtd_i       => clk_125m_dmtd_buf,
++      clk_125m_gtp_p_i      => clk_125m_gtp_buf,
++      clk_125m_gtp_n_i      => '0', -- unused with internal path
++      sfp_txn_o             => sfp_txn_o,
++      sfp_txp_o             => sfp_txp_o,
++      sfp_rxn_i             => sfp_rxn_i,
++      sfp_rxp_i             => sfp_rxp_i,
++      sfp_tx_fault_i        => sfp_tx_fault_i,
++      sfp_los_i             => sfp_los_i,
++      sfp_tx_disable_o      => sfp_tx_disable_o,
++      sfp_tx_polarity       => '0',
++      sfp_rx_polarity       => '1',
++      clk_62m5_sys_o        => clk_pll_62m5,
++      clk_125m_ref_o        => clk_ref_62m5,  -- Note: This is a 62m5 Clock for 16 bit PHYs!
++      clk_62m5_dmtd_o       => clk_dmtd,
++      pll_locked_o          => pll_locked,
++      clk_10m_ext_o         => clk_10m_ext,
++      phy16_o               => phy16_to_wrc,
++      phy16_i               => phy16_from_wrc,
++      ext_ref_mul_o         => ext_ref_mul,
++      ext_ref_mul_locked_o  => ext_ref_mul_locked,
++      ext_ref_mul_stopped_o => ext_ref_mul_stopped,
++      ext_ref_rst_i         => ext_ref_rst);
++
++  clk_sys_62m5_o <= clk_pll_62m5;
++  clk_ref_62m5_o <= clk_ref_62m5;
++
++  -----------------------------------------------------------------------------
++  -- Reset logic
++  -----------------------------------------------------------------------------
++  -- Detect when areset_edge_n_i goes high (end of reset) and use this edge to
++  -- generate rstlogic_arst_n. This is needed to connect optional reset like PCIe
++  -- reset. When baord runs standalone, we need to ignore PCIe reset being
++  -- constantly low.
++  cmp_arst_edge: gc_sync_ffs
++    generic map (
++      g_sync_edge => "positive")
++    port map (
++      clk_i    => clk_pll_62m5,
++      rst_n_i  => '1',
++      data_i   => areset_edge_n_i,
++      ppulse_o => areset_edge_ppulse);
++
++  -- logic AND of all async reset sources (active low)
++  rstlogic_arst_n <= pll_locked and areset_n_i and (not areset_edge_ppulse);
++
++  -- concatenation of all clocks required to have synced resets
++  rstlogic_clk_in(0) <= clk_pll_62m5;
++  rstlogic_clk_in(1) <= clk_ref_62m5;
++
++  cmp_rstlogic_reset : gc_reset
++    generic map (
++      g_clocks    => 2,                           -- 62.5MHz, 125MHz
++      g_logdelay  => 4,                           -- 16 clock cycles
++      g_syncdepth => 3)                           -- length of sync chains
++    port map (
++      free_clk_i => clk_125m_dmtd_buf,
++      locked_i   => rstlogic_arst_n,
++      clks_i     => rstlogic_clk_in,
++      rstn_o     => rstlogic_rst_out);
++
++  -- distribution of resets (already synchronized to their clock domains)
++  rst_62m5_n <= rstlogic_rst_out(0);
++
++  rst_sys_62m5_n_o <= rst_62m5_n;
++  rst_ref_62m5_n_o <= rstlogic_rst_out(1);
++  
++  -----------------------------------------------------------------------------
++  -- 2x tunning MMCMs
++  -----------------------------------------------------------------------------
++
++  cmp_gtp_tunning_mmcm : MMCME2_ADV
++  generic map (
++    BANDWIDTH => "OPTIMIZED",      -- Jitter programming (OPTIMIZED, HIGH, LOW)
++    CLKFBOUT_MULT_F => 10.0,        -- 10 * 100M -> 1G
++    CLKIN1_PERIOD => 10.0,          -- 10ns -> 100MHz
++
++    CLKOUT1_DIVIDE => 8,           -- 1G / 8 -> 125M
++    COMPENSATION => "INTERNAL",
++    -- REF_JITTER: Reference input jitter in UI (0.000-0.999).
++    REF_JITTER1 => 0.0,
++
++    CLKOUT1_USE_FINE_PS => TRUE
++  )
++  port map (
++    CLKOUT1 => gtp_tunning_mmcm_clk125m,
++
++    CLKFBOUT => gtp_tunning_mmcm_feedback,
++    LOCKED   => gtp_tunning_mmcm_locked,
++
++    CLKIN1 => clk_200m_local_i,
++    CLKIN2 => '0',
++    -- Control Ports: 1-bit (each) input: MMCM control ports
++    CLKINSEL => '1',         -- 1-bit input: Clock select, High=CLKIN1 Low=CLKIN2
++
++    -- Ports for dynamic reconfiguration
++    DADDR        => (others => '0'),
++    DCLK         => '0',
++    DEN          => '0',
++    DI           => (others => '0'),
++    DO           => open,
++    DRDY         => open,
++    DWE          => '0',
++
++    -- Dynamic Phase Shift Ports
++    PSCLK => clk_200m_local_i,
++    PSEN => gtp_tunning_mmcm_psen,
++    PSINCDEC => gtp_tunning_mmcm_psincdec,
++    PSDONE => gtp_tunning_mmcm_psdone,
++
++    CLKFBIN => gtp_tunning_mmcm_feedback,
++    PWRDWN => '0',
++    RST => '0'
++  );
++  cmp_gtp_125m_bufg : BUFG
++  port map (
++    I => gtp_tunning_mmcm_clk125m,
++    O => clk_125m_gtp_buf
++  );
++
++  cmp_dmtd_tunning_mmcm : MMCME2_ADV
++  generic map (
++    BANDWIDTH => "OPTIMIZED",      -- Jitter programming (OPTIMIZED, HIGH, LOW)
++    CLKFBOUT_MULT_F => 10.0,        -- 10 * 100M -> 1G
++    CLKIN1_PERIOD => 10.0,          -- 10ns -> 100MHz
++
++    CLKOUT1_DIVIDE => 8,           -- 1G / 8 -> 125M
++    COMPENSATION => "INTERNAL",
++    -- REF_JITTER: Reference input jitter in UI (0.000-0.999).
++    REF_JITTER1 => 0.0,
++
++    CLKOUT1_USE_FINE_PS => TRUE
++  )
++  port map (
++    CLKOUT1 => dmtd_tunning_mmcm_clk125m,
++
++    CLKFBOUT => dmtd_tunning_mmcm_feedback,
++    LOCKED   => dmtd_tunning_mmcm_locked,
++
++    CLKIN1 => clk_200m_local_i,
++    CLKIN2 => '0',
++    -- Control Ports: 1-bit (each) input: MMCM control ports
++    CLKINSEL => '1',         -- 1-bit input: Clock select, High=CLKIN1 Low=CLKIN2
++
++    -- Ports for dynamic reconfiguration
++    DADDR        => (others => '0'),
++    DCLK         => '0',
++    DEN          => '0',
++    DI           => (others => '0'),
++    DO           => open,
++    DRDY         => open,
++    DWE          => '0',
++
++    -- Dynamic Phase Shift Ports
++    PSCLK => clk_200m_local_i,
++    PSEN => dmtd_tunning_mmcm_psen,
++    PSINCDEC => dmtd_tunning_mmcm_psincdec,
++    PSDONE => dmtd_tunning_mmcm_psdone,
++
++    -- Feedback Clocks: 1-bit (each) input: Clock feedback ports
++    CLKFBIN => dmtd_tunning_mmcm_feedback,
++    PWRDWN => '0',
++    RST => '0'
++  );
++  cmp_dmtd_125m_bufg : BUFG
++  port map (
++    I => dmtd_tunning_mmcm_clk125m,
++    O => clk_125m_dmtd_buf
++  );
++
++  areset_n_i <= gtp_tunning_mmcm_locked and dmtd_tunning_mmcm_locked;
++
++  -----------------------------------------------------------------------------
++  -- 2x DAC -> MMCM
++  -----------------------------------------------------------------------------
++
++  cmp_dmtd_ps_gen : entity work.ps_gen
++    generic map (
++      WIDTH => g_dac_bits,
++      DIV => 16,
++      MULT => 7)
++    port map (
++      pswidth => dac_dmtd_data,
++      pswidth_set => dac_dmtd_load,
++      pswidth_clk => clk_pll_62m5,
++
++      psclk => clk_200m_local_i,
++      psdone => dmtd_tunning_mmcm_psdone,
++      psen => dmtd_tunning_mmcm_psen,
++      psincdec => dmtd_tunning_mmcm_psincdec);
++
++  cmp_gtp_ps_gen : entity work.ps_gen
++    generic map (
++      WIDTH => g_dac_bits,
++      DIV => 16,
++      MULT => 7)
++    port map (
++      pswidth => dac_refclk_data,
++      pswidth_set => dac_refclk_load,
++      pswidth_clk => clk_pll_62m5,
++
++      psclk => clk_200m_local_i,
++      psdone => gtp_tunning_mmcm_psdone,
++      psen => gtp_tunning_mmcm_psen,
++      psincdec => gtp_tunning_mmcm_psincdec);
++
++  -----------------------------------------------------------------------------
++  -- The WR PTP core with optional fabric interface attached
++  -----------------------------------------------------------------------------
++
++  cmp_board_common : xwrc_board_common
++    generic map (
++      g_simulation                => g_simulation,
++      g_with_external_clock_input => g_with_external_clock_input,
++      g_board_name                => "CLB3",
++      g_phys_uart                 => TRUE,
++      g_virtual_uart              => TRUE,
++      g_aux_clks                  => g_aux_clks,
++      g_ep_rxbuf_size             => 1024,
++      g_tx_runt_padding           => TRUE,
++      g_dpram_initf               => g_dpram_initf,
++      g_dpram_size                => 131072/4,
++      g_interface_mode            => PIPELINED,
++      g_address_granularity       => BYTE,
++      g_aux_sdb                   => c_wrc_periph3_sdb,
++      g_softpll_enable_debugger   => TRUE,
++      g_vuart_fifo_size           => 1024,
++      g_pcs_16bit                 => TRUE,
++      g_diag_id                   => g_diag_id,
++      g_diag_ver                  => g_diag_ver,
++      g_diag_ro_size              => g_diag_ro_size,
++      g_diag_rw_size              => g_diag_rw_size,
++      g_streamers_op_mode         => g_streamers_op_mode,
++      g_tx_streamer_params        => g_tx_streamer_params,
++      g_rx_streamer_params        => g_rx_streamer_params,
++      g_fabric_iface              => g_fabric_iface,
++      g_dac_bits                  => g_dac_bits
++      )
++    port map (
++      clk_sys_i            => clk_pll_62m5,
++      clk_dmtd_i           => clk_dmtd,
++      clk_ref_i            => clk_ref_62m5,
++      clk_aux_i            => clk_aux_i,
++      clk_10m_ext_i        => clk_10m_ext,
++      clk_ext_mul_i        => ext_ref_mul,
++      clk_ext_mul_locked_i => ext_ref_mul_locked,
++      clk_ext_stopped_i    => ext_ref_mul_stopped,
++      clk_ext_rst_o        => ext_ref_rst,
++      pps_ext_i            => pps_ext_i,
++      rst_n_i              => rst_62m5_n,
++      dac_hpll_load_p1_o   => dac_dmtd_load,
++      dac_hpll_data_o      => dac_dmtd_data,
++      dac_dpll_load_p1_o   => dac_refclk_load,
++      dac_dpll_data_o      => dac_refclk_data,
++      phy16_o              => phy16_from_wrc,
++      phy16_i              => phy16_to_wrc,
++      scl_o                => eeprom_scl_o,
++      scl_i                => eeprom_scl_i,
++      sda_o                => eeprom_sda_o,
++      sda_i                => eeprom_sda_i,
++      sfp_scl_o            => sfp_scl_o,
++      sfp_scl_i            => sfp_scl_i,
++      sfp_sda_o            => sfp_sda_o,
++      sfp_sda_i            => sfp_sda_i,
++      sfp_det_i            => sfp_det_i,
++      spi_sclk_o           => open,
++      spi_ncs_o            => open,
++      spi_mosi_o           => open,
++      spi_miso_i           => '0',
++      uart_rxd_i           => uart_rxd_i,
++      uart_txd_o           => uart_txd_o,
++      owr_pwren_o          => open,
++      owr_en_o             => onewire_en,
++      owr_i                => onewire_in,
++      wrf_src_o            => wrf_src_o,
++      wrf_src_i            => wrf_src_i,
++      wrf_snk_o            => wrf_snk_o,
++      wrf_snk_i            => wrf_snk_i,
++      wrs_tx_data_i        => wrs_tx_data_i,
++      wrs_tx_valid_i       => wrs_tx_valid_i,
++      wrs_tx_dreq_o        => wrs_tx_dreq_o,
++      wrs_tx_last_i        => wrs_tx_last_i,
++      wrs_tx_flush_i       => wrs_tx_flush_i,
++      wrs_tx_cfg_i         => wrs_tx_cfg_i,
++      wrs_rx_first_o       => wrs_rx_first_o,
++      wrs_rx_last_o        => wrs_rx_last_o,
++      wrs_rx_data_o        => wrs_rx_data_o,
++      wrs_rx_valid_o       => wrs_rx_valid_o,
++      wrs_rx_dreq_i        => wrs_rx_dreq_i,
++      wrs_rx_cfg_i         => wrs_rx_cfg_i,
++      aux_diag_i           => aux_diag_i,
++      aux_diag_o           => aux_diag_o,
++      tm_dac_value_o       => tm_dac_value_o,
++      tm_dac_wr_o          => tm_dac_wr_o,
++      tm_clk_aux_lock_en_i => tm_clk_aux_lock_en_i,
++      tm_clk_aux_locked_o  => tm_clk_aux_locked_o,
++      timestamps_o         => timestamps_o,
++      timestamps_ack_i     => timestamps_ack_i,
++      abscal_txts_o        => abscal_txts_o,
++      abscal_rxts_o        => abscal_rxts_o,
++      fc_tx_pause_req_i    => fc_tx_pause_req_i,
++      fc_tx_pause_delay_i  => fc_tx_pause_delay_i,
++      fc_tx_pause_ready_o  => fc_tx_pause_ready_o,
++      tm_link_up_o         => tm_link_up_o,
++      tm_time_valid_o      => tm_time_valid_o,
++      tm_tai_o             => tm_tai_o,
++      tm_cycles_o          => tm_cycles_o,
++      led_act_o            => led_act_o,
++      led_link_o           => led_link_o,
++      btn1_i               => btn1_i,
++      btn2_i               => btn2_i,
++      pps_p_o              => pps_p_o,
++      pps_led_o            => pps_led_o,
++      link_ok_o            => link_ok_o);
++
++  sfp_rate_select_o <= '1';
++
++  onewire_oen_o <= onewire_en(0);
++  onewire_in(0) <= onewire_i;
++  onewire_in(1) <= '1';
++
++end architecture struct;
+diff --git a/ip_cores/general-cores b/ip_cores/general-cores
+--- a/ip_cores/general-cores
++++ b/ip_cores/general-cores
+@@ -1 +1 @@
+-Subproject commit dc8d765c669c35b0d396b5afe5085c08686f7330
++Subproject commit dc8d765c669c35b0d396b5afe5085c08686f7330-dirty
+diff --git a/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper.vhd b/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper.vhd
+index f981871f..420aacdd 100644
+--- a/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper.vhd
++++ b/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper.vhd
+@@ -75,7 +75,8 @@ generic
+ (
+     -- Simulation attributes
+     EXAMPLE_SIMULATION             : integer  := 0;      -- Set to 1 for simulation
+-    WRAPPER_SIM_GTRESET_SPEEDUP    : string   := "FALSE" -- Set to "true" to speed up sim reset
++    WRAPPER_SIM_GTRESET_SPEEDUP    : string   := "FALSE"; -- Set to "true" to speed up sim reset
++    g_phy_refclk_sel               : integer  := 1
+ );
+ port
+ (
+@@ -109,6 +110,7 @@ port
+     ------------------------ Receive Ports - RX AFE Ports ----------------------
+     GT0_GTPRXN_IN                           : in   std_logic;
+     GT0_GTPRXP_IN                           : in   std_logic;
++    RX_POLARITY                              : in   std_logic;
+     -------------- Receive Ports - RX Byte and Word Alignment Ports ------------
+     GT0_RXBYTEISALIGNED_OUT                 : out  std_logic;
+     GT0_RXCOMMADET_OUT                      : out  std_logic;
+@@ -134,6 +136,7 @@ port
+     --------------- Transmit Ports - TX Configurable Driver Ports --------------
+     GT0_GTPTXN_OUT                          : out  std_logic;
+     GT0_GTPTXP_OUT                          : out  std_logic;
++    TX_POLARITY                              : in   std_logic;
+     ----------- Transmit Ports - TX Fabric Clock Output Control Ports ----------
+     GT0_TXOUTCLK_OUT                        : out  std_logic;
+     GT0_TXOUTCLKFABRIC_OUT                  : out  std_logic;
+@@ -143,7 +146,7 @@ port
+     ------------------ Transmit Ports - pattern Generator Ports ----------------
+     GT0_TXPRBSSEL_IN                        : in   std_logic_vector(2 downto 0);
+ 
+-	
++
+     --____________________________COMMON PORTS________________________________
+     ----------------- Common Block - GTPE2_COMMON Clocking Ports ---------------
+     GT0_GTREFCLK0_IN                        : in   std_logic;
+@@ -190,7 +193,10 @@ architecture RTL of whiterabbit_gtpe2_channel_wrapper is
+     signal   gt0_pll1clk_i       :   std_logic;
+     signal   gt0_pll1refclk_i    :   std_logic;
+     signal    gt0_rst_i                       : std_logic;
+-      
++
++    signal gtp_common_refclk_ext : std_logic;
++    signal gtp_common_refclk_internal : std_logic;
++    signal gtp_common_refclksel : std_logic_vector(2 downto 0);
+ 
+ 
+ 
+@@ -200,15 +206,16 @@ generic
+ (
+     -- Simulation attributes
+     GT_SIM_GTRESET_SPEEDUP    : string := "false";
+-    EXAMPLE_SIMULATION        : integer  := 0;  
++    EXAMPLE_SIMULATION        : integer  := 0;
+     TXSYNC_OVRD_IN            : bit    := '0';
+-    TXSYNC_MULTILANE_IN       : bit    := '0'     
++    TXSYNC_MULTILANE_IN       : bit    := '0';
++    g_phy_refclk_sel          : integer := 1
+ );
+-port 
+-(   
++port
++(
+     RST_IN                                  : in   std_logic;
+     DRP_BUSY_OUT                            : out  std_logic;
+-   
++
+     ---------------------------- Channel - DRP Ports  --------------------------
+     DRPADDR_IN                              : in   std_logic_vector(8 downto 0);
+     DRPCLK_IN                               : in   std_logic;
+@@ -240,6 +247,7 @@ port
+     ------------------------ Receive Ports - RX AFE Ports ----------------------
+     GTPRXN_IN                               : in   std_logic;
+     GTPRXP_IN                               : in   std_logic;
++    RX_POLARITY                              : in   std_logic;
+     -------------- Receive Ports - RX Byte and Word Alignment Ports ------------
+     RXBYTEISALIGNED_OUT                     : out  std_logic;
+     RXCOMMADET_OUT                          : out  std_logic;
+@@ -265,6 +273,7 @@ port
+     --------------- Transmit Ports - TX Configurable Driver Ports --------------
+     GTPTXN_OUT                              : out  std_logic;
+     GTPTXP_OUT                              : out  std_logic;
++    TX_POLARITY                              : in   std_logic;
+     ----------- Transmit Ports - TX Fabric Clock Output Control Ports ----------
+     TXOUTCLK_OUT                            : out  std_logic;
+     TXOUTCLKFABRIC_OUT                      : out  std_logic;
+@@ -288,20 +297,20 @@ end component;
+ 
+ --********************************* Main Body of Code**************************
+ 
+-begin                       
++begin
+ 
+     tied_to_ground_i                    <= '0';
+     tied_to_ground_vec_i(63 downto 0)   <= (others => '0');
+     tied_to_vcc_i                       <= '1';
+-    gt0_pll0clk_i    <= gt0_pll0outclk_i;  
+-    gt0_pll0refclk_i <= gt0_pll0outrefclk_i; 
+-    gt0_pll1clk_i    <= gt0_pll1outclk_i;  
+-    gt0_pll1refclk_i <= gt0_pll1outrefclk_i; 
+-      
++    gt0_pll0clk_i    <= gt0_pll0outclk_i;
++    gt0_pll0refclk_i <= gt0_pll0outrefclk_i;
++    gt0_pll1clk_i    <= gt0_pll1outclk_i;
++    gt0_pll1refclk_i <= gt0_pll1outrefclk_i;
++
+     gt0_rst_i        <= GT0_PLL1RESET_IN;
+-   
+-    
+-    --------------------------- GT Instances  -------------------------------   
++
++
++    --------------------------- GT Instances  -------------------------------
+     --_________________________________________________________________________
+     --_________________________________________________________________________
+     GT_INST : whiterabbit_gtpe2_channel_wrapper_gt
+@@ -349,6 +358,7 @@ begin
+         ------------------------ Receive Ports - RX AFE Ports ----------------------
+         GTPRXN_IN                       =>      GT0_GTPRXN_IN,
+         GTPRXP_IN                       =>      GT0_GTPRXP_IN,
++        RX_POLARITY                     =>      RX_POLARITY,
+         -------------- Receive Ports - RX Byte and Word Alignment Ports ------------
+         RXBYTEISALIGNED_OUT             =>      GT0_RXBYTEISALIGNED_OUT,
+         RXCOMMADET_OUT                  =>      GT0_RXCOMMADET_OUT,
+@@ -374,6 +384,7 @@ begin
+         --------------- Transmit Ports - TX Configurable Driver Ports --------------
+         GTPTXN_OUT                      =>      GT0_GTPTXN_OUT,
+         GTPTXP_OUT                      =>      GT0_GTPTXP_OUT,
++        TX_POLARITY                     =>      TX_POLARITY,
+         ----------- Transmit Ports - TX Fabric Clock Output Control Ports ----------
+         TXOUTCLK_OUT                    =>      GT0_TXOUTCLK_OUT,
+         TXOUTCLKFABRIC_OUT              =>      GT0_TXOUTCLKFABRIC_OUT,
+@@ -390,6 +401,17 @@ begin
+     --_________________________________________________________________________
+     --_________________________GTPE2_COMMON____________________________________
+ 
++    gen_gtp_refclk_internal : if (g_phy_refclk_sel = 7) generate
++      gtp_common_refclk_internal <= GT0_GTREFCLK0_IN;
++      gtp_common_refclk_ext <= tied_to_ground_i;
++      gtp_common_refclksel <= "111";
++    end generate gen_gtp_refclk_internal;
++    gen_gtp_refclk_external : if (g_phy_refclk_sel /= 7) generate
++      gtp_common_refclk_internal <= tied_to_ground_i;
++      gtp_common_refclk_ext <= GT0_GTREFCLK0_IN;
++      gtp_common_refclksel <= "001";
++    end generate gen_gtp_refclk_external;
++
+     gtpe2_common_0_i : GTPE2_COMMON
+     generic map
+     (
+@@ -399,12 +421,12 @@ begin
+             SIM_PLL1REFCLK_SEL   => ("001"),
+             SIM_VERSION          => ("1.0"),
+ 
+-            PLL0_FBDIV           => PLL0_FBDIV_IN     ,	
+-	    PLL0_FBDIV_45        => PLL0_FBDIV_45_IN  ,	
+-	    PLL0_REFCLK_DIV      => PLL0_REFCLK_DIV_IN,	
+-	    PLL1_FBDIV           => PLL1_FBDIV_IN     ,	
+-	    PLL1_FBDIV_45        => PLL1_FBDIV_45_IN  ,	
+-	    PLL1_REFCLK_DIV      => PLL1_REFCLK_DIV_IN,	            
++            PLL0_FBDIV           => PLL0_FBDIV_IN     ,
++	    PLL0_FBDIV_45        => PLL0_FBDIV_45_IN  ,
++	    PLL0_REFCLK_DIV      => PLL0_REFCLK_DIV_IN,
++	    PLL1_FBDIV           => PLL1_FBDIV_IN     ,
++	    PLL1_FBDIV_45        => PLL1_FBDIV_45_IN  ,
++	    PLL1_REFCLK_DIV      => PLL1_REFCLK_DIV_IN,
+ 
+ 
+        ------------------COMMON BLOCK Attributes---------------
+@@ -426,7 +448,6 @@ begin
+         RSVD_ATTR0                              =>     (x"0000"),
+         RSVD_ATTR1                              =>     (x"0000")
+ 
+-        
+     )
+     port map
+     (
+@@ -442,8 +463,9 @@ begin
+         ----------------- Common Block - GTPE2_COMMON Clocking Ports ---------------
+         GTEASTREFCLK0                   =>      tied_to_ground_i,
+         GTEASTREFCLK1                   =>      tied_to_ground_i,
+-        GTGREFCLK1                      =>      tied_to_ground_i,
+-        GTREFCLK0                       =>      GT0_GTREFCLK0_IN,
++        GTGREFCLK0                      =>      gtp_common_refclk_internal, -- clk input via internal fpga path
++        GTGREFCLK1                      =>      gtp_common_refclk_internal,
++        GTREFCLK0                       =>      gtp_common_refclk_ext, -- clk input via dedicated pins
+         GTREFCLK1                       =>      tied_to_ground_i,
+         GTWESTREFCLK0                   =>      tied_to_ground_i,
+         GTWESTREFCLK1                   =>      tied_to_ground_i,
+@@ -458,7 +480,7 @@ begin
+         PLL0LOCKEN                      =>      tied_to_vcc_i,
+         PLL0PD                          =>      '1',
+         PLL0REFCLKLOST                  =>      open,
+-        PLL0REFCLKSEL                   =>      "001",
++        PLL0REFCLKSEL                   =>      gtp_common_refclksel,
+         PLL0RESET                       =>      tied_to_ground_i,
+         PLL1FBCLKLOST                   =>      open,
+         PLL1LOCK                        =>      GT0_PLL1LOCK_OUT,
+@@ -466,11 +488,10 @@ begin
+         PLL1LOCKEN                      =>      tied_to_vcc_i,
+         PLL1PD                          =>      tied_to_ground_i,
+         PLL1REFCLKLOST                  =>      GT0_PLL1REFCLKLOST_OUT,
+-        PLL1REFCLKSEL                   =>      "001",
++        PLL1REFCLKSEL                   =>      gtp_common_refclksel,
+         PLL1RESET                       =>      GT0_PLL1RESET_IN,
+         ---------------------------- Common Block - Ports --------------------------
+         BGRCALOVRDENB                   =>      tied_to_vcc_i,
+-        GTGREFCLK0                      =>      tied_to_ground_i,
+         PLLRSVD1                        =>      "0000000000000000",
+         PLLRSVD2                        =>      "00000",
+         REFCLKOUTMONITOR0               =>      open,
+diff --git a/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper_gt.vhd b/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper_gt.vhd
+index 90ca8f39..645589ee 100644
+--- a/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper_gt.vhd
++++ b/platform/xilinx/wr_gtp_phy/family7-gtp/whiterabbit_gtpe2_channel_wrapper_gt.vhd
+@@ -113,6 +113,7 @@ port
+     ------------------------ Receive Ports - RX AFE Ports ----------------------
+     gtprxn_in                               : in   std_logic;
+     gtprxp_in                               : in   std_logic;
++    rx_polarity                             : in  std_logic             := '0';
+     -------------- Receive Ports - RX Byte and Word Alignment Ports ------------
+     rxbyteisaligned_out                     : out  std_logic;
+     rxcommadet_out                          : out  std_logic;
+@@ -138,6 +139,7 @@ port
+     --------------- Transmit Ports - TX Configurable Driver Ports --------------
+     gtptxn_out                              : out  std_logic;
+     gtptxp_out                              : out  std_logic;
++    tx_polarity                             : in  std_logic             := '0';
+     ----------- Transmit Ports - TX Fabric Clock Output Control Ports ----------
+     txoutclk_out                            : out  std_logic;
+     txoutclkfabric_out                      : out  std_logic;
+@@ -810,7 +812,7 @@ begin
+         RXELECIDLE                      =>      open,
+         RXELECIDLEMODE                  =>      "11",
+         ----------------- Receive Ports - RX Polarity Control Ports ----------------
+-        RXPOLARITY                      =>      tied_to_ground_i,
++        RXPOLARITY                      =>      rx_polarity,
+         -------------- Receive Ports -RX Initialization and Reset Ports ------------
+         RXRESETDONE                     =>      RXRESETDONE_OUT,
+         --------------------------- TX Buffer Bypass Ports -------------------------
+@@ -914,7 +916,7 @@ begin
+         TXCOMWAKE                       =>      tied_to_ground_i,
+         TXPDELECIDLEMODE                =>      tied_to_ground_i,
+         ----------------- Transmit Ports - TX Polarity Control Ports ---------------
+-        TXPOLARITY                      =>      tied_to_ground_i,
++        TXPOLARITY                      =>      tx_polarity,
+         --------------- Transmit Ports - TX Receiver Detection Ports  --------------
+         TXDETECTRX                      =>      tied_to_ground_i,
+         ------------------ Transmit Ports - pattern Generator Ports ----------------
+diff --git a/platform/xilinx/wr_gtp_phy/family7-gtp/wr_gtp_phy_family7.vhd b/platform/xilinx/wr_gtp_phy/family7-gtp/wr_gtp_phy_family7.vhd
+index 4f6a8fe6..11f58313 100644
+--- a/platform/xilinx/wr_gtp_phy/family7-gtp/wr_gtp_phy_family7.vhd
++++ b/platform/xilinx/wr_gtp_phy/family7-gtp/wr_gtp_phy_family7.vhd
+@@ -55,7 +55,8 @@ use work.disparity_gen_pkg.all;
+ entity wr_gtp_phy_family7 is
+   generic (
+     -- set to non-zero value to speed up the simulation by reducing some delays
+-    g_simulation     : integer := 0
++    g_simulation     : integer := 0;
++    g_phy_refclk_sel : integer := 1
+   );
+   port (
+     -- Dedicated reference 125 MHz clock for the GTP transceiver
+@@ -110,6 +111,9 @@ entity wr_gtp_phy_family7 is
+     pad_txn_o        : out  std_logic;
+     pad_txp_o        : out  std_logic;
+ 
++    tx_polarity  : in  std_logic             := '0';
++    rx_polarity  : in  std_logic             := '0';
++
+     rdy_o            : out  std_logic
+   );
+ end entity wr_gtp_phy_family7;
+@@ -172,7 +176,8 @@ architecture structure of wr_gtp_phy_family7 is
+   (
+       -- Simulation attributes
+       EXAMPLE_SIMULATION             : integer  := 0;      -- Set to 1 for simulation
+-      WRAPPER_SIM_GTRESET_SPEEDUP    : string := "FALSE" -- Set to "true" to speed up sim reset
++      WRAPPER_SIM_GTRESET_SPEEDUP    : string := "FALSE"; -- Set to "true" to speed up sim reset
++      g_phy_refclk_sel               : integer := 1
+   );
+   port
+   (
+@@ -205,6 +210,7 @@ architecture structure of wr_gtp_phy_family7 is
+       ------------------------ Receive Ports - RX AFE Ports ----------------------
+       GT0_GTPRXN_IN            : in  std_logic;
+       GT0_GTPRXP_IN            : in  std_logic;
++      RX_POLARITY              : in  std_logic;
+       -------------- Receive Ports - RX Byte and Word Alignment Ports ------------
+       GT0_RXBYTEISALIGNED_OUT  : out  std_logic;
+       GT0_RXCOMMADET_OUT       : out  std_logic;
+@@ -230,6 +236,7 @@ architecture structure of wr_gtp_phy_family7 is
+       --------------- Transmit Ports - TX Configurable Driver Ports --------------
+       GT0_GTPTXN_OUT           : out std_logic;
+       GT0_GTPTXP_OUT           : out std_logic;
++      TX_POLARITY              : in  std_logic;
+       ----------- Transmit Ports - TX Fabric Clock Output Control Ports ----------
+       GT0_TXOUTCLK_OUT         : out std_logic;
+       GT0_TXOUTCLKFABRIC_OUT   : out std_logic;
+@@ -385,7 +392,8 @@ begin
+   (
+     -- Simulation attributes
+     EXAMPLE_SIMULATION           => g_simulation,
+-    WRAPPER_SIM_GTRESET_SPEEDUP  => f_to_bool(g_simulation)
++    WRAPPER_SIM_GTRESET_SPEEDUP  => f_to_bool(g_simulation),
++    g_phy_refclk_sel             => g_phy_refclk_sel
+   )
+   port map
+   (
+@@ -419,6 +427,7 @@ begin
+     ------------------------ Receive Ports - RX AFE Ports ----------------------
+     GT0_GTPRXN_IN            =>  pad_rxn_i,
+     GT0_GTPRXP_IN            =>  pad_rxp_i,
++    RX_POLARITY              =>  rx_polarity,
+     -------------- Receive Ports - RX Byte and Word Alignment Ports ------------
+     GT0_RXBYTEISALIGNED_OUT  =>  rx_byte_is_aligned,
+     GT0_RXCOMMADET_OUT       =>  rx_comma_det,
+@@ -444,6 +453,7 @@ begin
+     --------------- Transmit Ports - TX Configurable Driver Ports --------------
+     GT0_GTPTXN_OUT           =>  pad_txn_o,
+     GT0_GTPTXP_OUT           =>  pad_txp_o,
++    TX_POLARITY              =>  tx_polarity,
+     ----------- Transmit Ports - TX Fabric Clock Output Control Ports ----------
+     GT0_TXOUTCLK_OUT         =>  tx_out_clk_bufin,
+     GT0_TXOUTCLKFABRIC_OUT   =>  open,
+diff --git a/platform/xilinx/wr_xilinx_pkg.vhd b/platform/xilinx/wr_xilinx_pkg.vhd
+index 1467311d..43184166 100644
+--- a/platform/xilinx/wr_xilinx_pkg.vhd
++++ b/platform/xilinx/wr_xilinx_pkg.vhd
+@@ -97,6 +97,8 @@ package wr_xilinx_pkg is
+       sfp_tx_fault_i        : in  std_logic             := '0';
+       sfp_los_i             : in  std_logic             := '0';
+       sfp_tx_disable_o      : out std_logic;
++      sfp_tx_polarity       : in  std_logic             := '0';  
++      sfp_rx_polarity       : in  std_logic             := '0';  
+       sfp_mux_sel_i         : in  std_logic              := '0';
+       sfp1_txn_o            : out std_logic;
+       sfp1_txp_o            : out std_logic;
+@@ -285,7 +287,8 @@ package wr_xilinx_pkg is
+   component wr_gtp_phy_family7 is
+     generic (
+       -- set to non-zero value to speed up the simulation by reducing some delays
+-      g_simulation : integer := 0);
++      g_simulation     : integer := 0;
++      g_phy_refclk_sel : integer := 1);
+     port (
+       clk_gtp_i      : in  std_logic;
+       tx_out_clk_o   : out std_logic;
+@@ -306,6 +309,8 @@ package wr_xilinx_pkg is
+       pad_txp_o      : out std_logic;
+       pad_rxn_i      : in  std_logic := '0';
+       pad_rxp_i      : in  std_logic := '0';
++      tx_polarity       : in  std_logic             := '0';
++      rx_polarity       : in  std_logic             := '0';
+       rdy_o          : out std_logic);
+   end component;
+ 
+diff --git a/platform/xilinx/xwrc_platform_vivado.vhd b/platform/xilinx/xwrc_platform_vivado.vhd
+index f9943cb9..de7f1829 100644
+--- a/platform/xilinx/xwrc_platform_vivado.vhd
++++ b/platform/xilinx/xwrc_platform_vivado.vhd
+@@ -140,6 +140,9 @@ entity xwrc_platform_xilinx is
+     sfp_tx_fault_i        : in  std_logic             := '0';
+     sfp_los_i             : in  std_logic             := '0';
+     sfp_tx_disable_o      : out std_logic;
++    sfp_tx_polarity       : in  std_logic             := '0';  
++    sfp_rx_polarity       : in  std_logic             := '0';  
++
+     ---------------------------------------------------------------------------
+     -- if both SFP channels are enabled and sfp_mux is enabled,
+     -- this is the bit to switch between them
+@@ -904,17 +907,23 @@ begin  -- architecture rtl
+   begin
+ 
+     -- Dedicated GTP clock.
+-    cmp_gtp_dedicated_clk : IBUFDS_GTE2
+-      generic map(
+-        CLKCM_CFG    => true,
+-        CLKRCV_TRST  => true,
+-        CLKSWING_CFG => "11")
+-      port map (
+-        O     => clk_125m_gtp_buf,
+-        ODIV2 => open,
+-        CEB   => '0',
+-        I     => clk_125m_gtp_p_i,
+-        IB    => clk_125m_gtp_n_i);
++    -- g_phy_refclk_sel = 7 is FPGA internal path, clk_125m_gtp_p_i has to be a clocking signal and clk_125m_gtp_n_i is discarded
++    gen_gtp_dedicated_clk_internal : if(g_phy_refclk_sel = 7) generate
++      clk_125m_gtp_buf <= clk_125m_gtp_p_i;
++    end generate gen_gtp_dedicated_clk_internal;
++    gen_gtp_dedicated_clk_external : if(g_phy_refclk_sel /= 7) generate
++      cmp_gtp_dedicated_clk : IBUFDS_GTE2
++        generic map(
++          CLKCM_CFG    => true,
++          CLKRCV_TRST  => true,
++          CLKSWING_CFG => "11")
++        port map (
++          O     => clk_125m_gtp_buf,
++          ODIV2 => open,
++          CEB   => '0',
++          I     => clk_125m_gtp_p_i,
++          IB    => clk_125m_gtp_n_i);
++    end generate gen_gtp_dedicated_clk_external;
+ 
+     -- System PLL input clock buffer
+     cmp_clk_sys_buf_i : BUFG
+@@ -924,7 +933,8 @@ begin  -- architecture rtl
+ 
+     cmp_gtp: wr_gtp_phy_family7
+       generic map(
+-        g_simulation => g_simulation)
++        g_simulation => g_simulation,
++        g_phy_refclk_sel => g_phy_refclk_sel)
+       port map(
+         clk_gtp_i      => clk_125m_gtp_buf,
+         tx_out_clk_o   => clk_ref,
+@@ -947,6 +957,9 @@ begin  -- architecture rtl
+         pad_rxn_i => sfp_rxn_i,
+         pad_rxp_i => sfp_rxp_i,
+ 
++        tx_polarity => sfp_tx_polarity,
++        rx_polarity => sfp_rx_polarity,
++
+         tx_locked_o   => clk_ref_locked);
+ 
+     clk_125m_ref_o       <= clk_ref;
+diff --git a/platform/xilinx/xwrc_platform_xilinx.vhd b/platform/xilinx/xwrc_platform_xilinx.vhd
+index 24db6ccf..77a3cb26 100644
+--- a/platform/xilinx/xwrc_platform_xilinx.vhd
++++ b/platform/xilinx/xwrc_platform_xilinx.vhd
+@@ -128,6 +128,9 @@ entity xwrc_platform_xilinx is
+     sfp_tx_fault_i        : in  std_logic             := '0';
+     sfp_los_i             : in  std_logic             := '0';
+     sfp_tx_disable_o      : out std_logic;
++    sfp_tx_polarity       : in  std_logic             := '0';  
++    sfp_rx_polarity       : in  std_logic             := '0';  
++
+     ---------------------------------------------------------------------------
+     -- if both SFP channels are enabled and sfp_mux is enabled, 
+     -- this is the bit to switch between them
+@@ -1253,17 +1256,23 @@ begin  -- architecture rtl
+   begin
+ 
+     -- Dedicated GTP clock.
+-    cmp_gtp_dedicated_clk : IBUFDS_GTE2
+-      generic map(
+-        CLKCM_CFG    => true,
+-        CLKRCV_TRST  => true,
+-        CLKSWING_CFG => "11")
+-      port map (
+-        O     => clk_125m_gtp_buf,
+-        ODIV2 => open,
+-        CEB   => '0',
+-        I     => clk_125m_gtp_p_i,
+-        IB    => clk_125m_gtp_n_i);
++    -- g_phy_refclk_sel = 7 is FPGA internal path, clk_125m_gtp_p_i has to be a clocking signal and clk_125m_gtp_n_i is discarded
++    gen_gtp_dedicated_clk_internal : if(g_phy_refclk_sel = 7) generate
++      clk_125m_gtp_buf <= clk_125m_gtp_p_i;
++    end generate gen_gtp_dedicated_clk_internal;
++    gen_gtp_dedicated_clk_external : if(g_phy_refclk_sel /= 7) generate
++      cmp_gtp_dedicated_clk : IBUFDS_GTE2
++        generic map(
++          CLKCM_CFG    => true,
++          CLKRCV_TRST  => true,
++          CLKSWING_CFG => "11")
++        port map (
++          O     => clk_125m_gtp_buf,
++          ODIV2 => open,
++          CEB   => '0',
++          I     => clk_125m_gtp_p_i,
++          IB    => clk_125m_gtp_n_i);
++    end generate gen_gtp_dedicated_clk_external;
+ 
+     -- System PLL input clock buffer
+     cmp_clk_sys_buf_i : BUFG
+@@ -1273,7 +1282,8 @@ begin  -- architecture rtl
+ 
+     cmp_gtp: wr_gtp_phy_family7
+       generic map(
+-        g_simulation => g_simulation)
++        g_simulation => g_simulation,
++        g_phy_refclk_sel => g_phy_refclk_sel)
+       port map(
+         clk_gtp_i      => clk_125m_gtp_buf,
+         tx_out_clk_o   => clk_ref,
+@@ -1296,6 +1306,9 @@ begin  -- architecture rtl
+         pad_rxn_i => sfp_rxn_i,
+         pad_rxp_i => sfp_rxp_i,
+ 
++        tx_polarity => sfp_tx_polarity,
++        rx_polarity => sfp_rx_polarity,
++
+         tx_locked_o   => clk_ref_locked);
+ 
+     clk_125m_ref_o       <= clk_ref;
+diff --git a/syn/m2sdr_ref_design/Manifest.py b/syn/m2sdr_ref_design/Manifest.py
+new file mode 100644
+index 00000000..67c5b26b
+--- /dev/null
++++ b/syn/m2sdr_ref_design/Manifest.py
+@@ -0,0 +1,14 @@
++board  = "m2sdr"
++target = "xilinx"
++action = "synthesis"
++
++syn_device = "xc7a200t"
++syn_grade = "-3"
++syn_package = "sbg484"
++
++syn_top = "m2sdr_wr_ref_top"
++syn_project = "m2sdr_wr_ref.xpr"
++
++syn_tool = "vivado"
++
++modules = { "local" : "../../top/m2sdr_ref_design/"}
+diff --git a/syn/m2sdr_ref_design/bitstream.tcl b/syn/m2sdr_ref_design/bitstream.tcl
+new file mode 100644
+index 00000000..722df0d9
+--- /dev/null
++++ b/syn/m2sdr_ref_design/bitstream.tcl
+@@ -0,0 +1,6 @@
++open_project m2sdr_wr_ref.xpr
++reset_runs impl_1
++set_property SEVERITY WARNING [get_drc_checks REQP-49]
++launch_runs impl_1 -to_step write_bitstream
++wait_on_run impl_1
++exit
+diff --git a/top/m2sdr_ref_design/Manifest.py b/top/m2sdr_ref_design/Manifest.py
+new file mode 100644
+index 00000000..5fbfb84d
+--- /dev/null
++++ b/top/m2sdr_ref_design/Manifest.py
+@@ -0,0 +1,17 @@
++fetchto = "../../ip_cores"
++
++files = [
++    "m2sdr_wr_ref_top.vhd",
++    "m2sdr_wr_ref_top.xdc",
++    "m2sdr_wr_ref_top.bmm",
++]
++
++modules = {
++    "local" : [
++        "../../",
++    ],
++    "git" : [
++        "git://ohwr.org/hdl-core-lib/general-cores.git",
++        "git://ohwr.org/project/urv-core.git",
++    ],
++}
+diff --git a/top/m2sdr_ref_design/m2sdr_wr_ref_top.bmm b/top/m2sdr_ref_design/m2sdr_wr_ref_top.bmm
+new file mode 100644
+index 00000000..1735b838
+--- /dev/null
++++ b/top/m2sdr_ref_design/m2sdr_wr_ref_top.bmm
+@@ -0,0 +1,48 @@
++/* FILE : m2sdr_wr_ref_top.bmm
++*  Define a BRAM map for the CPU memory.
++*  Note: *THE RAMLOOP ORDER WITHIN A BUS BLOCK IS VERY IMPORTANT!!!*
++*
++* Address space CPU memory
++* g_dpram_size = 131072/4 = 32768
++* This size is in 32 bit words => byte size = 4 * 32768 = 131072 bytes
++*
++****************************************************************************************/
++
++ADDRESS_SPACE wrpc_cpu_memory COMBINED [0x00000000:0x0001FFFF]
++  ADDRESS_RANGE RAMB32
++    BUS_BLOCK
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_7 [31:31] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_6 [30:30] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_5 [29:29] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_4 [28:28] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_3 [27:27] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_2 [26:26] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_1 [25:25] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram0_reg_0_0 [24:24] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_7 [23:23] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_6 [22:22] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_5 [21:21] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_4 [20:20] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_3 [19:19] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_2 [18:18] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_1 [17:17] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram1_reg_0_0 [16:16] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_7 [15:15] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_6 [14:14] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_5 [13:13] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_4 [12:12] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_3 [11:11] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_2 [10:10] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_1 [9:9] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram2_reg_0_0 [8:8] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_7 [7:7] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_6 [6:6] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_5 [5:5] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_4 [4:4] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_3 [3:3] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_2 [2:2] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_1 [1:1] [0:32767];
++      cmp_xwrc_board_m2sdr/cmp_board_common/cmp_xwr_core/WRPC/U_CPU/U_iram/gen_splitram.U_RAM_SPLIT/ram3_reg_0_0 [0:0] [0:32767];
++    END_BUS_BLOCK;
++  END_ADDRESS_RANGE;
++END_ADDRESS_SPACE;
+diff --git a/top/m2sdr_ref_design/m2sdr_wr_ref_top.vhd b/top/m2sdr_ref_design/m2sdr_wr_ref_top.vhd
+new file mode 100644
+index 00000000..42bec14e
+--- /dev/null
++++ b/top/m2sdr_ref_design/m2sdr_wr_ref_top.vhd
+@@ -0,0 +1,262 @@
++-------------------------------------------------------------------------------
++-- Title      : WRPC reference design for KM3NeT Central Logic Board (m2sdr)
++--            : based on artix-7
++-- Project    : WR PTP Core
++-- URL        : http://www.ohwr.org/projects/wr-cores/wiki/Wrpc_core
++-------------------------------------------------------------------------------
++-- File       : m2sdr_wr_ref_top.vhd
++-- Author(s)  : Peter Jansweijer <peterj@nikhef.nl>
++-- Company    : Nikhef
++-- Created    : 2017-11-08
++-- Last update: 2019-06-28
++-- Standard   : VHDL'93
++-------------------------------------------------------------------------------
++-- Description: Top-level file for the WRPC reference design on the m2sdr.
++--
++-- This is a reference top HDL that instanciates the WR PTP Core together with
++-- its peripherals to be run on a CLB card.
++--
++-- There are two main usecases for this HDL file:
++-- * let new users easily synthesize a WR PTP Core bitstream that can be run on
++--   reference hardware
++-- * provide a reference top HDL file showing how the WRPC can be instantiated
++--   in HDL projects.
++--
++-------------------------------------------------------------------------------
++-- Copyright (c) 2017 Nikhef
++-------------------------------------------------------------------------------
++-- GNU LESSER GENERAL PUBLIC LICENSE
++--
++-- This source file is free software; you can redistribute it
++-- and/or modify it under the terms of the GNU Lesser General
++-- Public License as published by the Free Software Foundation;
++-- either version 2.1 of the License, or (at your option) any
++-- later version.
++--
++-- This source is distributed in the hope that it will be
++-- useful, but WITHOUT ANY WARRANTY; without even the implied
++-- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
++-- PURPOSE.  See the GNU Lesser General Public License for more
++-- details.
++--
++-- You should have received a copy of the GNU Lesser General
++-- Public License along with this source; if not, download it
++-- from http://www.gnu.org/licenses/lgpl-2.1.html
++--
++-------------------------------------------------------------------------------
++
++library ieee;
++use ieee.std_logic_1164.all;
++use ieee.numeric_std.all;
++
++library work;
++use work.gencores_pkg.all;
++use work.wishbone_pkg.all;
++use work.wr_board_pkg.all;
++use work.wr_m2sdr_pkg.all;
++
++library unisim;
++use unisim.vcomponents.all;
++
++entity m2sdr_wr_ref_top is
++  generic (
++    g_dpram_initf : string := "../../../../bin/wrpc/wrc_phy16_direct_dmtd.bram";
++    -- In Vivado Project-Mode, during a Synthesis run or an Implementation run, the Vivado working
++    -- directory temporarily changes to the "project_name/project_name.runs/run_name" directory.
++
++    -- Simulation-mode enable parameter. Set by default (synthesis) to 0, and
++    -- changed to non-zero in the instantiation of the top level DUT in the testbench.
++    -- Its purpose is to reduce some internal counters/timeouts to speed up simulations.
++    g_simulation : integer := 0
++  );
++  port (
++    ---------------------------------------------------------------------------`
++    -- Clocks/resets
++    ---------------------------------------------------------------------------
++
++    -- Local oscillators
++
++    clk_200m_local_i : in std_logic;             -- 100 MHz local oscillator
++    -- clk_200m_local_n_i : in std_logic;
++
++    ---------------------------------------------------------------------------
++    -- SFP I/O for transceiver
++    ---------------------------------------------------------------------------
++
++    sfp_txp_o         : out   std_logic;
++    sfp_txn_o         : out   std_logic;
++    sfp_rxp_i         : in    std_logic;
++    sfp_rxn_i         : in    std_logic;
++    --sfp_mod_def1_b    : inout std_logic;          -- scl
++    --sfp_mod_def2_b    : inout std_logic;          -- sda
++
++    ---------------------------------------------------------------------------
++    -- UART
++    ---------------------------------------------------------------------------
++
++    uart_rxd_i : in  std_logic;
++    uart_txd_o : out std_logic;
++
++    ---------------------------------------------------------------------------
++    -- No Flash memory SPI interface
++    ---------------------------------------------------------------------------
++
++    ---------------------------------------------------------------------------
++    -- Miscellanous m2sdr pins
++    ---------------------------------------------------------------------------
++    -- Red LED next to the SFP: blinking indicates that packets are being
++    -- transferred.
++    --led_act_o   : out std_logic;
++    -- Green LED next to the SFP: indicates if the link is up.
++    --led_link_o  : out std_logic;
++
++    -- Reset control
++    --reset_i     : in  std_logic;
++    --suicide     : out std_logic;
++    
++    -- Monitoring signals output on External Debug Connector J35
++    pps_mon     : out std_logic
++    --ref_clk_mon : out std_logic;
++    --sys_clk_mon : out std_logic;
++    --dmtd_clk_mon : out std_logic;
++
++    --dio_led_top_o : out std_logic;
++    --dio_led_bot_o : out std_logic
++
++    -- I2C interface for accessing EEPROM.
++    --eeprom_scl_b : inout std_logic;
++    --eeprom_sda_b : inout std_logic;
++  );
++end entity m2sdr_wr_ref_top;
++
++architecture top of m2sdr_wr_ref_top is
++
++  -----------------------------------------------------------------------------
++  -- Signals
++  -----------------------------------------------------------------------------
++
++  -- clock and reset
++  signal clk_200m_local : std_logic;
++  signal reset_n        : std_logic;
++  signal clk_sys_62m5   : std_logic;
++  signal rst_sys_62m5_n : std_logic;
++  signal rst_ref_62m5_n : std_logic;
++  signal clk_ref_62m5   : std_logic;
++  signal clk_dmtd_62m5  : std_logic;
++  signal clk_ref_div2   : std_logic;
++  signal clk_ext_10m    : std_logic;
++
++  -- I2C EEPROM
++  signal eeprom_sda_in  : std_logic;
++  signal eeprom_sda_out : std_logic;
++  signal eeprom_scl_in  : std_logic;
++  signal eeprom_scl_out : std_logic;
++
++  -- SFP
++  signal sfp_sda_in  : std_logic;
++  signal sfp_sda_out : std_logic;
++  signal sfp_scl_in  : std_logic;
++  signal sfp_scl_out : std_logic;
++
++  -- OneWire
++  signal onewire_data : std_logic;
++  signal onewire_oe   : std_logic;
++
++  -- LEDs and GPIO
++  signal wrc_abscal_txts_out : std_logic;
++  signal wrc_abscal_rxts_out : std_logic;
++  signal wrc_pps_out : std_logic;
++  signal wrc_pps_led : std_logic;
++  signal wrc_pps_in  : std_logic;
++  signal svec_led    : std_logic_vector(15 downto 0);
++
++begin  -- architecture top
++
++  -----------------------------------------------------------------------------
++  -- The WR PTP core board package (WB Slave + WB Master)
++  -----------------------------------------------------------------------------
++
++  cmp_xwrc_board_m2sdr : xwrc_board_m2sdr
++    generic map (
++      g_simulation                => g_simulation,
++      g_with_external_clock_input => FALSE,
++      g_dpram_initf               => g_dpram_initf,
++      g_fabric_iface              => PLAIN)
++    port map (
++      clk_200m_local_i    => clk_200m_local,
++      clk_10m_ext_i       => '0',
++      clk_sys_62m5_o      => clk_sys_62m5,
++      clk_ref_62m5_o      => clk_ref_62m5,
++      clk_dmtd_62m5_o     => clk_dmtd_62m5,
++
++      sfp_txp_o           => sfp_txp_o,
++      sfp_txn_o           => sfp_txn_o,
++      sfp_rxp_i           => sfp_rxp_i,
++      sfp_rxn_i           => sfp_rxn_i,
++      sfp_sda_i           => sfp_sda_in,
++      sfp_sda_o           => sfp_sda_out,
++      sfp_scl_i           => sfp_scl_in,
++      sfp_scl_o           => sfp_scl_out,
++
++      eeprom_sda_i        => '0', -- eeprom_sda_in,
++      --eeprom_sda_o        => eeprom_sda_out,
++      eeprom_scl_i        => '0', -- eeprom_scl_in,
++      --eeprom_scl_o        => eeprom_scl_out,
++
++      onewire_i           => '0',
++
++      -- Uart
++      uart_rxd_i          => uart_rxd_i,
++      uart_txd_o          => uart_txd_o,
++      
++      pps_p_o             => wrc_pps_out);
++      --pps_led_o           => wrc_pps_led,
++      --led_link_o          => led_link_o,
++      --led_act_o           => led_act_o);
++  
++  cmp_ibugds_local_osc: IBUFG
++    generic map (
++      IBUF_LOW_PWR => true)
++    port map (
++      O  => clk_200m_local,
++      I  => clk_200m_local_i);
++  --  IB => clk_200m_local_n_i);
++
++  -- Tristates for SFP EEPROM
++  --sfp_mod_def1_b <= '0' when sfp_scl_out = '0' else 'Z';
++  --sfp_mod_def2_b <= '0' when sfp_sda_out = '0' else 'Z';
++  --sfp_scl_in     <= sfp_mod_def1_b;
++  --sfp_sda_in     <= sfp_mod_def2_b;
++
++  -- EEPROM I2C tri-states
++  --eeprom_sda_b <= '0' when (eeprom_sda_out = '0') else 'Z';
++  --eeprom_sda_in <= eeprom_sda_b;
++  --eeprom_scl_b <= '0' when (eeprom_scl_out = '0') else 'Z';
++  --eeprom_scl_in <= eeprom_scl_b;
++
++  -- Div by 2 reference clock to LEMO connector
++  process(clk_ref_62m5)
++  begin
++    if rising_edge(clk_ref_62m5) then
++      clk_ref_div2 <= not clk_ref_div2;
++    end if;
++  end process;
++  
++  pps_mon     <= wrc_pps_out;
++  --ref_clk_mon <= clk_ref_62m5;
++  --sys_clk_mon <= clk_sys_62m5;
++  --dmtd_clk_mon <= clk_dmtd_62m5;
++  
++  -- LEDs
++  --U_Extend_PPS : gc_extend_pulse
++  --generic map (
++  --  g_width => 10000000)
++  --port map (
++  --  clk_i      => clk_ref_62m5,
++  --  rst_n_i    => rst_ref_62m5_n,
++  --  pulse_i    => wrc_pps_led,
++  --  extended_o => dio_led_top_o);
++
++  --dio_led_bot_o <= '0';
++
++end architecture top;
+diff --git a/top/m2sdr_ref_design/m2sdr_wr_ref_top.xdc b/top/m2sdr_ref_design/m2sdr_wr_ref_top.xdc
+new file mode 100644
+index 00000000..981382fb
+--- /dev/null
++++ b/top/m2sdr_ref_design/m2sdr_wr_ref_top.xdc
+@@ -0,0 +1,109 @@
++#   ---------------------------------------------------------------------------`
++#   -- Clocks/resets
++#   ---------------------------------------------------------------------------
++
++#   -- Local oscillators
++set_property PACKAGE_PIN C18 [get_ports clk_200m_local_i]
++set_property IOSTANDARD LVCMOS33 [get_ports clk_200m_local_i]
++#set_property PACKAGE_PIN H19 [get_ports clk_200m_local_n_i]
++#set_property IOSTANDARD DIFF_SSTL15 [get_ports clk_200m_local_n_i]
++set_property SEVERITY WARNING [get_drc_checks REQP-49]
++
++create_clock -period 10.000 -name clk_200m_local_i -waveform {0.000 5.000} [get_ports clk_200m_local_i]
++create_clock -period 8.000 -name clk_dmtd -waveform {0.000 4.000} [get_pins cmp_xwrc_board_m2sdr/cmp_dmtd_tunning_mmcm/CLKOUT1]
++create_clock -period 16.000 -name RXOUTCLK -waveform {0.000 8.000} [get_pins cmp_xwrc_board_m2sdr/cmp_xwrc_platform/gen_phy_artix7.cmp_gtp/U_GTP_INST/GT_INST/gtpe2_i/RXOUTCLK]
++create_clock -period 16.000 -name TXOUTCLK -waveform {0.000 8.000} [get_pins cmp_xwrc_board_m2sdr/cmp_xwrc_platform/gen_phy_artix7.cmp_gtp/U_GTP_INST/GT_INST/gtpe2_i/TXOUTCLK]
++
++set_clock_groups -asynchronous \
++-group {clk_200m_local_i} \
++-group {clk_sys} \
++-group {clk_dmtd} \
++-group {RXOUTCLK} \
++-group {TXOUTCLK}
++
++
++#   ---------------------------------------------------------------------------
++#   -- SFP I/O for transceiver
++#   ---------------------------------------------------------------------------
++
++  #Bank 216
++set_property PACKAGE_PIN D5 [get_ports sfp_txp_o]
++set_property PACKAGE_PIN C5 [get_ports sfp_txn_o]
++set_property PACKAGE_PIN D11 [get_ports sfp_rxp_i]
++set_property PACKAGE_PIN C11 [get_ports sfp_rxn_i]
++
++  #Bank 14 VCCO - 3.3 V  -- scl
++#set_property PACKAGE_PIN A13 [get_ports sfp_mod_def1_b]
++#set_property IOSTANDARD LVCMOS18 [get_ports sfp_mod_def1_b]
++  #Bank 14 VCCO - 3.3 V  -- sda
++#set_property PACKAGE_PIN A14 [get_ports sfp_mod_def2_b]
++#set_property IOSTANDARD LVCMOS18 [get_ports sfp_mod_def2_b]
++
++#   ---------------------------------------------------------------------------
++#   -- UART
++#   ---------------------------------------------------------------------------
++
++  #Bank 34 VCCO - 1.8 V
++set_property PACKAGE_PIN D22 [get_ports uart_rxd_i]
++set_property IOSTANDARD LVCMOS33 [get_ports uart_rxd_i]
++set_property PULLDOWN true [get_ports uart_rxd_i]
++set_property PACKAGE_PIN E22 [get_ports uart_txd_o]
++set_property IOSTANDARD LVCMOS33 [get_ports uart_txd_o]
++
++#   ---------------------------------------------------------------------------
++#   -- Flash memory SPI interface
++#   ---------------------------------------------------------------------------
++
++#    flash_sclk_o : out std_logic;
++#    flash_ncs_o  : out std_logic;
++#    flash_mosi_o : out std_logic;
++#    flash_miso_i : in  std_logic;
++
++#   ---------------------------------------------------------------------------
++#   -- Miscellanous m2sdr pins
++#   ---------------------------------------------------------------------------
++
++#set_property PACKAGE_PIN G3 [get_ports led_act_o]
++#set_property IOSTANDARD LVCMOS33 [get_ports led_act_o]
++#set_property PACKAGE_PIN H3 [get_ports led_link_o]
++#set_property IOSTANDARD LVCMOS33 [get_ports led_link_o]
++
++  #Bank 16 VCCO - 3.3 V  Monitoring signals output on External Debug Connector J35
++set_property PACKAGE_PIN V13 [get_ports pps_mon]
++set_property IOSTANDARD LVCMOS33 [get_ports pps_mon]
++#set_property PACKAGE_PIN J5 [get_ports ref_clk_mon]
++#set_property IOSTANDARD LVCMOS33 [get_ports ref_clk_mon]
++#set_property PACKAGE_PIN J2 [get_ports sys_clk_mon]
++#set_property IOSTANDARD LVCMOS33 [get_ports sys_clk_mon]
++#set_property PACKAGE_PIN K2 [get_ports dmtd_clk_mon]
++#set_property IOSTANDARD LVCMOS33 [get_ports dmtd_clk_mon]
++
++#   ---------------------------------------------------------------------------
++#   -- Digital I/O FMC Pins
++#   -- used in this design to output WR-aligned 1-PPS (in Slave mode) and input
++#   -- 10MHz & 1-PPS from external reference (in GrandMaster mode).
++#   ---------------------------------------------------------------------------
++
++
++#    -- Two LEDs on the mezzanine panel. Only Top one is currently used - to
++#    -- blink 1-PPS.
++  #LA01_P
++#set_property PACKAGE_PIN G4 [get_ports dio_led_top_o]
++#set_property IOSTANDARD LVCMOS33 [get_ports dio_led_top_o]
++  #LA01_N
++#set_property PACKAGE_PIN H4 [get_ports dio_led_bot_o]
++#set_property IOSTANDARD LVCMOS33 [get_ports dio_led_bot_o]
++
++#   -- I2C interface for accessing EEPROM.
++  #Bank 14 VCCO - 3.3 V
++#set_property PACKAGE_PIN V20 [get_ports eeprom_scl_b]
++#set_property IOSTANDARD LVCMOS33 [get_ports eeprom_scl_b]
++#set_property PACKAGE_PIN U20 [get_ports eeprom_sda_b]
++#set_property IOSTANDARD LVCMOS33 [get_ports eeprom_sda_b]
++
++#   ---------------------------------------------------------------------------`
++#   -- FLASH PROM properties
++#   ---------------------------------------------------------------------------
++
++set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
++set_property BITSTREAM.CONFIG.SPI_32BIT_ADDR YES [current_design]
