@@ -30,6 +30,8 @@ make
 The resulting ``wrc.bram`` will be needed later to synthesize the bitstream, assuming its location
 will be ``wr-cores/bin/wrpc/wrc_phy16_direct_dmtd.bram`` (see below).
 
+Go back to this directory: ``cd ..``
+
 ### 1. Get the sources
 ```sh
 git clone --recursive https://gitlab.com/ohwr/project/wr-cores.git
@@ -71,6 +73,8 @@ set_property SEVERITY WARNING [get_drc_checks REQP-49]
 Since ``make clean`` will delete all TCL scripts, the newly generated ``bitstream.tcl`` will miss this option, leading to a failure
 to synthesize the bitstream. Thus, avoid ``make clean``, or at least include the ``bitstream.tcl`` manually in the ``syn/acorn_ref_design``
 to avoid ``Makefile`` from overwriting and deleting the mandatory option.
+
+If trying to relaunch a synthesis after removing the ``bitstream`` file, the ``bitstream.tcl`` must include ``reset_run synth_1`` before ``launch_runs impl_1 -to_step write_bitstream``.
 
 ### 4. Flash the bitstream
 ```sh

@@ -1,5 +1,3 @@
 # RPi5 HAT
 
-<img src="RPI5-CFE-Hat.png">
-
-<img src="RPI5-CFE-Hatb.png">
+<img src="rpi5_m2sdr.png">

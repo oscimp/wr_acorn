@@ -12,19 +12,27 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
 CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository (tested with Xilinx Vivado 2022.2).
 
+These procedures were automated by Baptiste Marechal in the ``makefile`` branch of this repository.
+
 ## PLL gain settings
 
 From the shell connected to the embdded RISC-V processor, the main PLL gain coefficients (proportional and integral) are set using the command
 ```
-pll gain 0 0 -400 -2 12
+pll gain 0 0 -100 -2 12
 ```
 
 and similartly for the helper PLL (any negative number will do instead of -1 as 2nd argument)
 ```
-pll gain -1 0 -400 -2 12
+pll gain -1 0 -100 -2 12
 ```
+Once both PLLs are locked, the Kp and Ki can be increased for better tracking performance.
 
 ## Results
+
+Signals are output on the J4 header:
+```
+USB-C side <- GND DMTD_CLK_MON SYS_CLK_MON REF_CLK_MON 1PPS 3V3 -> SFP side
+```
 
 MDEV measurement as a function of PLL loop gain coefficients, changing Kp while
 keeping Ki fixed (-2) except for two measurements, of the time interval between the 
@@ -67,6 +75,18 @@ Tested as functional: Cisco GLC-BX-U BlueOptics BO15C3149620D and <a href="https
 
 Tested as **non** functional: AXCEN AXGE-1254-0531
 
+# LiteX ``litex_wr_nic`` on Acorn
+
+Make sure to source the Vivado ``settings64.sh`` before executing:
+
+```
+git clone --recursive https://github.com/enjoy-digital/litex_wr_nic
+cd litex_wr_nic
+./acorn_wr_nic.py --build
+openFPGALoader -c ft4232 -b litex-acorn-baseboard-mini -f ./build/sqrl_acorn/gateware/sqrl_acorn.bin
+minicom -D /dev/ttyUSB2
+```
+
 # Application to the M2SDR
 
 <img src="pictures/IMG_20250523_083705_167.jpg">
@@ -101,7 +121,14 @@ minicom -D /dev/ttyLXU0
 The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
 as the last instruction of the ``__init()__`` function just before the ``main():``, after commenting ``platform.request("pps_out").eq(pps),`` to avoid a conflict on the SYNCDBG_CLK pin.
 
-When loading a new gateware, the PCI board must be enumerated again using ``echo 1 > /sys/bus/pci/rescan``
+When loading a new gateware, the computer must usually be rebooted. Sometimes disabling the PCI board, flashing the FPGA, and then enumerated again using
+```
+bar=`lspci | grep Xil | cut -d\  -f1`
+echo 1 > /sys/bus/pci/devices/0000:$bar/remove
+openFPGALoader -c ft4232 -b litex-acorn-baseboard-mini -f gateware.bit
+echo 1 > /sys/bus/pci/rescan
+```
+and then ``rmmod`` and ``insmod`` the ``m2sdr.ko`` module might succeed (or fail).
 
 **Note**: in case ``from litex_m2sdr import Platform`` fails when synthesizing the m2sdr branch of https://github.com/enjoy-digital/litex_wr_nic, make sure to
 ```
@@ -133,7 +160,7 @@ In ``litex_m2sdr``, assuming ``litex_wr_nic`` is at the same filesystem tree lev
 ```
 on the build computer running Vivado (in our case 2022.2), and then on the target computer the PCIe with the M2SDR board is connected to:
 ```
-openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gatewarelitex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
 sudo echo 1 > /sys/bus/pci/rescan
 ```
 Then from a kernel module perspective, ``scp -r litex_m2sdr/software/`` from the build computer to the target computer and in ``software/kernel`` run ``make`` to
@@ -151,7 +178,8 @@ Built for RISCV, 128 kB RAM, stack is 2048 bytes
 ```
 
 **DO NOT** attempt to use the kernel modules found in ``litex_wr_nic``: despite similar names, they will kernel panic. Also make sure to
-recompile the kernel according to the new gateware configuration since headers are automagically generated during gateware synthesis, so
+**recompile** the kernel according to the new gateware configuration since header files ``csr.h``, ``mem.h`` and ``soc.h`` are automagically 
+generated during gateware synthesis, so
 that kernel modules must be recompiled accordingly on the target computer.
 
 Result: phase-lock of the M2SDR with SDR capability on the WR switch master signal
@@ -210,3 +238,49 @@ self.comb += platform.request('debug').eq(ClockSignal('wr'))
 ```
 ## Changing the beatnote frequency
 To change the beatnote from $62.5*(1-2^{14}/(2^{14}+1))=3814$ Hz, update the content of ``litex_wr_nic/firmware/wrpc-sw/include/spll_defs.h`` where ``HPLL_N`` is defined with the default value of 14.
+
+## Firmware update without gateware generation
+
+``litex_wr_nic`` provides, in the ``test`` directory, the ``test_cpu.py`` script which allows uploading the firmware without generating the full gateware.
+
+1. Install ``litex_wr_nic`` by running ``pip install --user -e .`` in the git cloned <a href="https://github.com/enjoy-digital/litex_wr_nic">litex_wr_nic</a> directory
+2. In the git cloned <a href="https://github.com/enjoy-digital/litex_m2sdr">litex_m2sdr</a> directory, synthesize the gateware (requires Vivado and litex standard install):
+```
+./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --build
+cp csr.csv ../litex_wr_nic/test/
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bin
+# probably need to shutdown and restart the computer as the PCIe bus might be corrupt when rescanning the PCI bus after gateware upload
+cd litex_m2sdr/software/kernel
+make
+sudo insmod m2sdr.ko
+```
+resulting in ``dmesg`` with
+```
+m2sdr 0000:06:00.0: Version LiteX-M2SDR SoC / baseboard variant / built on 2025-09-04 12:41:57
+```
+and at this point executing ``minicom -D /dev/ttyLXU0`` allows for
+```
+wrc# ver                                                                                              
+WR Core build: wrpc-v5.0-ohwr-9-g5ac04dd5-dirt (unsupported developer build)
+```
+
+When using the M2SDR on a different computer than the one used for the synthesis, we need to ``scp`` the ``litex_m2_sdr/software/kernel`` and ``csr.csv`` to the remote computer, as well as ``litex_wr_nic/firmware/wrpc-sw/wrc.bin``.
+
+3. <del>execute ``litex_server --jtag --jtag-config=openocd_xc7_ft4232.cfg`` in one terminal or one screen session</del>
+At the moment ``litex_server --jtag`` does not seem functional for transfering the gateware through JTAG so we
+```
+sudo insmod m2sdr.ko  # if not already loaded, e.g. on a remote computer
+bar=`lspci | grep Xil | cut -d\  -f1`
+sudo chmod -R 777 /sys/bus/pci/devices/0000\:$bar
+litex_server --pcie --pcie-bar $bar
+```
+Notice that ``m2sdr.ko`` must be loaded to allow executing ``litex_server``. Notice that an ``Invalid argument: mmap`` might be solved by <a href="https://stackoverflow.com/questions/18420473/invalid-argument-for-read-write-mmap">adding</a> ``iomem=relaxed`` to the kernel boot options.
+
+5. Now that we have the ``csr.csv`` memory configuration file in the ``litex_wr_nic/test`` directory (see step 2), go there and
+```
+cd ../litex_wr_nic/test
+./test_cpu.py --build-firmware
+./test_cpu.py --load-firmware ../litex_wr_nic/firmware/wrpc-sw/wrc.bin
+minicom -D /dev/ttyLXU0
+```
+Make sure to **remove** lines 72-73 which execute a ``git checkout`` in ``firmware/build.py`` that would delete all updates made on the ``spll_main.c`` firmware file
