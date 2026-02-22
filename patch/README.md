@@ -15,12 +15,14 @@ Note the M2SDR UART is hacked through (TP1/TP2) on m2sdr -> (J11.1/J11.2) on bas
 ```bash
 make acorn
 openFPGALoader -b litex-acorn-baseboard-mini --cable ft4232 --cable-index 0 --freq 30000000 acorn_wr_ref_top.bit
+screen /dev/ttyUSB2 115200,-cstopb
 ```
 #### M2SDR
 
 ```bash
 make m2sdr
 openFPGALoader -b litex-acorn-baseboard-mini --cable ft4232 --cable-index 1 --freq 30000000 m2sdr_wr_ref_top.bit
+screen /dev/ttyUSB6 115200,-cstopb
 ```
 
 ### 0. Compile the softcore firmware
