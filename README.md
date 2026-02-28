@@ -7,12 +7,12 @@ on the <a href="https://enjoy-digital-shop.myshopify.com/products/litex-acorn-ba
 
 <img src="pictures/IMG_20250425_163316_728.jpg">
 
+Be aware that the picture was taken in the early development stages: the current ``litex_wr_nic`` is using the other SFP on the PCIe board.
+
 ## Synthesizing for the Acorn CLE215+
 
 The patch applied to the White Rabbit PTP Core repository allowing to synthetsize the project for the Acorn
 CLE215+ as well as the instructions are found in the <a href="patch/">patch</a> repository (tested with Xilinx Vivado 2022.2).
-
-These procedures were automated by Baptiste Marechal in the ``makefile`` branch of this repository.
 
 ## PLL gain settings
 
