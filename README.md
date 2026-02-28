@@ -94,6 +94,7 @@ minicom -D /dev/ttyUSB2
 ```
 git clone https://github.com/enjoy-digital/litex_m2sdr
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --with-gpio --build --eth-sfp=0
+./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --with-gpio --build --eth-sfp=0 --wr-nic-dir=$HOME/litex_wr_nic/litex_wr_nic/
 openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bit
 ```
 where we manually ``openFPGALoader`` rather than ``--flash`` to synthesize and flash on different computers.
@@ -111,9 +112,7 @@ where ``csr.csv`` was found in the ``test/`` of ``litex_wr_nic`` after synthesis
 resulting terminal can hardly display the ``gui`` output of the White Rabbit, so the preferred method is
 to compile the ``litex_wr_nic/software/kernel`` modules and
 ```
-sudo rmmod m2sdr        # in case it was loaded
-sudo insmod liteuart.ko
-sudo insmod litepcie.ko
+sudo insmod m2sdr.ko
 minicom -D /dev/ttyLXU0
 ```
 The WR clock output is measured using a frequency counter by adding in ``litex_wr_nic/m2sdr_wr_nic.py`` the signal ``self.comb += platform.request("sync_clk_in").eq(ClockSignal("wr"))``
