@@ -92,11 +92,9 @@ minicom -D /dev/ttyUSB2
 <img src="pictures/IMG_20250523_083705_167.jpg">
 
 ```
-git clone https://github.com/enjoy-digital/litex_wr_nic
-cd litex_wr_nic
-git checkout m2sdr
-./m2sdr_wr_nic.py --build
-openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream litex_m2sdr_platform.bin
+git clone https://github.com/enjoy-digital/litex_m2sdr
+./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --with-gpio --build --eth-sfp=0
+openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bit
 ```
 where we manually ``openFPGALoader`` rather than ``--flash`` to synthesize and flash on different computers.
 
