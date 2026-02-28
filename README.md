@@ -93,7 +93,6 @@ minicom -D /dev/ttyUSB2
 
 ```
 git clone https://github.com/enjoy-digital/litex_m2sdr
-./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --with-gpio --build --eth-sfp=0
 ./litex_m2sdr.py --variant=baseboard --with-pcie --with-white-rabbit --with-gpio --build --eth-sfp=0 --wr-nic-dir=$HOME/litex_wr_nic/litex_wr_nic/
 openFPGALoader --fpga-part xc7a200tsbg484 --cable ft4232 --freq 20000000 --write-flash --bitstream ./build/litex_m2sdr_baseboard_pcie_x1_white_rabbit/gateware/litex_m2sdr_baseboard_pcie_x1_white_rabbit.bit
 ```
