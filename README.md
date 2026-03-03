@@ -178,6 +178,11 @@ Built for RISCV, 128 kB RAM, stack is 2048 bytes
 generated during gateware synthesis, so
 that kernel modules must be recompiled accordingly on the target computer.
 
+**Major update**: notice that many of the screenshots display ``wrpc-v5.0`` as this was the
+version initially shipped with ``litex_wr_nic``. This version was replaced with the
+newer (and latest at the time) v8 end of Feb. 2026. From now on, the release version (``ver``)
+displays ``WR Core build: v8.0-126-gbaf77496-dirty (unsupported developer build)``.
+
 Result: phase-lock of the M2SDR with SDR capability on the WR switch master signal
 ```
 SAWR WRPC Monitor wrpc-v5.0-ohwr-9-g5ac04dd5-dirt | Esc/q = exit; r = redraw
