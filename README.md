@@ -280,3 +280,40 @@ cd ../litex_wr_nic/test
 minicom -D /dev/ttyLXU0
 ```
 Make sure to **remove** lines 72-73 which execute a ``git checkout`` in ``firmware/build.py`` that would delete all updates made on the ``spll_main.c`` firmware file
+
+## Communication with the SFP
+
+Baptiste Marechal notices that I2C communication is through JP1 and JP4 (or JP5/JP6 for the
+second SFP) which are not closed on the PCI baseboard
+
+<img src="IMG_20260303_073005_989small.jpg">
+
+Thanks to this connection
+```
+wrc# sfp info                                                                   
+Nominal Bit Rate: 1300 Mbits/s
+Vendor Name: FS              
+Vendor PN: SFP-GE-BX                                                            
+Vendor serial: G2440324549                                                      
+TX Wavelength: 1310                                                             
+Temperature: 34.41 C                                                            
+Voltage: 3.3029 V                                                               
+Bias Current: 9.00 mA                                                           
+TX power: 0.2481 mW                                                             
+RX power: 0.2520 mW                                                             
+```
+instead of 
+```
+wrc# sfp info                                                                   
+Nominal Bit Rate: 25500 Mbits/s
+Vendor Name: ����������������
+Vendor PN: ����������������
+Vendor serial: ����������������
+TX Wavelength: 65535
+Temperature: 255.99 C
+Voltage: 6.5535 V
+Bias Current: 131.07 mA
+TX power: 6.5535 mW
+RX power: 6.5535 mW
+```
+when the jumpers are not closed.
