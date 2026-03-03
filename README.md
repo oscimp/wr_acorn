@@ -291,7 +291,7 @@ Make sure to **remove** lines 72-73 which execute a ``git checkout`` in ``firmwa
 Baptiste Marechal notices that I2C communication is through JP1 and JP4 (or JP5/JP6 for the
 second SFP) which are not closed on the PCI baseboard
 
-<img src="IMG_20260303_073005_989small.jpg">
+<img src="pictures/IMG_20260303_073005_989small.jpg">
 
 Thanks to this connection
 ```
