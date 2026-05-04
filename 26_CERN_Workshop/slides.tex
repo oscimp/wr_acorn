@@ -46,22 +46,43 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 
 \begin{frame}[fragile]\frametitle{Syntonising RF SOCs on White-Rabbit}
 
+\begin{itemize}
+	\item White-Rabbit provides timing for systems of interest, generally by feeding them clocks derivied from the main WR clock.
+	\item Assumes that no frequency approximation is done in the system of interest (wrong in the AD9361 case),
+	\item Can't grant phase synchronisation because of PLL indeterminism.
+\end{itemize}
+
 \includegraphics[width=\linewidth]{m2sdr_syntonized_fig.pdf}
+	\begin{center}
+		Default M2SDR clock path (open loop)
+	\end{center}
 
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{PLL Indeterminism}
 
 \includegraphics[width=\linewidth]{pll_indeterminism_fig.pdf}
-PLL multiplying by 1.5, division by 2 yields 2 possible phase positions.
-
+\begin{itemize}
+	\item PLL multiplying by 1.5, division by 2 yields 2 possible phase positions.
+	\item Sampling these 2 possible signals at the same time would give 2 patterns: \texttt{10} or \texttt{01}
+	\item A PLL with divisor N gives N patterns each N bits long. With a LUT we know what position we are in and we can then correct it: https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep
+	\item By simulating the sampling of the patterns, we can automaticaly generate the LUT for given frequencies
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Auxiliary Locksweep}
 
-\includegraphics[width=\linewidth]{m2sdr_locksweep_fig.pdf}
+\begin{itemize}
+	\item Auxiliary softplls cost an extra VCO, and offer fine phase control over a 62.5 MHz feedback clock.
+	\item This solves the frequency approximation issue,
+	\item Using the phase sampler and fine phase control, we can correct the PLL indeterminism.
+\end{itemize}
 
+\includegraphics[width=\linewidth]{m2sdr_locksweep_fig.pdf}
+	\begin{center}
+		Locksweep M2SDR clock path (closed loop)
+	\end{center}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Auxiliary Locksweep}
