@@ -60,15 +60,22 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{PLL Indeterminism}
-
 \includegraphics[width=\linewidth]{pll_indeterminism_fig.pdf}
+
+\begin{minipage}{.5\linewidth}
+{\footnotesize
 \begin{itemize}
 	\item PLL multiplying by 1.5, division by 2 yields 2 possible phase positions.
 	\item Sampling these 2 possible signals at the same time would give 2 patterns: \texttt{10} or \texttt{01}
 	\item A PLL with divisor N gives N patterns each N bits long. With a LUT we know what position we are in and we can then correct it: https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep
 	\item By simulating the sampling of the patterns, we can automaticaly generate the LUT for given frequencies
-\end{itemize}
+\end{itemize}}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\includegraphics[width=.\linewidth]{plt_pll_lock_possibilities.pdf}
 
+A PLL dividing by 5 yeilds 5 possibilities
+\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Auxiliary Locksweep}
@@ -87,16 +94,26 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 
 \begin{frame}[fragile]\frametitle{Auxiliary Locksweep}
 
-\includegraphics[width=\linewidth]{locksweep_phase_setpoint.png}
+\includegraphics[width=.5\linewidth]{locksweep_phase_setpoint.png}
+
 It  works!
 
 \end{frame}
 
+\begin{frame}[fragile]\frametitle{DDMTD folds all the noise}
 
+DDMTD works by sub sampling, which fold the noise,
+
+\includegraphics[width=.5\linewidth]{ddmtd_noise_by_beat_freq.pdf}
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{DDMTD Noise Function}
+\includegraphics[width=\linewidth]{variance_by_spur_freq.png}
+\end{frame}
 
 \begin{frame}[fragile]\frametitle{MMCM Phase Shifts Noise}
-\includegraphics[width=\linewidth]{dmtd_spurs_by_mmcm_freq.png}
-\includegraphics[width=\linewidth]{variance_by_spur_freq.png}
+\includegraphics[width=.5\linewidth]{dmtd_spurs_by_mmcm_freq.png}
 
 \end{frame}
 
@@ -106,7 +123,7 @@ It  works!
 
 {TXPI PPM for main tunning}
 
-\includegraphics[width=\linewidth]{wr_alternative_clocking_comparison_correct_gain.png}
+\includegraphics[width=\linewidth]{wr_alternative_clocking_comparison_correct_gain.png} % TODO replot
 
 \end{frame}
 
