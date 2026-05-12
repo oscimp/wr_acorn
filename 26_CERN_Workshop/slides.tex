@@ -44,6 +44,17 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 \begin{document}
 \maketitle
 
+\begin{frame}[fragile]\frametitle{Outline}
+
+\begin{enumerate}
+\item White Rabbit for controlling Software Defined Radio emitters and receivers
+\item Syntonisation (openloop)
+\item PLL inderminism $\rightarrow$ closed loop synchronization
+\item Performance limitation assessment: phase detector noise
+\item Aliasing in {\bf Digital} Dual Mixer Time Difference (DDMTD) and impact of local oscillator phase noise
+\end{enumerate}
+\end{frame}
+
 \begin{frame}[fragile]\frametitle{Syntonising RF SOCs on White-Rabbit}
 
 \begin{itemize}
@@ -81,7 +92,7 @@ A PLL dividing by 5 yeilds 5 possibilities
 \begin{frame}[fragile]\frametitle{Auxiliary Locksweep}
 
 \begin{itemize}
-	\item Auxiliary softplls cost an extra VCO, and offer fine phase control over a 62.5 MHz feedback clock.
+	\item Auxiliary soft PLLs cost an extra VCO, and offer fine phase control over a 62.5 MHz feedback clock.
 	\item This solves the frequency approximation issue,
 	\item Using the phase sampler and fine phase control, we can correct the PLL indeterminism.
 \end{itemize}
@@ -94,15 +105,26 @@ A PLL dividing by 5 yeilds 5 possibilities
 
 \begin{frame}[fragile]\frametitle{Auxiliary Locksweep}
 
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.49\linewidth}
 \includegraphics[width=.5\linewidth]{locksweep_phase_setpoint.png}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\begin{itemize}
+\item Phase station repeated measurements with White Rabbit reset between each measurement
+\item The phase aligns on the same value after each reset
+\end{itemize}
+\end{minipage}
+\end{minipage}
 
 It  works!
 
 \end{frame}
 
-\begin{frame}[fragile]\frametitle{DDMTD folds all the noise}
+\begin{frame}[fragile]\frametitle{DDMTD aliasing}
 
-DDMTD works by sub sampling, which fold the noise,
+DDMTD works by sub sampling, which aliases phase noise and spurs of the oscillators 
+during mixing by the broadband digital gates.
 
 \includegraphics[width=.5\linewidth]{ddmtd_noise_by_beat_freq.pdf}
 
@@ -127,6 +149,22 @@ DDMTD works by sub sampling, which fold the noise,
 
 \end{frame}
 
+\begin{frame}[fragile]\frametitle{Conclusion}
 
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.49\linewidth}
+\begin{itemize}
+\item Functional implementation of White Rabbit on the Artix7 of the M2SDR controlling the
+AD9361
+\item Validation of the fine delay tuning by monitoring broadband cross-correlation peak
+position with an accuracy $\ll$ than sampling period
+\item No hardware modification (1-PPS to Sync\_In of AD9361) thanks to the locksweep using
+Aux. PLL to control the phase of the clock to align the sampling clock to the WR clock.
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\end{minipage}
+\end{minipage}
 
+\end{frame}
 \end{document}
