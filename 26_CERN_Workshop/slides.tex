@@ -107,7 +107,10 @@ A PLL dividing by 5 yeilds 5 possibilities
 
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.49\linewidth}
-\includegraphics[width=.5\linewidth]{locksweep_phase_setpoint.png}
+\includegraphics[width=\linewidth]{locksweep_phase_setpoint.png}
+
+It  works! {\bf EXPLIQUER LA MANIP ET CE QU'ON DOIT Y VOIR}
+
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \begin{itemize}
@@ -116,8 +119,26 @@ A PLL dividing by 5 yeilds 5 possibilities
 \end{itemize}
 \end{minipage}
 \end{minipage}
+\end{frame}
 
-It  works!
+\begin{frame}[fragile]\frametitle{SDR synchronization demonstration}
+
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.49\linewidth}
+\begin{itemize}
+\item Feed the AD9361 input with a BPSK modulated carrier carrying a pseudo-random sequence (2.5 Mchips/s)
+\item Cross-correlation of the IQ stream to identify delay with a resolution improvement
+over the sampling rate equal to the SNR
+\item Repeat after restarting WR to assess proper phase alignement of the recorded IQ stream
+(ADC clock synchronization)
+\item However, the receiver local oscillators remain free running: random RF phase between
+SDR receivers despite fine phase alignement of the ADC samples (problem for electronic beam/null
+stearing).
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\end{minipage}
+\end{minipage}
 
 \end{frame}
 
