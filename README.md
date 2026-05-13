@@ -322,3 +322,20 @@ TX power: 6.5535 mW
 RX power: 6.5535 mW
 ```
 when the jumpers are not closed.
+
+## Reading the FPGA die temperature
+
+LiteX implements the <a href="https://github.com/enjoy-digital/litex/issues/1257">XADC</a> FPGA die temperature measurement, exposed in the CSR at register location 8192 or 0x2000. Hence
+```
+m2sdr_util reg-read 0x2000 | cut -dx -f3
+```
+reads the 12 bit XADC register whose value is converted to degC according to <a href="https://docs.amd.com/r/en-US/ug480_7Series_XADC/Analog-Inputs">this AMD manual</a>. The temperature reading is automated with
+```
+#!/usr/bin/bash
+while true; do
+   d=`date +%s`
+   t=$(echo $((16#$(m2sdr_util reg-read 0x2000 | cut -dx -f3)))*503.975/4096-273.15 | bc)
+   echo $d $t
+   sleep 10
+done
+```
