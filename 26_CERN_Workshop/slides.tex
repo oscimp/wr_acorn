@@ -195,64 +195,15 @@ stearing).
 \begin{itemize}
 	\item DDMTD sub-sample the clock close to 2x Nyquist frequency
 	\item this alias the high frequency of the clock to a low frequency, which's phase can be measured by a timer.
-	\item The broadband digital gates also alias phase noise and spurs into the DDMTD bandwith (3.8~kHz)
+	\item The broadband digital gates also alias phase noise and spurs into the DDMTD bandwith (1.9~kHz)\footnote{Rizzi, Mattia \& Lipinski, Maciej \& Wlostowski, Tomasz \& Serrano, Javier \& Daniluk, Grzegorz \& Ferrari, P. \& Rinaldi, Stefano. (2016). White rabbit clock characteristics. 1-6. 10.1109/ISPCS.2016.7579514.}
 \end{itemize}}
 \end{minipage}
 \begin{minipage}{.49\linewidth}
-\includegraphics[width=.9\linewidth]{freq_by_spur_1k8k.png}
+\includegraphics[width=.9\linewidth]{freq_by_spur_1k8k.pdf}
 
 	{\footnotesize A spur at any frequency offset is folded into a low frequency spur, much harder to filter out.\par}
 
-\includegraphics[width=.9\linewidth]{freq_by_spur_100k108k.png}
-\end{minipage}
-
-\end{frame}
-
-\begin{frame}[fragile]\frametitle{What is the critical element of white rabbit ?}
-\begin{minipage}{.49\linewidth}
-{%\footnotesize
-\begin{itemize}
-	\item White-Rabbit can synchronize off-the-shelf SDRs,
-	\item at the cost of poor phase noise, even at low frequencies (uncleanable).
-	\item Where does the phase noise come from ?
-	\item Where does it irremediably affect White-Rabbit ?
-\end{itemize}}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-
-	TODO WR SCHEMATICS
-
-	+ phase noise of m2sdr-wr and mmcm phase shifts
-
-{\footnotesize
-\begin{itemize}
-	\item High frequency phase noise can be cleaned by external oscilators (SI5351's job on the m2sdr)
-	\item Noisy clocks are processed by the DDMTD into WR's control loop.
-\end{itemize}}
-\end{minipage}
-\end{frame}
-
-
-\begin{frame}[fragile]\frametitle{DDMTD aliasing}
-
-\begin{minipage}{.49\linewidth}
-\begin{centering}
-\includegraphics[width=.7\linewidth]{ddmtd_schem.pdf}
-\end{centering}
-
-{%\footnotesize
-\begin{itemize}
-	\item DDMTD sub-sample the clock close to 2x Nyquist frequency
-	\item this alias the high frequency of the clock to a low frequency, which's phase can be measured by a timer.
-	\item The broadband digital gates also alias phase noise and spurs into the DDMTD's bandwith (3.8~kHz)
-\end{itemize}}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=.9\linewidth]{freq_by_spur_1k8k.png}
-
-	{\footnotesize A spur at any frequency offset is folded into a low frequency spur, much harder to filter out.}
-
-\includegraphics[width=.9\linewidth]{freq_by_spur_100k108k.png}
+\includegraphics[width=.9\linewidth]{freq_by_spur_100k108k.pdf}
 \end{minipage}
 
 \end{frame}
@@ -349,15 +300,4 @@ Map of aliasing weight as a function of spur frequency and amplitude
 \end{minipage}
 \end{frame}
 
-
-% bonus slides
-
-\begin{frame}[fragile]\frametitle{DDMTD Noise Function}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=.5\linewidth]{variance_by_spur_freq.png}
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=.5\linewidth]{dmtd_noise_nonlinear_freq_depth.pdf}
-\end{minipage}
-\end{frame}
 \end{document}
