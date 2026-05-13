@@ -73,19 +73,21 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 \begin{frame}[fragile]\frametitle{PLL Indeterminism}
 \includegraphics[width=\linewidth]{pll_indeterminism_fig.pdf}
 
-\begin{minipage}{.5\linewidth}
+\begin{minipage}{.54\linewidth}
 {\footnotesize
 \begin{itemize}
 	\item PLL multiplying by 1.5, division by 2 yields 2 possible phase positions.
 	\item Sampling these 2 possible signals at the same time would give 2 patterns: \texttt{10} or \texttt{01}
-	\item A PLL with divisor N gives N patterns each N bits long. With a LUT we know what position we are in and we can then correct it: https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep
+	\item A PLL with divisor N gives N patterns each N bits long. 
+        \item With a LUT we know what position we are in and we can then correct it\footnote{\url{https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep}}
 	\item By simulating the sampling of the patterns, we can automaticaly generate the LUT for given frequencies
 \end{itemize}}
 \end{minipage}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=.\linewidth]{plt_pll_lock_possibilities.pdf}
+\begin{minipage}{.45\linewidth}
+\includegraphics[width=\linewidth]{plt_pll_lock_possibilities.pdf}
 
-A PLL dividing by 5 yeilds 5 possibilities
+\vspace{-.3cm}
+{\footnotesize \hspace*{.9cm}A PLL dividing by 5 yields 5 possibilities}
 \end{minipage}
 \end{frame}
 
@@ -109,12 +111,13 @@ A PLL dividing by 5 yeilds 5 possibilities
 \begin{minipage}{.49\linewidth}
 \includegraphics[width=\linewidth]{locksweep_phase_setpoint.png}
 
-It  works! {\bf EXPLIQUER LA MANIP ET CE QU'ON DOIT Y VOIR}
+It  works! {\bf METTRE A JOUR AVEC NOUVEAU GRAPH}
 
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \begin{itemize}
-\item Phase station repeated measurements with White Rabbit reset between each measurement
+\item Microchip 53100A Phase Noise Analyzer repeated measurements with White Rabbit reset between each measurement
+\item Reference = WRS 10~MHz output~; measurement = M2SDR WR disciplined (locksweep) 10~MHz output
 \item The phase aligns on the same value after each reset
 \end{itemize}
 \end{minipage}
