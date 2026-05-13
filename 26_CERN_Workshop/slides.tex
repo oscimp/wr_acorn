@@ -142,16 +142,16 @@ stearing).
 \vspace{0.2cm}
 \includegraphics[width=\linewidth]{xcorr_principle.pdf}
 \end{minipage}
-\begin{minipage}{.49\linewidth}
-\vspace{-.51cm}
-\hspace*{1cm}\includegraphics[width=.8\linewidth]{xcorrelation_zoom_dma_only.pdf}
+\begin{minipage}{.54\linewidth}
+\vspace{-.71cm}
+\hspace*{1cm}\includegraphics[width=.75\linewidth]{xcorrelation_zoom_dma_only.pdf}
 
 {\footnotesize No locksweep: acquisition begins at PPS $\rightarrow$ correlation peaks are in the same sampling period
-(200~ns @ 5~MS/s).\par}
+(100~ns @ 10~MS/s).\par}
 
-\hspace*{1cm}\includegraphics[width=.8\linewidth]{xcorrelation_zoom_adc.pdf}
+\hspace*{1cm}\includegraphics[width=.75\linewidth]{xcorrelation_zoom_adc.pdf}
 
-{\footnotesize With locksweep: ADC clock is synchronised on White Rabbit $\rightarrow$ correlation peaks are synchronized.\par}
+{\footnotesize With locksweep: ADC clock is synchronised on White Rabbit $\rightarrow$ correlation peaks are synchronized ($\sigma=1$~ns, limited by AD9361).\par}
 \end{minipage}
 \end{minipage}
 
@@ -263,6 +263,20 @@ Aux. PLL to control the phase of the clock to align the sampling clock to the WR
 \end{minipage}
 \end{minipage}
 
+\vspace{0.2cm}
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.87\linewidth}
+Software repositories
+\begin{itemize}
+\item \url{https://github.com/oscimp/wr_acorn}
+\item M2SDR support at
+\url{https://github.com/enjoy-digital/litex_m2sdr}
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.12\linewidth}
+\includegraphics[width=\linewidth]{FSFE_Public_Money,_Public_Code_logo_sticker.pdf}
+\end{minipage}
+\end{minipage}
 \end{frame}
 
 
