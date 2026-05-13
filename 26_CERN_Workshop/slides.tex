@@ -126,8 +126,9 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 
 \begin{minipage}[t]{\linewidth}
 \begin{minipage}{.49\linewidth}
+{\footnotesize
 \begin{itemize}
-\item Feed the AD9361 input with a BPSK modulated carrier carrying a pseudo-random sequence (2.5 Mchips/s)
+\item Feed the AD9361 input with a BPSK modulated carrier carrying a pseudo-random sequence (2.5 Mchips/s)\footnote{\url{https://github.com/oscimp/amaranth_twstft/}}
 \item Cross-correlation of the IQ stream to identify delay with a resolution improvement
 over the sampling rate equal to the SNR
 \item Repeat after restarting WR to assess proper phase alignement of the recorded IQ stream
@@ -136,6 +137,10 @@ over the sampling rate equal to the SNR
 SDR receivers despite fine phase alignement of the ADC samples (problem for electronic beam/null
 stearing).
 \end{itemize}
+}
+
+\vspace{0.2cm}
+\includegraphics[width=\linewidth]{xcorr_principle.pdf}
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 \vspace{-.51cm}
