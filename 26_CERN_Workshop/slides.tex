@@ -161,19 +161,19 @@ stearing).
 
 \begin{frame}[fragile]\frametitle{What is the critical element of White Rabbit?}
 \begin{minipage}{.49\linewidth}
-{%\footnotesize
+{\footnotesize
 \begin{itemize}
 	\item White Rabbit can synchronize off-the-shelf SDRs,
 	\item at the cost of poor phase noise, even at low frequencies (uncleanable).
 	\item Where does the phase noise come from?
 	\item Where does it irremediably affect White Rabbit?
 \end{itemize}}
+
+\includegraphics[width=\linewidth]{mmcm_spurs.pdf}
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 
 \includegraphics[width=.7\linewidth]{fig_wr_global_view.pdf}
-
-	TODO phase noise of m2sdr-wr and mmcm phase shifts
 
 {\footnotesize
 \begin{itemize}
@@ -251,9 +251,11 @@ Spectrum of the DDMTD output in the M2SDR depending on the MMCM generated freque
 
 \begin{frame}[fragile]\frametitle{Low-cost WR without MMCM tunning}
 
-{Chained PLLs for helper}
-
-{TXPI PPM for main tunning}
+Alternatives to phase-shifted MMCMs in VCO-less White Rabbit:
+\begin{itemize}
+	\item Chained PLLs for helper
+	\item TXPI PPM (picxo) for main tunning
+\end{itemize}
 
 ABSOLUTELY REMEASURE AND REPLOT @ 10 MHz
 \includegraphics[width=\linewidth]{wr_alternative_clocking_comparison_correct_gain.png} % TODO replot
@@ -274,6 +276,7 @@ Aux. PLL to control the phase of the clock to align the sampling clock to the WR
 \end{itemize}
 \end{minipage}
 \begin{minipage}{.49\linewidth}
+\includegraphics[width=\linewidth]{plt_temperature_drift.pdf}
 \end{minipage}
 \end{minipage}
 
