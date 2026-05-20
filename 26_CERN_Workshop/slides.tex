@@ -47,6 +47,10 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 
 \begin{frame}[fragile]\frametitle{Outline}
 
+\vspace{-.34cm}
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.59\linewidth}
+\vspace{.41cm}
 \begin{enumerate}
 \item White Rabbit for controlling Software Defined Radio emitters and receivers
 \item Syntonisation (openloop)
@@ -56,14 +60,24 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 Freq. Control Symposium (IFCS, 2026)}
  in {\bf Digital} Dual Mixer Time Difference (DDMTD) and impact of local oscillator phase noise
 \end{enumerate}
+\vspace{1cm}
+\end{minipage}
+\begin{minipage}{.42\linewidth}
+\includegraphics[width=\linewidth]{IMG_20260520_175636_229ann.jpg}
+
+{\footnotesize Enjoy Digital LiteX M2 SDR at\\
+\url{https://enjoy-digital-shop.myshopify.com/products/litex-m2-sdr-si5351b}
+and \\\url{https://github.com/enjoy-digital/litex_m2sdr} (firmware+gateware+WR support)\par}
+\end{minipage}
+\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Syntonising RF SOCs on White Rabbit}
 
 \begin{itemize}
 	\item White Rabbit provides timing for systems of interest, generally by feeding them clocks derivied from the main WR clock.
-	\item Assumes that no frequency approximation is done in the system of interest (wrong in the AD9361 case),
-	\item Can't grant phase synchronisation because of PLL indeterminism.
+	\item Assumes that no frequency approximation is done in the system of interest (wrong in the AD9361 RFSoC case),
+	\item Cannot grant phase synchronisation because of PLL indeterminism.
 \end{itemize}
 
 \includegraphics[width=\linewidth]{m2sdr_syntonized_fig.pdf}
@@ -76,7 +90,8 @@ Freq. Control Symposium (IFCS, 2026)}
 \begin{frame}[fragile]\frametitle{PLL indeterminism}
 \includegraphics[width=\linewidth]{pll_indeterminism_fig.pdf}
 
-\begin{minipage}{.54\linewidth}
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.62\linewidth}
 {\footnotesize
 \begin{itemize}
 	\item PLL multiplying by 1.5, division by 2 yields 2 possible phase positions.
@@ -84,15 +99,16 @@ Freq. Control Symposium (IFCS, 2026)}
 	\item A PLL with divisor N gives N patterns each N bits long. 
         \item With a LUT we know what position we are in and we can then correct it\footnote{\url{https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep}}\footnote{
 K. Asteriou, P. Jansweijer, {\em LockSweep (on BabyWR) status and progress}, 14th White Rabbit
-Workshop (2025) at \url{https://indico.cern.ch/event/1524513/contributions/6556312/}}
-	\item By simulating the sampling of the patterns, we can automaticaly generate the LUT for given frequencies
+Workshop (2025) at \url{https://indico.cern.ch/event/1524513/contributions/6556312/}}: Nikhef's {\bf locksweep}
+	\item By simulating the sampling of the patterns, we can {\bf automatically generate the LUT for given frequencies}
 \end{itemize}}
 \end{minipage}
-\begin{minipage}{.45\linewidth}
-\includegraphics[width=\linewidth]{plt_pll_lock_possibilities.pdf}
+\begin{minipage}{.47\linewidth}
+\hspace*{-0.1cm}\includegraphics[width=\linewidth]{plt_pll_lock_possibilities.pdf}
 
-\vspace{-.3cm}
+\vspace{-.4cm}
 {\footnotesize \hspace*{.9cm}A PLL dividing by 5 yields 5 possibilities}
+\end{minipage}
 \end{minipage}
 \end{frame}
 
@@ -153,12 +169,12 @@ stearing).
 \vspace{-.71cm}
 \hspace*{1cm}\includegraphics[width=.75\linewidth]{xcorrelation_zoom_dma_only.pdf}
 
-{\footnotesize No locksweep: acquisition begins at PPS $\rightarrow$ correlation peaks are in the same sampling period
-(100~ns @ 10~MS/s).\par}
+{\footnotesize No locksweep: acquisition begins at PPS $\Rightarrow$ correlation peaks are in the same sampling period
+(50~ns @ 20~MS/s).\par}
 
 \hspace*{1cm}\includegraphics[width=.8\linewidth]{xcorr_locksweep_zoom.pdf}
 
-{\footnotesize With locksweep: ADC clock is synchronised on White Rabbit $\rightarrow$ correlation peaks are synchronized ($\sigma=1$~ns, limited by AD9361).\par}
+{\footnotesize With locksweep: ADC clock is synchronised on White Rabbit $\Rightarrow$ correlation peaks are synchronized ($\sigma=1$~ns, limited by AD9361).\par}
 \end{minipage}
 \end{minipage}
 
@@ -178,11 +194,15 @@ stearing).
 \end{minipage}
 \begin{minipage}{.49\linewidth}
 
-\includegraphics[width=.7\linewidth]{fig_wr_global_view.pdf}
+\only<1>{\hspace*{1cm}\includegraphics[width=.8\linewidth]{fig_wr_global_view.pdf}}
+\only<2>{{\footnotesize C. Calosso, TUT-10: Aliasing in Time and Frequency, IEEE Int. 
+Freq. Control Symposium (IFCS, 2026):\par}
+
+\hspace*{1cm}\includegraphics[width=.7\linewidth]{slide_aliasing_Claudio}}
 
 {\footnotesize
 \begin{itemize}
-	\item High frequency phase noise can be cleaned by external oscilators (SI5351's job on the m2sdr)
+	\item High frequency phase noise can be cleaned by external oscillators (SI5351's job on the m2sdr)
 	\item Noisy clocks are processed by the DDMTD into WR's control loop.
 \end{itemize}}
 \end{minipage}
@@ -227,7 +247,7 @@ stearing).
 	\item Increasing the bandwidth proportionaly lowers the noise floor
 \end{itemize}}
 
-$\Rightarrow$ DDMTD integrates all the oscilator noise in the soft PLL phase detection, 
+$\Rightarrow$ DDMTD integrates all the oscillator noise in the soft PLL phase detection, 
 degrading low frequency phase noise.
 \end{minipage}
 \begin{minipage}{.49\linewidth}
@@ -262,7 +282,9 @@ Alternatives to phase-shifted MMCMs in VCO-less White Rabbit:
 	\item TXPI PPM (picxo) for main tuning
 \end{itemize}
 
-\includegraphics[width=.9\linewidth]{wr_alternative_clocking_comparison_correct_gain.png} % TODO replot
+\vspace{-0.63cm}\begin{center}
+\includegraphics[width=\linewidth]{wr_alternative_clocking_comparison_correct_gain.png}
+\end{center} % TODO replot
 
 \end{frame}
 
