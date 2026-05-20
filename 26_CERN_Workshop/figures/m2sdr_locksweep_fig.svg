@@ -99,9 +99,9 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="true"
      showguides="false"
-     inkscape:zoom="23.209739"
-     inkscape:cx="147.30885"
-     inkscape:cy="97.200574"
+     inkscape:zoom="5.8024348"
+     inkscape:cx="128.82523"
+     inkscape:cy="49.461995"
      inkscape:window-width="1680"
      inkscape:window-height="1031"
      inkscape:window-x="-5"
@@ -211,14 +211,14 @@
        transform="scale(1.331704,1.3333333)" />
     <path
        id="path11"
-       d="M 115.602,31.023 149.35,30.906"
+       d="m 114.11682,30.61171 39.07038,0.138291"
        style="fill:none;stroke:#000000;stroke-width:0.725713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="scale(1.331704,1.3333333)" />
+       transform="scale(1.331704,1.3333333)"
+       sodipodi:nodetypes="cc" />
     <path
        id="path12"
-       d="m 151.332,31.434 -3.14,1.813 0.002,-3.629 z"
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.483805;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(1.331704,-0.00471729,0.00471153,1.3333333,0,0)" />
+       d="m 205.08651,40.783928 -4.17301,2.432145 -0.0144,-4.838676 z"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.644683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
        id="text12"
        xml:space="preserve"
@@ -378,11 +378,21 @@
          style="font-variant:normal;font-weight:normal;font-size:9.0021px;font-family:'Noto Sans';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
          x="0"
          y="0">Phase sampler</tspan></text>
+    <text
+       id="text32-3"
+       xml:space="preserve"
+       transform="scale(0.99938897,1.0006114)"
+       x="52.212776"
+       y="123.85326"
+       style="font-size:16.0098px;stroke-width:1.33415"><tspan
+         id="tspan32-5"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.0101px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Italic';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33415"
+         x="52.212776"
+         y="123.85326">(locksweep)</tspan></text>
     <path
        id="path32"
-       d="M 29.161,75.207 H 94.956 V 87.465 H 29.161 Z"
-       style="fill:none;stroke:#000000;stroke-width:0.751091;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="scale(1.331704,1.3333333)" />
+       d="m 38.975453,100.4178 h 87.336197 v 27.33143 H 38.975453 Z"
+       style="fill:none;stroke:#000000;stroke-width:1.03192;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        id="path33"
        d="m 31.859,81.199 h 0.57 v 1.141 h -0.57 z"
