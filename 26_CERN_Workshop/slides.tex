@@ -1,3 +1,4 @@
+
 \documentclass[compress,10pt,aspectratio=169]{beamer}
 %\setbeamertemplate{background canvas}[bottom=white,top=structure.fg!25]
 %\usetheme{Hannover}
@@ -51,7 +52,9 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 \item Syntonisation (openloop)
 \item PLL inderminism $\rightarrow$ closed loop synchronization
 \item Performance limitation assessment: phase detector noise
-\item Aliasing in {\bf Digital} Dual Mixer Time Difference (DDMTD) and impact of local oscillator phase noise
+\item Aliasing\footnote{C. Calosso, TUT-10: Aliasing in Time and Frequency, IEEE Int. 
+Freq. Control Symposium (IFCS, 2026)}
+ in {\bf Digital} Dual Mixer Time Difference (DDMTD) and impact of local oscillator phase noise
 \end{enumerate}
 \end{frame}
 
@@ -79,7 +82,9 @@ FEMTO-ST Time \& Frequency department, Besan\c con, France \\ \
 	\item PLL multiplying by 1.5, division by 2 yields 2 possible phase positions.
 	\item Sampling these 2 possible signals at the same time would give 2 patterns: \texttt{10} or \texttt{01}
 	\item A PLL with divisor N gives N patterns each N bits long. 
-        \item With a LUT we know what position we are in and we can then correct it\footnote{\url{https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep}}
+        \item With a LUT we know what position we are in and we can then correct it\footnote{\url{https://wiki.confluence.nikhef.nl/wiki/spaces/WRNIK/pages/934182916/Lock+Sweep}}\footnote{
+K. Asteriou, P. Jansweijer, {\em LockSweep (on BabyWR) status and progress}, 14th White Rabbit
+Workshop (2025) at \url{https://indico.cern.ch/event/1524513/contributions/6556312/}}
 	\item By simulating the sampling of the patterns, we can automaticaly generate the LUT for given frequencies
 \end{itemize}}
 \end{minipage}
@@ -249,12 +254,12 @@ Spectrum of the DDMTD output in the M2SDR depending on the MMCM generated freque
 
 \end{frame}
 
-\begin{frame}[fragile]\frametitle{Low-cost WR without MMCM tunning}
+\begin{frame}[fragile]\frametitle{Low-cost WR without MMCM tuning}
 
 Alternatives to phase-shifted MMCMs in VCO-less White Rabbit:
 \begin{itemize}
 	\item Chained PLLs for helper
-	\item TXPI PPM (picxo) for main tunning
+	\item TXPI PPM (picxo) for main tuning
 \end{itemize}
 
 \includegraphics[width=.9\linewidth]{wr_alternative_clocking_comparison_correct_gain.png} % TODO replot
