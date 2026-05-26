@@ -20,3 +20,6 @@ Resulting ADEV
 <img src="phase_to_mdev.png">
 
 Resulting MDEV
+
+These scripts were used for analyzing some of the information shared
+in <a href="https://www.white-rabbit.tech/wp-content/uploads/2025/12/WR_Requirements_v1.0.0.pdf">the White Rabbit requirements.</a>
