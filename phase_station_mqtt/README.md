@@ -8,7 +8,8 @@ synchronized with a Python script assessing the state of the White Rabbit node a
 controlling the start of data collection. The Phase Station stores the records on the
 MS-Windows hard disk for post-processing. A MQTT server (``broker``) is assumed to be
 accessible on the same subnet than the Phase Station and the PC controlling the White
-Rabbit board, possibly on the same latter GNU/Linux computer.
+Rabbit board, possibly on the same latter GNU/Linux computer. In our examples, the
+broker is running on a computer with IP 192.168.1.170.
 
 <img src="architecture.png">
 
