@@ -153,6 +153,25 @@ Workshop (2025) at \url{https://indico.cern.ch/event/1524513/contributions/65563
 	\end{center}
 \end{frame}
 
+\begin{frame}[fragile]\frametitle{Auxiliary locksweep}
+
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.49\linewidth}
+\includegraphics[width=\linewidth]{exp_locksweep_reboots.pdf}
+\includegraphics[width=\linewidth]{plt_locksweep_reboots.pdf}
+
+
+\end{minipage}
+\begin{minipage}{.49\linewidth}
+\begin{itemize}
+\item Microchip 53100A Phase Noise Analyzer repeated measurements with White Rabbit reset between each measurement
+\item Reference = WRS 10~MHz output~; measurement = M2SDR WR disciplined (locksweep) 10~MHz output
+\item The phase aligns on the same value after each reset
+\end{itemize}
+\end{minipage}
+\end{minipage}
+\end{frame}
+
 \begin{frame}[fragile]\frametitle{Sidenote: automating measurements using the 53100A Phase Station
 \footnote{see \url{https://github.com/oscimp/wr_acorn/tree/main/phase_station_mqtt}}}
 
@@ -202,27 +221,6 @@ function EventAcqDone() // called after each acq.
  if (acq_num >= 10000) { ScriptEnd(); }
 }
 \end{lstlisting}
-\end{minipage}
-\end{minipage}
-
-
-\end{frame}
-
-\begin{frame}[fragile]\frametitle{Auxiliary locksweep}
-
-\begin{minipage}[t]{\linewidth}
-\begin{minipage}{.49\linewidth}
-\includegraphics[width=\linewidth]{exp_locksweep_reboots.pdf}
-\includegraphics[width=\linewidth]{plt_locksweep_reboots.pdf}
-
-
-\end{minipage}
-\begin{minipage}{.49\linewidth}
-\begin{itemize}
-\item Microchip 53100A Phase Noise Analyzer repeated measurements with White Rabbit reset between each measurement
-\item Reference = WRS 10~MHz output~; measurement = M2SDR WR disciplined (locksweep) 10~MHz output
-\item The phase aligns on the same value after each reset
-\end{itemize}
 \end{minipage}
 \end{minipage}
 \end{frame}
