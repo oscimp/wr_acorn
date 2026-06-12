@@ -1,4 +1,3 @@
-
 \documentclass[compress,10pt,aspectratio=169]{beamer}
 %\setbeamertemplate{background canvas}[bottom=white,top=structure.fg!25]
 %\usetheme{Hannover}
@@ -31,6 +30,34 @@
 
 \usepackage{graphicx,verbatim,multicol,amsmath,bm}
 \graphicspath{{./figures/}{../pictures/}}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
 
 \title{Synchronizing SDR and other clocks on White Rabbit}
 \author{\'Emilien Decoux, Jean-Michel Friedt\\ \ \\ 
@@ -124,6 +151,61 @@ Workshop (2025) at \url{https://indico.cern.ch/event/1524513/contributions/65563
 	\begin{center}
 		Locksweep M2SDR clock path (closed loop)
 	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Sidenote: automating measurements using the 53100A Phase Station
+\footnote{see \url{https://github.com/oscimp/wr_acorn/tree/main/phase_station_mqtt}}}
+
+\begin{minipage}[t]{\linewidth}
+\begin{minipage}{.47\linewidth}
+{\footnotesize
+\begin{itemize}
+\item the 53100A control software runs on a MS-Windows computer
+\item the 53100A control software includes a Javascript interpreter
+\item synchronizing the GNU/Linux White Rabbit configuration and analsyis
+script with 53100A control software through an MQTT broker (server)
+\item publish-subscribe (PUB-SUB) ping-pong exchange for synchronizing 53100A data
+acquisition and White Rabbit reconfiguration
+\end{itemize}
+}
+
+\includegraphics[width=\linewidth]{../phase_station_mqtt/architecture.pdf}
+\includegraphics[width=.4\linewidth]{phase_station_pict.png}
+\end{minipage}
+\begin{minipage}{.59\linewidth}
+
+\begin{lstlisting}[language=JavaScript,basicstyle=\scriptsize\ttfamily]
+const mqtt_broker="192.168.1.170";   // mqtt server IP
+var acq_num = 0; // global var to remember between acq
+function EventRunScript()  // launched at startup
+{prep_acq(); start_acq(); acq_num = 0; }
+
+function prep_acq()
+{ AcqClearParams();
+  AcqSetParam("Measure Stability", "True");
+  AcqSetParam("Measure PM Noise",  "True");
+  [...]
+}
+
+function start_acq()
+{FileExecuteWait("c:\\Program Files\\Mosquitto\\mosquitto_sub.exe", " -h "+mqtt_broker+" -t locksweeping -C 1")) 
+ AcqStartAcquisition("Microchip 53100A ...",true);
+}
+
+function EventAcqDone() // called after each acq.
+{FileSave("save_" + acq_num + ".tim");
+ ++acq_num;
+ FileExecute("c:\\Program Files\\Mosquitto\\mosquitto_pub.exe", " -h "+mqtt_broker+" -t locksweep_now -m acq_done"))
+ FileCloseAllPlots();
+ prep_acq();             // check Phase Station config
+ start_acq();                   // restart acquisition
+ if (acq_num >= 10000) { ScriptEnd(); }
+}
+\end{lstlisting}
+\end{minipage}
+\end{minipage}
+
+
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Auxiliary locksweep}
@@ -323,7 +405,6 @@ Software repositories
 \end{minipage}
 \end{minipage}
 \end{frame}
-
 
 % bonus slides
 
