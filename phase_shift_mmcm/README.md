@@ -5,8 +5,8 @@ to the FPGA must be fine tuned to track the reference signal (main oscillator),
 and the helper oscillator must track the main oscillator to generate a constant
 beatnote.
 
-The MMCMs in the Artix7 FPGA use a phase stepping mechanism: periodic phase
-increments induce a phase drift $df=phi/(2\pi\cdot t)$ acting as fine frequency
+The MMCMs in the Artix7 FPGA use a phase stepping mechanism: periodic phase $\phi$
+increments induce a phase drift $df=\phi/(2\pi\cdot t)$ acting as fine frequency
 tuning of the MMCM. However, the phase is not behaving as expected: this directory
 provides the tools for mapping phase increments, and correct their unexpected 
 behaviour.

@@ -1,6 +1,6 @@
 # Phase shift MMCM demo on CMODA7
 
-This directory contains a demonstration of fine frequency tunning using phase-shifted MMCMs with two phase-noise reductions techniques: sigmadelta noise-shaping and step-size linearization.
+This directory contains a demonstration of fine frequency tuning using phase-shifted MMCMs with two phase-noise reductions techniques: sigmadelta noise-shaping and step-size linearization.
 
 ## Build and Flash the gateware
 
@@ -20,7 +20,7 @@ openFPGALoader -b cmoda7_35t -f --freq 30e6 -m build/digilent_cmod_a7/gateware/d
 
 ## Using the demo
 
-The demo gateware needs an input reference clock at 100 MHz on pin `j2:21`, and will output the tunned clock on pin `j2:11` at 62.5 MHz + programmable offset.
+The demo gateware needs an input reference clock at 100 MHz on pin `j2:21`, and will output the tuned clock on pin `j2:11` at 62.5 MHz + programmable offset.
 The runtime configuration is done via the serial port of the embeded riscv by writing to configuration registers with the commands `mem_write <addr> <val>` and `mem_read <addr>`.
 
 
@@ -34,7 +34,7 @@ csr_register,main_dco_csr,0xf0002004,1,rw
 csr_register,main_dco_stat,0xf0002008,1,ro
 ```
 
-- `main_dco_rate` is the 24 bits **signed** frequency tunning word, the frequency control is linear with a granularity of 100e6/12/2^24/56/16 ~= 2.2 mHz.
+- `main_dco_rate` is the 24 bits **signed** frequency tuning word, the frequency control is linear with a granularity of 100e6/12/2^24/56/16 ~= 2.2 mHz.
 
 - `main_dco_csr` is a bitfield controling the logic:
     - `main_dco_csr[0]` : RESET, resets all the control logic (except the values of the linearization LUT) and the MMCM's phase position to their deterministic initial state.
@@ -46,7 +46,7 @@ csr_register,main_dco_stat,0xf0002008,1,ro
 - `main_dco_stat` is a bitfield containing information about the DCO current state:
     - `main_dco_stat[0]` : CALIB\_DONE, asserted once the auto-calibration procedure is complete.
     - `main_dco_stat[1]` : DOING\_CALIB, asserted while the auto-calibration procedure is running.
-    - `main_dco_stat[16:32]` : DMTD\_TAG, the latest DMTD phase-tag of the tunned clock measured by the embeded DMTD (big-endian)
+    - `main_dco_stat[16:32]` : DMTD\_TAG, the latest DMTD phase-tag of the tuned clock measured by the embeded DMTD (big-endian)
 
 ### Auto-Calibration
 
@@ -64,7 +64,8 @@ litex> mem_write 0xf0002004 8
 
 ### Manual Calibration
 
-To create a calibration file you need to measure the phase steps with an external phase-meter such as the phase station.
+To create a calibration file you need to measure the phase steps with an external phase-meter such as the 
+<a href="https://www.miles.io/PhaseStation_53100A_user_manual.pdf">phase station</a>.
 
 1) Reset the logic, set a null command word (no frequency offset = no phase shifts) and start the DCO without calibration nor sigmadelta :
 ```
@@ -82,7 +83,7 @@ litex> mem_write 0xf0002000 5
 
 4) Wait at least until the total phase shift reachs 2 ns in order to get an observation of each 112 phase steps, longer acquisitions allow to get more observations per step and to reject some of the low frequency drift.
 
-5) Process the acquisition to extract the 112 sizes of phase steps and normalize them so that their mean value is 1 (the sum of the normalized steps has to be 112), and save them in a text file separated by newlines, spaces or tabs.
+5) <a href="analyze_tim.m">Process the acquisition</a> to extract the 112 sizes of phase steps and normalize them so that their mean value is 1 (the sum of the normalized steps has to be 112), and save them in a text file separated by newlines, spaces or tabs.
 
 Once you have created this calibration file, you can use it as the default calibration for the next synthesis by passing it via the `--calib-file` argument :
 ```
