@@ -43,7 +43,7 @@ The deglicher process this waveform and computes the phase tag of the true trans
 The bit median deglicher assume that the gliches are like random independant "flip" errors on the true clean rising edge of the streched clock, following some constant (over time) distribution around this true rising edge.
 It then compute and output the phase tag such that there is as many "up" gliches before the phase tag as "down" glitches after the phase tag.
 This is exactly the same as a doing least square fit of the gliched signal with the ideal step and outputting the time of the fitted step's rising edge.
-[//]: # (This kind of fit can be realized in many ways: this bit median / cross-correlation / convolution, these are all the same computation, of which the "bit median" algorithm is just a very efficient FPGA implementation.) 
+This kind of fit can be realized in many ways: this bit median / cross-correlation / convolution, these are all the same computation, of which the "bit median" algorithm is just a very efficient FPGA implementation. 
 
 
 The length of this glichy window is directly proportional to the input clock jitter:
