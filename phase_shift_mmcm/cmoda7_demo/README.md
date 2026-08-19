@@ -41,10 +41,51 @@ csr_register,main_dco_stat,0xf0002008,1,ro
     - `main_dco_csr[1]` : SIGMADELTA\_EN, enables the sigmadelta noise-shaping.
     - `main_dco_csr[2]` : LINEARIZATION\_EN, enables the step-size linearization.
     - `main_dco_csr[3]` : START\_CALIB, starts the auto-calibration procedure after a boot or reset, then starts the phase-shift operation, WARNING : it has no effect once the DCO is running, to re-do a calibration you must first RESET.
-    - `main_dco_csr[4]` : START\_NO\_CALIB, starts the phase-shift operation immediatly bypassing auto-calibration, WARNING : it has no effect once the DCO is running.
+    - `main_dco_csr[4]` : START\_NO\_CALIB, starts the phase-shift operation immediatly bypassing auto-calibration, this allow to use the manual calibration file specified at synthesis, WARNING : it has no effect once the DCO is running.
 
 - `main_dco_stat` is a bitfield containing information about the DCO current state:
     - `main_dco_stat[0]` : CALIB\_DONE, asserted once the auto-calibration procedure is complete.
     - `main_dco_stat[1]` : DOING\_CALIB, asserted while the auto-calibration procedure is running.
     - `main_dco_stat[16:32]` : DMTD\_TAG, the latest DMTD phase-tag of the tunned clock measured by the embeded DMTD (big-endian)
+
+### Auto-Calibration
+
+1) Reset the logic :
+```
+litex> mem_write 0xf0002004 1
+```
+
+2) Launch the auto-calibration procedure :
+```
+litex> mem_write 0xf0002004 8
+```
+
+3) Wait until `main_dco_stat[0]` is asserted, this should take about 5 minutes. And then it's done.
+
+### Manual Calibration
+
+To create a calibration file you need to measure the phase steps with an external phase-meter such as the phase station.
+
+1) Reset the logic, set a null command word (no frequency offset = no phase shifts) and start the DCO without calibration nor sigmadelta :
+```
+litex> mem_write 0xf0002004 1
+litex> mem_write 0xf0002000 0
+litex> mem_write 0xf0002004 16
+```
+
+2) Start the acquistion on the phase station with a maximum of phase points per seconds (1000 on the phase station) and wait a few seconds get the base phase
+
+3) Set a very small frequency offset so the phase steps are clearly visible on the phase station.
+```
+litex> mem_write 0xf0002000 5
+```
+
+4) Wait at least until the total phase shift reachs 2 ns in order to get an observation of each 112 phase steps, longer acquisitions allow to get more observations per step and to reject some of the low frequency drift.
+
+5) Process the acquisition to extract the 112 sizes of phase steps and normalize them so that their mean value is 1 (the sum of the normalized steps has to be 112), and save them in a text file separated by newlines, spaces or tabs.
+
+Once you have created this calibration file, you can use it as the default calibration for the next synthesis by passing it via the `--calib-file` argument :
+```
+./digilent_cmod_a7.py --build --calib-file normalized_step_sizes.txt
+```
 
