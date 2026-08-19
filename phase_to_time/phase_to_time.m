@@ -23,8 +23,9 @@ for count=1:3
   % and H(f)=sin(2*pi*f*tau0) since PPS_{n+1}-PPS_n => H^2(f)=sin(2*pi*f*tau0).^2
   withweight=sqrt(sum((res.^2.*sin(2*pi*fFint(1:end-1)*1/2).^2)))
   subplot(211)
-  semilogx(fFint,(SdBcint));
+  semilogx(fFint,(SdBcint),'ro');
   hold on
+  semilogx(fF,(SdBc),'x-');
   xlabel('Fourier frequency (Hz)')
   ylabel('Phase noise (dBc/Hz)')
 end

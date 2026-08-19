@@ -14,14 +14,14 @@ SdBc(:,2)=[-100 -100 -100 -100 -100 -100 -100 -100 -100];
 % Sphi~1/f^2 => Sy~cst => AVAR~1/tau   MVAR~1/tau   10*log10(1/4*2e-23)/2=-116.5
 SdBc(:,3)=[-70  -90  -110 -130 -150 -170 -190 -210 -230]; 
 
-% if (1==0)  % uncomment for sanity check
+if (1==0)  % uncomment for sanity check
 fF=  [.001 .01 .1 1    10  100 1000 10000 1e5 1e6 1e7] % extend 100 kHz measurement floor to 10 MHz
 clear SdBc                                             % extrapolate below .01 Hz for 100 s ADEV
 % WR specifications
 SdBc(:,1)=[-70 -70 -70 -70  -70  -95  -120 -130 -130 -130 -130]; % BC/GM class I
 SdBc(:,2)=[-100 -100 -100 -100 -100 -115 -130 -140 -140 -140 -140]; % GM class II (LJ)
 SdBc(:,3)=[-90 -90 -90 -90  -90  -107 -125 -135 -135 -135 -135]  % BC class II
-% end        % uncomment for sanity check
+end        % uncomment for sanity check
 
 SdBrad=SdBc+3;      % dBc/Hz -> dBrad^2/Hz
 %%%%%%%% interpolate, convert SdBc to SdBrad to Sy (linear) & integrate to AVAR
@@ -53,6 +53,9 @@ k=find(fFint>=1);k=k(1);Syint(k) % display Sy at 1 Hz to match values from Franc
   m=1;
 N=3
   taurange=logspace(log10(N*0.45/fF(end)),log10(0.45/fF(1)/N),1024);
+% the 0.45 comes from the AVAR and MVAR spectral response |H(f.\tau)|^2 maximum power, see
+% https://rubiola.org/pdf-lectures/Scientific%20Instruments%20L06-10,%20Oscillators.pdf slide 3
+%   "Two Sample (Allan-like) variances" chart
   % taurange=logspace(log10(1/fF(end)),log10(1/fF(1)),1024);
   % taurange=logspace(-2,2,1024);
   for tau=taurange

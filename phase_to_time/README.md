@@ -23,3 +23,7 @@ Resulting MDEV
 
 These scripts were used for analyzing some of the information shared
 in <a href="https://www.white-rabbit.tech/wp-content/uploads/2025/12/WR_Requirements_v1.0.0.pdf">the White Rabbit requirements.</a>
+
+## Compute the decoherence from a phase noise spectrum in dBc/Hz.
+
+Using some "realistic" values from the <a href="https://abracon.com/phase-noise-and-jitter-calculator#">Abracon oscillator phase noise calculator</a>.
