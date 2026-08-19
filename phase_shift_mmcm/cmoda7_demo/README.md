@@ -47,3 +47,4 @@ csr_register,main_dco_stat,0xf0002008,1,ro
     - `main_dco_stat[0]` : CALIB\_DONE, asserted once the auto-calibration procedure is complete.
     - `main_dco_stat[1]` : DOING\_CALIB, asserted while the auto-calibration procedure is running.
     - `main_dco_stat[16:32]` : DMTD\_TAG, the latest DMTD phase-tag of the tunned clock measured by the embeded DMTD (big-endian)
+
