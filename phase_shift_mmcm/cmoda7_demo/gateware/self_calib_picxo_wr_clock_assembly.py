@@ -20,7 +20,7 @@ from gateware.self_calib_ctrl import *
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class WRClocking(LiteXModule):
-    def __init__(self, platform, int_size=8, frac_size=24, n_pos=112):
+    def __init__(self, platform, calib_file=None, int_size=8, frac_size=24, n_pos=112):
         self.clk100_in = Signal()
         
         self.tunned_clk = Signal()
@@ -106,8 +106,7 @@ class WRClocking(LiteXModule):
 
         # NL LUT
         self.sd_lut = ClockDomainsRenamer('ctrl')(NonLinearityLUT(
-            #lut=lut_from_trace('non_linearities_rec/calib2_X1Y0.tim'),
-            lut=np.array(list(map(float, open('/tmp/solution', 'r').read().split()))),
+            lut=(np.array(list(map(float, open(calib_file, 'r').read().split()))) if calib_file is not None else None,
             int_size=int_size, frac_size=frac_size, n=n_pos))
         ctrl_linearize_en = Signal()
         self.specials += MultiReg(self.linearize_en, ctrl_linearize_en, 'ctrl')
