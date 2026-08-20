@@ -17,7 +17,7 @@ The DMTD function is to measure fine timing of digital clocks. It does so by (su
 
 The *D*DMTD uses two DMTDs and takes the difference of the phase tags to output the relative phase of two clocks:
 
-<img src="26_CERN_Workshop/figures/ddmtd_schem.png">
+<img src="../26_CERN_Workshop/figures/ddmtd_schem.png">
 
 Here, to study this DDMTD phase meter we first focus on the simpler DMTD.
 
@@ -31,19 +31,25 @@ The output phase tags counts time in cycles of the pivot clock, in a noiseless s
 
 The phase resolution is then of $N$ bits.
 
-For example when measuring a 62.5 MHz clock with $N=14$, we get phase tags at the rate of $62.5e6/2^{14}=3.814$ kHz with a resolution of $16\cdot 10^{-9}/$2^{14}\simeq 1$ ps.
+For example when measuring a 62.5 MHz clock with $N=14$, we get phase tags at the rate of $62.5e6/2^{14}=3.814$ kHz with a resolution of $16\cdot 10^{-9}/2^{14}\simeq 1$ ps.
 
 ## Aliasing
 
 Since the DMTD is subsampling the input clock, it aliases high frequency noise in the small bandwith of it's low-frequency output (1.9 kHz bandwith in default White Rabbit).
 
 This can be demonstrated by feeding a clock with a single spure of noise at a variable offset frequency and observing how this spur is folded into the dmtd's output:
-![frequency of the spur on the output in function of its frequency at the input](./26_CERN_Workshop/figures/freq_by_spur_1k8k.png)
+
+<img src="../26_CERN_Workshop/figures/freq_by_spur_1k8k.png">
+
+frequency of the spur on the output in function of its frequency at the input
 
 This hints that all the noise is conserved and folded ($2^N$ times) in the DMTD's bandwith leading to a $2^N$ times higher floor noise with the same noise power.
 
 We observe that it is, in fact, not the case: by feeding the DMTD a clock with white gaussian phase noise and measuring the noise at the output we get this square root response:
-![dmtd stddev at the output in function of the stddev at the input](pictures/output_phase_time_stddev_by_input_phase_time_stddev.png)
+
+<img src="../pictures/output_phase_time_stddev_by_input_phase_time_stddev.png">
+
+DMTD stddev at the output in function of the stddev at the input
 
 This nonlinear behavior cannot be explained by the (linear) sampling, this suggests there is a non-linear filtering action of the deglitcher.
 
@@ -51,7 +57,8 @@ This nonlinear behavior cannot be explained by the (linear) sampling, this sugge
 
 Because of clocks jitter and/or metastabilities (we have yet to investigate which is dominant and wether they have distinct effects), the output of the sampling flip-flop contains many transitions for each ideal streched clock transitions.
 
-![dmtd glitches](pictures/dmtd_gliches_ila.png)
+<img src="../pictures/dmtd_gliches_ila.png">
+
 ILA capture of the sampled clock.
 
 The deglitcher process this waveform and computes the phase tag of the true transition. Multiple deglitchers algorithms have been proposed and evaluated ([Tom's thesis](https://gitlab.com/ohwr/project/white-rabbit/-/wikis/uploads/6a357829064b9e27a46fbce4cb4398b4/mgr.pdf)) empiricaly we find that the "bit median" produce the less noisy outputs but we lack a rigorous understanding of why.
