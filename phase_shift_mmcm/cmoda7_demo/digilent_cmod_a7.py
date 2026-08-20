@@ -164,7 +164,7 @@ class BaseSoC(SoCCore):
             CSRField("dmtd_tag", size=16, offset=16),
         ])
 
-        self.clocking = WRClocking(platform, calib_file=calib_file frac_size=frac_size, int_size=int_size)
+        self.clocking = WRClocking(platform, calib_file=calib_file, frac_size=frac_size, int_size=int_size)
         
         self.comb += [
                 self.clocking.clk100_in.eq(clk_in),

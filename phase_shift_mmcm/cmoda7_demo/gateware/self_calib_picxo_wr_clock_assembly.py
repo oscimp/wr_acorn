@@ -106,7 +106,7 @@ class WRClocking(LiteXModule):
 
         # NL LUT
         self.sd_lut = ClockDomainsRenamer('ctrl')(NonLinearityLUT(
-            lut=(np.array(list(map(float, open(calib_file, 'r').read().split()))) if calib_file is not None else None,
+            lut=(np.array(list(map(float, open(calib_file, 'r').read().split()))) if calib_file is not None else None),
             int_size=int_size, frac_size=frac_size, n=n_pos))
         ctrl_linearize_en = Signal()
         self.specials += MultiReg(self.linearize_en, ctrl_linearize_en, 'ctrl')
