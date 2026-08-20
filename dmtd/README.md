@@ -69,7 +69,7 @@ This is exactly the same as a doing least square fit of the glitched signal with
 This kind of fit can be realized in many ways: this bit median / cross-correlation / convolution, these are all the same computation, of which the "bit median" algorithm is just a very efficient FPGA implementation. 
 
 
-The length of this glichy window is directly proportional to the input clock jitter:
+The length of this glitchy window is directly proportional to the input clock jitter:
 
 <img src="../pictures/glitches_length_by_input_phase_noise.png">
 
