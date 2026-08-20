@@ -90,3 +90,19 @@ Once you have created this calibration file, you can use it as the default calib
 ./digilent_cmod_a7.py --build --calib-file normalized_step_sizes.txt
 ```
 
+## Correction application
+
+For using the features, mask 16 (enable) with 4 (phase linearization) and  2 (sigma-delta correction):
+
+Calibrated phase jump correction 
+```
+mem_write 0xf0002004 20
+```
+Sigma-Delta
+```
+mem_write 0xf0002004 18
+```
+Linearization and Sigma-Delta
+```
+mem_write 0xf0002004 22
+```
