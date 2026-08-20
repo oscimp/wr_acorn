@@ -70,5 +70,8 @@ This kind of fit can be realized in many ways: this bit median / cross-correlati
 
 
 The length of this glichy window is directly proportional to the input clock jitter:
-![dmtd average gltiches length is proportional to input jitter](pictures/glitches_length_by_input_phase_noise.png)
+
+<img src="../pictures/glitches_length_by_input_phase_noise.png">
+
+DMTD average gltiches length is proportional to input jitter
 
