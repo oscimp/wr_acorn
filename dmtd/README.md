@@ -13,26 +13,29 @@ DMTD output.
 
 ## Digital Mixer Time Difference
 
-The DMTD function is to measure fine timing of digital clocks. It does so by (sub)sampling the input clock with a frequency shifted clock to time-strech the input clock into a low-frequency signal which can be measured with a great resolution relative to it's period, the output of the DMTD is a flow of time stamps (phase tags) of the stretched rising edges.
+The DMTD function is to measure fine timing of digital clocks. It does so by (sub)sampling the input clock with a frequency shifted clock to time-strech the input clock into a low-frequency signal which can be measured with a great resolution relative to its period, the output of the DMTD is a flow of time stamps (phase tags) of the stretched rising edges.
 
 The *D*DMTD uses two DMTDs and takes the difference of the phase tags to output the relative phase of two clocks:
 
-![ddmtd schematic](26_CERN_Workshop/figures/ddmtd_schem.png)
+<img src="26_CERN_Workshop/figures/ddmtd_schem.png">
 
 Here, to study this DDMTD phase meter we first focus on the simpler DMTD.
 
 ### Notations
-The frequency ratio between the measured clock and the sampling clock (also called pivot or dmtd clock) is set as 2^N/(2^N - 1) with N = 14 unless specified otherwise.
-This means that the frequency difference (named beatnote) is 1/2^N times the measured clock frequency, this beatnote also correspond to the output rate the DMTD.
 
-The output phase tags counts time in cycles of the pivot clock, in a noiseless systeme, they are each spaced of 2^N cycles.
-The phase resolution is then of N bits.
+The frequency ratio between the measured clock and the sampling clock (also called pivot or DMTD helper clock) is set as $2^N/(2^N - 1)$ with $N = 14$ unless specified otherwise.
 
-For example when measuring a 62.5 MHz clock with N=14, we get phase tags at the rate of 62.5e6/2^14 ~= 3.814 kHz with a resolution of 16e-9/2^14 ~= 1 ps.
+This means that the frequency difference (named beatnote) is $1/2^N$ times the measured clock frequency. This beatnote also corresponds to the output rate the DMTD.
+
+The output phase tags counts time in cycles of the pivot clock, in a noiseless systeme, they are each spaced of $2^N$ cycles.
+
+The phase resolution is then of $N$ bits.
+
+For example when measuring a 62.5 MHz clock with $N=14$, we get phase tags at the rate of $62.5e6/2^{14}=3.814$ kHz with a resolution of $16\cdot 10^{-9}/$2^{14}\simeq 1$ ps.
 
 ## Aliasing
 
-Since the DMTD is subsampling the input clock, it aliases high frequency noise in the small bandwith of it's low-frequency output (1.9 kHz bandwith in default white rabbit).
+Since the DMTD is subsampling the input clock, it aliases high frequency noise in the small bandwith of it's low-frequency output (1.9 kHz bandwith in default White Rabbit).
 
 This can be demonstrated by feeding a clock with a single spure of noise at a variable offset frequency and observing how this spur is folded into the dmtd's output:
 ![frequency of the spur on the output in function of its frequency at the input](./26_CERN_Workshop/figures/freq_by_spur_1k8k.png)
@@ -42,7 +45,7 @@ This hints that all the noise is conserved and folded ($2^N$ times) in the DMTD'
 We observe that it is, in fact, not the case: by feeding the DMTD a clock with white gaussian phase noise and measuring the noise at the output we get this square root response:
 ![dmtd stddev at the output in function of the stddev at the input](pictures/output_phase_time_stddev_by_input_phase_time_stddev.png)
 
-This nonlinear behavior ca not be explained by the (linear) sampling, this suggest there is a non-linear filtering action of the deglitcher.
+This nonlinear behavior cannot be explained by the (linear) sampling, this suggests there is a non-linear filtering action of the deglitcher.
 
 ## Glitches
 
