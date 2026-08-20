@@ -1,2 +1,3 @@
 build/
 gateware/__pycache__/
+vivado*
