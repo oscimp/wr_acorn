@@ -106,3 +106,33 @@ Linearization and Sigma-Delta
 ```
 mem_write 0xf0002004 22
 ```
+
+### Runtime Calibration load / dump
+
+Calibration files can be loaded to and from the FPGA with the `serial_link.py` helper script, this is useful to update the calibration without re-synthetizing the gateware or to examine auto-calibration results.
+
+```
+usage: serial_link.py [-h] [-D TTY] [--csr CSR.csv] [--addr LUT_ADDR] [-l CALIB_FILE] [-d CALIB_FILE]
+
+options:
+  -h, --help            show this help message and exit
+  -D, --device TTY
+  --csr CSR.csv
+  --addr LUT_ADDR
+  -l, --load CALIB_FILE
+  -d, --dump CALIB_FILE
+```
+
+In normal usage only `--device` and `--load` or `--dump` needs to be provided.
+
+To load a calibration :
+```
+./serial_link.py -D /dev/ttyUSB1 -l normalized_step_sizes.txt
+```
+
+To dump a calibration :
+```
+./serial_link.py -D /dev/ttyUSB1 -d new_normalized_step_sizes.txt
+```
+
+

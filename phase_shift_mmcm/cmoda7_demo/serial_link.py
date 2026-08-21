@@ -62,3 +62,6 @@ def main():
 
     if args.load:
         write_lut(s, map(float, open(args.load).read().split()), addr)
+
+if __name__ == '__main__':
+    main()

@@ -20,7 +20,7 @@ from gateware.self_calib_ctrl import *
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class WRClocking(LiteXModule):
-    def __init__(self, platform, calib_file=None, int_size=8, frac_size=24, n_pos=112):
+    def __init__(self, platform, calib_file=None, int_size=8, frac_size=24, n_pos=112, auto_calib=True):
         self.clk100_in = Signal()
         
         self.tunned_clk = Signal()
@@ -50,7 +50,6 @@ class WRClocking(LiteXModule):
         mmcm_shift = Signal()
         mmcm_sign = Signal()
         
-        unshifted_clk = Signal()
 
         mmcm_feedback = Signal()
         mmcm_locked = Signal()
@@ -63,16 +62,12 @@ class WRClocking(LiteXModule):
             p_REF_JITTER1        = 0.0,
 
             # Outputs
-            p_CLKOUT0_DIVIDE_F   = 10,
             p_CLKOUT1_DIVIDE     = 16,
-            p_CLKOUT2_DIVIDE     = 16,
             
             p_CLKOUT1_USE_FINE_PS = "TRUE",
             #p_CLKFBOUT_USE_FINE_PS = "TRUE",
 
-            #o_CLKOUT0            = ClockSignal('ctrl'),
             o_CLKOUT1            = self.tunned_clk,
-            #o_CLKOUT2            = unshifted_clk,
 
             # phase shift
             i_PSCLK              = ClockSignal('ctrl'),
@@ -123,13 +118,19 @@ class WRClocking(LiteXModule):
                 ]
 
         ## DMTD clock
-        #self.dmtd_pll = PLL_DMTD()
-        #platform.add_platform_command("set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets main_clocking_dmtd_pll_mmcm1_out]")
-        self.comb += [
-        #        self.dmtd_pll.clk_in.eq(unshifted_clk),
-        #        self.dmtd_clk.eq(self.dmtd_pll.clk_dmtd),
-                ClockSignal('dmtd').eq(0),#self.dmtd_clk),
-                ]
+        if auto_calib:
+            self.dmtd_pll = PLL_DMTD(clk_in_f=100e6)
+            platform.add_platform_command("set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets main_clocking_dmtd_pll_mmcm1_out]")
+            self.comb += [
+                    self.dmtd_pll.clk_in.eq(self.clk100_in),
+                    self.dmtd_clk.eq(self.dmtd_pll.clk_dmtd),
+                    ClockSignal('dmtd').eq(self.dmtd_clk),
+                    ]
+        else:
+            self.comb += [
+                    ClockSignal('dmtd').eq(0),
+                    ResetSignal('dmtd').eq(1),
+                    ]
 
         # DMTD
     
