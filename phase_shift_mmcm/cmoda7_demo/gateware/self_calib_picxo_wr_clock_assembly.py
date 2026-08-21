@@ -41,7 +41,7 @@ class WRClocking(LiteXModule):
 
         tag_size = 14
         
-        self.cd_ctrl = ClockDomain()
+        #self.cd_ctrl = ClockDomain()
         self.cd_dmtd = ClockDomain()
 
         self.reset = Signal()
@@ -70,9 +70,9 @@ class WRClocking(LiteXModule):
             p_CLKOUT1_USE_FINE_PS = "TRUE",
             #p_CLKFBOUT_USE_FINE_PS = "TRUE",
 
-            o_CLKOUT0            = ClockSignal('ctrl'),
+            #o_CLKOUT0            = ClockSignal('ctrl'),
             o_CLKOUT1            = self.tunned_clk,
-            o_CLKOUT2            = unshifted_clk,
+            #o_CLKOUT2            = unshifted_clk,
 
             # phase shift
             i_PSCLK              = ClockSignal('ctrl'),
@@ -93,13 +93,12 @@ class WRClocking(LiteXModule):
             p_SS_EN                = "FALSE",
         )
         platform.add_platform_command("set_property LOC MMCME2_ADV_X1Y0 [get_cells {{phase_shift_mmcm}}]")
-        platform.add_platform_command("set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets main_clocking_dmtd_pll_mmcm1_out]")
-        self.specials += AsyncResetSynchronizer(self.cd_ctrl, self.reset | ~mmcm_locked)
+        self.specials += AsyncResetSynchronizer(ClockDomain('ctrl'), self.reset | ~mmcm_locked)
 
         # phase shift ctrl
         self.sigmadelta = ClockDomainsRenamer('ctrl')(SigmaDeltaPSGen(int_size=int_size, frac_size=frac_size))
         self.cmd_sync = BusSynchronizer(len(self.freq_cmd), 'sys', 'ctrl')
-        self.specials += MultiReg(self.sigmadelta_en, self.sigmadelta.dither_en, 'ctrl')
+        self.specials += MultiReg(self.sigmadelta_en, self.sigmadelta.sigmadelta_en, 'ctrl')
         self.comb += [
                 self.cmd_sync.i.eq(self.freq_cmd),
                 ]
@@ -123,12 +122,13 @@ class WRClocking(LiteXModule):
                     )),
                 ]
 
-        # DMTD clock
-        self.dmtd_pll = PLL_DMTD()
+        ## DMTD clock
+        #self.dmtd_pll = PLL_DMTD()
+        #platform.add_platform_command("set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets main_clocking_dmtd_pll_mmcm1_out]")
         self.comb += [
-                self.dmtd_pll.clk_in.eq(unshifted_clk),
-                self.dmtd_clk.eq(self.dmtd_pll.clk_dmtd),
-                ClockSignal('dmtd').eq(self.dmtd_clk),
+        #        self.dmtd_pll.clk_in.eq(unshifted_clk),
+        #        self.dmtd_clk.eq(self.dmtd_pll.clk_dmtd),
+                ClockSignal('dmtd').eq(0),#self.dmtd_clk),
                 ]
 
         # DMTD
@@ -196,7 +196,7 @@ class WRClocking(LiteXModule):
         self.fsm.act('RUNNING',
                 mmcm_shift.eq(self.sigmadelta.shift),
                 mmcm_sign.eq(self.sigmadelta.sign),
-                self.sd_lut.lut_shift.eq(self.sigmadelta.lut_shift),
+                self.sd_lut.lut_shift.eq(self.sigmadelta.shift),
                 self.sd_lut.sign.eq(self.sigmadelta.sign),
                 self.sigmadelta.rate.eq(self.cmd_sync.o),
             )

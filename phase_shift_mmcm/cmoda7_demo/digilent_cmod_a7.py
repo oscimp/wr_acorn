@@ -32,6 +32,7 @@ class _CRG(LiteXModule):
     def __init__(self, platform, sys_clk_freq):
         self.rst    = Signal()
         self.cd_sys = ClockDomain()
+        self.cd_ctrl = ClockDomain()
 
         # # #
 
@@ -44,6 +45,7 @@ class _CRG(LiteXModule):
         self.comb += pll.reset.eq(rst | self.rst)
         pll.register_clkin(clk12, 12e6)
         pll.create_clkout(self.cd_sys, sys_clk_freq)
+        pll.create_clkout(self.cd_ctrl, 100e6)
         platform.add_false_path_constraints(self.cd_sys.clk, pll.clkin) # Ignore sys_clk to pll.clkin path created by SoC's rst.
 
 # AsyncSRAM ------------------------------------------------------------------------------------------
@@ -170,7 +172,7 @@ class BaseSoC(SoCCore):
                 self.clocking.clk100_in.eq(clk_in),
                 clk_out.eq(self.clocking.tunned_clk),
 
-                platform.request('dbg').eq(self.clocking.sigmadelta.dither_en),
+                #platform.request('dbg').eq(self.clocking.sigmadelta.dither_en),
 
                 self.clocking.freq_cmd.eq(self.dco_rate.storage),
                 self.clocking.reset.eq(self.dco_csr.fields.reset),
@@ -238,11 +240,11 @@ class BaseSoC_SIM(LiteXModule):
         from gateware.nonlin_lut import NonLinearityLUT, lut_from_trace
 
         self.sigmadelta = SigmaDeltaPSGen(int_size=int_size, frac_size=frac_size)
-        self.sd_lut = NonLinearityLUT(lut=lut_from_trace('non_linearities_rec/calib_X1Y0.tim', inv=False), int_size=int_size, frac_size=frac_size)
+        self.sd_lut = NonLinearityLUT(lut=np.array(list(map(float, open('/tmp/ss').read().split()))), int_size=int_size, frac_size=frac_size)
 
         self.comb += [
                 self.sigmadelta.rate.eq(dco_rate),
-                self.sigmadelta.dither_en.eq(dco_dither_en),
+                self.sigmadelta.sigmadelta_en.eq(dco_dither_en),
                 self.sigmadelta.step_up.eq(
                     Mux(dco_nonlin_en,
                         self.sd_lut.step_up,

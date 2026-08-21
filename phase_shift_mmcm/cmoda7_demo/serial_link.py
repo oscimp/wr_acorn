@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 
 import serial
+import argparse
 import time
-import os
-import re
-
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib import cm
-from scipy.signal import welch, detrend
 
 device = '/dev/ttyUSB1'
 baudrate = 115200
@@ -35,3 +31,34 @@ def read_lut(s, lut_addr=0xf0000000):
 def write_lut(s, l, lut_addr=0xf0000000):
     for i, c in enumerate(l):
         ask(s, f'mem_write {lut_addr + 4*i} {int(round(c*2**24))}')
+
+def read_lut_map_csr_csv(filename):
+    f = 'csr_base,clocking_sd_lut_mem'
+    with open(filename) as file:
+        r = file.read()
+        for l in r.split('\n'):
+            if l.startswith(f):
+                return int(l.split(',')[2])
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-D', '--device', metavar='TTY', default=device)
+    parser.add_argument('--csr', metavar='CSR.csv')
+    parser.add_argument('--addr', metavar='LUT_ADDR', default=0xf00000000)
+    parser.add_argument('-l', '--load', metavar='CALIB_FILE')
+    parser.add_argument('-d', '--dump', metavar='CALIB_FILE')
+    
+    args = parser.parse_args()
+    
+    if not args.addr:
+        addr = read_lut_map_csr_csv(args.csr)
+    else:
+        addr = args.addr
+
+    s = serial.Serial(args.device, baudrate=baudrate)
+    if args.dump:
+        lut = read_lut(s, addr)
+        open(args.dump, 'w').write('\n'.join(lut))
+
+    if args.load:
+        write_lut(s, map(float, open(args.load).read().split()), addr)
