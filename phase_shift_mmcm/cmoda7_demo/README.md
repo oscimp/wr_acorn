@@ -50,6 +50,11 @@ csr_register,main_dco_stat,0xf0002008,1,ro
 
 ### Auto-Calibration
 
+0) The gateware must be synthetized with the `--with-auto-calib` option:
+```
+./digilent_cmod_a7.py --build --with-auto-calib
+```
+
 1) Reset the logic :
 ```
 litex> mem_write 0xf0002004 1
