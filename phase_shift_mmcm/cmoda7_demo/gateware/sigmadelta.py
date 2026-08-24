@@ -12,7 +12,7 @@ class SigmaDeltaPSGen(LiteXModule):
     def __init__(self, int_size=8, frac_size=24, wait_time=12):
 
         # Control Interface.
-        self.rate = Signal((frac_size, True))
+        self.rate = Signal((int_size + frac_size, True))
         self.sigmadelta_en = Signal()
         self.step_up = Signal(frac_size + int_size, reset=1<<frac_size)
         self.step_down = Signal(frac_size + int_size, reset=1<<frac_size)

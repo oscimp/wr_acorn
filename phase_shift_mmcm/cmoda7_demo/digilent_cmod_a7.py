@@ -114,6 +114,7 @@ class BaseSoC(SoCCore):
         sys_clk_freq    = 100e6,
         with_spi_flash  = False,
         calib_file      = None,
+        auto_calib      = True,
         **kwargs):
 
         platform = digilent_cmod_a7.Platform(variant=variant, toolchain=toolchain)
@@ -166,7 +167,12 @@ class BaseSoC(SoCCore):
             CSRField("dmtd_tag", size=16, offset=16),
         ])
 
-        self.clocking = WRClocking(platform, calib_file=calib_file, frac_size=frac_size, int_size=int_size)
+        self.clocking = WRClocking(
+                platform,
+                calib_file=calib_file,
+                frac_size=frac_size,
+                int_size=int_size,
+                auto_calib=auto_calib)
         
         self.comb += [
                 self.clocking.clk100_in.eq(clk_in),
@@ -199,6 +205,7 @@ def main():
     parser.add_target_argument("--sys-clk-freq",   default=48e6, type=float, help="System clock frequency.")
     parser.add_target_argument("--with-spi-flash", action="store_true",      help="Enable memory-mapped SPI flash.")
     parser.add_target_argument("--calib-file",                               help="Calibration file for step-size linearization.")
+    parser.add_target_argument("--with-auto-calib", action="store_true",     help="Enable auto-calibration ability.")
 
     args = parser.parse_args()
 
@@ -208,6 +215,7 @@ def main():
         sys_clk_freq   = args.sys_clk_freq,
         with_spi_flash = args.with_spi_flash,
         calib_file     = args.calib_file,
+        auto_calib     = args.with_auto_calib,
         **parser.soc_argdict
     )
 
