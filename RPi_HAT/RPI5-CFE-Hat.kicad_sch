@@ -5660,6 +5660,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "JTAG  Pi5GPIO  Pin Voltage\n2(TDI) GPIO26   37	3.3V\n4(TDO) GPIO24  18	3.3V\n3(TMS) GPIO27  13	3.3V\n5(TCK) GPIO25  22	3.3V\n6(GND) GND	 39  \nhttps://hackaday.io/project/202585-wi-fi-router-autopsy/log/239494-chapter-3-jtag\nhttps://github.com/enjoy-digital/litex-acorn-baseboard/blob/master/hardware/README.md\n\nconfig.txt:\nenable_jtag_gpio=1\ngpio=22-27=a4"
+		(exclude_from_sim no)
+		(at 259.08 48.006 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0f7e4bfc-4d59-4605-b974-7668cc63b4fc")
+	)
 	(text "PCIe FPC"
 		(exclude_from_sim no)
 		(at 142.494 56.134 0)
@@ -5718,12 +5729,6 @@
 		(uuid "10c78155-f8d6-4ae5-ae45-23e3cd1e9adf")
 	)
 	(junction
-		(at 251.46 146.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1a631d8d-1754-4ae2-b50d-8ecdfbf1375b")
-	)
-	(junction
 		(at 241.554 85.598)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5752,6 +5757,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "215f576f-7733-4629-9a83-018038823e6b")
+	)
+	(junction
+		(at 145.034 68.834)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "21a256cf-063a-4504-a764-0fc1f6bff951")
 	)
 	(junction
 		(at 231.394 89.408)
@@ -5802,6 +5813,12 @@
 		(uuid "515f909a-f57e-4606-a812-18b3a8113a4e")
 	)
 	(junction
+		(at 246.126 132.08)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "51e54521-f31d-4e2d-95be-abc33df2542c")
+	)
+	(junction
 		(at 143.002 127.762)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5826,6 +5843,12 @@
 		(uuid "652014cf-fd08-418e-b062-8cea67edaa93")
 	)
 	(junction
+		(at 246.126 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "69df7c1d-d6a7-433b-8abb-c805c4e884f6")
+	)
+	(junction
 		(at 273.304 77.978)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5848,6 +5871,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7e789554-1aef-4e60-b38a-d3d7a2e38da4")
+	)
+	(junction
+		(at 175.006 99.314)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "848d3a5d-c7fa-494b-b224-6e7928ea9117")
 	)
 	(junction
 		(at 291.084 86.868)
@@ -5880,16 +5909,16 @@
 		(uuid "8e3b30a6-a171-4aa5-89d2-f2568d650d1b")
 	)
 	(junction
+		(at 250.952 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "96ca6a49-9015-49a9-8bd9-28ef9d48f4fe")
+	)
+	(junction
 		(at 226.314 62.738)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9ec0fa78-f55f-43f9-afc9-6b5d96fbe2b5")
-	)
-	(junction
-		(at 243.84 140.97)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a2d7e914-feb0-4ee6-9dca-ee259f1bd8f7")
 	)
 	(junction
 		(at 138.684 105.664)
@@ -5916,22 +5945,10 @@
 		(uuid "bd7700c5-920d-4857-91df-1afcaca33be5")
 	)
 	(junction
-		(at 243.84 132.08)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c013a169-500a-438f-aaaa-c4776bc5d8b6")
-	)
-	(junction
 		(at 236.728 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c1fad144-1b58-4be4-9e76-1aefe5559a0f")
-	)
-	(junction
-		(at 247.65 143.51)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c417d02c-21c1-403d-9624-42231a065e8c")
 	)
 	(junction
 		(at 242.824 60.198)
@@ -6010,12 +6027,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f9179bea-79ce-4e96-9513-fea6e4e35daa")
-	)
-	(junction
-		(at 251.46 132.08)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f943ab3b-d0e1-4525-bec0-3fa73fcee309")
 	)
 	(junction
 		(at 231.394 77.978)
@@ -6199,7 +6210,7 @@
 	)
 	(wire
 		(pts
-			(xy 260.35 143.51) (xy 247.65 143.51)
+			(xy 260.35 143.51) (xy 250.952 143.51)
 		)
 		(stroke
 			(width 0)
@@ -6269,7 +6280,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 132.08) (xy 243.84 133.35)
+			(xy 246.126 132.08) (xy 246.126 133.35)
 		)
 		(stroke
 			(width 0)
@@ -6299,13 +6310,23 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 132.08) (xy 229.108 132.08)
+			(xy 229.108 132.08) (xy 246.126 132.08)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "1d4cd35b-c479-4aeb-9294-3d1ddb02436a")
+	)
+	(wire
+		(pts
+			(xy 175.006 68.834) (xy 175.006 88.392)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d63027e-fe8f-4d94-8387-cad69e694013")
 	)
 	(wire
 		(pts
@@ -6356,6 +6377,16 @@
 			(type default)
 		)
 		(uuid "26d700df-2e4b-4379-a354-2428a4e06ab9")
+	)
+	(wire
+		(pts
+			(xy 246.126 132.08) (xy 285.75 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27c0d783-1c46-458c-80c6-f251e8f46cbc")
 	)
 	(wire
 		(pts
@@ -6429,6 +6460,16 @@
 	)
 	(wire
 		(pts
+			(xy 175.006 99.314) (xy 176.276 99.314)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ed5f620-156b-4fb1-8145-91f2a883e37e")
+	)
+	(wire
+		(pts
 			(xy 291.084 86.868) (xy 294.894 86.868)
 		)
 		(stroke
@@ -6449,13 +6490,13 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 132.08) (xy 251.46 132.08)
+			(xy 145.034 68.834) (xy 175.006 68.834)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "31d46886-7be2-4a82-86d2-3da94890189e")
+		(uuid "30cdd8c4-0791-45ea-bc73-bf13fd709abc")
 	)
 	(wire
 		(pts
@@ -6539,7 +6580,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 146.05) (xy 226.06 146.05)
+			(xy 226.06 146.05) (xy 257.81 146.05)
 		)
 		(stroke
 			(width 0)
@@ -6569,7 +6610,7 @@
 	)
 	(wire
 		(pts
-			(xy 136.144 99.314) (xy 149.098 99.314)
+			(xy 136.144 99.314) (xy 175.006 99.314)
 		)
 		(stroke
 			(width 0)
@@ -6606,16 +6647,6 @@
 			(type default)
 		)
 		(uuid "4962e619-ca86-4a2d-b7e3-f70c6a7cf9be")
-	)
-	(wire
-		(pts
-			(xy 243.84 140.97) (xy 260.35 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4a6650ab-f4a2-4dcf-b738-e533c1136021")
 	)
 	(wire
 		(pts
@@ -6689,7 +6720,7 @@
 	)
 	(wire
 		(pts
-			(xy 247.65 138.43) (xy 247.65 143.51)
+			(xy 250.952 138.43) (xy 250.952 143.51)
 		)
 		(stroke
 			(width 0)
@@ -6759,6 +6790,16 @@
 	)
 	(wire
 		(pts
+			(xy 175.006 96.012) (xy 175.006 99.314)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a4811bd-2e62-4a1c-9da2-682949242def")
+	)
+	(wire
+		(pts
 			(xy 270.764 91.948) (xy 280.924 91.948)
 		)
 		(stroke
@@ -6796,6 +6837,16 @@
 			(type default)
 		)
 		(uuid "735e62d5-b3ab-468b-bf0f-6a84ef8fbeac")
+	)
+	(wire
+		(pts
+			(xy 175.006 108.712) (xy 175.006 111.252)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73fee868-9744-410c-89b9-e0bf7986baea")
 	)
 	(wire
 		(pts
@@ -6876,16 +6927,6 @@
 			(type default)
 		)
 		(uuid "7f7a9eee-2115-44b8-aeb3-a2e3fd9fafd7")
-	)
-	(wire
-		(pts
-			(xy 251.46 132.08) (xy 251.46 138.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81a0717c-e884-4190-98cc-b22415a61438")
 	)
 	(wire
 		(pts
@@ -7149,6 +7190,26 @@
 	)
 	(wire
 		(pts
+			(xy 175.006 99.314) (xy 175.006 101.092)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a787ad67-6c05-4a9f-a69f-955c762e9f03")
+	)
+	(wire
+		(pts
+			(xy 246.126 140.97) (xy 260.35 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8b66a2c-a867-44de-89de-4b0b18607f2e")
+	)
+	(wire
+		(pts
 			(xy 226.314 60.198) (xy 217.424 60.198)
 		)
 		(stroke
@@ -7399,7 +7460,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.728 140.97) (xy 243.84 140.97)
+			(xy 236.728 140.97) (xy 246.126 140.97)
 		)
 		(stroke
 			(width 0)
@@ -7409,23 +7470,13 @@
 	)
 	(wire
 		(pts
-			(xy 229.108 143.51) (xy 247.65 143.51)
+			(xy 229.108 143.51) (xy 250.952 143.51)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "d0b652a1-e90a-4f01-bbb8-f066667eebec")
-	)
-	(wire
-		(pts
-			(xy 251.46 146.05) (xy 257.81 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d10abbb7-7043-420b-bd6c-e3a3faf2ed2a")
 	)
 	(wire
 		(pts
@@ -7819,16 +7870,6 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 132.08) (xy 285.75 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f91c6ce1-031b-4057-8952-c5d73abfb8c0")
-	)
-	(wire
-		(pts
 			(xy 136.144 84.074) (xy 145.034 84.074)
 		)
 		(stroke
@@ -7939,30 +7980,6 @@
 		(uuid "06975a54-94c5-42c1-bfd8-72bf7082855f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 414.274 95.504 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "NVME_PWR"
-		(shape input)
-		(at 155.956 222.504 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "08a6fac2-ab54-490c-ae56-8f5ad44dd872")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 168.3477 222.4246 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8331,6 +8348,30 @@
 		(uuid "879e7361-b496-4f0b-8f81-fde41449279b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 415.544 125.984 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "PCIE_PWR_EN"
+		(shape input)
+		(at 155.956 222.504 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "89bea586-93e3-4156-94ec-b27b2318d574")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.0691 222.4246 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8715,7 +8756,7 @@
 	)
 	(global_label "PCIE_DET_WAKE"
 		(shape input)
-		(at 149.098 99.314 0)
+		(at 176.276 99.314 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8725,7 +8766,7 @@
 		)
 		(uuid "f7b7724c-fe8e-4aad-ba18-bc83d67d351f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 166.0859 99.2346 0)
+			(at 193.2639 99.2346 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10315,10 +10356,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3926d995-5609-4b67-bd92-3fa94633dc9c")
 		(property "Reference" "C10"
-			(at 160.782 174.7519 0)
+			(at 159.258 174.752 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10329,7 +10369,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 160.782 177.2919 0)
+			(at 159.512 177.292 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10539,6 +10579,82 @@
 			(project "RPI5-CFE-Hat"
 				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 175.006 111.252 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "42da298f-747a-4193-ab3d-681d714bfe5d")
+		(property "Reference" "#PWR08"
+			(at 175.006 117.602 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 175.133 115.6462 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 175.006 111.252 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.006 111.252 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 175.006 111.252 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0f97c6f5-f038-4020-81a5-1257b1fba466")
+		)
+		(instances
+			(project "RPI5-CFE-Hat"
+				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -11665,7 +11781,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 243.84 137.16 180)
+		(at 246.126 137.16 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11675,7 +11791,7 @@
 		(dnp no)
 		(uuid "6698c9e8-42bb-4739-a51e-8ace3ef86dbb")
 		(property "Reference" "R20"
-			(at 238.76 135.636 0)
+			(at 241.046 135.636 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11685,8 +11801,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10k"
-			(at 238.76 137.668 0)
+		(property "Value" "NC (was 10k)"
+			(at 241.046 137.668 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11697,7 +11813,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
-			(at 245.618 137.16 90)
+			(at 247.904 137.16 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11708,7 +11824,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 137.16 0)
+			(at 246.126 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11719,7 +11835,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 243.84 137.16 0)
+			(at 246.126 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13975,7 +14091,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 247.65 138.43 0)
+		(at 250.952 138.43 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13985,7 +14101,7 @@
 		(dnp no)
 		(uuid "b1975f1c-e2a5-484e-ac44-b069e59a03af")
 		(property "Reference" "TP8"
-			(at 246.126 133.35 0)
+			(at 249.428 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13996,7 +14112,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 250.19 136.3979 0)
+			(at 253.492 136.3979 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14008,7 +14124,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-			(at 252.73 138.43 0)
+			(at 256.032 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14019,7 +14135,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 252.73 138.43 0)
+			(at 256.032 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14030,7 +14146,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 247.65 138.43 0)
+			(at 250.952 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14062,10 +14178,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "b4405f3a-5d42-455b-85a8-e8b70f2620db")
 		(property "Reference" "R19"
-			(at 148.082 148.082 90)
+			(at 147.828 156.718 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14075,7 +14190,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 148.082 150.622 90)
+			(at 148.082 154.432 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14833,87 +14948,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 251.46 142.24 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d301f7ad-997d-4f81-b1d4-72ef29662679")
-		(property "Reference" "R11"
-			(at 253.238 138.176 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10k"
-			(at 253.238 139.954 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
-			(at 253.238 142.24 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 251.46 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 251.46 142.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ee0c3307-6753-4e46-944f-acfe708ea77a")
-		)
-		(pin "2"
-			(uuid "abcddaaf-5927-46c7-9b24-e3507b194377")
-		)
-		(instances
-			(project "RPI5-CFE-Hat"
-				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
-					(reference "R11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 148.082 151.892 90)
 		(unit 1)
 		(body_style 1)
@@ -14922,10 +14956,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d64b4d7d-cc37-4cff-8bc2-6c2a9e95e6c4")
 		(property "Reference" "R18"
-			(at 148.082 145.542 90)
+			(at 148.082 149.606 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14935,7 +14968,7 @@
 			)
 		)
 		(property "Value" "0"
-			(at 148.082 148.082 90)
+			(at 148.082 151.892 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15230,10 +15263,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "e23b27ea-6e4d-4039-b837-fe123cfac2b1")
 		(property "Reference" "C11"
-			(at 183.642 174.7519 0)
+			(at 182.372 174.752 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15244,7 +15276,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 183.642 177.2919 0)
+			(at 182.372 177.292 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15379,6 +15411,88 @@
 			(project "RPI5-CFE-Hat"
 				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
 					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 175.006 92.202 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e7f7b5c7-8b09-4d36-9156-3b3b2f97c12f")
+		(property "Reference" "R24"
+			(at 177.546 90.9319 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "3k6"
+			(at 177.546 93.4719 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+			(at 173.228 92.202 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.006 92.202 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 175.006 92.202 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7bb2ca32-cb2b-4274-b9c3-d9e805d74a94")
+		)
+		(pin "2"
+			(uuid "9a4aa97b-1a78-4bf8-9249-3f85996c6f36")
+		)
+		(instances
+			(project "RPI5-CFE-Hat"
+				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
+					(reference "R24")
 					(unit 1)
 				)
 			)
@@ -16365,6 +16479,88 @@
 			(project "RPI5-CFE-Hat"
 				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
 					(reference "#FLG02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 175.006 104.902 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fc6147d5-00a6-46bc-bf5e-76a2b71c09ad")
+		(property "Reference" "R25"
+			(at 177.546 103.6319 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "6k8"
+			(at 177.546 106.1719 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+			(at 173.228 104.902 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.006 104.902 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 175.006 104.902 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "956e6ef7-8249-4e82-a88f-54b318bc5c41")
+		)
+		(pin "2"
+			(uuid "d7492625-671d-4a97-b9d4-a93f46b8219d")
+		)
+		(instances
+			(project "RPI5-CFE-Hat"
+				(path "/cbb568dd-e6d3-4216-8ea9-0b34c3e5d5a1"
+					(reference "R25")
 					(unit 1)
 				)
 			)
