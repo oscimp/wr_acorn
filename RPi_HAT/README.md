@@ -78,7 +78,7 @@ $ openFPGALoader -c ft4232 --fpga-part xc7a200tsbg484 --freq 20e6 -f ./build/lit
 When booting the RPi5, ``lspci`` must show
 ```
 0001:01:00.0 RF controller: Xilinx Corporation Device 7021
-
+```
 
 Getting IQ samples (compilation and acquisition on the RPi5):
 ```
