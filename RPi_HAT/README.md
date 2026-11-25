@@ -69,20 +69,90 @@ Tune to your local station frequency.
 
 <img src="IMG_20261125_071720_947.jpg">
 
-Fetch ``litex_m2sdr_m2_pcie_x1_2026_05_15.zip`` from https://github.com/enjoy-digital/litex_m2sdr/issues/30
-
-Flash ``litex_m2sdr_m2_pcie_x1.bin`` the M2SDR with 
-
+Synthesis and compilation:
 ```
-openFPGALoader -c ft4232 --fpga-part xc7a200tsbg484 --freq 20e6 -f litex_m2sdr_m2_pcie_x1.bin 
+vivado:~/litex_m2sdr$ LITEX_WR_NIC_DIR=/home/jmfriedt/WR/litex_wr_nic/ ./litex_m2sdr.py --variant rpi5hat --with-pcie --with-white-rabbit --build
+$ openFPGALoader -c ft4232 --fpga-part xc7a200tsbg484 --freq 20e6 -f ./build/litex_m2sdr_rpi5hat_pcie_x1_white_rabbit/gateware/litex_m2sdr_rpi5hat_pcie_x1_white_rabbit.bit
 ```
 
-Copy the ``csr.csv`` from the ZIP archive to the Raspberry Pi 5
-
-On the Pi5:
+When booting the RPi5, ``lspci`` must show
 ```
-bar=`lspci | grep Xil | cut -d\  -f1`
+0001:01:00.0 RF controller: Xilinx Corporation Device 7021
+
+
+Getting IQ samples (compilation and acquisition on the RPi5):
+```
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software $ ./build.py 
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/kernel $ sudo insmod m2sdr.ko 
+[ 3120.364243] m2sdr 0001:01:00.0: \x1b[1m[Probing device]\x1b[0m
+[ 3120.364263] m2sdr 0001:01:00.0: enabling device (0000 -> 0002)
+[ 3120.364362] m2sdr 0001:01:00.0: Version LiteX-M2SDR SoC / m2 variant / built on 2026-05-15 16:58:50
+[ 3120.364466] m2sdr 0001:01:00.0: 1 MSI IRQs allocated.
+[ 3120.364485] m2sdr 0001:01:00.0: DMA0: 256 x 8192 bytes (2048 KiB ring), MSI every 8 buffer(s)
+[ 3120.378413] m2sdr 0001:01:00.0: PTP clock registered as /dev/ptp1
+[ 3120.378433] m2sdr 0001:01:00.0: Creating /dev/m2sdr0
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software $ cd user/
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/user $ sudo chmod 777 /dev/m2sdr0 
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/user $ ./m2sdr_rf --rx_freq 102.4e6 --rx_gain 70 --samplerate 5e6
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/user $ ./m2sdr_record /tmp/out.bin 750000000
 ```
 
-TO BE CONTINIUED
+## Connecting to the White Rabbit terminal:
 
+On ``screen``1:
+```
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/kernel $ bar=`lspci | grep Xil | cut -d\  -f1`
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/kernel $ litex_server --pcie --pcie-bar $bar
+[CommPCIe] bar: 0001:01:00.0
+tcp port: 1234
+```
+
+On ``screen``2:
+```
+vivado:~/litex_m2sdr$ scp ./scripts/csr.csv 192.168.1.44:/tmp
+raspberrypi:~/litex_m2sdr/litex_m2sdr/software/kernel $ litex_term crossover --csr-csv /tmp/csr.csv
+[main] calibrating usleep(): loops per jiffy = 6942
+[dev] spi_flash: device ID = 0x00000000, size=1 bytes
+[storage] mounting 'spi-flash' [1 bytes]
+[storage] try entry point 0x00000000
+[storage] SDBFS not found.
+[dev] wdiags: base addr = 0x100800.
+WR Core: starting up...
+[dev] Registered network interface 0 @ 00100100
+[phy] Running long PHY reset...
+[phy] PHY reset complete
+[storage] storage_get_persistent_mac: SDB error
+[storage] storage_get_persistent_mac: failure
+[board] Failed to get MAC address from the flash. Using fallback address.
+[storage] storage_load_calibration: can't open cal file
+PPSi for WRPC. Commit wrpc-v5.0-ohwr-25-g33d8c46c, built on Nov 25 2026
+[phy] Error -1 while reading t24p from storage
+executing: vlan off
+Unrecognized command "vlan".
+executing: ptp stop
+executing: sfp match
+Wrong SFP checksum 
+SFP read error
+Command "sfp": error -5
+executing: mode slave
+executing: ptp start
+Empty init script...
+wrc# Wrong SFP checksum 
+# gui
+SAWR WRPC Monitor v8.0-249-g13527cd6-dirty | Esc/q = exit; r = redraw
+
+TAI Time: 1970-01-01-00:05:05  UTC offset: 0    PLL mode: BC  state: Locking
+---+-------------------+-------------------------+---------+---------+-----
+ # |        MAC        |       IP (source)       |    RX   |    TX   | VLAN
+---+-------------------+-------------------------+---------+---------+-----
+ 0 | 22:33:44:55:66:77 |                         |       0 |     150 |    0
+
+--- HAL ---|------------- PPSI ------------------------------------------------
+ Itf | Frq |  Config   | MAC of peer port  |    PTP/EXT/PDETECT States   | Pro 
+-----+-----+-----------+-------------------+-----------------------------+-----
+ wr0 |     | auto      | 00:00:00:00:00:00 | LISTENING/IDLE      /WA_MSG | R-W 
+Pro(tocol): R-RawEth, V-VLAN, U-UDP
+
+--------------------------- Synchronization status ----------------------------
+Link down, master mode or sync info not valid
+```
