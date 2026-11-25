@@ -1,7 +1,7 @@
-# Running LiteX-M2SDR on the Raspberry Pi 5
+# Running LiteX-M2SDR on the Raspberry Pi 5: commercial HAT
 
-The M2SDR is connected to the Raspberry Pi 5 through the M2 HAT found at
-https://www.kubii.com/fr/raspberry-pi-5/4114-m2-hat-plus-5056561803463.html
+The M2SDR is connected to the Raspberry Pi 5 through the M2 HAT (Hardware Attached 
+on Top) found at https://www.kubii.com/fr/raspberry-pi-5/4114-m2-hat-plus-5056561803463.html
 
 <img src="raspberry-pi-5.jpg">
 
@@ -63,7 +63,7 @@ Tune to your local station frequency.
 
 <img src="raspberry-pi-5_FM.png">
 
-# Dedicated RPi5 HAT
+# Dedicated RPi5 HAT for White Rabbit
 
 <img src="rpi5_m2sdr.png">
 
