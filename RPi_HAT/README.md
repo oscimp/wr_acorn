@@ -156,3 +156,26 @@ Pro(tocol): R-RawEth, V-VLAN, U-UDP
 --------------------------- Synchronization status ----------------------------
 Link down, master mode or sync info not valid
 ```
+
+## Using the SFP as Network Interface Controller (NIC)
+
+```
+raspberrypi:~ $ git clone https://github.com/enjoy-digital/litex_wr_nic
+raspberrypi:~ $ cd litex_wr_nic/litex_wr_nic/software/kernel/
+raspberrypi:~/litex_wr_nic/litex_wr_nic/software/kernel $ make
+raspberrypi:~/litex_wr_nic/litex_wr_nic/software/kernel $ sudo insmod litepcie.ko
+[ 1383.258722] litepcie 0001:01:00.0: \x1b[1m[Probing device]\x1b[0m
+[ 1383.258738] litepcie 0001:01:00.0: enabling device (0000 -> 0002)
+[ 1383.273832] litepcie 0001:01:00.0: Version \x01[
+[ 1383.273839] litepcie 0001:01:00.0: PCIe PTM not supported by PCIe bus/controller
+[ 1383.273940] litepcie 0001:01:00.0: 1 MSI IRQs allocated.
+[ 1383.274223] litepcie 0001:01:00.0 liteeth0: Ethernet MAC0: irq 187, slots: tx 4 rx 4, size 2048
+raspberrypi:~/litex_wr_nic/litex_wr_nic/software/kernel $ sudo ifconfig liteeth0
+liteeth0: flags=4098<BROADCAST,MULTICAST>  mtu 1500
+        ether 10:e2:d5:00:00:00  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 187  
+```
